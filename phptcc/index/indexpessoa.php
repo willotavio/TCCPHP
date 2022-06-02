@@ -28,7 +28,7 @@
         
         <div class="divFormulario">
             <input class='pessoa'type='text' name='nome' required>
-            <label for="pessoa" class='inputLabel'>Pessoa</label>
+            <label for="pessoa" class='inputLabel'>Nome</label>
         </div>
         
         <div class="divFormulario">
@@ -46,30 +46,40 @@
             <label for="whatsapp" class='inputLabel'>Whatsapp</label>
         </div>
 
-        <!--<div class="divFormulario"></div>
-        <div class="divFormulario"></div>
-        <div class="divFormulario"></div>
-        <div class="divFormulario"></div>
-        <div class="divFormulario"></div>
-        <div class="divFormulario"></div>
-        <div class="divFormulario"></div>
-        <div class="divFormulario"></div>
-        <div class="divFormulario"></div>
+        <div class="divFormulario">
+        <input class='pessoa'type='number' name='telefone' required>
+            <label for="telefone" class='inputLabel'>Telefone</label>
+        </div>
 
+        <div class="divFormulario">
+            <input class='pessoa'type='number' name='Email' required>
+            <label for="email" class='inputLabel'>Email</label>
+        </div>
 
+        <div class="divFormulario">
+            <input class='pessoa'type='number' name='cepPessoa' required>
+            <label for="cepPessoa" class='inputLabel'>CEP</label>
+        </div>
 
+        <div class="divFormulario">
+            <input class='pessoa'type='number' name='numeroRes' required>
+            <label for="numeroRes" class='inputLabel'>Número da Residência</label>
+        </div>
 
-       
-        <p><input class='pessoa'type='text' name='whatsapp' placeholder="Whatsapp"></p>
-        <p><input class='pessoa'type='text' name='telefone' placeholder="Telefone"></p>
-        <p><input class='pessoa'type='email' name='email' placeholder="Email"></p>
-        <p><input class='pessoa'type='text' name='cepPessoa' placeholder="CEP"></p>
-        <p><input class='pessoa'type='number' name='numeroCasa' placeholder="Número da Residência"></p>
-        <p><input class='pessoa' type='text' name='complemento' placeholder="Complemento"></p>
-        <p><input class='pessoa'type='date' name='dataAtendimento' placeholder="Data de Atendimento"></p>
+        <div class="divFormulario">
+            <input class='pessoa'type='text' name='complemento' required>
+            <label for="celular" class='inputLabel'>Complemento</label>
+        </div>
+
+        <div class="divFormulario">
+        <label for="dataAtendimento" class='inputLabel'><b>Data de Atendimento</b></label>
+            <br><input class='pessoa' type='date' name='dataAtendimento' required>
+        </div>
+        
         <p><input type='submit' name='botao' value='Cadastrar'></p>
         <p><input type='submit' name='botao' value='Atualizar'></p>
-        <p><input type='submit' name='botao' value='Deletar'></p>-->
+        <p><input type='submit' name='botao' value='Deletar'></p>
+        
     </form>
 
     <form action='controlepessoa.php' method='GET'>

@@ -3,7 +3,7 @@
     margin: 0;
 }
 body{
-    background: url('https://armstrongcleaning.net/wp-content/uploads/2017/10/form-background.png')no-repeat,fixed;;
+    background: url('https://armstrongcleaning.net/wp-content/uploads/2017/10/form-background.png')fixed;;
     color: white;
     text-align: center;
     font-size: 26px;
@@ -18,7 +18,7 @@ body{
 }*/
 h1{
     text-align: center;
-    padding-bottom: 20px;
+    padding: 30px;
 }
 h2{
     font-size: 18px;
@@ -79,7 +79,8 @@ input[type='date']::-webkit-calendar-picker-indicator{
     letter-spacing: 2px;
 }
 div{
-    padding: 25px;
+    padding: 20px;
+    height: 100%;
 }
 .caixa{
     /*    margin: auto;
@@ -92,7 +93,8 @@ div{
     left: 50%;
     transform: translate(-50%,-50%);
     background-color: rgba(0, 0, 0, 0.336);
-    padding: 15px;
+    padding: 20px;
     width: 50%;
     border-radius: 15px;
+    min-height: 100px;
 }
