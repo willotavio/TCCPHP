@@ -1,0 +1,98 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background: url('https://armstrongcleaning.net/wp-content/uploads/2017/10/form-background.png')no-repeat,fixed;;
+    color: white;
+    text-align: center;
+    font-size: 26px;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*input{
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+    color: white;
+}*/
+h1{
+    text-align: center;
+    padding-bottom: 20px;
+}
+h2{
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+input[type=submit]{
+    color: white;
+    background-color:rgb(28, 97, 88);
+    border-radius: 10px;
+    border: transparent;
+}
+input[type=submit]:hover{
+    background-color: rgb(36, 116, 105);
+    border: transparent;
+}
+input{
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+    /*border-radius: 10px;*/
+    border: none;
+    width: 200px;
+}
+input::placeholder{
+    color: white;
+}
+input:focus{
+    outline: none;
+}
+.inputLabel{
+    position: absolute;
+    top: 30px;
+    left: 36px;
+    pointer-events: none;
+    transition: .5s;
+}
+.pessoa:focus~.inputLabel,
+.pessoa:valid~.inputLabel{
+    top: 5px;
+    font-size: 20px;
+    color: white;
+}
+input[type='date']::-webkit-calendar-picker-indicator{
+    filter: invert(1);
+}
+.divFormulario{
+    position: relative;
+}
+.pessoa{
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    width: 100%;
+    letter-spacing: 2px;
+}
+div{
+    padding: 25px;
+}
+.caixa{
+    /*    margin: auto;
+    text-align: center;
+    width: 60%;
+    border-radius: 10px;*/
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.336);
+    padding: 15px;
+    width: 50%;
+    border-radius: 15px;
+}
