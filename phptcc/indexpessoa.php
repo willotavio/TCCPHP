@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funcionário</title>
+    <title>Pessoas</title>
   
     <style>
         <?php include 'style.css'; ?>
@@ -19,7 +19,7 @@
 
     <h1>CADASTRO DE PESSOAS</h1>
 
-    <form action='controlefuncionario.php' method='GET'>
+    <form action='controlepessoa.php' method='GET'>
         
         <div class="divFormulario">
             <input class='pessoa' type='number' name='codigo' required> 

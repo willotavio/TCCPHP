@@ -31,7 +31,7 @@
         }
         
         public function atualizarPessoa(Pessoa $p){
-            $sql='update funcionario set nome_pessoa=?, data_nascimento=?, celular=?, whatsapp=?, telefone=?, email=?, cep_pessoa=?, numero_casa=?, complemento=?, data_atendimento=? where codigo_pessoa=?';
+            $sql='update pessoa set nome_pessoa=?, data_nascimento=?, celular=?, whatsapp=?, telefone=?, email=?, cep_pessoa=?, numero_casa=?, complemento=?, data_atendimento=? where codigo_pessoa=?';
 
             $banco = new conexao();
             $con = $banco->getConexao();

@@ -33,8 +33,8 @@
     if($botao=='Cadastrar'){
         $pesDao->cadastrarPessoa($pes);
     }else if($botao=='Consultar'){
-        $funcDao->consultarPessoa();
-        foreach($funcDao->consultarPessoa() as $res){
+        $pesDao->consultarPessoa();
+        foreach($pesDao->consultarPessoa() as $res){
             ?>
             <form action='controlepessoa.php' method='GET'>
             <p><?php echo $res['codigo_pessoa'] ?></p>
