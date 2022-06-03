@@ -1,0 +1,21 @@
+create database ong;
+use ong;
+
+create table cep(
+	codigo_cep int(8) primary key
+);
+
+create table pessoa(
+	codigo_pessoa int not null primary key auto_increment,
+    nome_pessoa varchar(90) not null,
+    data_nascimento date not null,
+    celular int(11),
+    whatsapp int(11),
+    telefone int(10),
+    email varchar(90),
+    cep_pessoa int not null,
+    numero_casa int not null,
+    complemento varchar(45),
+    foreign key(cep_pessoa) references cep(codigo_cep)
+    data_atendimento date,
+);

@@ -76,7 +76,7 @@
             }
         }
 
-        public function consultaPessoa(){
+        public function consultarPessoa(){
             $sql = 'select * from pessoa';
 
             $banco = new conexao();
