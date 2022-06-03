@@ -17,21 +17,28 @@
     
     <div class=caixa>
 
-    <h1>HOME</h1>
+    <h1>ONG ALEM BRASIL</h1>
 
     <h2>Bem-Vindo!<br>O que deseja acessar?</h2>
 
-<form action='indexpessoa.php'>
+    <table><form action='indexpessoa.php'>
+        
+    <td>
         <p><input type='submit' value="Cadastro de pessoas"></p>
-    </form>
+    </td>
+        
+    <td>
+        <p><input type='submit' value="Avisos"></p>
+    </td>
 
-    <form action='indexestoque.php'>
-        <p><input type='submit' value="Estoque"></p>
+    <td>
+        <p><input type='submit' value="Conta"></p>
+    </td>
+    
     </form>
+    </table>
 
-    <form action='indexvendas.php'>
-        <p><input type='submit' value="Vendas"></p>
-    </form>
+
 
 
 </div>

@@ -3,7 +3,7 @@
     margin: 0;
 }
 body{
-    background: url('https://armstrongcleaning.net/wp-content/uploads/2017/10/form-background.png')fixed;;
+    background: url('imgs/background.jpg')fixed;;
     color: white;
     text-align: center;
     font-size: 26px;
@@ -18,12 +18,15 @@ body{
 }*/
 h1{
     text-align: center;
-    padding: 30px;
+    padding-top: 100px;
 }
 h2{
     font-size: 18px;
-    padding-top: 10px;
+    padding-top: 30px;
     padding-bottom: 30px;
+}
+td{
+    padding-top: 30px;
 }
 input[type=submit]{
     color: white;
