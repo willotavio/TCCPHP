@@ -42,17 +42,17 @@
         </div>
 
         <div class="divFormulario">
-            <input class='pessoa'type='text' name='whatsapp' required>
+            <input class='pessoa'type='number' name='whatsapp' required>
             <label for="whatsapp" class='inputLabel'>Whatsapp</label>
         </div>
 
         <div class="divFormulario">
-        <input class='pessoa'type='number' name='telefone' required>
+            <input class='pessoa'type='number' name='telefone' required>
             <label for="telefone" class='inputLabel'>Telefone</label>
         </div>
 
         <div class="divFormulario">
-            <input class='pessoa'type='number' name='Email' required>
+            <input class='pessoa'type='text' name='email' required>
             <label for="email" class='inputLabel'>Email</label>
         </div>
 
@@ -62,8 +62,8 @@
         </div>
 
         <div class="divFormulario">
-            <input class='pessoa'type='number' name='numeroRes' required>
-            <label for="numeroRes" class='inputLabel'>Número da Residência</label>
+            <input class='pessoa'type='number' name='numRes' required>
+            <label for="numRes" class='inputLabel'>Número da Residência</label>
         </div>
 
         <div class="divFormulario">
