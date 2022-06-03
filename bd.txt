@@ -16,6 +16,6 @@ create table pessoa(
     cep_pessoa int not null,
     numero_casa int not null,
     complemento varchar(45),
-    foreign key(cep_pessoa) references cep(codigo_cep)
-    data_atendimento date,
+    foreign key(cep_pessoa) references cep(codigo_cep),
+    data_atendimento date
 );

@@ -59,7 +59,7 @@ input:focus{
 .pessoa:focus~.inputLabel,
 .pessoa:valid~.inputLabel{
     top: 5px;
-    font-size: 20px;
+    font-size: 14px;
     color: white;
 }
 input[type='date']::-webkit-calendar-picker-indicator{
@@ -83,6 +83,7 @@ div{
     height: 100%;
 }
 .caixa{
+    font-size: 16px;
     /*    margin: auto;
     text-align: center;
     width: 60%;
@@ -92,9 +93,6 @@ div{
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background-color: rgba(0, 0, 0, 0.336);
     padding: 20px;
-    width: 50%;
     border-radius: 15px;
-    min-height: 100px;
 }
