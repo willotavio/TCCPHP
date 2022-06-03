@@ -17,8 +17,7 @@ body{
     color: white;
 }*/
 h1{
-    text-align: center;
-    padding-top: 100px;
+    padding-top: 50px;
 }
 h2{
     font-size: 18px;
@@ -26,13 +25,14 @@ h2{
     padding-bottom: 30px;
 }
 td{
-    padding-top: 30px;
+    padding-top: 20px;
 }
 input[type=submit]{
     color: white;
     background-color:rgb(28, 97, 88);
     border-radius: 10px;
     border: transparent;
+    width: 200px;
 }
 input[type=submit]:hover{
     background-color: rgb(36, 116, 105);
@@ -44,7 +44,6 @@ input{
     font-size: 16px;
     /*border-radius: 10px;*/
     border: none;
-    width: 200px;
 }
 input::placeholder{
     color: white;
@@ -78,7 +77,7 @@ input[type='date']::-webkit-calendar-picker-indicator{
     outline: none;
     color: white;
     font-size: 15px;
-    width: 100%;
+    width: 330px;
     letter-spacing: 2px;
 }
 div{
@@ -98,4 +97,16 @@ div{
     transform: translate(-50%,-50%);
     padding: 20px;
     border-radius: 15px;
+}
+.aviso{
+    background-color: black;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+.tableAvisos{
+    margin: auto;
+}
+#logo{
+    padding-top: 100px;
 }

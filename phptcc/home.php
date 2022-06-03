@@ -17,23 +17,28 @@
     
     <div class=caixa>
 
-    <h1>ONG ALEM BRASIL</h1>
+    <img id='logo' src="imgs/Logo.png" alt="logo">
 
     <h2>Bem-Vindo!<br>O que deseja acessar?</h2>
 
-    <table><form action='indexpessoa.php'>
-        
+    <table>
+        <form action='indexpessoa.php'>
     <td>
         <p><input type='submit' value="Cadastro de pessoas"></p>
     </td>
-        
+        </form>
+
+        <form action='indexavisos.php'>
     <td>
         <p><input type='submit' value="Avisos"></p>
     </td>
+        </form>
 
+        <form action='indexconta.php'>
     <td>
         <p><input type='submit' value="Conta"></p>
     </td>
+        </form>
     
     </form>
     </table>
