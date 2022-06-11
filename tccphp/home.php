@@ -26,12 +26,11 @@
 
 <body>
 
-    
     <div class=caixa id="caixaHome">
 
     <img id='logo' src="imgs/Logo.png" alt="logo">
 
-    <h2>Bem-Vindo!<br>O que deseja acessar?</h2>
+    <h2 id='subTitleHome'>Bem-Vindo!<br>O que deseja acessar?</h2>
 
     <table>
         <form action='indexpessoa.php'>

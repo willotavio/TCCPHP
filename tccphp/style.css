@@ -21,8 +21,6 @@ h1{
 }
 h2{
     font-size: 18px;
-    padding-top: 30px;
-    padding-bottom: 30px;
 }
 td{
     padding-top: 20px;
@@ -59,16 +57,60 @@ header nav{
     width: 100%;
     background-color: rgb(36, 133, 65);
 }
-li{
-    list-style: none;
-}
 #logoNav{
     float: left;
     width: 5%;
     transform: translate(-1%,5%);
     padding-left: 10px;
 }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(36, 133, 65);
+  }
+li {
+    float: left;
+    padding-top: 12px;
+    padding-left: 15px;
+    font-size: 16px;
+  }
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+  }
+li a:hover {
+    background-color: rgb(30, 116, 56);
+  }
+#logoutUl{
+      padding-top: 25px;
+      padding-right: 15px;
+  }
+#logout{
+      float: right;
+      width: 25px;
+  }
 /*nav bar*/
+
+/*login*/
+#caixaLogin{
+    transform: translate(-50%,-50%);
+}
+/*login*/
+
+/*home*/
+#logo{
+    padding-top: 30px;
+    transform: translateY(-60%);
+}
+#subTitleHome{
+    transform: translateY(-100%);
+}
+/*home*/
 
 /*cadastro*/
 #caixaCad{
@@ -92,12 +134,6 @@ li{
 /*avisos*/
 
 
-#logo{
-    padding-top: 50px;
-}
-.divFormulario{
-    position: relative;
-}
 table{
     margin: auto;
 }
@@ -114,6 +150,9 @@ table{
 /*conta*/
 
 /*inputs*/
+.divFormulario{
+    position: relative;
+}
 input[type=submit]{
     color: white;
     background-color:rgb(36, 133, 65);
