@@ -15,7 +15,7 @@
 
     <div>
     
-    <div class=caixa>
+    <div class=caixa id="caixaHome">
 
     <img id='logo' src="imgs/Logo.png" alt="logo">
 

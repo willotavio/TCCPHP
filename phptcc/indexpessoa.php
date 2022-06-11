@@ -15,7 +15,7 @@
 
 <div class="caixa">
 
-    <h1>CADASTRO DE PESSOAS</h1>
+    <h1>CADASTRO DE FAMÍLIAS</h1>
 
     <form action='controlepessoa.php' method='GET'>
         

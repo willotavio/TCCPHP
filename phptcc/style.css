@@ -18,6 +18,7 @@ body{
 }*/
 h1{
     padding-top: 50px;
+    color: rgb(36, 133, 65);
 }
 h2{
     font-size: 18px;
@@ -36,18 +37,17 @@ div{
     border-left: outset 15px rgb(28, 97, 88);
     font-size: 16px;
     background-color: white;
-    /*margin: auto;
-    text-align: center;
-    width: 60%;
-    border-radius: 10px;*/
     color: gray;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-45%);
+    transform: translate(-50%,-44%);
     padding: 20px;
     border-radius: 15px;
     border-top-right-radius: 50px;
+}
+#caixaHome{
+    transform: translate(-50%,-50%);
 }
 .aviso{
     background-color: gray;
@@ -59,7 +59,7 @@ div{
     margin: auto;
 }
 #logo{
-    padding-top: 100px;
+    padding-top: 50px;
 }
 .divFormulario{
     position: relative;
@@ -73,13 +73,13 @@ table{
 
 input[type=submit]{
     color: white;
-    background-color:rgb(28, 97, 88);
+    background-color:rgb(36, 133, 65);
     border-radius: 10px;
     border: transparent;
     width: 200px;
 }
 input[type=submit]:hover{
-    background-color: rgb(36, 116, 105);
+    background-color: rgb(30, 116, 56);
     border: transparent;
 }
 input{
