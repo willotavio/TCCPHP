@@ -19,3 +19,12 @@ create table pessoa(
     foreign key(cep_pessoa) references cep(codigo_cep),
     data_atendimento date
 );
+
+
+//update pessoa set data_atendimento= curtime();
+
+//create table usuario(
+//     cod_usuario int primary key auto_increment,
+//     nome_usuario varchar(90) not null,
+//     senha varchar(90) not null,
+//);

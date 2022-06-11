@@ -13,9 +13,8 @@
 </head>
 <body>
 
-    <div>
 
-<div>
+<div class="caixa">
 
     <h1>AVISOS</h1>
 
@@ -59,8 +58,6 @@
     </form>
 
 </div>
-
-    </div>
 
 </body>
 </html>

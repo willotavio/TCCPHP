@@ -33,7 +33,7 @@
         
         <div class="divFormulario">
             <label for="dataNasc" class='inputLabel'>Data de Nascimento</label>
-        <input class='pessoa' type='date' name='dataNasc' required>
+        <input class='pessoa' type='date' name='dataNasc'>
         </div>
 
         <div class="divFormulario">
@@ -73,6 +73,12 @@
             <label for="celular" class='inputLabel'>Complemento</label>
         </div>
         </td>
+    </table>
+    <table>
+    <div class="divFormulario">
+            <label for="dataAtendimento" class='inputLabel'>Data de Atendimento</label>
+        <input class='pessoa' type='date' name='dataAtendimento'>
+        </div>
     </table>
     <table align="center">
         <td>
