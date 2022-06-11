@@ -7,7 +7,6 @@ body{
     color: white;
     text-align: center;
     font-size: 26px;
-    padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
 }
 /*input{
@@ -34,7 +33,7 @@ div{
     height: auto;
 }
 .caixa{
-    border-left: outset 15px rgb(28, 97, 88);
+    border-left: outset 15px rgb(36, 133, 65);
     font-size: 16px;
     background-color: white;
     color: gray;
@@ -49,6 +48,35 @@ div{
 #caixaHome{
     transform: translate(-50%,-50%);
 }
+
+/*nav bar*/
+header nav{
+    position: fixed;
+    z-index: 1000;
+    margin: 0;
+    padding: 0;
+    height: 75px;
+    width: 100%;
+    background-color: rgb(36, 133, 65);
+}
+li{
+    list-style: none;
+}
+#logoNav{
+    float: left;
+    width: 5%;
+    transform: translate(-1%,5%);
+    padding-left: 10px;
+}
+/*nav bar*/
+
+/*cadastro*/
+#caixaCad{
+    transform: translate(-50%,-30%);
+}
+/*cadastro*/
+
+/*avisos*/
 .aviso{
     background-color: gray;
     width: 200px;
@@ -58,6 +86,12 @@ div{
 .tableAvisos{
     margin: auto;
 }
+#caixaAvisos{
+    transform: translate(-50%,-40%);
+}
+/*avisos*/
+
+
 #logo{
     padding-top: 50px;
 }
@@ -74,9 +108,12 @@ table{
     width: 30%;
     border-radius: 50%;
 }
+#caixaConta{
+    transform: translate(-50%,-50%);
+}
+/*conta*/
 
 /*inputs*/
-
 input[type=submit]{
     color: white;
     background-color:rgb(36, 133, 65);
@@ -130,3 +167,4 @@ input[type='date']{
     width: 330px;
     letter-spacing: 2px;
 }
+/*inputs*/
