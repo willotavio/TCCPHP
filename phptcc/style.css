@@ -3,7 +3,7 @@
     margin: 0;
 }
 body{
-    background: url('imgs/background.jpg')fixed;;
+    background: url('imgs/background2.jpg')fixed;;
     color: white;
     text-align: center;
     font-size: 26px;
@@ -27,6 +27,50 @@ h2{
 td{
     padding-top: 20px;
 }
+
+div{
+    padding: 20px;
+    height: auto;
+}
+.caixa{
+    border-left: outset 15px rgb(28, 97, 88);
+    font-size: 16px;
+    background-color: white;
+    /*margin: auto;
+    text-align: center;
+    width: 60%;
+    border-radius: 10px;*/
+    color: gray;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-45%);
+    padding: 20px;
+    border-radius: 15px;
+    border-top-right-radius: 50px;
+}
+.aviso{
+    background-color: gray;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+.tableAvisos{
+    margin: auto;
+}
+#logo{
+    padding-top: 100px;
+}
+.divFormulario{
+    position: relative;
+}
+table{
+    margin: auto;
+}
+
+
+/*inputs*/
+
 input[type=submit]{
     color: white;
     background-color:rgb(28, 97, 88);
@@ -46,7 +90,7 @@ input{
     border: none;
 }
 input::placeholder{
-    color: white;
+    color: gray;
 }
 input:focus{
     outline: none;
@@ -62,51 +106,21 @@ input:focus{
 .pessoa:valid~.inputLabel{
     top: 5px;
     font-size: 14px;
-    color: white;
+    color: gray;
 }
 input[type='date']::-webkit-calendar-picker-indicator{
-    filter: invert(1);
+    filter: invert(0);
 }
-.divFormulario{
-    position: relative;
+input[type='date']{
+    font-size: 10px;
 }
 .pessoa{
     background: none;
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid gray;
     outline: none;
-    color: white;
+    color: gray;
     font-size: 15px;
     width: 330px;
     letter-spacing: 2px;
-}
-div{
-    padding: 20px;
-    height: 100%;
-}
-.caixa{
-    font-size: 16px;
-    /*    margin: auto;
-    text-align: center;
-    width: 60%;
-    border-radius: 10px;*/
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    padding: 20px;
-    border-radius: 15px;
-}
-.aviso{
-    background-color: black;
-    width: 200px;
-    height: 200px;
-    margin: auto;
-}
-.tableAvisos{
-    margin: auto;
-}
-#logo{
-    padding-top: 100px;
 }
