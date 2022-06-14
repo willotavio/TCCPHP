@@ -19,6 +19,10 @@ create table pessoa(
     foreign key(cep_pessoa) references cep(codigo_cep),
     data_atendimento date
 );
+insert into pessoa values ("3","lko","23/07/1980","123456","12346","12346","qwe",
+"123","34","rty","asd");
+
+
 
 
 //update pessoa set data_atendimento= curtime();

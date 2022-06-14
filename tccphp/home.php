@@ -35,7 +35,7 @@
     <table>
         <form action='indexpessoa.php'>
     <td>
-        <p><input type='submit' value="Cadastro de pessoas"></p>
+        <p><input type='submit' value="Cadastro"></p>
     </td>
         </form>
 
