@@ -17,6 +17,8 @@
                 $resultado = $valores->fetchAll
                 (\PDO::FETCH_ASSOC);
                 return $resultado;
+            }else{
+                header('location:indexlogin.php');
             }
         }
 
