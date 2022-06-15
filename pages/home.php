@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contas</title>
+    <title>Home</title>
 
-    <!--NAV BAR-->
     <script
     src="https://code.jquery.com/jquery-3.3.1.js"
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -17,7 +16,6 @@
     $("#header").load("header.php");
     });
     </script> 
-    <!--NAV BAR-->
 
     <style>
         <?php include 'style.css'; ?>
@@ -25,22 +23,42 @@
 </head>
 
 <header id="header"></header>
+
 <body>
 
-<div class="caixa" id="caixaConta">
-<h1>CONTA</h1>
-        <img id="perfil" src="imgs/conta/fotoPerfil.png">
-        
-        <div>
-            <p>Nome:</p>
-            <br><p>Email:</p>
-            <br><form action='indexlogin.php'>
+    <div class=caixa id="caixaHome">
+
+    <img id='logo' src="../imgs/Logo.png" alt="logo">
+
+    <h2 id='subTitleHome'>Bem-Vindo!<br>O que deseja acessar?</h2>
+
+    <table>
+        <form action='indexpessoa.php'>
     <td>
-        <p><input type='submit' value="Sair"></p>
+        <p><input type='submit' value="Cadastro"></p>
     </td>
         </form>
-        </div>
-</div>
+
+        <form action='indexavisos.php'>
+    <td>
+        <p><input type='submit' value="Avisos"></p>
+    </td>
+        </form>
+
+        <form action='indexconta.php'>
+    <td>
+        <p><input type='submit' value="Conta"></p>
+    </td>
+        </form>
     
+    </form>
+    </table>
+
+
+
+
+</div>
+
+
 </body>
 </html>

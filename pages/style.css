@@ -3,7 +3,7 @@
     margin: 0;
 }
 body{
-    background: url('imgs/background2.jpg')fixed;;
+    background: url('../imgs/background2.jpg')fixed;;
     color: white;
     text-align: center;
     font-size: 26px;

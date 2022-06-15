@@ -1,5 +1,5 @@
     <?php
-    include_once ("testeconexao.php");
+    include_once ("../connection/testeconexao.php");
     $sql= "SELECT * FROM pessoa";
     $resultados_pessoa= mysqli_query($conexaoTeste, $sql);
     ?>
@@ -51,7 +51,7 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action='controlePessoa.php' method='GET'>
+                                    <form action='../crud/controlepessoa.php' method='GET'>
                                         <p>
                                             <input class="inputModalCadastro" type="number" min="0" name="codigo"
                                                 placeholder="Código" />
@@ -130,7 +130,7 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action='controlepessoa.php' method='GET'>
+                                    <form action='../crud/controlepessoa.php' method='GET'>
                                         <p>
                                             <input class="inputModalCadastro" type="number" min="0" name="codigo"
                                                 placeholder="Código" />
@@ -169,7 +169,7 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action='controlepessoa.php' method='GET'>
+                                    <form action='../crud/controlepessoa.php' method='GET'>
                                     <p>
                                             <input class="inputModalCadastro" type="number" min="0" name="codigo"
                                                 placeholder="Código" />
@@ -230,7 +230,7 @@
             </div>
 
             <div class="row">
-                <div class="m-5 ">
+                <div class="m-2 ">
 
                     <table class="table text-white">
                         <thead>

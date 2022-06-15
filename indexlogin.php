@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <style>
-        <?php include 'style.css'; ?>
+        <?php include 'pages/style.css'; ?>
     </style>
 </head>
-<body>
+<body style="background: url('imgs/background2.jpg')fixed;;">
     
     <div class="caixa" id="caixaLogin">
 
         <h1>LOGIN</h1>
 
-        <form method="POST" action="logar.php" autocomplete="off">
+        <form method="POST" action="login/logar.php" autocomplete="off">
             <table>
             <td>
             <div class="divFormulario">
@@ -36,4 +36,3 @@
 
 </body>
 </html>
-

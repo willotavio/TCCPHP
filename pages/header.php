@@ -2,7 +2,7 @@
     <nav>
         <ul>
             <a href="home.php">
-            <img id='logoNav' src='imgs/logo2.png'>
+            <img id='logoNav' src='../imgs/logo2.png'>
             </a>
             
             <li>
@@ -25,8 +25,8 @@
 
             <ul id="logoutUl">
                 
-                <a id='logoutA' href="indexlogin.php">
-                    <img id='logout' src="imgs/conta/logout.png">
+                <a id='logoutA' href="../indexlogin.php">
+                    <img id='logout' src="../imgs/conta/logout.png">
                 </a>
             </ul>
             

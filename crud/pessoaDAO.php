@@ -1,5 +1,5 @@
 <?php
-    include 'conexao.php';
+    include '../connection/conexao.php';
 
     class pessoaDao{
         
@@ -18,7 +18,7 @@
                 (\PDO::FETCH_ASSOC);
                 return $resultado;
             }else{
-                header('location:indexlogin.php');
+                header('location:../indexlogin.php');
             }
         }
 
@@ -45,7 +45,7 @@
             if($final){
                 echo "<script LANGUAGE= 'JavaScript'>
                 window.alert('Cadastrado com sucesso');
-                window.location.href='indexpessoa.php';
+                window.location.href='../pages/indexpessoa.php';
                 </script>";
             }
         }
@@ -73,7 +73,7 @@
             if($final){
                 echo "<script LANGUAGE= 'JavaScript'>
                 window.alert('Atualizado com sucesso');
-                window.location.href='indexpessoa.php';
+                window.location.href='../pages/indexpessoa.php';
                 </script>";
             }
         }
@@ -91,7 +91,7 @@
             if($final){
                 echo "<script LANGUAGE= 'JavaScript'>
                 window.alert('Deletado com sucesso');
-                window.location.href='indexpessoa.php';
+                window.location.href='../pages/indexpessoa.php';
                 </script>";
             }
         }
