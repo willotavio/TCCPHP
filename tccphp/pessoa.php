@@ -1,6 +1,22 @@
 <?php
     class pessoa{
-        private $codigo, $nome, $dataNasc, $celular, $whatsapp, $telefone, $email, $cepPessoa, $numRes, $complemento, $dataAtendimento;
+        private $codigo, $nome, $dataNasc, $celular, $whatsapp, $telefone, $email, $cepPessoa, $numRes, $complemento, $dataAtendimento, $usuario, $senha;
+
+        public function getUsuario(){
+            return $this->usuario;
+        }
+        public function setUsuario($us){
+            $this->usuario = $us;
+        }
+
+        public function getSenha(){
+            return $this->senha;
+        }
+
+        public function setSenha($sn){
+            $this->senha = $sn;
+        }
+
 
         public function getCodigo(){
             return $this->codigo;

@@ -25,7 +25,7 @@
 
             <ul id="logoutUl">
                 
-                <a id='logoutA' href="login.php">
+                <a id='logoutA' href="indexlogin.php">
                     <img id='logout' src="imgs/conta/logout.png">
                 </a>
             </ul>

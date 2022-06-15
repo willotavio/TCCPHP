@@ -34,7 +34,7 @@
         <div>
             <p>Nome:</p>
             <br><p>Email:</p>
-            <br><form action='login.php'>
+            <br><form action='indexlogin.php'>
     <td>
         <p><input type='submit' value="Sair"></p>
     </td>

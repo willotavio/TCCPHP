@@ -2,6 +2,24 @@
     include 'conexao.php';
 
     class pessoaDao{
+        
+        public function consultalogin(Pessoa $pessoa){
+            $query = "select * from login
+             where usuario=? and senha=?";
+            $conexao = new Conexao(); 
+            $con = $conexao->getConexao();
+            $valores = $con->prepare($query);
+            $valores->bindValue(1, $pessoa->getUsuario());
+            $valores->bindValue(2, $pessoa->getSenha());
+            $valores->execute();
+    
+            if($valores->rowCount()>0){
+                $resultado = $valores->fetchAll
+                (\PDO::FETCH_ASSOC);
+                return $resultado;
+            }
+        }
+
         public function cadastrarPessoa(Pessoa $p){
             $sql = 'insert into pessoa (codigo_pessoa, nome_pessoa, data_nascimento, celular, whatsapp, telefone, email, cep_pessoa, numero_casa, complemento, data_atendimento) values (?,?,?,?,?,?,?,?,?,?,?)';
 
@@ -37,16 +55,16 @@
             $con = $banco->getConexao();
             $resultado = $con->prepare($sql);
             $resultado->bindValue(11, $p->getCodigo());
-            $resultado->bindValue(2, $p->getNome());
-            $resultado->bindValue(3, $p->getdataNasc());
-            $resultado->bindValue(4, $p->getCelular());
-            $resultado->bindValue(5, $p->getWhatsapp());
-            $resultado->bindValue(6, $p->getTelefone());
-            $resultado->bindValue(7, $p->getEmail());
-            $resultado->bindValue(8, $p->getcepPessoa());
-            $resultado->bindValue(9, $p->getnumRes());
-            $resultado->bindValue(10, $p->getComplemento());
-            $resultado->bindValue(1, $p->getdataAtendimento());
+            $resultado->bindValue(1, $p->getNome());
+            $resultado->bindValue(2, $p->getdataNasc());
+            $resultado->bindValue(3, $p->getCelular());
+            $resultado->bindValue(4, $p->getWhatsapp());
+            $resultado->bindValue(5, $p->getTelefone());
+            $resultado->bindValue(6, $p->getEmail());
+            $resultado->bindValue(7, $p->getcepPessoa());
+            $resultado->bindValue(8, $p->getnumRes());
+            $resultado->bindValue(9, $p->getComplemento());
+            $resultado->bindValue(10, $p->getdataAtendimento());
             
             $final = $resultado->execute();
 

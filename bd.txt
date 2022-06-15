@@ -1,27 +1,36 @@
 create database ong;
 use ong;
-
 create table cep(
 	codigo_cep int(8) primary key
 );
 
 create table pessoa(
 	codigo_pessoa int not null primary key auto_increment,
-    nome_pessoa varchar(90) not null,
-    data_nascimento date not null,
-    celular int(11),
-    whatsapp int(11),
-    telefone int(10),
-    email varchar(90),
-    cep_pessoa int not null,
-    numero_casa int not null,
-    complemento varchar(45),
-    foreign key(cep_pessoa) references cep(codigo_cep),
-    data_atendimento date
+    	nome_pessoa varchar(90) not null,
+    	data_nascimento date not null,
+    	celular int(11),
+    	whatsapp int(11),
+	telefone int(10),
+	email varchar(90),
+    	cep_pessoa int(8) not null,
+    	foreign key(cep_pessoa) references cep(codigo_cep),
+	numero_casa int not null,
+    	complemento varchar(45),
+	data_atendimento date
 );
-insert into pessoa values ("3","lko","23/07/1980","123456","12346","12346","qwe",
-"123","34","rty","asd");
 
+create table usuario(
+	id_usuario int primary key auto_increment,
+	login varchar(100) not null,
+	senha varchar(50) not null
+);
+
+insert into pessoa values ('codigo_pessoa', 'nome_pessoa', 'data_nascimento', 'celular', 'whatsapp', 'telefone', 'email', 'cep_pessoa', 'numero_casa', 'complemento', 'data_atendimento') values ("3","lko","23/07/1980","123456","12346","12346","qwe",
+"123","34","rty","12/02/2022");
+
+insert into pessoa values (
+"1","lko","23/07/1980","123456","123456","123456","qwe","123","34","rty",
+"12/02/2022");
 
 
 

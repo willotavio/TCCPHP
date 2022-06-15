@@ -15,11 +15,11 @@
 
         <h1>LOGIN</h1>
 
-        <form method="GET" action="home.php" autocomplete="off">
+        <form method="POST" action="logar.php" autocomplete="off">
             <table>
             <td>
             <div class="divFormulario">
-            <input class='pessoa' type='text' name='user' required> 
+            <input class='pessoa' type='text' name='login' required> 
             <label for="senha" class='inputLabel'>Usuário</label>
             </div>
 
@@ -28,7 +28,7 @@
             <label for="senha" class='inputLabel'>Senha</label>
             </div>
             
-            <input class='inputLogin' type="submit" value="Entrar">
+            <input class='inputLogin' type="submit" value="Logar">
             </td>
             </table>
         </form>
@@ -36,3 +36,4 @@
 
 </body>
 </html>
+
