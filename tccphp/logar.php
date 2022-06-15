@@ -4,16 +4,18 @@ include 'pessoa.php';
 include 'pessoaDAO.php';
 
 session_start();
-$usuario = filter_input(INPUT_POST, 'usuario');
+$login = filter_input(INPUT_POST, 'login');
 $senha = filter_input(INPUT_POST, 'senha');
 
 $pessoa = new pessoa();
-$pessoa->setUsuario($usuario);
+$pessoa->setLogin($login);
 $pessoa->setSenha($senha);
 
 $pessoaDAO = new pessoaDAO();
 $pessoaDAO->consultalogin($pessoa);
 
+foreach($pessoaDAO->consultalogin($pessoa) as $resultado){
+    $_SESSION['login'] = $resultado['login'];
     header('location:sistema.php');
-
+}
 ?>

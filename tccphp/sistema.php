@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if ($_SESSION['usuario']=='' or $_SESSION['usuario']==null){
+if ($_SESSION['login']=='' or $_SESSION['login']==null){
    echo ("<script LANGUAGE='javaScript'>
         window.alert('Dados incorretos');
         window.location.href='indexlogin.php';
@@ -9,8 +9,6 @@ if ($_SESSION['usuario']=='' or $_SESSION['usuario']==null){
 }else{
     include 'pessoa.php';
 include 'pessoaDAO.php';
-    $pessoa = new pessoa();
-    $pessoa->setUsuario($_SESSION['usuario']);
 
         header('location:home.php');
     

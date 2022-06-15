@@ -4,12 +4,12 @@
     class pessoaDao{
         
         public function consultalogin(Pessoa $pessoa){
-            $query = "select * from login
-             where usuario=? and senha=?";
+            $query = "select * from usuario
+             where login=? and senha=?";
             $conexao = new Conexao(); 
             $con = $conexao->getConexao();
             $valores = $con->prepare($query);
-            $valores->bindValue(1, $pessoa->getUsuario());
+            $valores->bindValue(1, $pessoa->getLogin());
             $valores->bindValue(2, $pessoa->getSenha());
             $valores->execute();
     
