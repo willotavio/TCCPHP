@@ -12,8 +12,8 @@
             </li>
 
             <li>
-                <a href="indexavisos.php">
-                    AVISOS
+                <a href="indexcestas.php">
+                    CESTAS
                 </a>
             </li>
 

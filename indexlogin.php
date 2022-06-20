@@ -9,7 +9,7 @@
         <?php include 'pages/style.css'; ?>
     </style>
 </head>
-<body style="background: url('imgs/background2.jpg')fixed;;">
+<body style="background: url('imgs/background2.jpg')fixed;">
     
     <div class="caixa" id="caixaLogin">
 

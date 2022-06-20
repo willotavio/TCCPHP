@@ -26,47 +26,31 @@
 <body>
 
 
-<div class="caixa" id="caixaAvisos">
+<div class="caixa" id="caixaCestas">
 
-    <h1>AVISOS</h1>
+    <h1>CADASTRO DE CESTAS</h1>
 
-    <table class='tableAvisos'>
-        <td>
-            <div class="aviso">
+    <form method="POST">
+            <table>
+            <td>
+            <div class="divFormulario">
+            <input class='pessoa' type='text' name='tipo' required> 
+            <label for="tipo" class='inputLabel'>Tipo</label>
             </div>
-        </td>
 
-        <td>
-            <div class="aviso">
+            <div class="divFormulario">
+            <input class='pessoa' type='number' name='qnt' required> 
+            <label for="qnt" class='inputLabel'>Quantidade de Produtos</label>
             </div>
-        </td>
 
-        <td>
-            <div class="aviso">
+            <div>
+            <p><input type='submit' value="Cadastrar"></p>
             </div>
-        </td>
-        
-    </table>
-    <table class='tableAvisos'>
-        <td>
-            <div class="aviso">
-            </div>
-        </td>
-
-        <td>
-            <div class="aviso">
-            </div>
-        </td>
-
-        <td>
-            <div class="aviso">
-            </div>
-        </td>
-        
-    </table>
+            </table>
+        </form>
 
     <form action='home.php'>
-        <br><p><input type='submit' value="Voltar"></p>
+        <p><input type='submit' value="Voltar"></p>
     </form>
 
 </div>

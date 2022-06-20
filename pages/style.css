@@ -118,7 +118,7 @@ li a:hover {
 }
 /*cadastro*/
 
-/*avisos*/
+/*cestas*/
 .aviso{
     background-color: gray;
     width: 200px;
@@ -128,10 +128,10 @@ li a:hover {
 .tableAvisos{
     margin: auto;
 }
-#caixaAvisos{
+#caixaCestas{
     transform: translate(-50%,-40%);
 }
-/*avisos*/
+/*cestas*/
 
 
 table{

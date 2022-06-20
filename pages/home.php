@@ -39,9 +39,9 @@
     </td>
         </form>
 
-        <form action='indexavisos.php'>
+        <form action='indexcestas.php'>
     <td>
-        <p><input type='submit' value="Avisos"></p>
+        <p><input type='submit' value="Cestas"></p>
     </td>
         </form>
 
