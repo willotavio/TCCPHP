@@ -33,12 +33,11 @@
             <header id="header"></header>
            
             <body><div class="row">
-            <div class="col-3"></div>
-            <div class="col-2"\>
+            <div class="col-2 m-auto">
                 <div id="modalCadastro">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal" style="font-size: 1.2em; margin-top:50px;">Cadastrar Família</button>
+                    <button type="button" class="btn btn-light" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal" style="font-size: 1.2em; width: 200px; margin-top:50px">Cadastrar <br> Família</button>
 
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -96,15 +95,12 @@
                                             <input class="inputModalCadastro" type="date" name="dataAtendimento"
                                                 placeholder="Data de Atendimento" />
                                         </p>
-                                        
-                                        
-                                        
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
                                         Fechar
                                     </button>
-                                    <p><input type="submit" class="btn btn-secondary" name='botao' value='Cadastrar'>
+                                    <p><input type="submit" class="btn btn-success" name='botao' value='Cadastrar'>
                                     </p>
                                     </form>
                                 </div>
@@ -113,11 +109,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-2">
+            <div class="col-2 m-auto">
                 <div id="modalDeletar">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                        data-bs-target="#exampleModalDeletar" style="font-size: 1.2em; width: 160px; margin-top:50px">Deletar <br> Cadastro</button>
+                    <button type="button" class="btn btn-light" data-bs-toggle="modal"
+                        data-bs-target="#exampleModalDeletar" style="font-size: 1.2em; width: 200px; margin-top:50px">Deletar <br> Família</button>
 
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModalDeletar" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -138,9 +134,9 @@
 
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
+                                    <button type="button" class="btn btn-danger"
                                         data-bs-dismiss="modal">Fechar</button>
-                                    <p><input type="submit" class="btn btn-secondary" name='botao' value='Deletar'></p>
+                                    <p><input type="submit" class="btn btn-success" name='botao' value='Deletar'></p>
                                     </form>
                                 </div>
                             </div>
@@ -149,12 +145,11 @@
                 </div>
             </div>
 
-            <div class="col-2">
+            <div class="col-2 m-auto">
                 <div id="modalAtualizar">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                        data-bs-target="#exampleModalAttPessoa" style="font-size: 1.2em; margin-top:50px">Atualizar
-                        Família</button>
+                    <button type="button" class="btn btn-light" data-bs-toggle="modal"
+                        data-bs-target="#exampleModalAttPessoa" style="font-size: 1.2em; width: 200px; margin-top:50px">Atualizar <br> Família</button>
 
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModalAttPessoa" tabindex="-1"
@@ -216,10 +211,10 @@
                                         </p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    <button type="button" class="btn btn-danger"" data-bs-dismiss="modal">
                                         Fechar
                                     </button>
-                                    <p><input type="submit" class="btn btn-secondary" name='botao' value='Atualizar'>
+                                    <p><input type="submit" class="btn btn-success" name='botao' value='Atualizar'>
                                     </p>
                                     </form>
                                 </div>
