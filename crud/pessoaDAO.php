@@ -18,15 +18,22 @@
                 (\PDO::FETCH_ASSOC);
                 return $resultado;
             }else{
-                header('location:../indexlogin.php');
+                echo "<script LANGUAGE= 'JavaScript'>
+                window.alert('Senha ou Usuario incorretos');
+                window.location.href='../indexlogin.php';
+                </script>";
             }
         }
 
-        public function cadastrarPessoa(Pessoa $p){
-            $sql = 'insert into pessoa (codigo_pessoa, nome_pessoa, data_nascimento, celular, whatsapp, telefone, email, cep_pessoa, numero_casa, complemento, data_atendimento) values (?,?,?,?,?,?,?,?,?,?,?)';
-
+        public function cadastrarPessoa(Pessoa $p, cep $c){
+            $sqlCep = 'insert into cep (codigo_cep) values (?)';
             $banco = new conexao();
             $con = $banco->getConexao();
+            $resultado = $con->prepare($sqlCep);
+            $resultado->bindValue(1, $c->getCodCep());
+            $final = $resultado->execute();
+
+            $sql = 'insert into pessoa (codigo_pessoa, nome_pessoa, data_nascimento, celular, whatsapp, telefone, email, cep_pessoa, numero_casa, complemento, data_atendimento) values (?,?,?,?,?,?,?,?,?,?,?)';
             $resultado = $con->prepare($sql);
             $resultado->bindValue(1, $p->getCodigo());
             $resultado->bindValue(2, $p->getNome());

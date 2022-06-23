@@ -11,10 +11,13 @@ $numRes = filter_input(INPUT_GET,'numRes');
 $complemento =  filter_input(INPUT_GET,'complemento');
 $dataAtendimento =  filter_input(INPUT_GET,'dataAtendimento');
 $botao =  filter_input(INPUT_GET,'botao');
-
+$codCep = filter_input(INPUT_GET,'cepPessoa');
 include 'pessoa.php';
+include 'cep.php';
 $pes = new pessoa();
+$cep = new cep();
 
+$cep->setCodCep($codCep);
 $pes->setCodigo($codigo);
 $pes->setNome($nome);
 $pes->setdataNasc($dataNasc);
@@ -31,7 +34,7 @@ include 'pessoaDAO.php';
 $pesDao = new pessoaDao();
 
 if($botao=='Cadastrar'){
-    $pesDao->cadastrarPessoa($pes);
+    $pesDao->cadastrarPessoa($pes, $cep);
   }else if ($botao=='Atualizar'){
       $pesDao->atualizarPessoa($pes);
     }else if ($botao=='Deletar'){

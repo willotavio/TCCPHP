@@ -6,6 +6,6 @@ $senha = '';
 $dbName = 'ong';
 $porta = '3308';
 
-$conexaoTeste = new mysqli($servidor,$usuario,$senha,$dbName,$porta);
+$conexaoTeste = new mysqli($servidor,$usuario,$senha,$dbName);
 
 ?>

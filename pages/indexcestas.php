@@ -33,7 +33,7 @@
 <header id="header"></header>
 <body>
 
-
+<div class="column">
 <div class="row">
             <div class="col-2 m-auto">
                 <div id="modalCadastro">
@@ -160,6 +160,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
 
             <div class="column">

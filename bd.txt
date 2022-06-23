@@ -25,10 +25,22 @@ create table usuario(
 	senha varchar(50) not null
 );
 
-insert into pessoa values ('codigo_pessoa', 'nome_pessoa', 'data_nascimento', 'celular', 'whatsapp', 'telefone', 'email', 'cep_pessoa', 'numero_casa', 'complemento', 'data_atendimento') values ("3","lko","23/07/1980","123456","12346","12346","qwe",
-"123","34","rty","12/02/2022");
 
+
+create table cestas(
+idCestas int(4) primary key not null auto_increment,
+quantidade_cestas int(4) not null,
+recebimento_cestas date not null
+);
+
+insert into usuario values(
+"1","Mahki", "123"
+);
+
+insert into pessoa (codigo_pessoa, nome_pessoa, data_nascimento, celular, whatsapp, telefone, email, cep_pessoa, numero_casa, complemento, data_atendimento) 
+values (3,"mahki","23/07/1980",11996067409,11996067407,1141785401,"mahki2HOTMAIL.COM", 9692000,"34","rty","12/02/2022");
 insert into pessoa values (
+
 "1","lko","23/07/1980","123456","123456","123456","qwe","123","34","rty",
 "12/02/2022");
 
