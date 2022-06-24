@@ -27,7 +27,14 @@
             <input class='pessoa' type='password' name='senha' required> 
             <label for="senha" class='inputLabel'>Senha</label>
             </div>
-            
+            <div id="divFormularioLink">
+                <a href="pages/criarConta.php" class="formsLink">Cadastrar Conta</a>
+                <br>
+                
+            </div>
+            <div id="divFormularioLink">
+                <a href="pages/esqueciSenha.php" class="formsLink">Esqueci Minha Senha<a>
+            </div>
             <input class='inputLogin' type="submit" value="Logar">
             </td>
             </table>

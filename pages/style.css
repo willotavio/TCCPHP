@@ -100,6 +100,17 @@ li a:hover {
 #caixaLogin{
     transform: translate(-50%,-50%);
 }
+
+.formsLink{
+    color: green;
+    text-decoration: none;
+    padding-bottom: 20px;
+}
+
+#divFormularioLink{
+    padding: 0;
+    margin-bottom: 10px;
+}
 /*login*/
 
 /*home*/
@@ -148,6 +159,26 @@ table{
     transform: translate(-50%,-50%);
 }
 /*conta*/
+
+
+/*CadastroConta*/
+#btnCadastrar{
+    width: 200px;
+    padding: 10px;
+    border: transparent;
+    background-color: rgb(30, 116, 56);
+    color: white;
+    border-radius: 10px;
+    font-size: 15px;
+    transition-duration: 0.4s;
+}
+
+#btnCadastrar:hover{
+    border: transparent;
+}
+
+/*CadastroConta*/
+
 
 /*inputs*/
 .divFormulario{
