@@ -1,13 +1,13 @@
-*{
-    padding: 0;
-    margin: 0;
+* {
+	padding: 0;
+	margin: 0;
 }
-body{
-    background: url('../imgs/background2.jpg')fixed;;
-    color: white;
-    text-align: center;
-    font-size: 26px;
-    font-family: Arial, Helvetica, sans-serif;
+body {
+	background: url("../../imgs/background2.jpg") fixed;
+	color: white;
+	text-align: center;
+	font-size: 26px;
+	font-family: Arial, Helvetica, sans-serif;
 }
 /*input{
     padding: 10px;
@@ -15,227 +15,224 @@ body{
     font-size: 16px;
     color: white;
 }*/
-h1{
-    padding-top: 50px;
-    color: rgb(36, 133, 65);
+h1 {
+	padding-top: 50px;
+	color: rgb(36, 133, 65);
 }
-h2{
-    font-size: 18px;
+h2 {
+	font-size: 18px;
 }
-td{
-    padding-top: 20px;
+td {
+	padding-top: 20px;
 }
 
-div{
-    padding: 20px;
-    height: auto;
+div {
+	padding: 20px;
+	height: auto;
 }
-.caixa{
-    border-left: outset 15px rgb(36, 133, 65);
-    font-size: 16px;
-    background-color: white;
-    color: gray;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-44%);
-    padding: 20px;
-    border-radius: 15px;
-    border-top-right-radius: 50px;
+.caixa {
+	border-left: outset 15px rgb(36, 133, 65);
+	font-size: 16px;
+	background-color: white;
+	color: gray;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -44%);
+	padding: 20px;
+	border-radius: 15px;
+	border-top-right-radius: 50px;
 }
-#caixaHome{
-    transform: translate(-50%,-50%);
+#caixaHome {
+	transform: translate(-50%, -50%);
 }
 
 /*nav bar*/
-header nav{
-    position: fixed;
-    z-index: 1000;
-    margin: 0;
-    padding: 0;
-    height: 75px;
-    width: 100%;
-    background-color: rgb(36, 133, 65);
+header nav {
+	position: fixed;
+	z-index: 1000;
+	margin: 0;
+	padding: 0;
+	height: 75px;
+	width: 100%;
+	background-color: rgb(36, 133, 65);
 }
-#logoNav{
-    float: left;
-    width: 5%;
-    transform: translate(-1%,5%);
-    padding-left: 10px;
+#logoNav {
+	float: left;
+	width: 5%;
+	transform: translate(-1%, 5%);
+	padding-left: 10px;
 }
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgb(36, 133, 65);
-  }
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: rgb(36, 133, 65);
+}
 li {
-    float: left;
-    padding-top: 12px;
-    padding-left: 15px;
-    font-size: 16px;
-  }
+	float: left;
+	padding-top: 12px;
+	padding-left: 15px;
+	font-size: 16px;
+}
 li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 16px;
-    text-decoration: none;
-  }
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 16px;
+	text-decoration: none;
+}
 li a:hover {
-    background-color: rgb(30, 116, 56);
-  }
-#logoutUl{
-      padding-top: 25px;
-      padding-right: 15px;
-  }
-#logout{
-      float: right;
-      width: 25px;
-  }
+	background-color: rgb(30, 116, 56);
+}
+#logoutUl {
+	padding-top: 25px;
+	padding-right: 15px;
+}
+#logout {
+	float: right;
+	width: 25px;
+}
 /*nav bar*/
 
 /*login*/
-#caixaLogin{
-    transform: translate(-50%,-50%);
+#caixaLogin {
+	transform: translate(-50%, -50%);
 }
 
-.formsLink{
-    color: green;
-    text-decoration: none;
-    padding-bottom: 20px;
+.formsLink {
+	color: green;
+	text-decoration: none;
+	padding-bottom: 20px;
 }
 
-#divFormularioLink{
-    padding: 0;
-    margin-bottom: 10px;
+#divFormularioLink {
+	padding: 0;
+	margin-bottom: 10px;
 }
 /*login*/
 
 /*home*/
-#logo{
-    padding-top: 30px;
-    transform: translateY(-60%);
+#logo {
+	padding-top: 30px;
+	transform: translateY(-60%);
 }
-#subTitleHome{
-    transform: translateY(-100%);
+#subTitleHome {
+	transform: translateY(-100%);
 }
 /*home*/
 
 /*cadastro*/
-#caixaCad{
-    transform: translate(-50%,-30%);
+#caixaCad {
+	transform: translate(-50%, -30%);
 }
 /*cadastro*/
 
 /*cestas*/
-.aviso{
-    background-color: gray;
-    width: 200px;
-    height: 200px;
-    margin: auto;
+.aviso {
+	background-color: gray;
+	width: 200px;
+	height: 200px;
+	margin: auto;
 }
-.tableAvisos{
-    margin: auto;
+.tableAvisos {
+	margin: auto;
 }
-#caixaCestas{
-    transform: translate(-50%,-40%);
+#caixaCestas {
+	transform: translate(-50%, -40%);
 }
 /*cestas*/
 
-
-table{
-    margin: auto;
+table {
+	margin: auto;
 }
 
 /*conta*/
-#perfil{
-    float: left;
-    width: 30%;
-    border-radius: 50%;
+#perfil {
+	float: left;
+	width: 30%;
+	border-radius: 50%;
 }
-#caixaConta{
-    transform: translate(-50%,-50%);
+#caixaConta {
+	transform: translate(-50%, -50%);
 }
 /*conta*/
 
-
 /*CadastroConta*/
-#btnCadastrar{
-    width: 200px;
-    padding: 10px;
-    border: transparent;
-    background-color: rgb(30, 116, 56);
-    color: white;
-    border-radius: 10px;
-    font-size: 15px;
-    transition-duration: 0.4s;
+#btnCadastrar {
+	width: 200px;
+	padding: 10px;
+	border: transparent;
+	background-color: rgb(30, 116, 56);
+	color: white;
+	border-radius: 10px;
+	font-size: 15px;
+	transition-duration: 0.4s;
 }
 
-#btnCadastrar:hover{
-    border: transparent;
+#btnCadastrar:hover {
+	border: transparent;
 }
 
 /*CadastroConta*/
-
 
 /*inputs*/
-.divFormulario{
-    position: relative;
+.divFormulario {
+	position: relative;
 }
-input[type=submit]{
-    color: white;
-    background-color:rgb(36, 133, 65);
-    border-radius: 10px;
-    border: transparent;
-    width: 200px;
+input[type="submit"] {
+	color: white;
+	background-color: rgb(36, 133, 65);
+	border-radius: 10px;
+	border: transparent;
+	width: 200px;
 }
-input[type=submit]:hover{
-    background-color: rgb(30, 116, 56);
-    border: transparent;
+input[type="submit"]:hover {
+	background-color: rgb(30, 116, 56);
+	border: transparent;
 }
-input{
-    padding: 10px;
-    margin: 10px;
-    font-size: 16px;
-    /*border-radius: 10px;*/
-    border: none;
+input {
+	padding: 10px;
+	margin: 10px;
+	font-size: 16px;
+	/*border-radius: 10px;*/
+	border: none;
 }
-input::placeholder{
-    color: gray;
+input::placeholder {
+	color: gray;
 }
-input:focus{
-    outline: none;
+input:focus {
+	outline: none;
 }
-.inputLabel{
-    position: absolute;
-    top: 30px;
-    left: 36px;
-    pointer-events: none;
-    transition: .5s;
+.inputLabel {
+	position: absolute;
+	top: 30px;
+	left: 36px;
+	pointer-events: none;
+	transition: 0.5s;
 }
-.pessoa:focus~.inputLabel,
-.pessoa:valid~.inputLabel{
-    top: 5px;
-    font-size: 14px;
-    color: gray;
+.pessoa:focus ~ .inputLabel,
+.pessoa:valid ~ .inputLabel {
+	top: 5px;
+	font-size: 14px;
+	color: gray;
 }
-input[type='date']::-webkit-calendar-picker-indicator{
-    filter: invert(0);
+input[type="date"]::-webkit-calendar-picker-indicator {
+	filter: invert(0);
 }
-input[type='date']{
-    font-size: 10px;
+input[type="date"] {
+	font-size: 10px;
 }
-.pessoa{
-    background: none;
-    border: none;
-    border-bottom: 1px solid gray;
-    outline: none;
-    color: gray;
-    font-size: 15px;
-    width: 330px;
-    letter-spacing: 2px;
+.pessoa {
+	background: none;
+	border: none;
+	border-bottom: 1px solid gray;
+	outline: none;
+	color: gray;
+	font-size: 15px;
+	width: 330px;
+	letter-spacing: 2px;
 }
 /*inputs*/
 

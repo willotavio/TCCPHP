@@ -1,5 +1,5 @@
 <?php
-    include '../connection/conexao.php';
+    include '../../connection/conexao.php';
 
     class pessoaDao{
         
@@ -52,7 +52,7 @@
             if($final){
                 echo "<script LANGUAGE= 'JavaScript'>
                 window.alert('Cadastrado com sucesso');
-                window.location.href='../pages/indexpessoa.php';
+                window.location.href='../../pages/principal/indexpessoa.php';
                 </script>";
             }
         }
@@ -80,7 +80,7 @@
             if($final){
                 echo "<script LANGUAGE= 'JavaScript'>
                 window.alert('Atualizado com sucesso');
-                window.location.href='../pages/indexpessoa.php';
+                window.location.href='../../pages/principal/indexpessoa.php';
                 </script>";
             }
         }
@@ -98,7 +98,7 @@
             if($final){
                 echo "<script LANGUAGE= 'JavaScript'>
                 window.alert('Deletado com sucesso');
-                window.location.href='../pages/indexpessoa.php';
+                window.location.href='../../pages/principal/indexpessoa.php';
                 </script>";
             }
         }

@@ -19,10 +19,12 @@ create table pessoa(
 	data_atendimento date
 );
 
+
 create table usuario(
-	id_usuario int primary key auto_increment,
-	login varchar(100) not null,
-	senha varchar(50) not null
+nome varchar(10) primary key not null,
+senha varchar(20) not null,
+tipo varchar(14) not null,
+email_usuario varchar(90) not null
 );
 
 
@@ -46,10 +48,90 @@ insert into pessoa values (
 
 
 
-//update pessoa set data_atendimento= curtime();
+/*
+create database ong;
+use ong;
 
-//create table usuario(
-//     cod_usuario int primary key auto_increment,
-//     nome_usuario varchar(90) not null,
-//     senha varchar(90) not null,
-//);
+create table Contas(
+idContas int(4) primary key auto_increment not null,
+nome_contas varchar(40) not null,
+valor_contas decimal (6,3) not null,
+data_cadastro_contas date not null,
+data_pagamentos_contas date not null
+);
+
+create table Usuario(
+nome varchar(10) primary key not null,
+senha varchar(20) not null,
+tipo varchar(14) not null,
+email_usuario varchar(90) not null
+);
+
+create table Pessoa(
+idPessoa int(4) primary key not null auto_increment,
+pessoa_cep int (8),
+pessoa_telefone	int (4),
+nome_pessoa	varchar(40) not null,
+data_nascimento_pessoa date,
+complemento_pessoa	varchar(40),
+n_pessoa int(5),
+email_pessoa varchar(90),
+data_atendimento datetime,
+sexo_pessoa	char(9),
+foreign key(pessoa_cep) references CodigoEnderecoPostal(cep),
+foreign key(pessoa_telefone) references Telefone(idTelefone)
+);
+
+create table Administrador (
+idAdministrador	int (4) primary key not null auto_increment,
+nome_completo_adm varchar(40) not null,
+data_nascimento_adm	date,
+sexo_adm char(9),
+celular_adm	int (11),
+adm_usuario varchar(10),
+foreign key (adm_usuario) references Usuario(nome)
+);
+
+create table Contas(
+idContas int (4) primary key not null auto_increment,
+nome_contas	varchar(40) not null,
+valor_contas decimal(6,3) not null,
+data_cadastro_contas date not null,
+data_pagamento_contas date not null
+);
+
+create table CodigoEnderecoPostal(
+cep	int (8) primary key not null,
+rua	varchar(45) not null,
+bairro	varchar(25) not null,
+estado	char(2) not null,
+cidade	varchar(25) not null
+);
+
+create table Funcionario(
+idFuncionario int (4) primary key not null auto_increment,
+nome_completo_func varchar(40) not null,
+data_nascimento_func date,
+sexo_func char(9),
+celular_func int (11),
+func_usuario varchar(10),
+foreign key (func_usuario) references Usuario(nome)
+);
+
+create table Cestas(
+idCestas int(4) primary key not null auto_increment,
+quantidade_cestas int(4) not null,
+recebimento_cestas date not null
+);
+
+create table Telefone(
+idTelefone int(4) primary key not null auto_increment,
+telefone int(10) not null,
+celular int(11) not null
+);
+
+
+
+
+
+*/

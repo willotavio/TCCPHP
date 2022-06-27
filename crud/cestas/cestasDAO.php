@@ -1,6 +1,6 @@
 <?php
 
-include '../connection/conexao.php';
+include '../../connection/conexao.php';
 
 class cestasDao{
 
@@ -19,7 +19,7 @@ class cestasDao{
         if($final){
             echo "<script LANGUAGE= 'JavaScript'>
                 window.alert('Cadastrada com sucesso');
-                window.location.href='../pages/indexcestas.php';
+                window.location.href='../../pages/principal/indexcestas.php';
                 </script>";
         }
     }
@@ -39,7 +39,7 @@ class cestasDao{
         if($final){
             echo "<script LANGUAGE= 'JavaScript'>
                 window.alert('Atualizada com sucesso');
-                window.location.href='../pages/indexcestas.php';
+                window.location.href='../../pages/principal/indexcestas.php';
                 </script>";
         }
     }
@@ -57,7 +57,7 @@ class cestasDao{
         if($final){
             echo "<script LANGUAGE= 'JavaScript'>
                 window.alert('Deletada com sucesso');
-                window.location.href='../pages/indexcestas.php';
+                window.location.href='../../pages/principal/indexcestas.php';
                 </script>";
         }
     }

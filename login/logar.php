@@ -1,7 +1,7 @@
 <?php
 
-include '../crud/pessoa.php';
-include '../crud/pessoaDAO.php';
+include '../crud/pessoa/pessoa.php';
+include '../crud/pessoa/pessoaDAO.php';
 
 session_start();
 $login = filter_input(INPUT_POST, 'login');
