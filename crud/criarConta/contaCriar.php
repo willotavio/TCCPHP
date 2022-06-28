@@ -1,12 +1,12 @@
 <?php
     class criarConta{
-        private $cadastrarUUsuario, $cadastrarUSenha, $cadastrarUEmail, $cadastrarUCSenha, $cadastrarUTipo
+        private $cadastrarULogin, $cadastrarUSenha, $cadastrarUEmail, $cadastrarUCSenha, $cadastrarUTipo;
 
-        public function getUUsuario(){
-            return $this->cadastrarUUsuario
+        public function getULogin(){
+            return $this->cadastrarULogin;
         }
-        public function setUUsuario($id){
-            $this->cadastrarUUsuario = $id;
+        public function setULogin($id){
+            $this->cadastrarULogin= $id;
         }
         
         public function getUsenha(){
@@ -31,10 +31,10 @@
         }
 
         public function getUTipo(){
-            return $this->cadastrarUCSenha;
+            return $this->cadastrarUTipo;
         }
-        public function setUTipo($csenha){
-            $this->cadastrarUCSenha = $csenha;
+        public function setUTipo($cstipo){
+            $this->cadastrarUTipo = $cstipo;
         }
     }
 ?>

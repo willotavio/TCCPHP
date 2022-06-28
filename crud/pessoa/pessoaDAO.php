@@ -1,5 +1,5 @@
 <?php
-    include '../../connection/conexao.php';
+    include '../connection/conexao.php';
 
     class pessoaDao{
         

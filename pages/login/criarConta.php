@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+    
 
 <head>
     <meta charset="UTF-8">
@@ -18,11 +19,11 @@
 
         <h1>Cadastrar Uma Nova Conta</h1>
 
-        <form method="POST" action="" autocomplete="off">
+        <form method="GET" action="../../crud/criarConta/controleCriarConta.php" autocomplete="off">
             <table>
                 <td>
                     <div class="divFormulario">
-                        <input class='pessoa' type='text' name='cadastrarUUsuario' required>
+                        <input class='pessoa' type='text' name='cadastrarULogin' required>
                         <label class='inputLabel'>Digite o seu Nome de Usuario</label>
                     </div>
 
@@ -42,14 +43,15 @@
                     </div>
 
                     <div class="divFormulario">
-                        <label for="cadastrarUTipo">Digite o seu Cargo</label>
-                        <select name="cars">
+                        <label>Digite o seu Cargo</label>
+                        <select name="cadastrarUTipo">
+                            <option value=""></option>
                             <option value="FUNCIONARIO">Funcionario</option>
                             <option value="ADMINISTRADOR">Administrador</option>
                         </select>
                     </div>
-
-                    <input class='inputLogin' type="submit" value="CadastrarConta">
+                    <p><input type="submit" class="btn btn-success" name='botao' value='cadastrar'>
+                    </p>
                 </td>
             </table>
             <button type="button" id="btnCadastrar"
@@ -60,3 +62,4 @@
 </body>
 
 </html>
+
