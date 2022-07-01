@@ -1,12 +1,12 @@
 <?php
     class pessoa{
-        private $codigo, $nome, $dataNasc, $celular, $whatsapp, $telefone, $email, $cepPessoa, $numRes, $complemento, $dataAtendimento, $login, $senha;
+        private $codigo, $nome, $dataNasc, $celular, $whatsapp, $telefone, $email, $cepPessoa, $numRes, $complemento, $dataAtendimento, $nome_login, $senha;
 
-        public function getLogin(){
-            return $this->login;
+        public function getNome_login(){
+            return $this->nome_login;
         }
-        public function setLogin($lg){
-            $this->login = $lg;
+        public function setNome_login($lg){
+            $this->nome_login= $lg;
         }
 
         public function getSenha(){

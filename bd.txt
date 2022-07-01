@@ -1,5 +1,18 @@
 create database ong;
 use ong;
+
+create table usuario(
+nome_login varchar(10) not null,
+senha varchar(20) not null,
+tipo varchar(14) not null,
+email_usuario varchar(90) not null
+);
+
+create table cestas(
+idCestas int(4) primary key not null auto_increment,
+quantidade_cestas int(4) not null,
+recebimento_cestas date not null
+);
 create table cep(
 	codigo_cep int(8) primary key
 );
@@ -19,25 +32,13 @@ create table pessoa(
 	data_atendimento date
 );
 
-
-create table usuario(
-nome varchar(10) primary key not null,
-senha varchar(20) not null,
-tipo varchar(14) not null,
-email_usuario varchar(90) not null
+insert into usuario (nome_login,senha,tipo,email_usuario) values(
+"mahki","123","ADMINISTRADOR","mahkI@hotmail.com"
 );
 
 
 
-create table cestas(
-idCestas int(4) primary key not null auto_increment,
-quantidade_cestas int(4) not null,
-recebimento_cestas date not null
-);
 
-insert into usuario values(
-"1","Mahki", "123"
-);
 
 insert into pessoa (codigo_pessoa, nome_pessoa, data_nascimento, celular, whatsapp, telefone, email, cep_pessoa, numero_casa, complemento, data_atendimento) 
 values (3,"mahki","23/07/1980",11996067409,11996067407,1141785401,"mahki2HOTMAIL.COM", 9692000,"34","rty","12/02/2022");
@@ -45,9 +46,6 @@ insert into pessoa values (
 
 "1","lko","23/07/1980","123456","123456","123456","qwe","123","34","rty",
 "12/02/2022");
-
-
-
 /*
 create database ong;
 use ong;

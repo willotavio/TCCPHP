@@ -22,7 +22,7 @@
             <table>
                 <td>
                     <div class="divFormulario">
-                        <input class='pessoa' type='text' name='login' required>
+                        <input class='pessoa' type='text' name='nome_login' required>
                         <label for="senha" class='inputLabel'>Usuário</label>
                     </div>
 

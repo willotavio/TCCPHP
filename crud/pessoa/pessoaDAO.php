@@ -1,15 +1,15 @@
 <?php
-    include '../connection/conexao.php';
+    include '../../connection/conexao.php';
 
     class pessoaDao{
         
         public function consultalogin(Pessoa $pessoa){
             $query = "select * from usuario
-             where login=? and senha=?";
+            where nome_login=? and senha=?";
             $conexao = new Conexao(); 
             $con = $conexao->getConexao();
             $valores = $con->prepare($query);
-            $valores->bindValue(1, $pessoa->getLogin());
+            $valores->bindValue(1, $pessoa->getNome_Login());
             $valores->bindValue(2, $pessoa->getSenha());
             $valores->execute();
     

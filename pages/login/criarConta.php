@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    
+
 
 <head>
     <meta charset="UTF-8">
@@ -45,7 +45,6 @@
                     <div class="divFormulario">
                         <label>Digite o seu Cargo</label>
                         <select name="cadastrarUTipo">
-                            <option value=""></option>
                             <option value="FUNCIONARIO">Funcionario</option>
                             <option value="ADMINISTRADOR">Administrador</option>
                         </select>
@@ -62,4 +61,3 @@
 </body>
 
 </html>
-
