@@ -1,5 +1,6 @@
 <?php
 
+include '../connection/conexao.php';
 include '../crud/pessoa/pessoa.php';
 include '../crud/pessoa/pessoaDAO.php';
 
