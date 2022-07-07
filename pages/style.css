@@ -51,9 +51,7 @@ div {
 	border-top-right-radius: 50px;
 	box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.582), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-#caixaHome {
-	transform: translate(-50%, -50%);
-}
+
 
 /*nav bar*/
 header nav {
@@ -124,10 +122,17 @@ li a:hover {
 /*home*/
 #logo {
 	padding-top: 30px;
-	transform: translateY(-60%);
+	transform: translate(32%,-60%);
 }
 #subTitleHome {
-	transform: translateY(-100%);
+	transform: translateY(-70%);
+	text-align: center;
+}
+.botoesHome{
+	padding: 5px;
+}
+#caixaHome {
+	transform: translate(-50%, -50%);
 }
 /*home*/
 
@@ -161,9 +166,15 @@ table {
 	float: left;
 	width: 30%;
 	border-radius: 50%;
+	padding: 10px 0px 10px 0px;
 }
 #caixaConta {
 	transform: translate(-50%, -50%);
+	text-align: center;
+}
+#titleConta{
+	padding-top: 10px;
+	padding-bottom: 20px;
 }
 /*conta*/
 
@@ -244,10 +255,8 @@ input[type="date"] {
 }
 /*inputs*/
 
-/*controle*/
 
-/*controle*/
-
+/*rodape*/
 footer{
 	margin-top: auto;
 	text-align: center;
@@ -259,4 +268,9 @@ footer{
 }
 #textFooter{
 	color: white;
+}
+/*rodape*/
+
+.column{
+	padding-top: 0px;
 }

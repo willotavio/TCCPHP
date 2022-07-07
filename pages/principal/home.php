@@ -38,19 +38,19 @@
 
         <table>
             <form action='indexpessoa.php'>
-                <td>
+                <td class='botoesHome'>
                     <p><input type='submit' value="Cadastro"></p>
                 </td>
             </form>
 
             <form action='indexcestas.php'>
-                <td>
+                <td class='botoesHome'>
                     <p><input type='submit' value="Cestas"></p>
                 </td>
             </form>
 
             <form action='indexconta.php'>
-                <td>
+                <td class='botoesHome'>
                     <p><input type='submit' value="Conta"></p>
                 </td>
             </form>

@@ -31,7 +31,7 @@
 <body>
 
     <div class="caixa" id="caixaConta">
-        <h1>CONTA</h1>
+        <h1 id='titleConta'>CONTA</h1>
         <img id="perfil" src="../../imgs/conta/fotoPerfil.png">
 
         <div>
@@ -40,7 +40,7 @@
             <p>Email:</p>
             <br>
             <form action='../../indexlogin.php'>
-                <td>
+                <td class='botoesConta'>
                     <p><input type='submit' value="Sair"></p>
                 </td>
             </form>
