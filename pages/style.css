@@ -1,3 +1,7 @@
+html{
+	height: 100%;
+	min-height: 100%;
+}
 * {
 	padding: 0;
 	margin: 0;
@@ -8,6 +12,9 @@ body {
 	text-align: center;
 	font-size: 26px;
 	font-family: Arial, Helvetica, sans-serif;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
 }
 /*input{
     padding: 10px;
@@ -240,3 +247,16 @@ input[type="date"] {
 /*controle*/
 
 /*controle*/
+
+footer{
+	margin-top: auto;
+	text-align: center;
+	background-color: rgb(36, 133, 65);
+}
+#titleFooter{
+	color: white;
+	margin-top: 10px;
+}
+#textFooter{
+	color: white;
+}
