@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-expand-lg bg-green">
+    <nav class="navbar navbar-expand-lg bg-green navbar-fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="home.php"><img src='../../imgs/logo2.png' width="60"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
