@@ -15,7 +15,7 @@
 
 <body style="background: url('../../imgs/background2.jpg')fixed;">
 
-    <div class="caixa" id="caixaLogin">
+    <div class="caixaCadastro" id="caixaLogin">
 
         <h1>Cadastrar Uma Nova Conta</h1>
 

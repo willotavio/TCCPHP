@@ -1,4 +1,4 @@
-html{
+html {
 	height: 100%;
 	min-height: 100%;
 }
@@ -16,12 +16,12 @@ body {
 	flex-direction: column;
 	min-height: 100%;
 }
-/*input{
-    padding: 10px;
-    margin: 10px;
-    font-size: 16px;
-    color: white;
-}*/
+input {
+	padding: 10px;
+	margin: 10px;
+	font-size: 16px;
+	color: white;
+}
 h1 {
 	padding-top: 50px;
 	color: rgb(36, 133, 65);
@@ -52,9 +52,24 @@ div {
 	box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.582), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.caixaCadastro {
+	border-left: outset 15px rgb(36, 133, 65);
+	font-size: 16px;
+	background-color: white;
+	color: gray;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -44%);
+	margin-top: 40px;
+	padding: 15px;
+	border-radius: 15px;
+	border-top-right-radius: 50px;
+	box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.582), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 /*nav bar*/
-header{
+header {
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -114,24 +129,26 @@ li a:hover {
 	color: green;
 	text-decoration: none;
 	padding-bottom: 20px;
+	display: flex;
 }
 
 #divFormularioLink {
 	padding: 0;
 	margin-bottom: 10px;
+	text-align: center;
 }
 /*login*/
 
 /*home*/
 #logo {
 	padding-top: 30px;
-	transform: translate(32%,-60%);
+	transform: translate(32%, -60%);
 }
 #subTitleHome {
 	transform: translateY(-70%);
 	text-align: center;
 }
-.botoesHome{
+.botoesHome {
 	padding: 5px;
 }
 #caixaHome {
@@ -175,7 +192,7 @@ table {
 	transform: translate(-50%, -50%);
 	text-align: center;
 }
-#titleConta{
+#titleConta {
 	padding-top: 10px;
 	padding-bottom: 20px;
 }
@@ -253,27 +270,26 @@ input[type="date"] {
 	outline: none;
 	color: gray;
 	font-size: 15px;
-	width: 330px;
-	letter-spacing: 2px;
+	/* 	width: 330px;
+	letter-spacing: 2px; */
 }
 /*inputs*/
 
-
 /*rodape*/
-footer{
+footer {
 	margin-top: auto;
 	text-align: center;
 	background-color: rgb(36, 133, 65);
 }
-#titleFooter{
+#titleFooter {
 	color: white;
 	margin-top: 10px;
 }
-#textFooter{
+#textFooter {
 	color: white;
 }
 /*rodape*/
 
-.column{
+.column {
 	padding-top: 0px;
 }
