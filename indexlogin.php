@@ -27,12 +27,12 @@
                                 <div class="form-floating mb-3 mt-3">
                                     <input type="text" class="form-control" id="email" name='nome_login' required
                                         placeholder="Digite o seu Email" name="Email">
-                                    <label for="email">Email</label>
+                                    <label>Email</label>
                                 </div>
                                 <div class="form-floating mt-3 mb-3">
-                                    <input type="password" class="form-control" id="pwd" placeholder="Enter password"
-                                        name='senha' required>
-                                    <label for="senha">Senha</label>
+                                    <input type="password" class="form-control" id="pwd"
+                                        placeholder="Entre com sua Senha" name='senha' required>
+                                    <label>Senha</label>
                                 </div>
                                 <div class="container" style="margin:10px">
                                     <div style="text-align:right">
@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="row m-auto">
                                     <button type="submit" class="btn btn-success btn-lg btn-block"
-                                        style="font-size:16px" value="Logar">Enviar</button>
+                                        style="font-size:16px" value="Logar">Entrar</button>
                                 </div>
                                 <div class="container" style="margin:10px">
                                     <div style="text-align:center">

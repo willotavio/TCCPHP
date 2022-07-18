@@ -120,25 +120,6 @@ li a:hover {
 }
 /*nav bar*/
 
-/*login*/
-#caixaLogin {
-	transform: translate(-50%, -50%);
-}
-
-.formsLink {
-	color: green;
-	text-decoration: none;
-	padding-bottom: 20px;
-	display: flex;
-}
-
-#divFormularioLink {
-	padding: 0;
-	margin-bottom: 10px;
-	text-align: center;
-}
-/*login*/
-
 /*home*/
 #logo {
 	padding-top: 30px;
@@ -197,24 +178,6 @@ table {
 	padding-bottom: 20px;
 }
 /*conta*/
-
-/*CadastroConta*/
-#btnCadastrar {
-	width: 200px;
-	padding: 10px;
-	border: transparent;
-	background-color: rgb(30, 116, 56);
-	color: white;
-	border-radius: 10px;
-	font-size: 15px;
-	transition-duration: 0.4s;
-}
-
-#btnCadastrar:hover {
-	border: transparent;
-}
-
-/*CadastroConta*/
 
 /*inputs*/
 .divFormulario {
