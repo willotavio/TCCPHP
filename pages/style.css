@@ -6,27 +6,13 @@ body {
 	background: url("../../imgs/background2.jpg") fixed;
 	color: white;
 	text-align: center;
-	font-size: 26px;
-	font-family: Arial, Helvetica, sans-serif;
 	display: flex;
 	flex-direction: column;
 	min-height: 100%;
 }
-input {
-	padding: 10px;
-	margin: 10px;
-	font-size: 16px;
-	color: white;
-}
 
-td {
-	padding-top: 20px;
-}
+/* Fim OK */
 
-div {
-	padding: 20px;
-	height: auto;
-}
 .caixa {
 	border-left: outset 15px rgb(36, 133, 65);
 	font-size: 16px;
@@ -58,31 +44,6 @@ div {
 	box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.582), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-/*nav bar*/
-
-nav {
-	background-color: rgb(36, 133, 65);
-}
-
-/*nav bar*/
-
-/*home*/
-#logo {
-	padding-top: 30px;
-	transform: translate(32%, -60%);
-}
-#subTitleHome {
-	transform: translateY(-70%);
-	text-align: center;
-}
-.botoesHome {
-	padding: 5px;
-}
-#caixaHome {
-	transform: translate(-50%, -50%);
-}
-/*home*/
-
 /*cadastro*/
 #caixaCad {
 	transform: translate(-50%, -30%);
@@ -103,10 +64,6 @@ nav {
 	transform: translate(-50%, -40%);
 }
 /*cestas*/
-
-table {
-	margin: auto;
-}
 
 /*conta*/
 #perfil {
@@ -189,16 +146,13 @@ footer {
 	margin-top: auto;
 	text-align: center;
 	background-color: rgb(36, 133, 65);
+	padding-top: 2px;
+	padding-bottom: 2px;
 }
 #titleFooter {
 	color: white;
-	margin-top: 10px;
 }
 #textFooter {
 	color: white;
 }
 /*rodape*/
-
-.column {
-	padding-top: 0px;
-}

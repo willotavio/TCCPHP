@@ -22,8 +22,8 @@
                         style="background-color:white;border-radius:20px; padding-bottom:10px;  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-style: none none none solid; border-color: rgba(25,135,84,255); border-width: 12px;">
                         <div class="container mt-3">
                             <form method="POST" action="login/logar.php" autocomplete="off">
-                                <h1 style="text-align:center; font-size:25px; padding:15px; color:rgba(25,135,84,255)">
-                                    LOGIN</h1>
+                                <h2 style="text-align:center; font-size:25px; padding:15px; color:rgba(25,135,84,255)">
+                                    LOGIN</h2>
                                 <div class="form-floating mb-3 mt-3">
                                     <input type="text" class="form-control" id="email" name='nome_login' required
                                         placeholder="Digite o seu Email" name="Email">

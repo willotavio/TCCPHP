@@ -56,7 +56,7 @@ class cestasDao{
 
         if($final){
             echo "<script LANGUAGE= 'JavaScript'>
-                window.alert('Deletada com sucesso');
+                window.alert('Deletado com sucesso');
                 window.location.href='../../pages/principal/indexcestas.php';
                 </script>";
         }

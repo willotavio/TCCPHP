@@ -29,29 +29,37 @@
 <header id="header"></header>
 
 <body>
+    <div class="container"
+        style="border-style:solid; border-radius:20px; background-image: linear-gradient(to bottom right,yellow,green); border-color:black; margin-top:20px;margin-bottom:20px">
+        <div class="col">
+            <h2 style="color:black;font-size:26px;text-align:center">Conta</h2>
+            <div class="container">
+                <div class="row" style="text-align:center">
 
-    <div class="caixa" id="caixaConta">
-        <h1 id='titleConta'>CONTA</h1>
-        <img id="perfil" src="../../imgs/conta/fotoPerfil.png">
+                    <div class="col">
+                        <img src="../../imgs/conta/fotoPerfil.png" style="border-radius:10px; text-align:center"
+                            width="20%"></td>
+                        <p style="color:black"><b>Login:</b> Administrador1<br></p>
+                        <p style="color:black"><b>Email:</b> Administrador@gmail.com
+                        </p>
+                    </div>
 
-        <div>
-            <p>Nome:</p>
-            <br>
-            <p>Email:</p>
-            <br>
-            <form action='../../indexlogin.php'>
-                <td class='botoesConta'>
-                    <p><input type='submit' value="Sair"></p>
-                </td>
-            </form>
+
+
+                </div>
+            </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+
+
+    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
 </body>
-
-<?php include('footer.php');?>
+<div class="container-fluid" style="padding:0; margin-top:7%;">
+    <?php include('footer.php');?>
+</div>
+<?p
 
 </html>

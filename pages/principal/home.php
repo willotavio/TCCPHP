@@ -17,6 +17,10 @@
     });
     </script>
     <style>
+    <?php include '../style.css';
+    ?>
+    </style>
+    <style>
     .buttonH {
         margin-top: 20px;
         border: none;
@@ -44,7 +48,7 @@
 <body>
     <header id="header"></header>
     <div class="container"
-        style="background-image: linear-gradient( green, yellow); margin-top:50px; border-radius:20px; border-style:solid; border-color:green; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        style="background-image: linear-gradient(to bottom right,yellow,green); margin-top:50px; border-radius:20px; border-style:solid; border-color:green; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
         <div class="container-fluid">
             <div class="col">
                 <div class="row" style="text-align:center">
@@ -56,7 +60,7 @@
         <div class=" container" style=" border-radius:0 0 20px 20px;">
             <div class="col">
                 <div class="row">
-                    <p style="text-align:center; color:green; margin-top:5px; font-size:20px"><b>Bem-Vindo!
+                    <p style="text-align:center; color:white; margin-top:5px; font-size:20px"><b>Bem-Vindo!
                             <br>O que deseja acessar?
                     </p></b>
                 </div>
@@ -81,15 +85,16 @@
                         onclick="window.location.href='indexconta.php'">Contas</button>
                 </div>
             </div>
-
-
-
         </div>
+    </div>
+    <div class="container-fluid" style="padding:0; margin-top:8%;">
+        <?php include('footer.php');?>
+    </div>
 
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
 
 
 </html>
