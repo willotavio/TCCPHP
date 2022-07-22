@@ -60,6 +60,5 @@
 <div class="container-fluid" style="padding:0; margin-top:7%;">
     <?php include('footer.php');?>
 </div>
-<?p
 
 </html>

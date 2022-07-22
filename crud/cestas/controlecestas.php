@@ -16,9 +16,5 @@ $cesDao = new cestasDao();
 
 if($botao=='Cadastrar'){
     $cesDao->cadastrarCesta($ces);
-    }else if($botao=='Atualizar'){
-        $cesDao->atualizarCesta($ces);
-    }else if($botao=='Deletar'){
-        $cesDao->deletarCesta($idCestas);
     }
 ?>
