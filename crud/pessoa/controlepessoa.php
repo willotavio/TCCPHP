@@ -1,43 +1,50 @@
 <?php
-$codigo = filter_input(INPUT_GET,'codigo');
 $nome =  filter_input(INPUT_GET,'nome');
 $dataNasc =  filter_input(INPUT_GET,'dataNasc');
 $celular =  filter_input(INPUT_GET,'celular');
-$whatsapp = filter_input(INPUT_GET,'whatsapp');
 $telefone =  filter_input(INPUT_GET,'telefone');
 $email =  filter_input(INPUT_GET,'email');
-$cepPessoa =  filter_input(INPUT_GET,'cepPessoa');
 $numRes = filter_input(INPUT_GET,'numRes');
 $complemento =  filter_input(INPUT_GET,'complemento');
-$dataAtendimento =  filter_input(INPUT_GET,'dataAtendimento');
+$sexoP= filter_input(INPUT_GET,'sexoP');
 $botao =  filter_input(INPUT_GET,'botao');
-$codCep = filter_input(INPUT_GET,'cepPessoa');
+$cep = filter_input(INPUT_GET,'cep');
+$rua = filter_input(INPUT_GET,'rua');
+$bairro = filter_input(INPUT_GET,'bairro');
+$estado = filter_input(INPUT_GET,'estado');
+$cidade = filter_input(INPUT_GET,'cidade');
+include 'contato.php';
 include 'pessoa.php';
-include 'cep.php';
+include 'codigoEnderecoPostal.php';
 $pes = new pessoa();
-$cep = new cep();
+$codigoEnderecoPostal = new codigoEnderecoPostal();
+$contato = new contato();
 
-$cep->setCodCep($codCep);
-$pes->setCodigo($codigo);
+
+if($sexoP=="F"){
+    $testeP="F";
+}else if ($sexoP=="M"){
+    $testeP="M";
+}
+
+$codigoEnderecoPostal->setCep($cep);
+$codigoEnderecoPostal->setRua($rua);
+$codigoEnderecoPostal->setBairro($bairro);
+$codigoEnderecoPostal->setEstado($estado);
+$codigoEnderecoPostal->setCidade($cidade);
+$contato->setTelefone($telefone);
+$contato->setCelular($celular);
+$contato->setEmail($email);
 $pes->setNome($nome);
 $pes->setdataNasc($dataNasc);
-$pes->setCelular($celular);
-$pes->setWhatsapp($whatsapp);
-$pes->setTelefone($telefone);
-$pes->setEmail($email);
-$pes->setcepPessoa($cepPessoa);
 $pes->setnumRes($numRes);
 $pes->setComplemento($complemento);
-$pes->setdataAtendimento($dataAtendimento);
+$pes->setSexoP($testeP);
 
 include 'pessoaDAO.php';
 $pesDao = new pessoaDao();
 
 if($botao=='Cadastrar'){
-    $pesDao->cadastrarPessoa($pes, $cep);
-  }else if ($botao=='Atualizar'){
-      $pesDao->atualizarPessoa($pes);
-    }else if ($botao=='Deletar'){
-      $pesDao->deletarPessoa($codigo);
-    }
+    $pesDao->cadastrarPessoa($pes, $codigoEnderecoPostal, $contato);
+  }
 ?>

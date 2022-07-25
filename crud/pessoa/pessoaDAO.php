@@ -25,29 +25,39 @@
             }
         }
 
-        public function cadastrarPessoa(Pessoa $p, cep $c){
-            $sqlCep = 'insert into cep (codigo_cep) values (?)';
+        public function cadastrarPessoa(Pessoa $p, CodigoEnderecoPostal $c, Contato $cont){
+            $sqlCep = 'insert into codigoEnderecoPostal (cep, rua, bairro, estado, cidade) values (?,?,?,?,?)';
             $banco = new conexao();
             $con = $banco->getConexao();
             $resultado = $con->prepare($sqlCep);
-            $resultado->bindValue(1, $c->getCodCep());
+            $resultado->bindValue(1, $c->getCep());
+            $resultado->bindValue(2, $c->getRua());
+            $resultado->bindValue(3, $c->getBairro());
+            $resultado->bindValue(4, $c->getEstado());
+            $resultado->bindValue(5, $c->getCidade());
             $final = $resultado->execute();
+            $recIdCep= $con->lastInsertId();
 
-            $sql = 'insert into pessoa (codigo_pessoa, nome_pessoa, data_nascimento, celular, whatsapp, telefone, email, cep_pessoa, numero_casa, complemento, data_atendimento) values (?,?,?,?,?,?,?,?,?,?,?)';
-            $resultado = $con->prepare($sql);
-            $resultado->bindValue(1, $p->getCodigo());
-            $resultado->bindValue(2, $p->getNome());
-            $resultado->bindValue(3, $p->getdataNasc());
-            $resultado->bindValue(4, $p->getCelular());
-            $resultado->bindValue(5, $p->getWhatsapp());
-            $resultado->bindValue(6, $p->getTelefone());
-            $resultado->bindValue(7, $p->getEmail());
-            $resultado->bindValue(8, $p->getcepPessoa());
-            $resultado->bindValue(9, $p->getnumRes());
-            $resultado->bindValue(10, $p->getComplemento());
-            $resultado->bindValue(11, $p->getdataAtendimento());
+            $sqlCont = 'insert into contato (telefone,celular,email) values (?,?,?)';
+            $resultado1 = $con->prepare($sqlCont);
+            $resultado1->bindvalue(1, $cont->getTelefone());
+            $resultado1->bindvalue(2, $cont->getCelular());
+            $resultado1->bindvalue(3, $cont->getEmail());
+            $final = $resultado1->execute();
+            $recIdCont = $con->lastInsertId();
+            
+            $sqlPes = 'insert into pessoa (nome_pessoa, data_nascimento_pessoa, n_pessoa, complemento_pessoa,sexo_pessoa,pessoa_cep,pessoa_contato) values (?,?,?,?,?,?,?)';
+            $resultado2 = $con->prepare($sqlPes);
+            $resultado2->bindValue(1, $p->getNome());
+            $resultado2->bindValue(2, $p->getdataNasc());
+            $resultado2->bindValue(3, $p->getNumRes());
+            $resultado2->bindValue(4, $p->getComplemento());
+            $resultado2->bindValue(5, $p->getSexoP()); 
+            $resultado2->bindValue(6, $p->$recIdCep);
+            $resultado2->bindValue(7, $p->$recIdCont); 
+            $final = $resultado2->execute();
 
-            $final = $resultado->execute();
+            /* update pessoa set data = curdate(); */
 
             if($final){
                 echo "<script LANGUAGE= 'JavaScript'>
@@ -56,8 +66,27 @@
                 </script>";
             }
         }
-        
-        public function atualizarPessoa(Pessoa $p){
+
+        public function consultarPessoa(){
+            $sql = 'select * from pessoa';
+
+            $banco = new conexao();
+            $con = $banco->getConexao();
+            $resultado = $con->prepare($sql);
+            $resultado->execute();
+            if($resultado->rowCount()>0){
+                $valor = $resultado->fetchAll(\PDO::FETCH_ASSOC);
+                return $valor;
+            }
+        }
+
+    }//finalclass
+?>
+
+
+
+
+<!-- public function atualizarPessoa(Pessoa $p){
             $sql='update pessoa set nome_pessoa=?, data_nascimento=?, celular=?, whatsapp=?, telefone=?, email=?, cep_pessoa=?, numero_casa=?, complemento=?, data_atendimento=? where codigo_pessoa=?';
 
             $banco = new conexao();
@@ -101,20 +130,4 @@
                 window.location.href='../../pages/principal/indexpessoa.php';
                 </script>";
             }
-        }
-
-        public function consultarPessoa(){
-            $sql = 'select * from pessoa';
-
-            $banco = new conexao();
-            $con = $banco->getConexao();
-            $resultado = $con->prepare($sql);
-            $resultado->execute();
-            if($resultado->rowCount()>0){
-                $valor = $resultado->fetchAll(\PDO::FETCH_ASSOC);
-                return $valor;
-            }
-        }
-
-    }//finalclass
-?>
+        } -->

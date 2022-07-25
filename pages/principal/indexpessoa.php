@@ -57,10 +57,6 @@
                                         <div class="modal-body">
                                             <form action='../../crud/pessoa/controlepessoa.php' method='GET'>
                                                 <p>
-                                                    <input class="inputModalCadastro" type="number" min="0"
-                                                        name="codigo" placeholder="Código" />
-                                                </p>
-                                                <p>
                                                     <input class="inputModalCadastro" type="text" name="nome"
                                                         placeholder="Nome" />
                                                 </p>
@@ -69,15 +65,18 @@
                                                         placeholder="Data de Nascimento" />
                                                 </p>
                                                 <p>
-                                                    <input class="inputModalCadastro" type="number" name="celular"
+                                                    <select class="form-select" aria-label="Default select example"
+                                                        name="sexoP">
+                                                        <option value="F">Feminino</option>
+                                                        <option value="M">Masculino</option>
+                                                    </select>
+                                                </p>
+                                                <p>
+                                                    <input class="inputModalCadastro" type="text" name="celular"
                                                         placeholder="Celular" />
                                                 </p>
                                                 <p>
-                                                    <input class="inputModalCadastro" type="number" name="whatsapp"
-                                                        placeholder="Whatsapp" />
-                                                </p>
-                                                <p>
-                                                    <input class="inputModalCadastro" type="number" name="telefone"
+                                                    <input class="inputModalCadastro" type="text" name="telefone"
                                                         placeholder="Telefone" />
                                                 </p>
                                                 <p>
@@ -85,8 +84,50 @@
                                                         placeholder="Email" />
                                                 </p>
                                                 <p>
-                                                    <input class="inputModalCadastro" type="text" name="cepPessoa"
+                                                    <input class="inputModalCadastro" type="text" name="cep"
                                                         placeholder="CEP" />
+                                                </p>
+                                                <p>
+                                                    <input class="inputModalCadastro" type="text" name="rua"
+                                                        placeholder="Rua" />
+                                                </p>
+                                                <p>
+                                                    <input class="inputModalCadastro" type="text" name="bairro"
+                                                        placeholder="Bairro" />
+                                                </p>
+                                                <p>
+                                                    <input class="inputModalCadastro" type="text" name="cidade"
+                                                        placeholder="Cidade" />
+                                                </p>
+                                                <p>
+                                                    <select class="form-select" aria-label="Default select example"
+                                                        name="estado">
+                                                        <option selected>Selecione o Estado</option>
+                                                        <option value="AC">AC</option>
+                                                        <option value="AL">AL</option>
+                                                        <option value="AM">AM</option>
+                                                        <option value="BA">BA</option>
+                                                        <option value="CE">CE</option>
+                                                        <option value="ES">ES</option>
+                                                        <option value="GO">GO</option>
+                                                        <option value="MA">MA</option>
+                                                        <option value="MT">MT</option>
+                                                        <option value="MS">MS</option>
+                                                        <option value="MG">MG</option>
+                                                        <option value="PA">PA</option>
+                                                        <option value="PE">PE</option>
+                                                        <option value="PI">PI</option>
+                                                        <option value="RJ">RJ</option>
+                                                        <option value="RN">RN</option>
+                                                        <option value="RS">RS</option>
+                                                        <option value="RO">RO</option>
+                                                        <option value="RR">RR</option>
+                                                        <option value="SC">SC</option>
+                                                        <option value="SP">SP</option>
+                                                        <option value="SE">SE</option>
+                                                        <option value="TO">TO</option>
+                                                        <option value="DF">DF</option>
+                                                    </select>
                                                 </p>
                                                 <p>
                                                     <input class="inputModalCadastro" type="number" name="numRes"
@@ -96,10 +137,7 @@
                                                     <input class="inputModalCadastro" type="text" name="complemento"
                                                         placeholder="Complemento" />
                                                 </p>
-                                                <p>
-                                                    <input class="inputModalCadastro" type="date" name="dataAtendimento"
-                                                        placeholder="Data de Atendimento" />
-                                                </p>
+
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
@@ -209,7 +247,7 @@
                                                         placeholder="Email" />
                                                 </p>
                                                 <p>
-                                                    <input class="inputModalCadastro" type="text" name="cepPessoa"
+                                                    <input class="inputModalCadastro" type="text" name="cep"
                                                         placeholder="CEP" />
                                                 </p>
                                                 <p>
@@ -248,9 +286,9 @@
                         <table class="table text-white">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
                                     <th scope="col">Nome</th>
                                     <th scope="col">Data de Nascimento</th>
+                                    <th scope="col">Sexo</th>
                                     <th scope="col">Celular</th>
                                     <th scope="col">Telefone</th>
                                     <th scope="col">Email</th>
@@ -266,15 +304,15 @@
                     
                     while($userdata = mysqli_fetch_assoc($resultados_pessoa)){
                         echo "<tr>";
-                        echo "<td>".$userdata['codigo_pessoa']."</td>";
                         echo "<td>".$userdata['nome_pessoa']."</td>";
-                        echo "<td>".$userdata['data_nascimento']."</td>";
+                        echo "<td>".$userdata['data_nascimento_pessoa']."</td>";
+                        echo "<td>".$userdata['sexo_pessoa']."</td>";
                         echo "<td>".$userdata['celular']."</td>";
                         echo "<td>".$userdata['telefone']."</td>";
-                        echo "<td>".$userdata['email']."</td>";
-                        echo "<td>".$userdata['cep_pessoa']."</td>";
-                        echo "<td>".$userdata['numero_casa']."</td>";
-                        echo "<td>".$userdata['complemento']."</td>";
+                        echo "<td>".$userdata['email_pessoa']."</td>";
+                        echo "<td>".$userdata['cep']."</td>";
+                        echo "<td>".$userdata['n_pessoa']."</td>";
+                        echo "<td>".$userdata['complemento_pessoa']."</td>";
                         echo "<td>".$userdata['data_atendimento']."</td>";
                         echo "</tr>";
                     }

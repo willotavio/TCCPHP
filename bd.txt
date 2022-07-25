@@ -1,6 +1,14 @@
 create database ong;
 use ong;
 
+create table contas(
+	idContas int(4) primary key auto_increment not null,
+	nome_contas varchar(40) not null,
+	valor_contas decimal (6,3) not null,
+	data_cadastro_contas date not null,
+	data_pagamentos_contas date not null
+);
+
 create table usuario(
 nome_login varchar(10) not null,
 senha varchar(20) not null,
@@ -13,24 +21,38 @@ idCestas int(4) primary key not null auto_increment,
 quantidade_cestas int(4) not null,
 recebimento_cestas date not null
 );
-create table cep(
-	codigo_cep int(8) primary key
+
+create table codigoEnderecoPostal(
+	cep	int (8) primary key not null,
+	rua	varchar(45) not null,
+	bairro	varchar(25) not null,
+	estado	char(2) not null,
+	cidade	varchar(25) not null
+);
+
+create table contato(
+	idContato int(4) primary key not null auto_increment,
+	telefone char(10),
+	celular char(11),
+    email varchar(90)
 );
 
 create table pessoa(
-	codigo_pessoa int not null primary key auto_increment,
-    	nome_pessoa varchar(90) not null,
-    	data_nascimento date not null,
-    	celular int(11),
-    	whatsapp int(11),
-	telefone int(10),
-	email varchar(90),
-    	cep_pessoa int(8) not null,
-    	foreign key(cep_pessoa) references cep(codigo_cep),
-	numero_casa int not null,
-    	complemento varchar(45),
-	data_atendimento date
+idPessoa int(4) primary key not null auto_increment,
+pessoa_cep int (8),
+pessoa_contato	int (4),
+nome_pessoa	varchar(90) not null,
+data_nascimento_pessoa date,
+complemento_pessoa	varchar(40),
+n_pessoa int(5),
+data_atendimento date,
+sexo_pessoa	char(1),
+foreign key(pessoa_cep) references codigoEnderecoPostal(cep),
+foreign key(pessoa_contato) references contato(idcontato)
 );
+
+
+
 
 insert into usuario (nome_login,senha,tipo,email_usuario) values(
 "mahki","123","ADMINISTRADOR","mahkI@hotmail.com"
@@ -38,98 +60,30 @@ insert into usuario (nome_login,senha,tipo,email_usuario) values(
 
 
 
+ /*
+update pessoa set data = curdate();
 
 
-insert into pessoa (codigo_pessoa, nome_pessoa, data_nascimento, celular, whatsapp, telefone, email, cep_pessoa, numero_casa, complemento, data_atendimento) 
-values (3,"mahki","23/07/1980",11996067409,11996067407,1141785401,"mahki2HOTMAIL.COM", 9692000,"34","rty","12/02/2022");
-insert into pessoa values (
-
-"1","lko","23/07/1980","123456","123456","123456","qwe","123","34","rty",
-"12/02/2022");
-/*
-create database ong;
-use ong;
-
-create table Contas(
-idContas int(4) primary key auto_increment not null,
-nome_contas varchar(40) not null,
-valor_contas decimal (6,3) not null,
-data_cadastro_contas date not null,
-data_pagamentos_contas date not null
+create table administrador (
+	idAdministrador	int (4) primary key not null auto_increment,
+	nome_completo_adm varchar(40) not null,
+	data_nascimento_adm	date,
+	sexo_adm char(1),
+	adm_usuario varchar(10),
+	foreign key (adm_usuario) references Usuario(nome)
 );
 
-create table Usuario(
-nome varchar(10) primary key not null,
-senha varchar(20) not null,
-tipo varchar(14) not null,
-email_usuario varchar(90) not null
-);
-
-create table Pessoa(
-idPessoa int(4) primary key not null auto_increment,
-pessoa_cep int (8),
-pessoa_telefone	int (4),
-nome_pessoa	varchar(40) not null,
-data_nascimento_pessoa date,
-complemento_pessoa	varchar(40),
-n_pessoa int(5),
-email_pessoa varchar(90),
-data_atendimento datetime,
-sexo_pessoa	char(9),
-foreign key(pessoa_cep) references CodigoEnderecoPostal(cep),
-foreign key(pessoa_telefone) references Telefone(idTelefone)
-);
-
-create table Administrador (
-idAdministrador	int (4) primary key not null auto_increment,
-nome_completo_adm varchar(40) not null,
-data_nascimento_adm	date,
-sexo_adm char(9),
-celular_adm	int (11),
-adm_usuario varchar(10),
-foreign key (adm_usuario) references Usuario(nome)
-);
-
-create table Contas(
-idContas int (4) primary key not null auto_increment,
-nome_contas	varchar(40) not null,
-valor_contas decimal(6,3) not null,
-data_cadastro_contas date not null,
-data_pagamento_contas date not null
-);
-
-create table CodigoEnderecoPostal(
-cep	int (8) primary key not null,
-rua	varchar(45) not null,
-bairro	varchar(25) not null,
-estado	char(2) not null,
-cidade	varchar(25) not null
-);
-
-create table Funcionario(
-idFuncionario int (4) primary key not null auto_increment,
-nome_completo_func varchar(40) not null,
-data_nascimento_func date,
-sexo_func char(9),
-celular_func int (11),
-func_usuario varchar(10),
-foreign key (func_usuario) references Usuario(nome)
-);
-
-create table Cestas(
-idCestas int(4) primary key not null auto_increment,
-quantidade_cestas int(4) not null,
-recebimento_cestas date not null
-);
-
-create table Telefone(
-idTelefone int(4) primary key not null auto_increment,
-telefone int(10) not null,
-celular int(11) not null
-);
+create table funcionario(
+	idFuncionario int (4) primary key not null auto_increment,
+	nome_completo_func varchar(40) not null,
+	data_nascimento_func date,
+	sexo_func char(1),
+	func_usuario varchar(10),
+	foreign key (func_usuario) references Usuario(nome)
+);*/
 
 
 
 
 
-*/
+
