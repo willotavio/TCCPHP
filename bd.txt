@@ -61,7 +61,7 @@ insert into usuario (nome_login,senha,tipo,email_usuario) values(
 
 
  /*
-update pessoa set data = curdate();
+update pessoa set data_atendimento = curdate() where idPessoa in(2,3);
 
 
 create table administrador (

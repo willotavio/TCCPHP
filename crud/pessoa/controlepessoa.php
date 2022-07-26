@@ -13,6 +13,9 @@ $rua = filter_input(INPUT_GET,'rua');
 $bairro = filter_input(INPUT_GET,'bairro');
 $estado = filter_input(INPUT_GET,'estado');
 $cidade = filter_input(INPUT_GET,'cidade');
+$cepPessoa = filter_input(INPUT_GET,'cep');
+$contPessoa = "1";
+
 include 'contato.php';
 include 'pessoa.php';
 include 'codigoEnderecoPostal.php';
@@ -40,6 +43,18 @@ $pes->setdataNasc($dataNasc);
 $pes->setnumRes($numRes);
 $pes->setComplemento($complemento);
 $pes->setSexoP($testeP);
+$pes->setCepessoa($cep);
+session_start();
+if($_SESSION['contatoId']!=0 || $_SESSION['contatoId']==null){
+    $pes->setContPessoa($_SESSION['contatoId']+1);
+}else{
+    $pes->setContPessoa($valorInicial);
+}
+
+
+
+
+
 
 include 'pessoaDAO.php';
 $pesDao = new pessoaDao();

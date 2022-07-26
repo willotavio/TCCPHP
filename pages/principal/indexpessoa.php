@@ -35,7 +35,6 @@
         <div class="container-fluid">
             <div class="column">
                 <div class="row">
-
                     <!-- Cadastro -->
                     <div class="col-2 m-auto">
                         <div id="modalCadastro">

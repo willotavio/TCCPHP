@@ -36,7 +36,6 @@
             $resultado->bindValue(4, $c->getEstado());
             $resultado->bindValue(5, $c->getCidade());
             $final = $resultado->execute();
-            $recIdCep= $con->lastInsertId();
 
             $sqlCont = 'insert into contato (telefone,celular,email) values (?,?,?)';
             $resultado1 = $con->prepare($sqlCont);
@@ -44,7 +43,10 @@
             $resultado1->bindvalue(2, $cont->getCelular());
             $resultado1->bindvalue(3, $cont->getEmail());
             $final = $resultado1->execute();
+            session_start();
             $recIdCont = $con->lastInsertId();
+            $_SESSION['contatoId'] = $recIdCont;
+
             
             $sqlPes = 'insert into pessoa (nome_pessoa, data_nascimento_pessoa, n_pessoa, complemento_pessoa,sexo_pessoa,pessoa_cep,pessoa_contato) values (?,?,?,?,?,?,?)';
             $resultado2 = $con->prepare($sqlPes);
@@ -53,8 +55,8 @@
             $resultado2->bindValue(3, $p->getNumRes());
             $resultado2->bindValue(4, $p->getComplemento());
             $resultado2->bindValue(5, $p->getSexoP()); 
-            $resultado2->bindValue(6, $p->$recIdCep);
-            $resultado2->bindValue(7, $p->$recIdCont); 
+            $resultado2->bindValue(6, $p->getCepessoa());
+            $resultado2->bindValue(7, $p->getContPessoa()); 
             $final = $resultado2->execute();
 
             /* update pessoa set data = curdate(); */
@@ -73,7 +75,7 @@
             $banco = new conexao();
             $con = $banco->getConexao();
             $resultado = $con->prepare($sql);
-            $resultado->execute();
+            $resultado->execute();8 
             if($resultado->rowCount()>0){
                 $valor = $resultado->fetchAll(\PDO::FETCH_ASSOC);
                 return $valor;
