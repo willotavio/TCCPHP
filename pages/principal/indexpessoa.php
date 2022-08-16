@@ -1,9 +1,3 @@
-    <?php
-    include_once ("../../connection/testeconexao.php");
-    $sql= "SELECT * FROM pessoa";
-    $resultados_pessoa= mysqli_query($conexaoTeste, $sql);
-    ?>
-
     <!DOCTYPE html>
     <html lang="pt-br">
 
@@ -66,8 +60,8 @@
                                                 <p>
                                                     <select class="form-select" aria-label="Default select example"
                                                         name="sexoP">
-                                                        <option value="F">Feminino</option>
-                                                        <option value="M">Masculino</option>
+                                                        <option value="F" name="sexoP">Feminino</option>
+                                                        <option value="M" name="sexoP">Masculino</option>
                                                     </select>
                                                 </p>
                                                 <p>
@@ -102,30 +96,30 @@
                                                     <select class="form-select" aria-label="Default select example"
                                                         name="estado">
                                                         <option selected>Selecione o Estado</option>
-                                                        <option value="AC">AC</option>
-                                                        <option value="AL">AL</option>
-                                                        <option value="AM">AM</option>
-                                                        <option value="BA">BA</option>
-                                                        <option value="CE">CE</option>
-                                                        <option value="ES">ES</option>
-                                                        <option value="GO">GO</option>
-                                                        <option value="MA">MA</option>
-                                                        <option value="MT">MT</option>
-                                                        <option value="MS">MS</option>
-                                                        <option value="MG">MG</option>
-                                                        <option value="PA">PA</option>
-                                                        <option value="PE">PE</option>
-                                                        <option value="PI">PI</option>
-                                                        <option value="RJ">RJ</option>
-                                                        <option value="RN">RN</option>
-                                                        <option value="RS">RS</option>
-                                                        <option value="RO">RO</option>
-                                                        <option value="RR">RR</option>
-                                                        <option value="SC">SC</option>
-                                                        <option value="SP">SP</option>
-                                                        <option value="SE">SE</option>
-                                                        <option value="TO">TO</option>
-                                                        <option value="DF">DF</option>
+                                                        <option value="AC" name="estado">AC</option>
+                                                        <option value="AL" name="estado">AL</option>
+                                                        <option value="AM" name="estado">AM</option>
+                                                        <option value="BA" name="estado">BA</option>
+                                                        <option value="CE" name="estado">CE</option>
+                                                        <option value="ES" name="estado">ES</option>
+                                                        <option value="GO" name="estado">GO</option>
+                                                        <option value="MA" name="estado">MA</option>
+                                                        <option value="MT" name="estado">MT</option>
+                                                        <option value="MS" name="estado">MS</option>
+                                                        <option value="MG" name="estado">MG</option>
+                                                        <option value="PA" name="estado">PA</option>
+                                                        <option value="PE" name="estado">PE</option>
+                                                        <option value="PI" name="estado">PI</option>
+                                                        <option value="RJ" name="estado">RJ</option>
+                                                        <option value="RN" name="estado">RN</option>
+                                                        <option value="RS" name="estado">RS</option>
+                                                        <option value="RO" name="estado">RO</option>
+                                                        <option value="RR" name="estado">RR</option>
+                                                        <option value="SC" name="estado">SC</option>
+                                                        <option value="SP" name="estado">SP</option>
+                                                        <option value="SE" name="estado">SE</option>
+                                                        <option value="TO" name="estado">TO</option>
+                                                        <option value="DF" name="estado">DF</option>
                                                     </select>
                                                 </p>
                                                 <p>
@@ -298,24 +292,31 @@
                                 </tr>
                             </thead>
                             <tbody>
-
                                 <?php 
-                    
-                    while($userdata = mysqli_fetch_assoc($resultados_pessoa)){
-                        echo "<tr>";
-                        echo "<td>".$userdata['nome_pessoa']."</td>";
-                        echo "<td>".$userdata['data_nascimento_pessoa']."</td>";
-                        echo "<td>".$userdata['sexo_pessoa']."</td>";
-                        echo "<td>".$userdata['celular']."</td>";
-                        echo "<td>".$userdata['telefone']."</td>";
-                        echo "<td>".$userdata['email_pessoa']."</td>";
-                        echo "<td>".$userdata['cep']."</td>";
-                        echo "<td>".$userdata['n_pessoa']."</td>";
-                        echo "<td>".$userdata['complemento_pessoa']."</td>";
-                        echo "<td>".$userdata['data_atendimento']."</td>";
-                        echo "</tr>";
-                    }
-                    ?>
+                                    
+                                include_once ("../../connection/conexao.php");
+                                $sql= "SELECT pessoa.idPessoa, pessoa.pessoa_cep, pessoa.nome_pessoa,pessoa.data_nascimento_pessoa,pessoa.complemento_pessoa,pessoa.n_pessoa,
+                                pessoa.data_atendimento,pessoa.sexo_pessoa,contato.telefone,contato.celular,contato.email FROM pessoa INNER JOIN contato ON pessoa.idPEssoa = contato.IdContato";
+                                $banco = new conexao();
+                                $con = $banco->getConexao();
+                                $resultados_pessoa= $con->query($sql);
+                
+                                
+                                while($row = $resultados_pessoa->fetch()){
+                                    echo "<tr>";
+                                    echo "<td>".$row['nome_pessoa']."</td>";
+                                    echo "<td>".$row['data_nascimento_pessoa']."</td>";
+                                    echo "<td>".$row['sexo_pessoa']."</td>";
+                                    echo "<td>".$row['celular']."</td>";
+                                    echo "<td>".$row['telefone']."</td>";
+                                    echo "<td>".$row['email']."</td>";
+                                    echo "<td>".$row['pessoa_cep']."</td>";
+                                    echo "<td style='text-align:center'>".$row['n_pessoa']."</td>";
+                                    echo "<td style='text-align:center'>".$row['complemento_pessoa']."</td>";
+                                    echo "<td>".$row['data_atendimento']."</td>";
+                                    echo "</tr>";
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>

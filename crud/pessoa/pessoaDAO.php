@@ -75,7 +75,7 @@
             $banco = new conexao();
             $con = $banco->getConexao();
             $resultado = $con->prepare($sql);
-            $resultado->execute();8 
+            $resultado->execute();
             if($resultado->rowCount()>0){
                 $valor = $resultado->fetchAll(\PDO::FETCH_ASSOC);
                 return $valor;

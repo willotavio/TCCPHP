@@ -123,9 +123,6 @@ input:focus {
 	font-size: 14px;
 	color: gray;
 }
-input[type="date"]::-webkit-calendar-picker-indicator {
-	filter: invert(0);
-}
 input[type="date"] {
 	font-size: 10px;
 }

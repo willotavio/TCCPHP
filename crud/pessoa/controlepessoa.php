@@ -24,12 +24,6 @@ $codigoEnderecoPostal = new codigoEnderecoPostal();
 $contato = new contato();
 
 
-if($sexoP=="F"){
-    $testeP="F";
-}else if ($sexoP=="M"){
-    $testeP="M";
-}
-
 $codigoEnderecoPostal->setCep($cep);
 $codigoEnderecoPostal->setRua($rua);
 $codigoEnderecoPostal->setBairro($bairro);
@@ -42,7 +36,7 @@ $pes->setNome($nome);
 $pes->setdataNasc($dataNasc);
 $pes->setnumRes($numRes);
 $pes->setComplemento($complemento);
-$pes->setSexoP($testeP);
+$pes->setSexoP($sexoP);
 $pes->setCepessoa($cep);
 session_start();
 if($_SESSION['contatoId']!=0 || $_SESSION['contatoId']==null){
@@ -50,8 +44,6 @@ if($_SESSION['contatoId']!=0 || $_SESSION['contatoId']==null){
 }else{
     $pes->setContPessoa($valorInicial);
 }
-
-
 
 
 
