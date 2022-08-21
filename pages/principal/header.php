@@ -10,10 +10,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link " href="indexpessoa.php" style="color:white">FAMILIAS</a>
+                        <a class="nav-link " href="indexpessoa.php" id="linkBar">FAMILIAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="indexcestas.php" style="color:white">CESTAS</a>
+                        <a class="nav-link" href="indexcestas.php" id="linkBar">CESTAS</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -22,13 +22,13 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown"
                             style=" background-color: rgb(36, 133, 65);">
-                            <li><a class="dropdown-item" href="indexconta.php" style="color:white">VER PERFIL</a>
+                            <li><a class="dropdown-item" href="indexconta.php" id="linkBar">VER PERFIL</a>
                             </li>
 
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="../../indexlogin.php" style="color:white">SAIR</a>
+                            <li><a class="dropdown-item" href="../../indexlogin.php" id="linkBar">SAIR</a>
                             </li>
                         </ul>
                     </li>

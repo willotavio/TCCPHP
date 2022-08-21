@@ -3,7 +3,6 @@
 	margin: 0;
 }
 body {
-	background: url("../../imgs/background2.jpg") fixed;
 	color: white;
 	text-align: center;
 	display: flex;
@@ -11,59 +10,111 @@ body {
 	min-height: 100%;
 }
 
-/* Fim OK */
+/*home.php */
+#containerHome {
+	background-image: linear-gradient(to bottom right, yellow, green);
+	margin-top: 50px;
+	border-radius: 20px;
+	border-style: solid;
+	border-color: green;
+	box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+		rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
 
-.caixa {
-	border-left: outset 15px rgb(36, 133, 65);
-	font-size: 16px;
+.buttonH {
+	margin-top: 20px;
+	border: none;
+	color: green;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 18px;
+	border-radius: 10px;
+	border-style: solid;
+	border-color: green;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	transition-duration: 0.4s;
+}
+
+.buttonH:hover {
+	background-color: green;
+	color: white;
+}
+
+#textoPrincipalHome {
+	text-align: center;
+	color: white;
+	margin-top: 5px;
+	font-size: 20px;
+}
+/*home.php*/
+
+/*criarConta.php*/
+#containerCadastroConta {
 	background-color: white;
-	color: gray;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -44%);
-	padding: 20px;
-	border-radius: 15px;
-	border-top-right-radius: 50px;
-	box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.582), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 20px;
+	padding-bottom: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-style: none none none solid;
+	border-color: rgba(25, 135, 84, 255);
+	border-width: 12px;
+	color: black;
 }
+/*criarConta.php */
 
-.caixaCadastro {
-	border-left: outset 15px rgb(36, 133, 65);
-	font-size: 16px;
+/* esqueciSenha.php */
+#containerEsqueciSenha {
 	background-color: white;
-	color: gray;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -44%);
-	margin-top: 40px;
-	padding: 15px;
-	border-radius: 15px;
-	border-top-right-radius: 50px;
-	box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.582), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 20px;
+	padding-bottom: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-style: none none none solid;
+	border-color: rgba(25, 135, 84, 255);
+	border-width: 12px;
+	color: black;
+}
+/* esqueciSenha.php */
+
+/* indexLogin.php */
+#containerIndexLogin {
+	background-color: white;
+	border-radius: 20px;
+	padding-bottom: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-style: none none none solid;
+	border-color: rgba(25, 135, 84, 255);
+	border-width: 12px;
+	color: black;
 }
 
-/*cadastro*/
-#caixaCad {
-	transform: translate(-50%, -30%);
+.linksIndexLogin {
+	color: rgba(25, 135, 84, 255);
+	text-decoration: none;
 }
-/*cadastro*/
+/* indexLogin.php */
 
-/*cestas*/
-.aviso {
-	background-color: gray;
-	width: 200px;
-	height: 200px;
-	margin: auto;
+/*footer.php*/
+footer {
+	margin-top: auto;
+	text-align: center;
+	background-color: rgb(36, 133, 65);
+	padding-top: 2px;
+	padding-bottom: 2px;
 }
-.tableAvisos {
-	margin: auto;
+#titleFooter {
+	color: white;
 }
-#caixaCestas {
-	transform: translate(-50%, -40%);
+#textFooter {
+	color: white;
 }
-/*cestas*/
+/*footer.php*/
+
+/* header.php */
+#linkBar {
+	color: white;
+}
+/* header.php */
 
 /*conta*/
 #perfil {
@@ -80,76 +131,13 @@ body {
 	padding-top: 10px;
 	padding-bottom: 20px;
 }
+
+#containerConta {
+	border-style: solid;
+	border-radius: 20px;
+	background-image: linear-gradient(to bottom right, yellow, green);
+	border-color: black;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
 /*conta*/
-
-/*inputs*/
-.divFormulario {
-	position: relative;
-}
-input[type="submit"] {
-	color: white;
-	background-color: rgb(36, 133, 65);
-	border-radius: 10px;
-	border: transparent;
-	width: 200px;
-}
-input[type="submit"]:hover {
-	background-color: rgb(30, 116, 56);
-	border: transparent;
-}
-input {
-	padding: 10px;
-	margin: 10px;
-	font-size: 16px;
-	/*border-radius: 10px;*/
-	border: none;
-}
-input::placeholder {
-	color: gray;
-}
-input:focus {
-	outline: none;
-}
-.inputLabel {
-	position: absolute;
-	top: 30px;
-	left: 36px;
-	pointer-events: none;
-	transition: 0.5s;
-}
-.pessoa:focus ~ .inputLabel,
-.pessoa:valid ~ .inputLabel {
-	top: 5px;
-	font-size: 14px;
-	color: gray;
-}
-input[type="date"] {
-	font-size: 10px;
-}
-.pessoa {
-	background: none;
-	border: none;
-	border-bottom: 1px solid gray;
-	outline: none;
-	color: gray;
-	font-size: 15px;
-	/* 	width: 330px;
-	letter-spacing: 2px; */
-}
-/*inputs*/
-
-/*rodape*/
-footer {
-	margin-top: auto;
-	text-align: center;
-	background-color: rgb(36, 133, 65);
-	padding-top: 2px;
-	padding-bottom: 2px;
-}
-#titleFooter {
-	color: white;
-}
-#textFooter {
-	color: white;
-}
-/*rodape*/

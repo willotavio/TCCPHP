@@ -24,13 +24,13 @@
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <header id="header"></header>
 
 <body>
-    <div class="container"
-        style="border-style:solid; border-radius:20px; background-image: linear-gradient(to bottom right,yellow,green); border-color:black; margin-top:20px;margin-bottom:20px">
+    <div class="container" id="containerConta">
         <div class="col">
             <h2 style="color:black;font-size:26px;text-align:center">Conta</h2>
             <div class="container">

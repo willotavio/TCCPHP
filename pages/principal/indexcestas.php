@@ -6,34 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cestas</title>
-
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
     </script>
+    <link rel="stylesheet" href="../style.css">
     <script>
     $(function() {
         $("#header").load("header.php");
     });
     </script>
 
-    <style>
-    <?php include '../style.css';
-    ?>
-    </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 
-<header id="header"></header>
-
 <body>
-
+    <header id="header"></header>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" style="margin-bottom:15px">
             <div class="col m-auto" style="text-align:center">
                 <div id="modalCadastro">
-                    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                        style="font-size: 1.2em; width: 200px; margin-top:50px">Cadastrar <br> Cesta</button>
+                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal" style="font-size: 1.2em; width: 200px; margin-top:50px">Cadastrar
+                        <br> Cesta</button>
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
@@ -75,38 +70,35 @@
 
 
     </div>
+    <div class="container">
+        <div class="column">
+            <div class="m-2 ">
+                <table class="table" style="color:green">
+                    <thead>
+                        <tr>
+                            <th scope="col" style='text-align:center'>#</th>
+                            <th scope="col" style='text-align:center'>Quantidade</th>
+                            <th scope="col" style='text-align:center'>Data de Recebimento</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                    </thead>
 
-    <div class="column">
-        <div class="m-2 ">
-
-            <table class="table text-white">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Quantidade</th>
-                        <th scope="col">Data de Recebimento</th>
-                        <th scope="col">...</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <?php 
+                    <tbody>
+                        <?php 
                     
                     include_once ("../../connection/conexao.php");
                     $sql= "SELECT * FROM cestas";
                     $banco = new conexao();
                     $con = $banco->getConexao();
                     $resultados_cestas = $con->query($sql);
-                   
-
+            
                     while($row = $resultados_cestas->fetch()){
                     echo "<tr>";
-                        echo "<td>".$row['idCestas']."</td>";
-                        echo "<td>".$row['quantidade_cestas']."</td>";
-                        echo "<td>".$row['recebimento_cestas']."</td>";
+                        echo "<td style='text-align:center'>".$row['idCestas']."</td>";
+                        echo "<td style='text-align:center'>".$row['quantidade_cestas']."</td>";
+                        echo "<td style='text-align:center'>".$row['recebimento_cestas']."</td>";
                         echo "<td>
-                            <a class='btn btn-sm btn-light' href='indexcestasEdit.php?idCestas=$row[idCestas]'><svg
+                            <a class='btn btn-sm btn-warning' href='indexcestasEdit.php?idCestas=$row[idCestas]'><svg
                                     xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor'
                                     class='bi bi-pencil' viewBox='0 0 16 16'>
                                     <path
@@ -127,8 +119,9 @@
                         echo "</tr>";
                     }
                     ?>
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     </div>
