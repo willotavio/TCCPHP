@@ -74,20 +74,21 @@
 
     </div>
     <div class="container">
-        <div class="column">
-            <div class="m-2 ">
-                <table class="table" style="color:green">
-                    <thead>
-                        <tr>
-                            <th scope="col" style='text-align:center'>#</th>
-                            <th scope="col" style='text-align:center'>Quantidade</th>
-                            <th scope="col" style='text-align:center'>Data de Recebimento</th>
-                            <th scope="col">Ações</th>
-                        </tr>
-                    </thead>
+        <div class="overflow-auto">
+            <div class="column">
+                <div class="m-2 ">
+                    <table class="table" style="color:green">
+                        <thead>
+                            <tr>
+                                <th scope="col" style='text-align:center'>#</th>
+                                <th scope="col" style='text-align:center'>Quantidade</th>
+                                <th scope="col" style='text-align:center'>Data de Recebimento</th>
+                                <th scope="col">Ações</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        <?php 
+                        <tbody>
+                            <?php 
                     
                     include_once ("../../connection/conexao.php");
                     $sql= "SELECT * FROM cestas";
@@ -129,7 +130,7 @@
                                 <p>Deseja Realmente excluir está cesta?</p>
                                 </div>
                                 <div class='modal-footer'>
-                                  <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancelar</button>
+                                  <button type='button' class='btn btn-warning' data-bs-dismiss='modal'>Cancelar</button>
                                   <a class='btn btn-danger' href='../../crud/cestas/deleteCestas.php?idCestas=$row[idCestas]'>Confirmar</a>
                                 </div>
                               </div>
@@ -141,8 +142,9 @@
                         echo "</tr>";
                     }
                     ?>
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
