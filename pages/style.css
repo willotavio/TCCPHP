@@ -3,7 +3,6 @@
 	margin: 0;
 }
 body {
-	color: white;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
@@ -47,6 +46,10 @@ body {
 	color: white;
 	margin-top: 5px;
 	font-size: 20px;
+}
+
+#textoCardHome {
+	color: green;
 }
 /*home.php*/
 
