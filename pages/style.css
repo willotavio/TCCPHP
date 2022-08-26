@@ -144,3 +144,18 @@ footer {
 	margin-bottom: 20px;
 }
 /*conta*/
+
+
+.inputModalCadastroCesta{
+	outline: none;
+	border: none;
+	border-bottom: 1px solid black;
+	size: 100px;
+}
+
+#inputDataCadastroCesta{
+	outline: none;
+	border: none;
+	border-bottom: 1px solid black;
+	width: 185px;
+}
