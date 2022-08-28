@@ -5,10 +5,10 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="../../Js/consultaCEP.js" ></script>
+        <script src="../../Js/consultaCEP.js"></script>
         <title>Consulta</title>
 
-      
+
 
         <script src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
@@ -75,23 +75,24 @@
                                                     placeholder="Telefone" />
                                             </p>
                                             <p>
-                                                <input class="inputModalCadastro" type="text" name="email"
+                                                <input class="inputModalCadastro" type="email" name="email"
                                                     placeholder="Email" />
                                             </p>
                                             <p>
-                                                <input class="inputModalCadastro" type="text" onblur="pesquisacep(this.value);" id="cep" name="cep"
+                                                <input class="inputModalCadastro" type="text"
+                                                    onblur="pesquisacep(this.value);" id="cep" name="cep"
                                                     placeholder="CEP" />
                                             </p>
                                             <p>
-                                                <input class="inputModalCadastro" type="text" id="endereco" name="rua" 
+                                                <input class="inputModalCadastro" type="text" id="endereco" name="rua"
                                                     placeholder="Rua" />
                                             </p>
                                             <p>
-                                                <input class="inputModalCadastro" type="text" id="bairro" name="bairro" 
+                                                <input class="inputModalCadastro" type="text" id="bairro" name="bairro"
                                                     placeholder="Bairro" />
                                             </p>
                                             <p>
-                                                <input class="inputModalCadastro" type="text" id="cidade" name="cidade" 
+                                                <input class="inputModalCadastro" type="text" id="cidade" name="cidade"
                                                     placeholder="Cidade" />
                                             </p>
                                             <p>

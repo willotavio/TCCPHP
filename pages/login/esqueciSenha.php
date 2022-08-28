@@ -26,7 +26,7 @@
                                 <h1 style="text-align:center; font-size:25px; padding:15px; color:rgba(25,135,84,255)">
                                     CRIAR UMA NOVA SENHA</h1>
                                 <div class="form-floating mb-3 mt-3">
-                                    <input type="text" class="form-control" placeholder="Digite o seu Usuario" required
+                                    <input type="email" class="form-control" placeholder="Digite o seu Usuario" required
                                         name="cadastrarUEmail">
                                     <label>Digite o seu Email</label>
                                 </div>

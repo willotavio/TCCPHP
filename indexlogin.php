@@ -29,7 +29,7 @@
                                 <div class="form-floating mb-3 mt-3">
                                     <input type="text" class="form-control" id="email" name='nome_login' required
                                         placeholder="Digite o seu Email" name="Email">
-                                    <label>Email</label>
+                                    <label>Usuario</label>
                                 </div>
                                 <div class="form-floating mt-3 mb-3">
                                     <input type="password" class="form-control" id="pwd"

@@ -31,7 +31,7 @@
                                     <label>Digite o seu Nome de Usuario</label>
                                 </div>
                                 <div class="form-floating mt-3 mb-3">
-                                    <input type="text" class="form-control" placeholder="Digite o seu Email"
+                                    <input type="email" class="form-control" placeholder="Digite o seu Email"
                                         name='cadastrarUEmail' required>
                                     <label>Digite o seu Email</label>
                                 </div>
