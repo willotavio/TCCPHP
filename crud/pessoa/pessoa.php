@@ -1,20 +1,6 @@
 <?php
     class pessoa{
-        private  $nome, $dataNasc, $numRes, $complemento, $sexoP, $nome_login, $senha, $cepessoa, $recIdCont;
-
-        public function getNome_login(){
-            return $this->nome_login;
-        }
-        public function setNome_login($lg){
-            $this->nome_login= $lg;
-        }
-
-        public function getSenha(){
-            return $this->senha;
-        }
-        public function setSenha($sn){
-            $this->senha = $sn;
-        }   
+        private  $nome, $dataNasc, $numRes, $complemento, $sexoP, $cepessoa, $recIdCont;
 
         public function getNome(){
             return $this->nome;

@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    if((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == true))
+    {
+        unset($_SESSION['usuario']);
+        unset($_SESSION['senha']);
+        header('location: ../../indexlogin.php');
+    }
+    $logado = $_SESSION['usuario'];
+
+
+?>
+
 <!doctype html>
 <html lang="pt-br">
 
@@ -37,10 +50,9 @@
             <div class="col">
                 <div class="row">
                     <p id="textoPrincipalHome">
-                        <b>Bem-Vindo!
-                            <br>
-                            O que deseja acessar?
-                        </b>
+                        <?php
+                        echo"<p style='color:white; font-size:20px'>Bem vindo(a) <b>$logado</b> </p>";
+                    ?>
                     </p>
                 </div>
             </div>

@@ -1,22 +1,35 @@
 <?php
-
-include '../connection/conexao.php';
-include '../crud/pessoa/pessoa.php';
-include '../crud/pessoa/pessoaDAO.php';
-
 session_start();
-$nome_login = filter_input(INPUT_POST, 'nome_login');
-$senha = filter_input(INPUT_POST, 'senha');
 
-$pessoa = new pessoa();
-$pessoa->setNome_Login($nome_login);
-$pessoa->setSenha($senha);
+if(isset($_POST['submit']) && !empty($_POST['nome_login']) && !empty($_POST['senha']))
+{
+    include '../connection/conexao.php';
 
-$pessoaDAO = new pessoaDAO();
-$pessoaDAO->consultalogin($pessoa);
+    $nome_login = filter_input(INPUT_POST, 'nome_login');
+    $senha = filter_input(INPUT_POST, 'senha');
+    $sqlquery = "select * from usuario where nome_login= '$nome_login' and senha = '$senha'";
+    $conexao = new Conexao(); 
+    $con = $conexao->getConexao();
+    $result = $con->query($sqlquery);
 
-foreach($pessoaDAO->consultalogin($pessoa) as $resultado){
-    $_SESSION['nome_login'] = $resultado['nome_login'];
-    header('location:sistema.php');
+    if($result->rowCount() < 1){
+        unset($_SESSION['usuario']);
+        unset($_SESSION['senha']);
+        echo ("<script LANGUAGE='javaScript'>
+        window.alert('Dados Incorretos!');
+        window.location.href='../indexlogin.php';
+        </script>");
+    }else{
+        $_SESSION['usuario'] = $nome_login;
+        $_SESSION['senha'] = $senha ;
+        
+        header('location: ../pages/principal/home.php');
+    }
+    
+}else{
+    echo ("<script LANGUAGE='javaScript'>
+    window.alert('Os dados inseridos ');
+    window.location.href='../indexlogin.php';
+    </script>");
 }
 ?>

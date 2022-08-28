@@ -27,12 +27,12 @@
                                 <h2 style="text-align:center; font-size:25px; padding:15px; color:rgba(25,135,84,255)">
                                     LOGIN</h2>
                                 <div class="form-floating mb-3 mt-3">
-                                    <input type="text" class="form-control" id="email" name='nome_login' required
-                                        placeholder="Digite o seu Email" name="Email">
+                                    <input type="text" class="form-control" id="nome_login" name='nome_login' required
+                                        placeholder="Digite o seu Usuario">
                                     <label>Usuario</label>
                                 </div>
                                 <div class="form-floating mt-3 mb-3">
-                                    <input type="password" class="form-control" id="pwd"
+                                    <input type="password" class="form-control" id="senha"
                                         placeholder="Entre com sua Senha" name='senha' required>
                                     <label>Senha</label>
                                 </div>
@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="row m-auto">
                                     <button type="submit" class="btn btn-success btn-lg btn-block"
-                                        style="font-size:16px" value="Logar">Entrar</button>
+                                        style="font-size:16px" value="Logar" name="submit">Entrar</button>
                                 </div>
                                 <div class="container" style="margin:10px">
                                     <div style="text-align:center">

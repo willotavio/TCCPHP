@@ -2,28 +2,6 @@
     include '../../connection/conexao.php';
 
     class pessoaDao{
-        
-        public function consultalogin(Pessoa $pessoa){
-            $query = "select * from usuario
-            where nome_login=? and senha=?";
-            $conexao = new Conexao(); 
-            $con = $conexao->getConexao();
-            $valores = $con->prepare($query);
-            $valores->bindValue(1, $pessoa->getNome_Login());
-            $valores->bindValue(2, $pessoa->getSenha());
-            $valores->execute();
-    
-            if($valores->rowCount()>0){
-                $resultado = $valores->fetchAll
-                (\PDO::FETCH_ASSOC);
-                return $resultado;
-            }else{
-                echo "<script LANGUAGE= 'JavaScript'>
-                window.alert('Senha ou Usuario incorretos');
-                window.location.href='../indexlogin.php';
-                </script>";
-            }
-        }
 
         public function cadastrarPessoa(Pessoa $p, CodigoEnderecoPostal $c, Contato $cont){
             $sqlCep = 'insert into codigoEnderecoPostal (cep, rua, bairro, estado, cidade) values (?,?,?,?,?)';

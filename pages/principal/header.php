@@ -28,7 +28,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="../../indexlogin.php" id="linkBar">SAIR</a>
+                            <li><a class="dropdown-item" href="../../login/sair.php" id="linkBar">SAIR</a>
                             </li>
                         </ul>
                     </li>
