@@ -35,7 +35,7 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 
-<body>
+<body style="background-color:whitesmoke">
     <header id="header"></header>
     <div class="container-fluid">
         <div class="row" style="margin-bottom:15px">

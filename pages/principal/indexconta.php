@@ -63,7 +63,7 @@
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
 </body>
-<div class="container-fluid" style="padding:0; margin-top:7%;">
+<div class="container-fluid" style="padding:0; margin-top:7.2%;">
     <?php include('footer.php');?>
 </div>
 

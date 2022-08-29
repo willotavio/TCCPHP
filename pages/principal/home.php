@@ -37,75 +37,62 @@
 
 <body>
     <header id="header"></header>
-    <div class="container" id="containerHome">
-        <div class="container-fluid">
-            <div class="col">
-                <div class="row" style="text-align:center">
-                    <div><img src=" ../../imgs/Logo.png" alt="logo" class="img-fluid"></div>
-                </div>
-            </div>
-        </div>
 
-        <div class=" container" style=" border-radius:0 0 20px 20px;">
-            <div class="col">
-                <div class="row">
-                    <p id="textoPrincipalHome">
-                        <?php
-                        echo"<p style='color:white; font-size:20px'>Bem vindo(a) <b>$logado</b> </p>";
-                    ?>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="container-fluid" style="margin-top:20px">
+        <?php
+            echo"<p style='color:green; font-size:20px; text-align:start'>Bem vindo(a) <b>$logado</b> </p>";
+                        ?></div>
+
     <div class="container" style="margin-top:25px">
 
         <div class="row">
+            <div class="col-sm-4">
 
-            <div class="col-sm-4"">
-                <div class=" card" style="width: 17rem; margin:auto;">
-                <div class="container">
-                    <img src="../../imgs/iconesMenu/Familia.png" class="card-img-top" alt="Familia">
+                <div class=" card" id="cardContainer">
+                    <a href="indexpessoa.php" style="text-decoration: none;">
+                        <div class="container">
+                            <img src="../../imgs/iconesMenu/Familia.png" class="card-img-top" alt="Familia">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text" id="textoCardHome"><b>Cadastre e Gerencie as
+                                    Familias</b></p>
+
+                        </div>
+                    </a>
                 </div>
-                <div class="card-body">
-                    <p class="card-text" id="textoCardHome"><b>Cadastre e Gerencie as
-                            Familias</b></p>
-                    <button type="button" class="buttonH"
-                        onclick="window.location.href='indexpessoa.php' ">Familias</button>
+
+            </div>
+
+            <div class="col-sm-4">
+                <div class="card " id="cardContainer">
+                    <a href="indexcestas.php" style="text-decoration: none;">
+                        <div class="container">
+                            <img src="../../imgs/iconesMenu/Cestas.png" class="card-img-top" alt="Cestas">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text" id="textoCardHome"><b>Cadastre e Gerencie as Cestas</b></p>
+                        </div>
+                    </a>
                 </div>
             </div>
-        </div>
 
-        <div class="col-sm-4">
-            <div class="card" style="width: 17rem; margin:auto">
-                <div class="container">
-                    <img src="../../imgs/iconesMenu/Cestas.png" class="card-img-top" alt="Cestas">
-                </div>
-                <div class="card-body">
-                    <p class="card-text" id="textoCardHome"><b>Cadastre e Gerencie as Cestas</b></p>
-                    <button type="button" class="buttonH"
-                        onclick="window.location.href='indexcestas.php'">Cestas</button>
+            <div class="col-sm-4">
+                <div class="card" id="cardContainer">
+                    <a href="indexconta.php" style="text-decoration: none;">
+                        <div class="container">
+                            <img src="../../imgs/iconesMenu/Conta.png" class="card-img-top" alt="Conta">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text"><b id="textoCardHome">Configure a sua Conta</b></p>
+                        </div>
+                    </a>
                 </div>
             </div>
-        </div>
 
-        <div class="col-sm-4">
-            <div class="card" style="width: 17rem; margin:auto">
-                <div class="container">
-                    <img src="../../imgs/iconesMenu/Conta.png" class="card-img-top" alt="Conta">
-                </div>
-                <div class="card-body">
-                    <p class="card-text"><b id="textoCardHome">Configure a sua Conta</b></p>
-                    <button type="button" class="buttonH"
-                        onclick="window.location.href='indexconta.php'">Contas</button>
-                </div>
-            </div>
         </div>
 
     </div>
-
-    </div>
-    <div class="container-fluid" style="padding:0; margin-top:4%;">
+    <div class="container-fluid" style="padding:0; margin-top:6.3%;">
         <?php include('footer.php');?>
     </div>
 

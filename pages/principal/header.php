@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-expand-lg" style=" background-color: rgb(36, 133, 65);">
+    <nav class="navbar navbar-expand-lg" style=" background-color: white;">
         <div class="container-fluid">
             <a class="navbar-brand" href="home.php"><img src='../../imgs/logo2.png' width="60"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -17,11 +17,10 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" style="color:white">
+                            data-bs-toggle="dropdown" aria-expanded="false" style="color:green">
                             CONTA
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown"
-                            style=" background-color: rgb(36, 133, 65);">
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="indexconta.php" id="linkBar">VER PERFIL</a>
                             </li>
 

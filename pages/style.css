@@ -7,50 +7,26 @@ body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100%;
+	background-color: whitesmoke;
 }
 
 /*home.php */
-#containerHome {
-	background-image: linear-gradient(to bottom right, yellow, green);
-	margin-top: 50px;
-	border-radius: 20px;
-	border-style: solid;
-	border-color: green;
-	box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
-		rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-}
-
-.buttonH {
-	margin-top: 20px;
-	border: none;
-	color: green;
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 18px;
-	border-radius: 10px;
-	border-style: solid;
-	border-color: green;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	transition-duration: 0.4s;
-}
-
-.buttonH:hover {
-	background-color: green;
-	color: white;
-}
-
-#textoPrincipalHome {
-	text-align: center;
-	color: white;
-	margin-top: 5px;
-	font-size: 20px;
-}
-
 #textoCardHome {
 	color: green;
 }
+
+#cardContainer {
+	width: 17rem;
+	margin: auto;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+		rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+	transition: 0.4s;
+}
+
+#cardContainer:hover {
+	box-shadow: rgba(5, 151, 41, 0.582) 0px 0px 0px 3px;
+}
+
 /*home.php*/
 
 /*criarConta.php*/
@@ -115,7 +91,7 @@ footer {
 
 /* header.php */
 #linkBar {
-	color: white;
+	color: green;
 }
 /* header.php */
 
@@ -145,15 +121,14 @@ footer {
 }
 /*conta*/
 
-
-.inputModalCadastroCesta{
+.inputModalCadastroCesta {
 	outline: none;
 	border: none;
 	border-bottom: 1px solid black;
 	size: 100px;
 }
 
-#inputDataCadastroCesta{
+#inputDataCadastroCesta {
 	outline: none;
 	border: none;
 	border-bottom: 1px solid black;
