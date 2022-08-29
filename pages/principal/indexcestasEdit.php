@@ -1,16 +1,17 @@
     <?php
     if(!empty($_GET['idCestas'])){
-        include_once('../../connection/testeconexao.php');
+        include_once('../../connection/conexao.php');
 
         $idCestas = $_GET['idCestas'];
 
         $sqlSelect = "SELECT * FROM cestas WHERE idCestas =$idCestas";
+        $banco = new conexao();
+        $con = $banco->getConexao();
+        $result= $con->query($sqlSelect);
 
-        $result = $conexaoTeste->query($sqlSelect);
+        if($result->rowCount() > 0){
 
-        if($result->num_rows > 0){
-
-            while($user_data = mysqli_fetch_assoc($result)){
+            while($user_data = $result->fetch()){
             $idCestas = $user_data['idCestas'];
             $quantidadeCestas = $user_data['quantidade_cestas'];
             $recebimentoCestas = $user_data['recebimento_cestas'];
