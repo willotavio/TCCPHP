@@ -121,6 +121,8 @@ footer {
 }
 /*conta*/
 
+
+/*Cestas*/
 .inputModalCadastroCesta {
 	outline: none;
 	border: none;
@@ -134,3 +136,26 @@ footer {
 	border-bottom: 1px solid black;
 	width: 185px;
 }
+
+/*Cestas*/
+
+
+/*Familias */
+.inputModalCadastro{
+	outline: none;
+	border: none;
+	border-bottom: 1px solid black;
+	size: 100px;
+	width: 80%;
+}
+
+.inputModalCadastroDataNasc{
+	border: none;
+	border-bottom: 1px solid black;
+	outline: none;
+	width: 300px;
+	font-size: 15px;
+}
+
+
+/*Famlias*/

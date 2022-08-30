@@ -68,7 +68,8 @@
                                                 placeholder="Nome" />
                                         </p>
                                         <p>
-                                            <input class="inputModalCadastro" type="date" name="dataNasc"
+                                            <label for="dataNasc" id="lblDataNasc">Data de Nascimento:</label>
+                                            <input class="inputModalCadastroDataNasc" type="date" name="dataNasc"
                                                 placeholder="Data de Nascimento" />
                                         </p>
                                         <p>
@@ -92,7 +93,7 @@
                                         </p>
                                         <p>
                                             <input class="inputModalCadastro" type="text"
-                                                onblur="pesquisacep(this.value);" id="cep" name="cep"
+                                                onblur="pesquisacep(this.value);" id="cep" name="cep" 
                                                 placeholder="CEP" />
                                         </p>
                                         <p>
@@ -108,7 +109,7 @@
                                                 placeholder="Cidade" />
                                         </p>
                                         <p>
-                                            <input type="text" name="estado" id="estado" value="Estado">
+                                            <input type="text" class="inputModalCadastro" name="estado" id="estado" value="Estado">
                                         </p>
                                         <p>
                                             <input class="inputModalCadastro" type="number" name="numRes"
