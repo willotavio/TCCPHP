@@ -39,11 +39,6 @@ $pes->setComplemento($complemento);
 $pes->setSexoP($sexoP);
 $pes->setCepessoa($cep);
 session_start();
-if($_SESSION['contatoId']!=0 || $_SESSION['contatoId']==null){
-    $pes->setContPessoa($_SESSION['contatoId']+1);
-}else{
-    $pes->setContPessoa($valorInicial);
-}
 
 
 

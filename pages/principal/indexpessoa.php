@@ -97,11 +97,11 @@
                                                 placeholder="CEP" />
                                         </p>
                                         <p>
-                                            <input class="inputModalCadastro" type="text" id="endereco" name="rua"
+                                            <input class="inputModalCadastro" type="text" id="endereco" name="rua" 
                                                 placeholder="Rua" />
                                         </p>
                                         <p>
-                                            <input class="inputModalCadastro" type="text" id="bairro" name="bairro"
+                                            <input class="inputModalCadastro" type="text" id="bairro" name="bairro" 
                                                 placeholder="Bairro" />
                                         </p>
                                         <p>

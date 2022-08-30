@@ -75,7 +75,7 @@ body {
 
 /*footer.php*/
 footer {
-	margin-top: auto;
+	margin: auto;
 	text-align: center;
 	background-color: rgb(36, 133, 65);
 	padding-top: 2px;

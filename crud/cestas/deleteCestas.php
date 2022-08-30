@@ -12,7 +12,7 @@
         
         if($result->rowCount() > 0){
             $sqlDelete = "DELETE FROM cestas WHERE idCestas=$id";
-            $resultDelete = $conexaoTeste->query($sqlDelete);
+            $resultDelete = $con->query($sqlDelete);
         }
     } header('location: ../../pages/principal/indexcestas.php');
 
