@@ -80,6 +80,10 @@ footer {
 	background-color: rgb(36, 133, 65);
 	padding-top: 2px;
 	padding-bottom: 2px;
+	position: fixed;
+	left: 0;
+  	bottom: 0;
+  	width: 100%;
 }
 #titleFooter {
 	color: white;
