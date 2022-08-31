@@ -9,18 +9,13 @@ $cadastrarUTipo = filter_input(INPUT_GET,'cadastrarUTipo');
 include 'contaCriar.php';
 $contaC = new criarConta();
 
-if($cadastrarUTipo=="ADMINISTRADOR"){
-    $teste="ADMINISTRADOR";
-}else if ($cadastrarUTipo=="FUNCIONARIO"){
-    $teste="FUNCIONARIO";
-}
 
 
 $contaC->setULogin($cadastrarULogin);
 $contaC->setUsenha($cadastrarUSenha);
 $contaC->setUEmail($cadastrarUEmail); 
 $contaC->setUCSSenha($cadastrarUCSenha);
-$contaC->setUTipo($teste);
+$contaC->setUTipo($cadastrarUTipo);
 $contaC->setUCSSenha($cadastrarUCSenha); 
 
 

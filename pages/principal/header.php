@@ -10,7 +10,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link " href="indexpessoa.php" id="linkBar">FAMILIAS</a>
+                        <a class="nav-link " href="indexfamilia.php" id="linkBar">FAMILIAS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="indexcestas.php" id="linkBar">CESTAS</a>

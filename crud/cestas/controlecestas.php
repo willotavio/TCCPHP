@@ -12,6 +12,6 @@ $cesDao->setquantidadeCestas($quantidadeCestas);
 $cesDao->setrecebimentoCestas($recebimentoCestas); 
 
 if($botao=='Cadastrar'){
-    $cesDao->cadastrarCesta($ces);
+    $cesDao->cadastrarCesta($cesDao);
     }
 ?>

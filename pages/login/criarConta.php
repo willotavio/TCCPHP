@@ -47,8 +47,8 @@
                                 </div>
                                 <div style="margin-bottom:15px">
                                     <select class="form-select" name="cadastrarUTipo">
-                                        <option value="FUNCIONARIO">Funcionario</option>
-                                        <option value="ADMINISTRADOR">Administrador</option>
+                                        <option value="FUNCIONARIO" name="cadastrarUTipo">Funcionario</option>
+                                        <option value="ADMINISTRADOR" name="cadastrarUTipo">Administrador</option>
                                     </select>
                                 </div>
                                 <div class="row m-auto">

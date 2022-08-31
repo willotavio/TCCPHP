@@ -10,6 +10,7 @@ create table cestas(
 );
 
 create table usuario(
+	idUsuario int(4) primary key not null auto_increment,
 	nome_login varchar(10) not null,
 	senha varchar(20) not null,
 	tipo varchar(14) not null,
@@ -25,35 +26,35 @@ create table contato(
 );
 
 create table codigoEnderecoPostal(
-	cep	int (8) primary key not null,
+	idCep int(6) primary key not null auto_increment,
+	cep	int (8) not null,
 	rua	varchar(45) not null,
 	bairro	varchar(25) not null,
 	estado	char(2) not null,
 	cidade	varchar(25) not null
 );
 
-
-create table pessoa(
-idPessoa int(4) primary key not null auto_increment,
-pessoa_cep int (8),
-pessoa_contato	int (4),
-nome_pessoa	varchar(90) not null,
-data_nascimento_pessoa date,
-complemento_pessoa	varchar(40),
-n_pessoa int(5),
+create table familia(
+idFamilia int(4) primary key not null auto_increment,
+familia_cep int (8),
+familia_contato	int (4),
+nome_familia	varchar(90) not null,
+data_nascimento_familia date,
+complemento_familia	varchar(40),
+n_familia int(5),
 data_atendimento date,
-sexo_pessoa	char(1),
-foreign key(pessoa_cep) references codigoEnderecoPostal(cep),
-foreign key(pessoa_contato) references contato(idcontato)
+sexo_familia	char(1),
+foreign key(familia_cep) references codigoEnderecoPostal(idCep),
+foreign key(familia_contato) references contato(idcontato)
 );
 
+drop table familia;
+
 select * from usuario;
-select * from Pessoa;
+select * from familia;
 select * from Contato;
 select * from CodigoEnderecoPostal;
-
-select LAST_INSERT_ID(); 
-insert into contato (email) values ("teste");
+select * from cestas;
 
 insert into Pessoa (pessoa_cep,
 pessoa_telefone,
@@ -100,4 +101,8 @@ select pessoa.idPessoa, pessoa.pessoa_cep, pessoa.nome_pessoa,pessoa.data_nascim
 pessoa.data_atendimento,pessoa.sexo_pessoa,contato.telefone,contato.celular,contato.email 
 from pessoa INNER JOIN contato on pessoa.idPEssoa = contato.IdContato ;
 
+SELECT familia.idFamilia, familia.nome_familia,
+                                familia.data_nascimento_familia,familia.sexo_familia,contato.celular,contato.telefone,contato.email,familia.complemento_familia,
+                                familia.n_familia,familia.data_atendimento FROM familia INNER JOIN contato ON familia.idFamilia = contato.IdContato;
 
+SELECT idCep FROM codigoEnderecoPostal WHERE idCep = LAST_INSERT_ID();
