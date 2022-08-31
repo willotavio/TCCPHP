@@ -116,12 +116,12 @@ footer {
 }
 
 #containerConta {
-	border-style: solid;
+	border: 4px solid green;
 	border-radius: 20px;
-	background-image: linear-gradient(to bottom right, yellow, green);
-	border-color: black;
-	margin-top: 20px;
+	background-color: whitesmoke;
+	margin-top: 65px;
 	margin-bottom: 20px;
+	font-family: sans-serif;
 }
 /*conta*/
 
