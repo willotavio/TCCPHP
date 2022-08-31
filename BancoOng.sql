@@ -48,23 +48,13 @@ foreign key(familia_cep) references codigoEnderecoPostal(idCep),
 foreign key(familia_contato) references contato(idcontato)
 );
 
-drop table familia;
+
 
 select * from usuario;
 select * from familia;
 select * from Contato;
 select * from CodigoEnderecoPostal;
 select * from cestas;
-
-insert into Pessoa (pessoa_cep,
-pessoa_telefone,
-nome_pessoa,
-complemento_pessoa,
-n_pessoa,
-email_pessoa,
-sexo_pessoa) values(99302322,3,"Vivi","Apart 23","232","vivi@gmail.com","f"
-
-);
 
 
 /*A Fazer 
@@ -95,14 +85,8 @@ create table contas(
 	data_pagamentos_contas date not null
 );
 */
-
-
-select pessoa.idPessoa, pessoa.pessoa_cep, pessoa.nome_pessoa,pessoa.data_nascimento_pessoa,pessoa.complemento_pessoa,pessoa.n_pessoa,
-pessoa.data_atendimento,pessoa.sexo_pessoa,contato.telefone,contato.celular,contato.email 
-from pessoa INNER JOIN contato on pessoa.idPEssoa = contato.IdContato ;
-
-SELECT familia.idFamilia, familia.nome_familia,
-                                familia.data_nascimento_familia,familia.sexo_familia,contato.celular,contato.telefone,contato.email,familia.complemento_familia,
-                                familia.n_familia,familia.data_atendimento FROM familia INNER JOIN contato ON familia.idFamilia = contato.IdContato;
-
+SELECT familia.idFamilia, familia.nome_familia,familia.data_nascimento_familia,
+familia.sexo_familia,contato.celular,contato.telefone,contato.email,familia.complemento_familia,
+familia.n_familia,familia.data_atendimento,codigoEnderecoPostal.cep,codigoEnderecoPostal.rua,
+codigoEnderecoPostal.bairro,codigoEnderecoPostal.estado,codigoEnderecoPostal.cidade	 FROM familia INNER JOIN contato ON familia.idFamilia = contato.IdContato INNER JOIN codigoEnderecoPostal on familia.idFamilia = idCep where idFamilia=1;
 SELECT idCep FROM codigoEnderecoPostal WHERE idCep = LAST_INSERT_ID();

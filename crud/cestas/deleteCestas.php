@@ -2,7 +2,6 @@
 
  if(!empty($_GET['idCestas'])){
         include_once('../../connection/conexao.php');
-        $sql = "SELECT * FROM cliente";
         $banco = new conexao();
         $con = $banco->getConexao();
 

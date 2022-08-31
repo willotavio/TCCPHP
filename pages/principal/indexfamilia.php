@@ -138,26 +138,20 @@
             <div class="overflow-auto">
                 <table class="table" style="color:green;">
                     <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Data de Nascimento</th>
-                            <th scope="col">Sexo</th>
-                            <th scope="col">Celular</th>
-                            <th scope="col">Telefone</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Número da Residência</th>
-                            <th scope="col">Complemento</th>
-                            <th scope="col">Data de Atendimento</th>
-                        </tr>
+                        <tr><a href="#">
+                                <th scope="col">#</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Data de Nascimento</th>
+                                <th scope="col">Sexo</th>
+                                <th scope="col">Celular</th>
+                        </tr></a>
                     </thead>
                     <tbody>
                         <?php 
                                     
                                 include_once ("../../connection/conexao.php");
                                 $sql= "SELECT familia.idFamilia, familia.nome_familia,
-                                familia.data_nascimento_familia,familia.sexo_familia,contato.celular,contato.telefone,contato.email,familia.complemento_familia,
-                                familia.n_familia,familia.data_atendimento FROM familia INNER JOIN contato ON familia.idFamilia = contato.IdContato";
+                                familia.data_nascimento_familia,familia.sexo_familia,contato.celular FROM familia INNER JOIN contato ON familia.idFamilia = contato.IdContato";
                                 $banco = new conexao();
                                 $con = $banco->getConexao();
                                 $resultados_familia= $con->query($sql);
@@ -170,11 +164,14 @@
                                     echo "<td>".$row['data_nascimento_familia']."</td>";
                                     echo "<td>".$row['sexo_familia']."</td>";
                                     echo "<td>".$row['celular']."</td>";
-                                    echo "<td>".$row['telefone']."</td>";
-                                    echo "<td>".$row['email']."</td>";
-                                    echo "<td style='text-align:center'>".$row['n_familia']."</td>";
-                                    echo "<td style='text-align:center'>".$row['complemento_familia']."</td>";
-                                    echo "<td>".$row['data_atendimento']."</td>";
+                                    echo "<td>
+                                    <a class='btn btn-sm btn-outline-danger' href='indexEditFamilia.php?idFamilia=$row[idFamilia]'>
+                                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-box-arrow-in-up-right' viewBox='0 0 16 16'>
+                                            <path fill-rule='evenodd' d='M6.364 13.5a.5.5 0 0 0 .5.5H13.5a1.5 1.5 0 0 0 1.5-1.5v-10A1.5 1.5 0 0 0 13.5 1h-10A1.5 1.5 0 0 0 2 2.5v6.636a.5.5 0 1 0 1 0V2.5a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5H6.864a.5.5 0 0 0-.5.5z'/>
+                                            <path fill-rule='evenodd' d='M11 5.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793l-8.147 8.146a.5.5 0 0 0 .708.708L10 6.707V10.5a.5.5 0 0 0 1 0v-5z'/>
+                                        </svg>
+                                    </a>
+                                    </td>";
                                     echo "</tr>";
                                 }
                                 ?>
@@ -183,7 +180,6 @@
             </div>
         </div>
     </div>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
