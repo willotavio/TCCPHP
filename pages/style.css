@@ -170,4 +170,13 @@ footer {
 	font-size: 15px;
 }
 
+
+.inputModalEdit{
+	outline: none;
+	border: none;
+	border-bottom: 1px solid black;
+	size: 100px;
+	width: 80%;
+}
+
 /*Famlias*/
