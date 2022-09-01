@@ -1,7 +1,6 @@
 create database ong;
 use ong;
 
-
 /*OK*/
 create table cestas(
 	idCestas int(4) primary key not null auto_increment,
