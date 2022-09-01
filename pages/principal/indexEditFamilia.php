@@ -69,9 +69,9 @@
         <div class="row">
             <div class="col-2 m-auto">
                 <h5 class="modal-title" style="text-align:center">Cesta</h5>
-                <form action='../../crud/cestas/editCestas.php' method='GET'>
+                <form action='../../crud/familia/editFamilia.php' method='GET'>
                     <p>
-                        <input class="inputModalEdit" type="number" min="0" name="idCestas" placeholder="Id"
+                        <input class="inputModalEdit" type="number" min="0" name="idFamilia" placeholder="Id"
                             value=<?php echo $idFamilia?> />
                     </p>
                     <p>
@@ -122,11 +122,11 @@
                     </p>
                     <p>
                         <input class="inputModalEdit" type="text" id="cidade" name="cidade" placeholder="Cidade"
-                            value=<?php echo $estado?> />
+                            value=<?php echo preg_replace('/\s+/', '',$cidade)?> />
                     </p>
                     <p>
-                        <input type="text" name="estado" id="estado" value="Estado" value=<?php echo 
-                    $cidade?>>
+                        <input class="inputModalEdit" type="text" name="estado" id="estado"
+                            value=<?php echo $estado ?> />
                     </p>
                     <p>
                         <input class="inputModalEdit" type="number" name="numRes" placeholder="Número da Residência"
@@ -143,6 +143,9 @@
             </div>
             <p style="text-align:center">
                 <input type="submit" class="btn btn-success" name='update' value='update'>
+            </p>
+            </form>
+            <p>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#taticBackdrop">
                     Deletar
                 </button>
@@ -166,7 +169,6 @@
                 </div>
             </div>
             </p>
-            </form>
             <a href="indexfamilia.php" style="text-align:center">Voltar</a>
         </div>
     </div>
