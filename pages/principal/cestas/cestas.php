@@ -182,8 +182,8 @@
                                             <p>Deseja Realmente excluir está cesta?</p>
                                         </div>
                                         <div class='modal-footer'>
-                                            <button type='button' class='btn btn-warning' data-bs-dismiss='modal'>Cancelar</button>
-                                            <a class='btn btn-danger' href='../../../crud/cestas/deleteCestas.php?idCestas=$row[idCestas]'>Confirmar</a>
+                                            <button type='button' class='btn btn-outline-danger' data-bs-dismiss='modal'>Cancelar</button>
+                                            <a class='btn btn-outline-success' href='../../../crud/cestas/deleteCestas.php?idCestas=$row[idCestas]'>Confirmar</a>
                                         </div>
                                     </div>
                                 </div>
@@ -211,8 +211,8 @@
                             </p>
                 </div>
                 <div class='modal-footer'>
-                    <button type='button' class='btn btn-warning' data-bs-dismiss='modal'>Cancelar</button>
-                    <p style='text-align:center'><input type='submit' class='btn btn-success' name='update'
+                    <button type='button' class='btn btn-outline-danger' data-bs-dismiss='modal'>Cancelar</button>
+                    <p style='text-align:center'><input type='submit' class='btn btn-outline-success' name='update'
                             value='update'>
                 </div>
             </div>
