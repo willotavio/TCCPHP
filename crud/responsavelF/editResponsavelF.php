@@ -12,6 +12,7 @@
             $complemento_responsavel = filter_input(INPUT_GET,'complemento');
             $n_responsavel = filter_input(INPUT_GET,'numRes');
             $data_atendimento = filter_input(INPUT_GET,'dataAtendimento');
+            $cpf =filter_input(INPUT_GET, 'cpf');
             
             $celular = filter_input(INPUT_GET,'celular');
             $telefone = filter_input(INPUT_GET,'telefone');
@@ -28,6 +29,7 @@
     sexo_responsavel='$sexo_responsavel',
     complemento_responsavel='$complemento_responsavel',
     n_responsavel='$n_responsavel',
+    cpf_responsavel='$cpf',
     data_atendimento='$data_atendimento'
     where idResponsavel='$idResponsavel'";
 

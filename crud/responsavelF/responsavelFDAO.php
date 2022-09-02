@@ -26,16 +26,17 @@
             $idCepR = $con->lastInsertId();
 
             $date = date("Y/m/d");
-            $sqlRes= 'insert into responsavelFamilia (nome_responsavel, data_nascimento_responsavel, n_responsavel, complemento_responsavel,sexo_responsavel,data_atendimento,responsavel_contato,responsavel_cep) values (?,?,?,?,?,?,?,?)';
+            $sqlRes= 'insert into responsavelFamilia (nome_responsavel, data_nascimento_responsavel, n_responsavel, complemento_responsavel,sexo_responsavel, cpf_responsavel, data_atendimento,responsavel_contato,responsavel_cep) values (?,?,?,?,?,?,?,?,?)';
             $resultado2 = $con->prepare($sqlRes);
             $resultado2->bindValue(1, $f->getNomeF());
             $resultado2->bindValue(2, $f->getdataNasc());
             $resultado2->bindValue(3, $f->getNumRes());
             $resultado2->bindValue(4, $f->getComplemento());
             $resultado2->bindValue(5, $f->getSexoF()); 
-            $resultado2->bindValue(6, $date); 
-            $resultado2->bindValue(7, $idConR); 
-            $resultado2->bindValue(8, $idCepR); 
+            $resultado2->bindValue(6, $f->getcpf()); 
+            $resultado2->bindValue(7, $date); 
+            $resultado2->bindValue(8, $idConR); 
+            $resultado2->bindValue(9, $idCepR); 
             $final = $resultado2->execute();
 
             if($final){

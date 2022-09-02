@@ -8,7 +8,6 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -25,11 +24,7 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
     </script>
-    <script>
-    $(function() {
-        $("#header").load("../header.php");
-    });
-    </script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
@@ -39,7 +34,44 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
 </head>
 
 <body>
-    <header id="header"></header>
+<header>
+    <nav class="navbar navbar-expand-lg" style=" background-color: white;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../home.php"><img src='../../../imgs/logo2.png' width="60"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link " href="responsavelFamilia.php" id="linkBar">FAMILIAS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../cestas/cestas.php" id="linkBar">CESTAS</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" style="color:green">
+                            CONTA
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../conta/conta.php" id="linkBar">VER PERFIL</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="../../../login/sair.php" id="linkBar">SAIR</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
     <div class="container-fluid">
 
         <div class="row" style="margin-bottom:15px">
@@ -53,7 +85,7 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="TituloModalCentralizado">Cadastrar Responsável da
+                                    <h5 class="modal-title" id="TituloModalCentralizado" style="color: green;">Cadastrar Responsável da
                                         Família</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
@@ -68,6 +100,10 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                                         <p>
                                             <input class="inputModalCadastro" type="date" name="dataNasc"
                                                 placeholder="Data de Nascimento" required />
+                                        </p>
+                                        <p>
+                                            <input class="inputModalCadastro" type="number" name="cpf"
+                                                placeholder="CPF" required/>
                                         </p>
                                         <p>
                                             <select class="form-select" aria-label="Default select example"
@@ -106,7 +142,7 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                                                 placeholder="Cidade" />
                                         </p>
                                         <p>
-                                            <input type="text" name="estado" id="estado" value="Estado">
+                                            <input class="inputModalCadastro" type="text" name="estado" id="estado" placeholder="Estado">
                                         </p>
                                         <p>
                                             <input class="inputModalCadastro" type="number" name="numRes"
@@ -118,10 +154,10 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                                         </p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
                                         Fechar
                                     </button>
-                                    <p><input type="submit" class="btn btn-success" name='botao' value='Cadastrar'>
+                                    <p><input type="submit" class="btn btn-outline-success" name='botao' value='Cadastrar'>
                                     </p>
                                     </form>
                                 </div>
@@ -140,7 +176,7 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                                 <th scope="col">#</th>
                                 <th scope="col">Nome</th>
                                 <th scope="col">Data de Nascimento</th>
-                                <th scope="col">Sexo</th>
+                                <th scope="col">CPF</th>
                                 <th scope="col">Celular</th>
                                 <th scope="col">Ações</th>
                         </tr></a>
@@ -150,12 +186,12 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
 
                         include_once("../../../connection/conexao.php");
                         $sql = "SELECT responsavelFamilia.idResponsavel, responsavelFamilia.nome_responsavel,
-                                responsavelFamilia.data_nascimento_responsavel,responsavelFamilia.sexo_responsavel,
+                                responsavelFamilia.data_nascimento_responsavel,responsavelFamilia.cpf_responsavel,
                                 contato.celular FROM responsavelFamilia INNER JOIN contato ON responsavelFamilia.idResponsavel = contato.IdContato";
 
                         $sqlSelect = "SELECT responsavelFamilia.idResponsavel, responsavelFamilia.nome_responsavel,responsavelFamilia.data_nascimento_responsavel,
                                 responsavelFamilia.sexo_responsavel,contato.celular,contato.telefone,contato.email,responsavelFamilia.complemento_responsavel,
-                                responsavelFamilia.n_responsavel,responsavelFamilia.data_atendimento,codigoEnderecoPostal.cep,codigoEnderecoPostal.rua,
+                                responsavelFamilia.n_responsavel,responsavelFamilia.data_atendimento,responsavelFamilia.cpf_responsavel,codigoEnderecoPostal.cep,codigoEnderecoPostal.rua,
                                 codigoEnderecoPostal.bairro,codigoEnderecoPostal.estado,codigoEnderecoPostal.cidade	 
                                 FROM responsavelFamilia INNER JOIN contato ON responsavelFamilia.idResponsavel = contato.IdContato 
                                 INNER JOIN codigoEnderecoPostal on responsavelFamilia.idResponsavel = codigoEnderecoPostal.idCep 
@@ -175,6 +211,7 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                                 $complemento_responsavel = $user_data['complemento_responsavel'];
                                 $n_responsavel = $user_data['n_responsavel'];
                                 $data_atendimento = $user_data['data_atendimento'];
+                                $cpf = $user_data['cpf_responsavel'];
 
                                 $celular = $user_data['celular'];
                                 $telefone = $user_data['telefone'];
@@ -194,7 +231,7 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                             echo "<td>" . $row['idResponsavel'] . "</td>";
                             echo "<td>" . $row['nome_responsavel'] . "</td>";
                             echo "<td>" . $row['data_nascimento_responsavel'] . "</td>";
-                            echo "<td>" . $row['sexo_responsavel'] . "</td>";
+                            echo "<td>" . $row['cpf_responsavel'] . "</td>";
                             echo "<td>" . $row['celular'] . "</td>";
                             echo "<td>
                         
@@ -220,8 +257,10 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                                             <p>Deseja Realemente Deletar as Informações do responsavel desta Familia??</p>
                                         </div>
                                         <div class='modal-footer'>
-                                            <button type='button' class='btn btn-outline-secondary' data-dismiss='modal'>Cancelar</button>
-                                            <a class='btn btn-outline-danger' href='../../../crud/responsavelF/deleteResponsavelF.php?idResponsavel=$row[idResponsavel]'>Confirmar</a>
+                                        <button type='button' class='btn btn-outline-danger' data-bs-dismiss='modal'>
+                                        Cancelar
+                                    </button> 
+                                            <a class='btn btn-outline-success' href='../../../crud/responsavelF/deleteResponsavelF.php?idResponsavel=$row[idResponsavel]'>Confirmar</a>
                                         </div>
                                     </div>
                                 </div>
@@ -246,6 +285,10 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                                         <p>
                                             <input class='inputModalEdit' type='date' name='dataNasc' placeholder='Data de Nascimento'
                                                 value='$data_nascimento_responsavel'/>
+                                        </p>
+                                        <p>
+                                            <input class='inputModalEdit' type='number' name='cpf' placeholder='CPF'
+                                                value='$cpf'/>
                                         </p>
                                         <p>
                                             <select class='form-select' aria-label='Default select example' name='sexoP'>
@@ -300,8 +343,8 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                                                 placeholder='Data de Atendimento' value='$data_atendimento' />
                                         </p>
                                         <div class='modal-footer'>
-                                            <button type='button' class='btn btn-warning' data-bs-dismiss='modal'>Cancelar</button>
-                                            <p style='text-align:center'><input type='submit' class='btn btn-success' name='update' value='update'>
+                                            <button type='button' class='btn btn-outline-danger' data-bs-dismiss='modal'>Cancelar</button>
+                                            <p style='text-align:center'><input type='submit' class='btn btn-outline-success' name='update' value='Atualizar'>
                                         </div> 
                                         </div>
                                         </form>

@@ -20,11 +20,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
     </script>
-    <script>
-    $(function() {
-        $("#header").load("../header.php");
-    });
-    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
@@ -33,7 +28,44 @@
     </style>
 </head>
 
-<header id="header"></header>
+<header>
+    <nav class="navbar navbar-expand-lg" style=" background-color: white;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../home.php"><img src='../../../imgs/logo2.png' width="60"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link " href="../responsavelFamilia/responsavelFamilia.php" id="linkBar">FAMILIAS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../cestas/cestas.php" id="linkBar">CESTAS</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" style="color:green">
+                            CONTA
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="conta/conta.php" id="linkBar">VER PERFIL</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="../../../login/sair.php" id="linkBar">SAIR</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
 
 <body>
     <div class="container" id="containerConta">

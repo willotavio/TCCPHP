@@ -5,6 +5,7 @@ $numRes = filter_input(INPUT_GET,'numRes');
 $complemento =  filter_input(INPUT_GET,'complemento');
 $sexoP= filter_input(INPUT_GET,'sexoP');
 $botao =  filter_input(INPUT_GET,'botao');
+$cpf =  filter_input(INPUT_GET,'cpf');
 
 $cep = filter_input(INPUT_GET,'cep');
 $rua = filter_input(INPUT_GET,'rua');
@@ -40,6 +41,7 @@ $responsavelF->setdataNasc($dataNasc);
 $responsavelF->setnumRes($numRes);
 $responsavelF->setComplemento($complemento);
 $responsavelF->setSexoF($sexoP);
+$responsavelF->setcpf($cpf);
 
 
 

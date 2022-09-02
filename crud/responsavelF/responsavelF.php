@@ -1,6 +1,16 @@
 <?php
     class responsavelF{
-        private  $nomeF, $dataNasc, $numRes, $complemento, $sexoF;
+        private  $nomeF, $dataNasc, $numRes, $complemento, $sexoF, $cpf;
+
+
+
+        public function getcpf(){
+            return$this->cpf;
+        }
+
+        public function setcpf($cpf_res){
+            $this->cpf = $cpf_res;
+        }
 
         public function getNomeF(){
             return $this->nomeF;
