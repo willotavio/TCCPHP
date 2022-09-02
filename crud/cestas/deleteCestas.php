@@ -13,6 +13,6 @@
             $sqlDelete = "DELETE FROM cestas WHERE idCestas=$id";
             $resultDelete = $con->query($sqlDelete);
         }
-    } header('location: ../../pages/principal/indexcestas.php');
+    } header('location: ../../pages/principal/cestas/cestas.php');
 
 ?>

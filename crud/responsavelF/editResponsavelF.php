@@ -5,12 +5,12 @@
 
     if(isset($_GET['update'])){
 
-            $idFamilia = filter_input(INPUT_GET,'idFamilia');
-            $nome_familia = filter_input(INPUT_GET,'nome');
-            $data_nascimento_familia = filter_input(INPUT_GET,'dataNasc');
-            $sexo_familia =filter_input(INPUT_GET,'sexo_familia');
-            $complemento_familia = filter_input(INPUT_GET,'complemento');
-            $n_familia = filter_input(INPUT_GET,'numRes');
+            $idResponsavel = filter_input(INPUT_GET,'idResponsavel');
+            $nome_responsavel = filter_input(INPUT_GET,'nome');
+            $data_nascimento_responsavel = filter_input(INPUT_GET,'dataNasc');
+            $sexo_responsavel =filter_input(INPUT_GET,'sexo_responsavel');
+            $complemento_responsavel = filter_input(INPUT_GET,'complemento');
+            $n_responsavel = filter_input(INPUT_GET,'numRes');
             $data_atendimento = filter_input(INPUT_GET,'dataAtendimento');
             
             $celular = filter_input(INPUT_GET,'celular');
@@ -23,23 +23,26 @@
             $estado = filter_input(INPUT_GET,'estado');
             $cidade = filter_input(INPUT_GET,'cidade');
 
-    $sqlUpdate = "update familia set nome_familia='$nome_familia', 
-    data_nascimento_familia='$data_nascimento_familia', 
-    sexo_familia='$sexo_familia',
-    complemento_familia='$complemento_familia',
-    n_familia='$n_familia',
+    $sqlUpdate = "update responsavelfamilia set nome_responsavel='$nome_responsavel', 
+    data_nascimento_responsavel='$data_nascimento_responsavel', 
+    sexo_responsavel='$sexo_responsavel',
+    complemento_responsavel='$complemento_responsavel',
+    n_responsavel='$n_responsavel',
     data_atendimento='$data_atendimento'
-    where idFamilia='$idFamilia'";
+    where idResponsavel='$idResponsavel'";
+
     $sqlUpdate1 = "update contato set telefone='$telefone',
     celular='$celular',
-    email='$email' where idContato='$idFamilia'";
+    email='$email' where idContato='$idResponsavel'";
+
     $sqlUpdate2 = "update codigoEnderecoPostal set cep='$cep', 
-    rua='$rua', bairro='$bairro', estado='$estado', cidade='$cidade'";
+    rua='$rua', bairro='$bairro', estado='$estado', cidade='$cidade' where idCep='$idResponsavel'";
+    
     $result = $con->query($sqlUpdate);
     $result1 = $con->query($sqlUpdate1);
     $result2 = $con->query($sqlUpdate2);
     
     }
-    header('location: ../../pages/principal/indexfamilia.php');
+    header('location: ../../pages/principal/responsavelFamilia/responsavelFamilia.php');
 
 ?>

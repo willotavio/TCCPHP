@@ -18,9 +18,9 @@ $email =  filter_input(INPUT_GET,'email');
 
 
 include 'contato.php';
-include 'familia.php';
+include 'responsavelF.php';
 include 'codigoEnderecoPostal.php';
-$familia = new familia();
+$responsavelF = new responsavelF();
 $codigoEnderecoPostal = new codigoEnderecoPostal();
 $contato = new contato();
 
@@ -35,18 +35,18 @@ $contato->setTelefone($telefone);
 $contato->setCelular($celular);
 $contato->setEmail($email);
 
-$familia->setNomeF($nome);
-$familia->setdataNasc($dataNasc);
-$familia->setnumRes($numRes);
-$familia->setComplemento($complemento);
-$familia->setSexoF($sexoP);
+$responsavelF->setNomeF($nome);
+$responsavelF->setdataNasc($dataNasc);
+$responsavelF->setnumRes($numRes);
+$responsavelF->setComplemento($complemento);
+$responsavelF->setSexoF($sexoP);
 
 
 
-include 'familiaDAO.php';
-$familiaDao = new familiaDao();
+include 'responsavelFDAO.php';
+$responsavelFDao = new responsavelFDao();
 
 if($botao=='Cadastrar'){
-    $familiaDao->cadastrarFamilia($familia, $contato, $codigoEnderecoPostal);
+    $responsavelFDao->cadastrarresponsavelF($responsavelF, $contato, $codigoEnderecoPostal);
   }
 ?>

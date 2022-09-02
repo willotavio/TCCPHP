@@ -20,7 +20,7 @@ class contacDao{
         if($final){
             echo "<script LANGUAGE= 'JavaScript'>
                 window.alert('Cadastrado com sucesso');
-                window.location.href='../../indexlogin.php';
+                window.location.href='../../index.php';
                 </script>";
         }
     }

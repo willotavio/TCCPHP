@@ -11,6 +11,6 @@
     $sqlUpdate = "update cestas set quantidade_cestas='$quantidadeCestas', recebimento_cestas='$recebimentoCestas' where idCestas='$idCestas'";
     $result = $con->query($sqlUpdate);
     }
-    header('location: ../../pages/principal/indexcestas.php');
+    header('location: ../../pages/principal/cestas/cestas.php');
 
 ?>

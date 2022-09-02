@@ -1,5 +1,5 @@
 <?php
-    class familia{
+    class responsavelF{
         private  $nomeF, $dataNasc, $numRes, $complemento, $sexoF;
 
         public function getNomeF(){

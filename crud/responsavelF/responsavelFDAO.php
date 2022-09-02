@@ -1,9 +1,9 @@
 <?php
     include '../../connection/conexao.php';
-    class familiaDao{
+    class responsavelFDao{
      
 
-        public function cadastrarFamilia(Familia $f, Contato $cont, CodigoEnderecoPostal $c){
+        public function cadastrarResponsavelF(ResponsavelF $f, Contato $cont, CodigoEnderecoPostal $c){
             $banco = new conexao();
             $con = $banco->getConexao();
 
@@ -26,8 +26,8 @@
             $idCepR = $con->lastInsertId();
 
             $date = date("Y/m/d");
-            $sqlFam = 'insert into familia (nome_familia, data_nascimento_familia, n_familia, complemento_familia,sexo_familia,data_atendimento,familia_contato,familia_cep) values (?,?,?,?,?,?,?,?)';
-            $resultado2 = $con->prepare($sqlFam);
+            $sqlRes= 'insert into responsavelFamilia (nome_responsavel, data_nascimento_responsavel, n_responsavel, complemento_responsavel,sexo_responsavel,data_atendimento,responsavel_contato,responsavel_cep) values (?,?,?,?,?,?,?,?)';
+            $resultado2 = $con->prepare($sqlRes);
             $resultado2->bindValue(1, $f->getNomeF());
             $resultado2->bindValue(2, $f->getdataNasc());
             $resultado2->bindValue(3, $f->getNumRes());
@@ -41,23 +41,9 @@
             if($final){
                 echo "<script LANGUAGE= 'JavaScript'>
                 window.alert('Cadastrado com sucesso');
-                window.location.href='../../pages/principal/indexfamilia.php';
+                window.location.href='../../pages/principal/responsavelFamilia/responsavelFamilia.php';
                 </script>";
             }
         }
-
-        public function consultarPessoa(){
-            $sql = 'select * from pessoa';
-
-            $banco = new conexao();
-            $con = $banco->getConexao();
-            $resultado = $con->prepare($sql);
-            $resultado->execute();
-            if($resultado->rowCount()>0){
-                $valor = $resultado->fetchAll(\PDO::FETCH_ASSOC);
-                return $valor;
-            }
-        }
-
-    }//finalclass
+    }
 ?>

@@ -4,13 +4,13 @@
     {
         unset($_SESSION['usuario']);
         unset($_SESSION['senha']);
-        header('location: ../../indexlogin.php');
+        header('location: ../../index.php');
     }else{
         $logado = $_SESSION['usuario'];
         include_once('../../connection/conexao.php');
         $banco = new conexao();
         $con = $banco->getConexao();
-        $contF = $con->query('select count(*) from familia')->fetchColumn(); 
+        $contF = $con->query('select count(*) from responsavelFamilia')->fetchColumn(); 
         $contC = $con->query('select count(*) from cestas')->fetchColumn(); 
         
     }
@@ -56,9 +56,9 @@
             <div class="col-sm-4">
 
                 <div class=" card" id="cardContainer">
-                    <a href="indexfamilia.php" style="text-decoration: none;">
+                    <a href="responsavelFamilia/responsavelFamilia.php" style="text-decoration: none;">
                         <div class="container">
-                            <img src="../../imgs/iconesMenu/Familia.png" class="card-img-top" alt="Familia">
+                            <img src="../../imgs/iconesCardHome/Familia.png" class="card-img-top" alt="Familia">
                         </div>
                         <div class="card-body">
                             <p class="card-text" id="textoCardHome"><b>Cadastre e Gerencie as
@@ -72,9 +72,9 @@
 
             <div class="col-sm-4">
                 <div class="card " id="cardContainer">
-                    <a href="indexcestas.php" style="text-decoration: none;">
+                    <a href="cestas/cestas.php" style="text-decoration: none;">
                         <div class="container">
-                            <img src="../../imgs/iconesMenu/Cestas.png" class="card-img-top" alt="Cestas">
+                            <img src="../../imgs/iconesCardHome/Cestas.png" class="card-img-top" alt="Cestas">
                         </div>
                         <div class="card-body">
                             <p class="card-text" id="textoCardHome"><b>Cadastre e Gerencie as Cestas</b></p>
@@ -85,9 +85,9 @@
 
             <div class="col-sm-4">
                 <div class="card" id="cardContainer">
-                    <a href="indexconta.php" style="text-decoration: none;">
+                    <a href="conta/conta.php" style="text-decoration: none;">
                         <div class="container">
-                            <img src="../../imgs/iconesMenu/Conta.png" class="card-img-top" alt="Conta">
+                            <img src="../../imgs/iconesCardHome/Conta.png" class="card-img-top" alt="Conta">
                         </div>
                         <div class="card-body">
                             <p class="card-text"><b id="textoCardHome">Configure a sua Conta</b></p>

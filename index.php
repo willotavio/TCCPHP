@@ -28,12 +28,12 @@
                                     LOGIN</h2>
                                 <div class="form-floating mb-3 mt-3">
                                     <input type="text" class="form-control" id="nome_login" name='nome_login' required
-                                        placeholder="Digite o seu Usuario">
+                                        placeholder="Usuario">
                                     <label>Usuario</label>
                                 </div>
                                 <div class="form-floating mt-3 mb-3">
-                                    <input type="password" class="form-control" id="senha"
-                                        placeholder="Entre com sua Senha" name='senha' required>
+                                    <input type="password" class="form-control" id="senha" placeholder="Senha"
+                                        name='senha' required>
                                     <label>Senha</label>
                                 </div>
                                 <div class="container" style="margin:10px">

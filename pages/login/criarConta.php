@@ -59,7 +59,7 @@
                                     <div class="row m-auto">
                                         <button type="submit" class="btn btn-success btn-lg btn-block"
                                             style="font-size:16px"
-                                            onclick="window.location.href='../../indexlogin.php'">Voltar</button>
+                                            onclick="window.location.href='../../index.php'">Voltar</button>
                                     </div>
                                 </div>
 
