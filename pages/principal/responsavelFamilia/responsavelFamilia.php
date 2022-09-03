@@ -85,8 +85,9 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="TituloModalCentralizado" style="color: green;">Cadastrar Responsável da
-                                        Família</h5>
+                                <div class="container" style="text-align:center">
+                                    <h5 class="modal-title" style="color: green;">Cadastrar Responsável da
+                                        Família</h5></div>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
@@ -251,10 +252,12 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                                 <div class='modal-dialog' role='document'>
                                     <div class='modal-content'>
                                         <div class='modal-header'>
-                                            <h5 class='modal-title'>Deletar Informações do responsavel</h5>
+                                            <div class='container' style='text-align:center'>
+                                                <h5 class='modal-title'>Deletar Informações do Responsável</h5>
+                                            </div>
                                         </div>
                                         <div class='modal-body'>
-                                            <p>Deseja Realemente Deletar as Informações do responsavel desta Familia??</p>
+                                            <p style='color:black'>Deseja Realmente Deletar as Informações do Responsável desta Familia?</p>
                                         </div>
                                         <div class='modal-footer'>
                                         <button type='button' class='btn btn-outline-danger' data-bs-dismiss='modal'>
@@ -269,7 +272,9 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                                 <div class='modal-dialog'>
                                     <div class='modal-content'>
                                         <div class='modal-header'>
-                                            <h5 class='modal-title' id='staticBackdropLabel'>Alterar Informações da responsavel</h5>
+                                                <div class='container' style='text-align:center'>
+                                                    <h5 class='modal-title' id='staticBackdropLabel'>Alterar Informações da responsavel</h5>
+                                                </div>
                                             <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                                         </div>
                                         <div class='modal-body'>

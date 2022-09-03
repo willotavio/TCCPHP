@@ -140,7 +140,7 @@
                     </p>
                     <hr class="my-4">
                     <p class="lead">
-                        <a class="btn btn-success btn-lg" href="#" role="button">Ver Mais</a>
+                        <a class="btn btn-success btn-lg" href="responsavelFamilia/responsavelFamilia.php" role="button">Ver Mais</a>
                     </p>
                 </div>
             </div>
@@ -156,7 +156,7 @@
                     </p>
                     <hr class="my-4">
                     <p class="lead">
-                        <a class="btn btn-success btn-lg" href="#" role="button">Ver Mais</a>
+                        <a class="btn btn-success btn-lg" href="cestas/cestas.php" role="button">Ver Mais</a>
                     </p>
                 </div>
             </div>

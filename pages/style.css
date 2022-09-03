@@ -79,9 +79,33 @@ body {
 }
 
 .linksIndexLogin {
-	color: rgba(25, 135, 84, 255);
+	color: rgba(25, 135, 84, 0.8);
 	text-decoration: none;
+	transition: 0.5s;
 }
+
+.linksIndexLogin:hover {
+	color: rgba(25, 135, 84, 255);
+}
+
+#senha {
+	border-style: none none solid none;
+}
+
+#nome_login {
+	border-style: none none solid none;
+}
+
+#senha:focus {
+	box-shadow: none;
+	border-color: rgba(25, 135, 84, 255);
+}
+
+#nome_login:focus {
+	box-shadow: none;
+	border-color: rgba(25, 135, 84, 255);
+}
+
 /* index.php */
 
 /*footer.php*/

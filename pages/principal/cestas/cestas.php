@@ -82,7 +82,9 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="TituloModalCentralizado" style="color; green;">Cesta</h5>
+                                    <div class="container" style="text-align:center">
+                                        <h5 class="modal-title" style="color: green;">Cesta</h5>
+                                    </div>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
@@ -175,11 +177,13 @@
                                 <div class='modal-dialog'>
                                     <div class='modal-content'>
                                         <div class='modal-header'>
-                                            <h5 class='modal-title' id='staticBackdropLabel'>Excluir Cesta</h5>
+                                            <div class='container' style='text-align:center'>
+                                                <h5 class='modal-title' id='staticBackdropLabel'>Excluir Cesta</h5>
+                                            </div>
                                             <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                                         </div>
-                                        <div class='modal-body'>
-                                            <p>Deseja Realmente excluir está cesta?</p>
+                                        <div class='modal-body' style='text-align:center'>
+                                            <p style='color:black'>Deseja Realmente excluir está cesta?</p>
                                         </div>
                                         <div class='modal-footer'>
                                             <button type='button' class='btn btn-outline-danger' data-bs-dismiss='modal'>Cancelar</button>
@@ -192,10 +196,12 @@
                                 <div class='modal-dialog'>
                                     <div class='modal-content'>
                                         <div class='modal-header'>
-                                            <h5 class='modal-title' id='exampleModalLabel'>Alterar Informações da Cesta</h5>
+                                                <div class='container' style='text-align:center'>
+                                                    <h5 class='modal-title' id='exampleModalLabel'>Alterar Informações da Cesta</h5>
+                                                </div>
                                             <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                                         </div>
-                                        <div class='modal-body'>
+                                        <div class='modal-body' style='text-align:center'>
                                             <form action='../../../crud/cestas/editCestas.php' method='GET' autocomplete='off'>
                                                 <p>
                                                     <input class='inputModalEdit' type='number' min='0' name='idCestas' placeholder='Id'
@@ -213,7 +219,7 @@
                 <div class='modal-footer'>
                     <button type='button' class='btn btn-outline-danger' data-bs-dismiss='modal'>Cancelar</button>
                     <p style='text-align:center'><input type='submit' class='btn btn-outline-success' name='update'
-                            value='update'>
+                            value='Atualizar'>
                 </div>
             </div>
             </form>
