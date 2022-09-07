@@ -45,10 +45,10 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link " href="responsavelFamilia.php" id="linkBar">FAMILIAS</a>
+                        <a class="nav-link " href="responsavelFamilia.php" style="color:green">FAMILIAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../cestas/cestas.php" id="linkBar">CESTAS</a>
+                        <a class="nav-link" href="../cestas/cestas.php" style="color:green">CESTAS</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -56,12 +56,12 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                             CONTA
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="../conta/conta.php" id="linkBar">VER PERFIL</a>
+                            <li><a class="dropdown-item" href="../conta/conta.php" style="color:green">VER PERFIL</a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="../../../login/sair.php" id="linkBar">SAIR</a>
+                            <li><a class="dropdown-item" href="../../../login/sair.php" style="color:green">SAIR</a>
                             </li>
                         </ul>
                     </li>
@@ -95,65 +95,78 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                                 <div class="modal-body">
                                     <form action='../../../crud/responsavelF/controleResponsavelF.php' method='GET'
                                         autocomplete="off">
-                                        <p>
-                                            <input class="inputModalCadastro" type="text" name="nome" placeholder="Nome"
-                                                required />
-                                        </p>
-                                        <p>
-                                            <input class="inputModalCadastro" type="date" name="dataNasc"
-                                                placeholder="Data de Nascimento" required />
-                                        </p>
-                                        <p>
-                                            <input class="inputModalCadastro" type="number" name="cpf"
-                                                placeholder="CPF" required/>
-                                        </p>
-                                        <p>
-                                            <select class="form-select" aria-label="Default select example"
-                                                name="sexoP">
-                                                <option value="F" name="sexoP">Feminino</option>
-                                                <option value="M" name="sexoP">Masculino</option>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input type="text" class="form-control inputCadastro" name='nome' required
+                                                placeholder="Nome">
+                                            <label class="labelCadastro">Nome</label>
+                                        </div>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input class="form-control inputCadastro" type="date" name="dataNasc" required
+                                                placeholder="Data de Nascimento" >
+                                            <label class="labelCadastro">Data de Nascimento</label>
+                                        </div>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input  class="form-control inputCadastro" type="number" name="cpf" required
+                                                placeholder="CPF" >
+                                            <label class="labelCadastro">CPF</label>
+                                        </div>
+                                        <div>
+                                            <select class="form-select inputCadastro" aria-label="Default select example"
+                                                name="sexoP" class="labelCadastro">
+                                                <option value="F" name="sexoP" class="labelCadastro">Feminino</option>
+                                                <option value="M" name="sexoP" class="labelCadastro">Masculino</option>
                                             </select>
-                                        </p>
-                                        <p>
-                                            <input class="inputModalCadastro" type="text" name="celular"
-                                                placeholder="Celular" />
-                                        </p>
-                                        <p>
-                                            <input class="inputModalCadastro" type="text" name="telefone"
-                                                placeholder="Telefone" />
-                                        </p>
-                                        <p>
-                                            <input class="inputModalCadastro" type="email" name="email"
-                                                placeholder="Email" />
-                                        </p>
-                                        <p>
-                                            <input class="inputModalCadastro" type="text"
+                                        </div>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input  class="form-control inputCadastro" type="text" name="celular"
+                                                placeholder="Celular" >
+                                            <label class="labelCadastro">Celular</label>
+                                        </div>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input  class="form-control inputCadastro" type="text" name="telefone"
+                                                placeholder="Telefone" >
+                                            <label class="labelCadastro">Telefone</label>
+                                        </div>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input  class="form-control inputCadastro" type="email" name="email"
+                                                placeholder="Email"  >
+                                            <label class="labelCadastro">Email</label>
+                                        </div>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input  class="form-control inputCadastro" type="text"
                                                 onblur="pesquisacep(this.value);" id="cep" name="cep" placeholder="CEP"
-                                                required />
-                                        </p>
-                                        <p>
-                                            <input class="inputModalCadastro" type="text" id="endereco" name="rua"
-                                                placeholder="Rua" />
-                                        </p>
-                                        <p>
-                                            <input class="inputModalCadastro" type="text" id="bairro" name="bairro"
-                                                placeholder="Bairro" />
-                                        </p>
-                                        <p>
-                                            <input class="inputModalCadastro" type="text" id="cidade" name="cidade"
-                                                placeholder="Cidade" />
-                                        </p>
-                                        <p>
-                                            <input class="inputModalCadastro" type="text" name="estado" id="estado" placeholder="Estado">
-                                        </p>
-                                        <p>
-                                            <input class="inputModalCadastro" type="number" name="numRes"
-                                                placeholder="Número da Residência" required />
-                                        </p>
-                                        <p>
-                                            <input class="inputModalCadastro" type="text" name="complemento"
-                                                placeholder="Complemento" />
-                                        </p>
+                                                required >
+                                            <label class="labelCadastro">CEP</label>
+                                        </div>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input  class="form-control inputCadastro"  type="text" id="endereco" name="rua"
+                                                placeholder="Rua" >
+                                            <label class="labelCadastro">Rua</label>
+                                        </div>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input  class="form-control inputCadastro" type="text" id="bairro" name="bairro"
+                                                placeholder="Bairro">
+                                            <label class="labelCadastro">Bairro</label>
+                                        </div>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input  class="form-control inputCadastro" type="text" id="cidade" name="cidade"
+                                                placeholder="Cidade" >
+                                            <label class="labelCadastro">Cidade</label>
+                                        </div>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input  class="form-control inputCadastro" type="text" name="estado" id="estado" placeholder="Estado" >
+                                            <label class="labelCadastro">Estado</label>
+                                        </div>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input  class="form-control inputCadastro" type="number" name="numRes"
+                                                placeholder="Número da Residência" required >
+                                            <label class="labelCadastro">Número Residência</label>
+                                        </div>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input  class="form-control inputCadastro" type="text" name="complemento"
+                                                placeholder="Complemento">
+                                            <label class="labelCadastro">Complemento</label>
+                                        </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
@@ -280,74 +293,89 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                                         </div>
                                         <div class='modal-body'>
                                         <form action='../../../crud/responsavelF/editResponsavelF.php' method='GET' autocomplete='off'>
-                                        <p>
-                                            <input class='inputModalEdit' type='number' min='0' name='idResponsavel' placeholder='Id'
-                                                value='$idResponsavel' />
-                                        </p>
-                                        <p>
-                                            <input class='inputModalEdit' type='text' name='nome' placeholder='Nome'
-                                                value='$nome_responsavel' />
-                                        </p>
-                                        <p>
-                                            <input class='inputModalEdit' type='date' name='dataNasc' placeholder='Data de Nascimento'
-                                                value='$data_nascimento_responsavel'/>
-                                        </p>
-                                        <p>
-                                            <input class='inputModalEdit' type='number' name='cpf' placeholder='CPF'
-                                                value='$cpf'/>
-                                        </p>
-                                        <p>
-                                            <select class='form-select' aria-label='Default select example' name='sexoP'>
-                                                <option value= '$sexo_responsavel' name='sexoP'>
-                                                </option>
-                                                <option value='F' name='sexoP'>Feminino</option>
-                                                <option value='M' name='sexoP'>Masculino</option>
+                                        <div class='form-floating mb-3 mt-3'>
+                                            <input  class='form-control inputCadastro' type='number' min='0' name='idResponsavel' placeholder='Id'
+                                                value='$idResponsavel'>
+                                            <label class='labelCadastro'>ID</label>
+                                        </div>
+                                        <div class='form-floating mb-3 mt-3'>
+                                            <input type='text' class='form-control inputCadastro' name='nome' required
+                                                placeholder='Nome' value='$nome_responsavel'>
+                                            <label class='labelCadastro'>Nome</label>
+                                        </div>
+                                        <div class='form-floating mb-3 mt-3'>
+                                            <input class='form-control inputCadastro' type='date' name='dataNasc' required
+                                                placeholder='Data de Nascimento' value='$data_nascimento_responsavel'>
+                                            <label class='labelCadastro'>Data de Nascimento</label>
+                                        </div>
+                                        <div class='form-floating mb-3 mt-3'>
+                                            <input  class='form-control inputCadastro' type='number' name='cpf' required
+                                                placeholder='CPF' value='$cpf' >
+                                            <label class='labelCadastro'>CPF</label>
+                                        </div>
+                                        <div>
+                                            <select class='form-select inputCadastro' aria-label='Default select example'
+                                                name='sexoP' value= '$sexo_responsavel'>
+                                                <option value='F' name='sexoP' class='labelCadastro'>Feminino</option>
+                                                <option value='M' name='sexoP' class='labelCadastro'>Masculino</option>
                                             </select>
-                                        </p>
-                                        <p>
-                                            <input class='inputModalEdit' type='text' name='celular' placeholder='Celular'
-                                                value='$celular' />
-                                        </p>
-                                        <p>
-                                            <input class='inputModalEdit' type='text' name='telefone' placeholder='Telefone'
-                                                value='$telefone' />
-                                        </p>
-                                        <p>
-                                            <input class='inputModalEdit' type='email' name='email' placeholder='Email'
-                                                value='$email' />
-                                        </p>
-                                        <p>
-                                            <input class='inputModalEdit' type='text' onblur='pesquisacep(this.value);' id='cep' name='cep'
-                                                placeholder='CEP' value='$cep' />
-                                        </p>
-                                        <p>
-                                            <input class='inputModalEdit' type='text' id='endereco' name='rua' placeholder='Rua'
-                                                value='$rua' />
-                                        </p>
-                                        <p>
-                                            <input class='inputModalEdit' type='text' id='bairro' name='bairro' placeholder='Bairro'
-                                                value='$bairro' />
-                                        </p>
-                                        <p>
-                                            <input class='inputModalEdit' type='text' id='cidade' name='cidade' placeholder='Cidade'
-                                                value='$cidade' />
-                                        </p>
-                                        <p>
-                                            <input class='inputModalEdit' type='text' name='estado' id='estado'
-                                                value='$estado' />
-                                        </p>
-                                        <p>
-                                            <input class='inputModalEdit' type='number' name='numRes' placeholder='Número da Residência'
-                                                value='$n_responsavel' />
-                                        </p>
-                                        <p>
-                                            <input class='inputModalEdit' type='text' name='complemento' placeholder='Complemento'
-                                                value='$complemento_responsavel' />
-                                        </p>
-                                        <p>
-                                            <input class='inputModalEdit' type='date' name='dataAtendimento'
-                                                placeholder='Data de Atendimento' value='$data_atendimento' />
-                                        </p>
+                                        </div>
+                                        <div class='form-floating mb-3 mt-3'>
+                                            <input  class='form-control inputCadastro' type='text' name='celular'
+                                                placeholder='Celular' value='$celular'>
+                                            <label class='labelCadastro'>Celular</label>
+                                        </div>
+                                        <div class='form-floating mb-3 mt-3'>
+                                            <input  class='form-control inputCadastro' type='text' name='telefone'
+                                                placeholder='Telefone' value='$telefone' >
+                                            <label class='labelCadastro'>Telefone</label>
+                                        </div>
+                                        <div class='form-floating mb-3 mt-3'>
+                                            <input  class='form-control inputCadastro' type='email' name='email'
+                                                placeholder='Email' value='$email'  >
+                                            <label class='labelCadastro'>Email</label>
+                                        </div>
+                                        <div class='form-floating mb-3 mt-3'>
+                                            <input  class='form-control inputCadastro' type='text'
+                                                onblur='pesquisacep(this.value);' id='cep' name='cep' placeholder='CEP'
+                                                required value='$cep'>
+                                            <label class='labelCadastro'>CEP</label>
+                                        </div>
+                                        <div class='form-floating mb-3 mt-3'>
+                                            <input  class='form-control inputCadastro'  type='text' id='endereco' name='rua'
+                                                placeholder='Rua' value='$rua'>
+                                            <label class='labelCadastro'>Rua</label>
+                                        </div>
+                                        <div class='form-floating mb-3 mt-3'>
+                                            <input  class='form-control inputCadastro' type='text' id='bairro' name='bairro'
+                                                placeholder='Bairro' value='$bairro'>
+                                            <label class='labelCadastro'>Bairro</label>
+                                        </div>
+                                        <div class='form-floating mb-3 mt-3'>
+                                            <input  class='form-control inputCadastro' type='text' id='cidade' name='cidade'
+                                                placeholder='Cidade' value='$cidade'>
+                                            <label class='labelCadastro'>Cidade</label>
+                                        </div>
+                                        <div class='form-floating mb-3 mt-3'>
+                                            <input  class='form-control inputCadastro' type='text' name='estado' id='estado' placeholder='Estado' value='$estado' >
+                                            <label class='labelCadastro'>Estado</label>
+                                        </div>
+                                        <div class='form-floating mb-3 mt-3'>
+                                            <input  class='form-control inputCadastro' type='number' name='numRes'
+                                                placeholder='Número da Residência'  value='$n_responsavel' required >
+                                            <label class='labelCadastro'>Número Residência</label>
+                                        </div>
+                                        <div class='form-floating mb-3 mt-3'>
+                                            <input  class='form-control inputCadastro' type='text' name='complemento'
+                                                placeholder='Complemento'  value='$complemento_responsavel'>
+                                            <label class='labelCadastro'>Complemento</label>
+                                        </div>
+                                        <div class='form-floating mb-3 mt-3'>
+                                            <input class='form-control inputCadastro' type='date' name='dataAtendimento' required
+                                                placeholder='Data de Atendimento' value='$data_atendimento'>
+                                            <label class='labelCadastro'>Data de Atendimento</label>
+                                        </div>
+                                        
                                         <div class='modal-footer'>
                                             <button type='button' class='btn btn-outline-danger' data-bs-dismiss='modal'>Cancelar</button>
                                             <p style='text-align:center'><input type='submit' class='btn btn-outline-success' name='update' value='Atualizar'>

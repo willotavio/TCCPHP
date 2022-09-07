@@ -48,10 +48,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link " href="responsavelFamilia/responsavelFamilia.php" id="linkBar">FAMILIAS</a>
+                        <a class="nav-link " href="responsavelFamilia/responsavelFamilia.php" style="color:green">FAMILIAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cestas/cesta.php" id="linkBar">CESTAS</a>
+                        <a class="nav-link" href="cestas/cestas.php" style="color:green">CESTAS</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -59,12 +59,12 @@
                             CONTA
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="conta/conta.php" id="linkBar">VER PERFIL</a>
+                            <li><a class="dropdown-item" href="conta/conta.php" style="color:green">VER PERFIL</a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="../../login/sair.php" id="linkBar">SAIR</a>
+                            <li><a class="dropdown-item" href="../../login/sair.php" style="color:green">SAIR</a>
                             </li>
                         </ul>
                     </li>

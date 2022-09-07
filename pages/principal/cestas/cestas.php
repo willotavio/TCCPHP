@@ -21,14 +21,15 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
     </script>
-    <style>
-    <?php 
-    include '../../style.css';
-    ?>
-    </style>
+  
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        <?php 
+            include '../../style.css';
+        ?>
+    </style>
 </head>
 
 <header style="margin-bottom: 100px;">
@@ -43,10 +44,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link " href="../responsavelFamilia/responsavelFamilia.php"  id="linkBar">FAMILIAS</a>
+                        <a class="nav-link " href="../responsavelFamilia/responsavelFamilia.php"  style="color:green">FAMILIAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cestas.php"  id="linkBar">CESTAS</a>
+                        <a class="nav-link" href="cestas.php"  style="color:green">CESTAS</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -54,12 +55,12 @@
                             CONTA
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="../conta/conta.php" id="linkBar">VER PERFIL</a>
+                            <li><a class="dropdown-item" href="../conta/conta.php" style="color:green">VER PERFIL</a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="../../../login/sair.php" id="linkBar">SAIR</a>
+                            <li><a class="dropdown-item" href="../../../login/sair.php" style="color:green">SAIR</a>
                             </li>
                         </ul>
                     </li>
@@ -93,18 +94,21 @@
                                 <div class="modal-body">
                                     <form action='../../../crud/cestas/controlecestas.php' method='GET'
                                         autocomplete="off">
-                                        <p>
-                                            <input class="inputModalCadastroCesta" type="number" min="0" name="idCestas"
-                                                placeholder="Id" />
-                                        </p>
-                                        <p>
-                                            <input class="inputModalCadastroCesta" type="text" name="quantidadeCestas"
-                                                placeholder="Quantidade" />
-                                        </p>
-                                        <p>
-                                            <input id="inputDataCadastroCesta" type="date" name="recebimentoCestas"
-                                                placeholder="Data de Recebimento" />
-                                        </p>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input class="form-control inputCadastro" type="number" min="0" name="idCestas"
+                                                placeholder="Id" >
+                                            <label class="labelCadastro">ID</label>
+                                        </div>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input class="form-control inputCadastro" type="number" min="0" name="quantidadeCestas"
+                                                placeholder="Quantidade" >
+                                            <label class="labelCadastro">Quantidade Cestas</label>
+                                        </div>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input class="form-control inputCadastro" type="date" name="recebimentoCestas"
+                                                placeholder="Data de Recebimento" required >
+                                            <label class="labelCadastro">Data de Recebimento</label>
+                                        </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
@@ -205,18 +209,20 @@
                                         </div>
                                         <div class='modal-body' style='text-align:center'>
                                             <form action='../../../crud/cestas/editCestas.php' method='GET' autocomplete='off'>
-                                                <p>
-                                                    <input class='inputModalEdit' type='number' min='0' name='idCestas' placeholder='Id'
-                                                    value='$idCestas' />
-                            </p>
-                            <p>
-                                <input class='inputModalEdit' type='text' name='quantidadeCestas'
-                                    placeholder='Quantidade' value= '$quantidadeCestas' />
-                            </p>
-                            <p>
-                                <input class='inputModalEdit' type='date' name='recebimentoCestas'
-                                    placeholder='Data de Recebimento' value='$recebimentoCestas'/>
-                            </p>
+                                                <div class='form-floating mb-3 mt-3'>
+                                                    <input class='form-control inputCadastro'  type='number' min='0' name='idCestas' placeholder='Id' required  value='$idCestas'>
+                                                    <label class='labelCadastro'>ID</label>
+                                                </div>
+                                                <div class='form-floating mb-3 mt-3'>
+                                                    <input class='form-control inputCadastro' type='text' name='quantidadeCestas'
+                                                        placeholder='Quantidade' value= '$quantidadeCestas'>
+                                                    <label class='labelCadastro'>Quantidade de Cestas</label>
+                                                </div>
+                                                <div class='form-floating mb-3 mt-3'>
+                                                    <input class='form-control inputCadastro' type='date' name='recebimentoCestas'
+                                                        placeholder='Data de Recebimento' value='$recebimentoCestas'>
+                                                    <label class='labelCadastro'>Data de Recebimento</label>
+                                                </div>
                 </div>
                 <div class='modal-footer'>
                     <button type='button' class='btn btn-outline-danger' data-bs-dismiss='modal'>Cancelar</button>
