@@ -33,9 +33,8 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
     </style>
 </head>
 
-<body>
-<header>
-    <nav class="navbar navbar-expand-lg" style=" background-color: white;">
+<header style="margin-bottom: 100px;">
+    <nav class="navbar navbar-expand-lg" style="background-color: white;position: fixed;z-index: 1000;width: 100%;">
         <div class="container-fluid">
             <a class="navbar-brand" href="../home.php"><img src='../../../imgs/logo2.png' width="60"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -72,6 +71,8 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
         </div>
     </nav>
 </header>
+
+<body>
     <div class="container-fluid">
 
         <div class="row" style="margin-bottom:15px">

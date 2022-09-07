@@ -36,10 +36,8 @@
     </style>
 </head>
 
-
-<body>
-<header>
-    <nav class="navbar navbar-expand-lg" style=" background-color: white;">
+<header style="margin-bottom: 100px;">
+    <nav class="navbar navbar-expand-lg" style="background-color: white;position: fixed;z-index: 1000;width: 100%;">
         <div class="container-fluid">
             <a class="navbar-brand" href="home.php"><img src='../../imgs/logo2.png' width="60"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -53,7 +51,7 @@
                         <a class="nav-link " href="responsavelFamilia/responsavelFamilia.php" id="linkBar">FAMILIAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cestas/cestas.php" id="linkBar">CESTAS</a>
+                        <a class="nav-link" href="cestas/cesta.php" id="linkBar">CESTAS</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -77,6 +75,7 @@
     </nav>
 </header>
 
+<body>
     <div class="container-fluid" style="margin-top:20px">
         <?php
             echo"<p style='color:green; font-size:20px; text-align:start'>Bem vindo(a) <b>$logado</b> </p>";

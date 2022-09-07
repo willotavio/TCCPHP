@@ -1,8 +1,6 @@
 create database ong;
 use ong;
 
-drop database ong;
-
 /*OK*/
 create table cestas(
 	idCestas int(4) primary key not null auto_increment,
@@ -35,23 +33,21 @@ create table codigoEnderecoPostal(
 	cidade	varchar(45) not null
 );
 
-
-create table Responsavelfamilia(
+create table responsavelFamilia(
 idResponsavel int(4) primary key not null auto_increment,
+cpf_responsavel int (11) not null,
 responsavel_cep int (8),
 responsavel_contato	int (4),
 nome_responsavel varchar(90) not null,
 data_nascimento_responsavel date,
 complemento_responsavel	varchar(40),
 n_responsavel int(5),
-cpf_responsavel int(11),
 data_atendimento date,
-sexo_responsavel char(1),
+sexo_responsavel	char(1),
 foreign key(responsavel_cep) references codigoEnderecoPostal(idCep),
 foreign key(responsavel_contato) references contato(idcontato)
 );
- 
- drop table responsavelfamilia;
+
 
 
 select * from usuario;

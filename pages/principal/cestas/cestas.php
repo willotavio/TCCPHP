@@ -31,9 +31,8 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 
-<body style="background-color:whitesmoke">
-<header>
-    <nav class="navbar navbar-expand-lg" style=" background-color: white;">
+<header style="margin-bottom: 100px;">
+    <nav class="navbar navbar-expand-lg" style="background-color: white;position: fixed;z-index: 1000;width: 100%;">
         <div class="container-fluid">
             <a class="navbar-brand" href="../home.php"><img src='../../../imgs/logo2.png' width="60"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -70,6 +69,9 @@
         </div>
     </nav>
 </header>
+
+<body style="background-color:whitesmoke">
+
     <div class="container-fluid">
         <div class="row" style="margin-bottom:15px">
             <div class="col m-auto" style="text-align:center">
