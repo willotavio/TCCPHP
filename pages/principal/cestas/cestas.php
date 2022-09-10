@@ -126,118 +126,41 @@
         </div>
     </div>
 
-
     <div class="container">
         <div class="overflow-auto">
             <div class="column">
                 <div class="m-2 ">
-                    <table class="table" style="color:green">
+                     <table class="table" style="color:green">
                         <thead>
-                            <tr>
                                 <th scope="col" style='text-align:center'>#</th>
                                 <th scope="col" style='text-align:center'>Quantidade</th>
                                 <th scope="col" style='text-align:center'>Data de Recebimento</th>
                                 <th scope="col">Ações</th>
-                            </tr>
                         </thead>
-
                         <tbody>
                             <?php 
-                    
-                    include_once ("../../../connection/conexao.php");
-                    $sql= "SELECT * FROM cestas";
-                    $sqlSelect = "SELECT * FROM cestas WHERE idCestas =idCestas";
-                    $banco = new conexao();
-                    $con = $banco->getConexao();
-                    $resultados_cestas = $con->query($sql);
-                    $result= $con->query($sqlSelect);
-
-                    if($result->rowCount() > 0){
-
-                        while($user_data = $result->fetch()){
-                        $idCestas = $user_data['idCestas'];
-                        $quantidadeCestas = $user_data['quantidade_cestas'];
-                        $recebimentoCestas = $user_data['recebimento_cestas'];
-                        }
-                    }
-            
-                    while($row = $resultados_cestas->fetch()){
-                    echo "<tr>";
-                        echo "<td style='text-align:center'>".$row['idCestas']."</td>";
-                        echo "<td style='text-align:center'>".$row['quantidade_cestas']."</td>";
-                        echo "<td style='text-align:center'>".$row['recebimento_cestas']."</td>";
-                        echo "<td>
-                            <a class='btn btn-sm btn-outline-primary' data-bs-toggle='modal' data-bs-target='#taticBackdrop'>
-                                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-clipboard' viewBox='0 0 16 16'>
-                                    <path d='M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z'/>
-                                    <path d='M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z'/>
-                                </svg>
-                            </a>
-                            <a class='btn btn-sm btn-outline-danger' data-bs-toggle='modal' data-bs-target='#taticBackdrop2'>
-                                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
-                                  <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
-                                  <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
-                                </svg>
-                            </a>
-                            <div class='modal fade' id='taticBackdrop2' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
-                                <div class='modal-dialog'>
-                                    <div class='modal-content'>
-                                        <div class='modal-header'>
-                                            <div class='container' style='text-align:center'>
-                                                <h5 class='modal-title' id='staticBackdropLabel'>Excluir Cesta</h5>
-                                            </div>
-                                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                                        </div>
-                                        <div class='modal-body' style='text-align:center'>
-                                            <p style='color:black'>Deseja Realmente excluir está cesta?</p>
-                                        </div>
-                                        <div class='modal-footer'>
-                                            <button type='button' class='btn btn-outline-danger' data-bs-dismiss='modal'>Cancelar</button>
-                                            <a class='btn btn-outline-success' href='../../../crud/cestas/deleteCestas.php?idCestas=$row[idCestas]'>Confirmar</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class='modal fade' id='taticBackdrop' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                                <div class='modal-dialog'>
-                                    <div class='modal-content'>
-                                        <div class='modal-header'>
-                                                <div class='container' style='text-align:center'>
-                                                    <h5 class='modal-title' id='exampleModalLabel'>Alterar Informações da Cesta</h5>
-                                                </div>
-                                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                                        </div>
-                                        <div class='modal-body' style='text-align:center'>
-                                            <form action='../../../crud/cestas/editCestas.php' method='GET' autocomplete='off'>
-                                                <div class='form-floating mb-3 mt-3'>
-                                                    <input class='form-control inputCadastro'  type='number' min='0' name='idCestas' placeholder='Id' required  value='$idCestas'>
-                                                    <label class='labelCadastro'>ID</label>
-                                                </div>
-                                                <div class='form-floating mb-3 mt-3'>
-                                                    <input class='form-control inputCadastro' type='text' name='quantidadeCestas'
-                                                        placeholder='Quantidade' value= '$quantidadeCestas'>
-                                                    <label class='labelCadastro'>Quantidade de Cestas</label>
-                                                </div>
-                                                <div class='form-floating mb-3 mt-3'>
-                                                    <input class='form-control inputCadastro' type='date' name='recebimentoCestas'
-                                                        placeholder='Data de Recebimento' value='$recebimentoCestas'>
-                                                    <label class='labelCadastro'>Data de Recebimento</label>
-                                                </div>
-                </div>
-                <div class='modal-footer'>
-                    <button type='button' class='btn btn-outline-danger' data-bs-dismiss='modal'>Cancelar</button>
-                    <p style='text-align:center'><input type='submit' class='btn btn-outline-success' name='update'
-                            value='Atualizar'>
-                </div>
-            </div>
-            </form>
-        </div>
-    </div>
-
-    </td>";
-    echo "</tr>";
-    }
-    ?>
+                                
+                                include_once ("../../../connection/conexao.php");
+                                $sql= "SELECT * FROM cestas";
+                                $banco = new conexao();
+                                $con = $banco->getConexao();
+                                $result = $con->query($sql);
+                                while($row = $result->fetch()){
+                                    ?>
+                                    <tr>
+                                    <td><span  id="id<?php echo $row['idCestas']; ?>"><?php echo $row['idCestas']; ?></span></td>
+                                    <td><span  id="quantidade<?php echo $row['idCestas']; ?>"><?php echo $row['quantidade_cestas']; ?></span></td>
+                                    <td><span  id="recebimento<?php echo $row['idCestas']; ?>"><?php echo $row['recebimento_cestas']; ?></span></td>
+                                    <td> <button class='btn btn-sm btn-outline-primary edit' value="<?php echo $row['idCestas']; ?>">
+                                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-clipboard' viewBox='0 0 16 16'>
+                                        <path d='M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z'/>
+                                        <path d='M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z'/>
+                                        </svg>
+                                    </button></td>
+                                    </tr>
+                                    <?php
+                                    }
+                                    ?>
                         </tbody>
                     </table>
                 </div>
@@ -245,7 +168,9 @@
         </div>
     </div>
 
-
+    
+    <?php include('modal.php'); ?>
+    <script src="custom.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>

@@ -5,9 +5,9 @@
 
     if(isset($_GET['update'])){
 
-    $idCestas = filter_input(INPUT_GET,'idCestas');
-    $quantidadeCestas = filter_input(INPUT_GET,'quantidadeCestas');
-    $recebimentoCestas = filter_input(INPUT_GET,'recebimentoCestas');
+    $idCestas = filter_input(INPUT_GET,'idCestas1');
+    $quantidadeCestas = filter_input(INPUT_GET,'quantidadeCestas1');
+    $recebimentoCestas = filter_input(INPUT_GET,'recebimentoCestas1');
     $sqlUpdate = "update cestas set quantidade_cestas='$quantidadeCestas', recebimento_cestas='$recebimentoCestas' where idCestas='$idCestas'";
     $result = $con->query($sqlUpdate);
     }
