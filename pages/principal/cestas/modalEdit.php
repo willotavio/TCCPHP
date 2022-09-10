@@ -11,6 +11,11 @@
         });
     });
 </script>
+ <style>
+    <?php 
+        include '../../style.css';
+    ?>
+</style>
 <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -21,17 +26,17 @@
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
-                      <form action='../../../crud/cestas/editCestas.php' method='GET' autocomplete='off'>
+                    <form action='../../../crud/cestas/editCestas.php' method='GET' autocomplete='off'>
                         <div class='form-floating mb-3 mt-3'>
-                            <input class='form-control'  type='number'  name='idCestas1' placeholder='Id'  id="idCestas1" readonly>
+                            <input class='form-control inputCadastro'  type='number'  name='idCestas1' placeholder='Id'  id="idCestas1" readonly>
                             <label class='labelCadastro'>ID</label>
                         </div>
                         <div class='form-floating mb-3 mt-3'>
-                            <input class='form-control'  type='number'  name='quantidadeCestas1' placeholder='Quantidade'  id="quantidadeCestas1">
+                            <input class='form-control inputCadastro'  type='number'  name='quantidadeCestas1' placeholder='Quantidade'  id="quantidadeCestas1">
                             <label class='labelCadastro'>Quantidade</label>
                         </div>
                         <div class='form-floating mb-3 mt-3'>
-                            <input class='form-control'  type='date'  name='recebimentoCestas1' placeholder='Data Recebimento'  id="recebimentoCestas1">
+                            <input class='form-control inputCadastro'  type='date'  name='recebimentoCestas1' placeholder='Data Recebimento'  id="recebimentoCestas1">
                             <label class='labelCadastro'>Data Recebimento</label>
                         </div>			
 				    </div>

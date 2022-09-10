@@ -1,11 +1,11 @@
 <?php
 
- if(!empty($_GET['idCestas'])){
+ if(!empty($_GET['idCestas1'])){
         include_once('../../connection/conexao.php');
         $banco = new conexao();
         $con = $banco->getConexao();
 
-        $id = $_GET['idCestas'];
+        $id = $_GET['idCestas1'];
         $sqlSelect = "SELECT * FROM cestas WHERE idCestas =$id";
         $result = $con->query($sqlSelect);
         
