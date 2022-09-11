@@ -27,7 +27,7 @@ class cestasDao{
         }
 
     public function cadastrarCesta(){
-        $sql = 'insert into cestas (idCestas, quantidade_cestas, recebimento_cestas) values (?,?,?)';
+        $sql = 'insert into cestas (id_cestas, quantidade_cestas, recebimento_cestas) values (?,?,?)';
         
         $banco = new conexao();
         $con = $banco->getConexao();

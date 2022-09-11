@@ -5,7 +5,7 @@ include '../../connection/conexao.php';
 class contacDao{
 
     public function cadastrarNvC(CriarConta $cc){
-        $sql = 'insert into usuario (nome_login, senha, tipo, email_usuario) values (?,?,?,?)';
+        $sql = 'insert into usuario (nome_usuario, senha_usuario, tipo_usuario, email_usuario) values (?,?,?,?)';
 
         $banco = new conexao();
         $con = $banco->getConexao();

@@ -23,7 +23,7 @@
                 <div class=" col-md-11 m-auto">
                     <div id="containerIndexLogin">
                         <div class="container mt-3">
-                            <form method="POST" action="login/logar.php" autocomplete="off">
+                            <form method="POST" action="crud/login/logar.php" autocomplete="off">
                                 <h2 style="text-align:center; font-size:25px; padding:15px; color:rgba(25,135,84,255)">
                                     LOGIN</h2>
                                 <div class="form-floating mb-3 mt-3">

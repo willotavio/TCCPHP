@@ -1,53 +1,53 @@
 create database ong;
 use ong;
 
-/*OK*/
 create table cestas(
-	idCestas int(4) primary key not null auto_increment,
-	quantidade_cestas int(4) not null,
-	recebimento_cestas date not null
+    id_cestas int(4) primary key not null auto_increment,
+    quantidade_cestas int(4) not null,
+    recebimento_cestas date not null
 );
 
-create table usuario(
-	idUsuario int(4) primary key not null auto_increment,
-	nome_login varchar(10) not null,
-	senha varchar(20) not null,
-	tipo varchar(14) not null,
-	email_usuario varchar(90) not null
-);
-/*OK*/
-
-create table contato(
-	idContato int(4) primary key not null auto_increment,
-	telefone char(10),
-	celular char(11),
+ create table contato(
+    id_contato int(4) primary key not null auto_increment,
+    telefone char(10),
+    celular char(11),
     email varchar(90)
 );
 
-create table codigoEnderecoPostal(
-	idCep int(6) primary key not null auto_increment,
-	cep	int (8) not null,
-	rua	varchar(45) not null,
-	bairro	varchar(45) not null,
-	estado	char(2) not null,
-	cidade	varchar(45) not null
+create table endereco_postal(
+    id_cep int(4) primary key not null auto_increment,
+    cep char (8) not null,
+    rua varchar(45) not null,
+    bairro  varchar(45) not null,
+    estado  char(2) not null,
+    cidade  varchar(45) not null
+
 );
 
-create table responsavelFamilia(
-idResponsavel int(4) primary key not null auto_increment,
+
+create table usuario(
+    id_usuario int(4) primary key not null auto_increment,
+    nome_usuario varchar(10) not null,
+    senha_usuario varchar(20) not null,
+    tipo_usuario varchar(1) not null,
+    email_usuario varchar(90) not null
+);
+
+create table responsavel_familia(
+id_responsavel int(4) primary key not null auto_increment,
 cpf_responsavel int (11) not null,
-responsavel_cep int (8),
-responsavel_contato	int (4),
+cep_responsavel int (4),
+contato_responsavel int (4),
 nome_responsavel varchar(90) not null,
 data_nascimento_responsavel date,
-complemento_responsavel	varchar(40),
-n_responsavel int(5),
-data_atendimento date,
-sexo_responsavel	char(1),
-foreign key(responsavel_cep) references codigoEnderecoPostal(idCep),
-foreign key(responsavel_contato) references contato(idcontato)
-);
+complemento_responsavel varchar(40),
+num_responsavel int(5),
+data_atendimento_responsavel date,
+sexo_responsavel char(1),
+foreign key(cep_responsavel) references endereco_postal(id_cep),
+foreign key(contato_responsavel) references contato(id_contato)
 
+);
 
 
 select * from usuario;
@@ -92,59 +92,8 @@ codigoEnderecoPostal.bairro,codigoEnderecoPostal.estado,codigoEnderecoPostal.cid
 INNER JOIN codigoEnderecoPostal on familia.idFamilia = idCep where idFamilia=1;
 SELECT idCep FROM codigoEnderecoPostal WHERE idCep = LAST_INSERT_ID();
 
-create database ong;
-use ong;
 
 
 
-create table cestas(
-    id_cestas int(4) primary key not null auto_increment,
-    quantidade_cestas int(4) not null,
-    recebimento_cestas date not null
-);
 
 
-
-create table usuario(
-    id_usuario int(4) primary key not null auto_increment,
-    nome_usuario varchar(10) not null,
-    senha_usuario varchar(20) not null,
-    tipo_usuario varchar(1) not null,
-    email_usuario varchar(90) not null
-);
-
-  create table contato(
-    id_contato int(4) primary key not null auto_increment,
-    telefone char(10),
-    celular char(11),
-    email varchar(90)
-);
-
-
-create table endereco_postal(
-    id_cep int(4) primary key not null auto_increment,
-    cep char (8) not null,
-    rua varchar(45) not null,
-    bairro  varchar(45) not null,
-    estado  char(2) not null,
-    cidade  varchar(45) not null
-
-);
-
-
-
-create table responsavel_familia(
-id_responsavel int(4) primary key not null auto_increment,
-cpf_responsavel int (11) not null,
-cep_responsavel int (4),
-contato_responsavel int (4),
-nome_responsavel varchar(90) not null,
-data_nascimento_responsavel date,
-complemento_responsavel varchar(40),
-num_responsavel int(5),
-data_atendimento_reponsavel date,
-sexo_responsavel char(1),
-foreign key(cep_responsavel) references endereco_postal(id_cep),
-foreign key(contato_responsavel) references contato(id_contato)
-
-);

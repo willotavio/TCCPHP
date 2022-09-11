@@ -10,7 +10,7 @@
         include_once('../../connection/conexao.php');
         $banco = new conexao();
         $con = $banco->getConexao();
-        $contF = $con->query('select count(*) from responsavelFamilia')->fetchColumn(); 
+        $contF = $con->query('select count(*) from responsavel_familia')->fetchColumn(); 
         $contC = $con->query('select count(*) from cestas')->fetchColumn(); 
         
     }
@@ -64,7 +64,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="../../login/sair.php" style="color:green">SAIR</a>
+                            <li><a class="dropdown-item" href="../../crud/login/sair.php" style="color:green">SAIR</a>
                             </li>
                         </ul>
                     </li>

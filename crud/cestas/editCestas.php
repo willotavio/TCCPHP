@@ -8,7 +8,7 @@
     $idCestas = filter_input(INPUT_GET,'idCestas1');
     $quantidadeCestas = filter_input(INPUT_GET,'quantidadeCestas1');
     $recebimentoCestas = filter_input(INPUT_GET,'recebimentoCestas1');
-    $sqlUpdate = "update cestas set quantidade_cestas='$quantidadeCestas', recebimento_cestas='$recebimentoCestas' where idCestas='$idCestas'";
+    $sqlUpdate = "update cestas set quantidade_cestas='$quantidadeCestas', recebimento_cestas='$recebimentoCestas' where id_cestas='$idCestas'";
     $result = $con->query($sqlUpdate);
     }
     header('location: ../../pages/principal/cestas/cestas.php');

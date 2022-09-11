@@ -15,7 +15,7 @@
             $final = $resultado1->execute();
             $idConR = $con->lastInsertId();
             
-            $sqlCep = 'insert into codigoEnderecoPostal (cep, rua, bairro, estado, cidade) values (?,?,?,?,?)';
+            $sqlCep = 'insert into endereco_postal (cep, rua, bairro, estado, cidade) values (?,?,?,?,?)';
             $resultado = $con->prepare($sqlCep);
             $resultado->bindValue(1, $c->getCep());
             $resultado->bindValue(2, $c->getRua());
@@ -26,7 +26,7 @@
             $idCepR = $con->lastInsertId();
 
             $date = date("Y/m/d");
-            $sqlRes= 'insert into responsavelFamilia (nome_responsavel, data_nascimento_responsavel, n_responsavel, complemento_responsavel,sexo_responsavel, cpf_responsavel, data_atendimento,responsavel_contato,responsavel_cep) values (?,?,?,?,?,?,?,?,?)';
+            $sqlRes= 'insert into responsavel_familia (nome_responsavel, data_nascimento_responsavel, num_responsavel, complemento_responsavel,sexo_responsavel, cpf_responsavel, data_atendimento_responsavel,contato_responsavel,cep_responsavel) values (?,?,?,?,?,?,?,?,?)';
             $resultado2 = $con->prepare($sqlRes);
             $resultado2->bindValue(1, $f->getNomeF());
             $resultado2->bindValue(2, $f->getdataNasc());

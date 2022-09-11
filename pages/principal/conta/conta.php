@@ -56,7 +56,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="../../../login/sair.php" style="color:green">SAIR</a>
+                            <li><a class="dropdown-item" href="../../../crud/login/sair.php" style="color:green">SAIR</a>
                             </li>
                         </ul>
                     </li>

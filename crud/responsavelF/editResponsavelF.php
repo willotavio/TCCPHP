@@ -24,21 +24,21 @@
             $estado = filter_input(INPUT_GET,'estado');
             $cidade = filter_input(INPUT_GET,'cidade');
 
-    $sqlUpdate = "update responsavelfamilia set nome_responsavel='$nome_responsavel', 
+    $sqlUpdate = "update responsavel_familia set nome_responsavel='$nome_responsavel', 
     data_nascimento_responsavel='$data_nascimento_responsavel', 
     sexo_responsavel='$sexo_responsavel',
     complemento_responsavel='$complemento_responsavel',
-    n_responsavel='$n_responsavel',
+    num_responsavel='$n_responsavel',
     cpf_responsavel='$cpf',
-    data_atendimento='$data_atendimento'
-    where idResponsavel='$idResponsavel'";
+    data_atendimento_responsavel='$data_atendimento'
+    where id_responsavel='$idResponsavel'";
 
     $sqlUpdate1 = "update contato set telefone='$telefone',
     celular='$celular',
-    email='$email' where idContato='$idResponsavel'";
+    email='$email' where id_contato='$idResponsavel'";
 
-    $sqlUpdate2 = "update codigoEnderecoPostal set cep='$cep', 
-    rua='$rua', bairro='$bairro', estado='$estado', cidade='$cidade' where idCep='$idResponsavel'";
+    $sqlUpdate2 = "update endereco_postal set cep='$cep', 
+    rua='$rua', bairro='$bairro', estado='$estado', cidade='$cidade' where id_cep='$idResponsavel'";
     
     $result = $con->query($sqlUpdate);
     $result1 = $con->query($sqlUpdate1);

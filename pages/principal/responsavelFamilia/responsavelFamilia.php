@@ -200,192 +200,41 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                         <?php
 
                         include_once("../../../connection/conexao.php");
-                        $sql = "SELECT responsavelFamilia.idResponsavel, responsavelFamilia.nome_responsavel,
-                                responsavelFamilia.data_nascimento_responsavel,responsavelFamilia.cpf_responsavel,
-                                contato.celular FROM responsavelFamilia INNER JOIN contato ON responsavelFamilia.idResponsavel = contato.IdContato";
-
-                        $sqlSelect = "SELECT responsavelFamilia.idResponsavel, responsavelFamilia.nome_responsavel,responsavelFamilia.data_nascimento_responsavel,
-                                responsavelFamilia.sexo_responsavel,contato.celular,contato.telefone,contato.email,responsavelFamilia.complemento_responsavel,
-                                responsavelFamilia.n_responsavel,responsavelFamilia.data_atendimento,responsavelFamilia.cpf_responsavel,codigoEnderecoPostal.cep,codigoEnderecoPostal.rua,
-                                codigoEnderecoPostal.bairro,codigoEnderecoPostal.estado,codigoEnderecoPostal.cidade	 
-                                FROM responsavelFamilia INNER JOIN contato ON responsavelFamilia.idResponsavel = contato.IdContato 
-                                INNER JOIN codigoEnderecoPostal on responsavelFamilia.idResponsavel = codigoEnderecoPostal.idCep 
-                                where idResponsavel=idResponsavel";
+                        $sql = "SELECT responsavel_familia.id_responsavel, responsavel_familia.nome_responsavel,
+                                responsavel_familia.data_nascimento_responsavel,responsavel_familia.cpf_responsavel,
+                                contato.celular FROM responsavel_familia INNER JOIN contato ON responsavel_familia.id_responsavel = contato.Id_contato";
                         $banco = new conexao();
                         $con = $banco->getConexao();
                         $resultados_responsavel = $con->query($sql);
-                        $result = $con->query($sqlSelect);
-
-                        if ($result->rowCount() > 0) {
-
-                            while ($user_data = $result->fetch()) {
-                                $idResponsavel = $user_data['idResponsavel'];
-                                $nome_responsavel = $user_data['nome_responsavel'];
-                                $data_nascimento_responsavel = $user_data['data_nascimento_responsavel'];
-                                $sexo_responsavel = $user_data['sexo_responsavel'];
-                                $complemento_responsavel = $user_data['complemento_responsavel'];
-                                $n_responsavel = $user_data['n_responsavel'];
-                                $data_atendimento = $user_data['data_atendimento'];
-                                $cpf = $user_data['cpf_responsavel'];
-
-                                $celular = $user_data['celular'];
-                                $telefone = $user_data['telefone'];
-                                $email = $user_data['email'];
-
-                                $cep = $user_data['cep'];
-                                $rua = $user_data['rua'];
-                                $bairro = $user_data['bairro'];
-                                $estado = $user_data['estado'];
-                                $cidade = $user_data['cidade'];
-                            }
-                        }
-
-
                         while ($row = $resultados_responsavel->fetch()) {
-                            echo "<tr>";
-                            echo "<td>" . $row['idResponsavel'] . "</td>";
-                            echo "<td>" . $row['nome_responsavel'] . "</td>";
-                            echo "<td>" . $row['data_nascimento_responsavel'] . "</td>";
-                            echo "<td>" . $row['cpf_responsavel'] . "</td>";
-                            echo "<td>" . $row['celular'] . "</td>";
-                            echo "<td>
-                        
-                            <a class='btn btn-sm btn-outline-primary' data-bs-toggle='modal' data-bs-target='#taticBackdrop'>
-                                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-clipboard' viewBox='0 0 16 16'>
-                                    <path d='M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z'/>
-                                    <path d='M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z'/>
-                                </svg>
-                            </a>
-                            <a class='btn btn-sm btn-outline-danger' data-bs-toggle='modal' data-bs-target='#taticBackdrop2'>
-                                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
-                                  <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
-                                  <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
-                                </svg>
-                            </a>   
-                            <div class='modal' id='taticBackdrop2' tabindex='-1' role='dialog'>
-                                <div class='modal-dialog' role='document'>
-                                    <div class='modal-content'>
-                                        <div class='modal-header'>
-                                            <div class='container' style='text-align:center'>
-                                                <h5 class='modal-title'>Deletar Informações do Responsável</h5>
-                                            </div>
-                                        </div>
-                                        <div class='modal-body'>
-                                            <p style='color:black'>Deseja Realmente Deletar as Informações do Responsável desta Familia?</p>
-                                        </div>
-                                        <div class='modal-footer'>
-                                        <button type='button' class='btn btn-outline-danger' data-bs-dismiss='modal'>
-                                        Cancelar
-                                    </button> 
-                                            <a class='btn btn-outline-success' href='../../../crud/responsavelF/deleteResponsavelF.php?idResponsavel=$row[idResponsavel]'>Confirmar</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class='modal fade' id='taticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
-                                <div class='modal-dialog'>
-                                    <div class='modal-content'>
-                                        <div class='modal-header'>
-                                                <div class='container' style='text-align:center'>
-                                                    <h5 class='modal-title' id='staticBackdropLabel'>Alterar Informações da responsavel</h5>
-                                                </div>
-                                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                                        </div>
-                                        <div class='modal-body'>
-                                        <form action='../../../crud/responsavelF/editResponsavelF.php' method='GET' autocomplete='off'>
-                                        <div class='form-floating mb-3 mt-3'>
-                                            <input  class='form-control inputCadastro' type='number' min='0' name='idResponsavel' placeholder='Id'
-                                                value='$idResponsavel'>
-                                            <label class='labelCadastro'>ID</label>
-                                        </div>
-                                        <div class='form-floating mb-3 mt-3'>
-                                            <input type='text' class='form-control inputCadastro' name='nome' required
-                                                placeholder='Nome' value='$nome_responsavel'>
-                                            <label class='labelCadastro'>Nome</label>
-                                        </div>
-                                        <div class='form-floating mb-3 mt-3'>
-                                            <input class='form-control inputCadastro' type='date' name='dataNasc' required
-                                                placeholder='Data de Nascimento' value='$data_nascimento_responsavel'>
-                                            <label class='labelCadastro'>Data de Nascimento</label>
-                                        </div>
-                                        <div class='form-floating mb-3 mt-3'>
-                                            <input  class='form-control inputCadastro' type='number' name='cpf' required
-                                                placeholder='CPF' value='$cpf' >
-                                            <label class='labelCadastro'>CPF</label>
-                                        </div>
-                                        <div>
-                                            <select class='form-select inputCadastro' aria-label='Default select example'
-                                                name='sexoP' value= '$sexo_responsavel'>
-                                                <option value='F' name='sexoP' class='labelCadastro'>Feminino</option>
-                                                <option value='M' name='sexoP' class='labelCadastro'>Masculino</option>
-                                            </select>
-                                        </div>
-                                        <div class='form-floating mb-3 mt-3'>
-                                            <input  class='form-control inputCadastro' type='text' name='celular'
-                                                placeholder='Celular' value='$celular'>
-                                            <label class='labelCadastro'>Celular</label>
-                                        </div>
-                                        <div class='form-floating mb-3 mt-3'>
-                                            <input  class='form-control inputCadastro' type='text' name='telefone'
-                                                placeholder='Telefone' value='$telefone' >
-                                            <label class='labelCadastro'>Telefone</label>
-                                        </div>
-                                        <div class='form-floating mb-3 mt-3'>
-                                            <input  class='form-control inputCadastro' type='email' name='email'
-                                                placeholder='Email' value='$email'  >
-                                            <label class='labelCadastro'>Email</label>
-                                        </div>
-                                        <div class='form-floating mb-3 mt-3'>
-                                            <input  class='form-control inputCadastro' type='text'
-                                                onblur='pesquisacep(this.value);' id='cep' name='cep' placeholder='CEP'
-                                                required value='$cep'>
-                                            <label class='labelCadastro'>CEP</label>
-                                        </div>
-                                        <div class='form-floating mb-3 mt-3'>
-                                            <input  class='form-control inputCadastro'  type='text' id='endereco' name='rua'
-                                                placeholder='Rua' value='$rua'>
-                                            <label class='labelCadastro'>Rua</label>
-                                        </div>
-                                        <div class='form-floating mb-3 mt-3'>
-                                            <input  class='form-control inputCadastro' type='text' id='bairro' name='bairro'
-                                                placeholder='Bairro' value='$bairro'>
-                                            <label class='labelCadastro'>Bairro</label>
-                                        </div>
-                                        <div class='form-floating mb-3 mt-3'>
-                                            <input  class='form-control inputCadastro' type='text' id='cidade' name='cidade'
-                                                placeholder='Cidade' value='$cidade'>
-                                            <label class='labelCadastro'>Cidade</label>
-                                        </div>
-                                        <div class='form-floating mb-3 mt-3'>
-                                            <input  class='form-control inputCadastro' type='text' name='estado' id='estado' placeholder='Estado' value='$estado' >
-                                            <label class='labelCadastro'>Estado</label>
-                                        </div>
-                                        <div class='form-floating mb-3 mt-3'>
-                                            <input  class='form-control inputCadastro' type='number' name='numRes'
-                                                placeholder='Número da Residência'  value='$n_responsavel' required >
-                                            <label class='labelCadastro'>Número Residência</label>
-                                        </div>
-                                        <div class='form-floating mb-3 mt-3'>
-                                            <input  class='form-control inputCadastro' type='text' name='complemento'
-                                                placeholder='Complemento'  value='$complemento_responsavel'>
-                                            <label class='labelCadastro'>Complemento</label>
-                                        </div>
-                                        <div class='form-floating mb-3 mt-3'>
-                                            <input class='form-control inputCadastro' type='date' name='dataAtendimento' required
-                                                placeholder='Data de Atendimento' value='$data_atendimento'>
-                                            <label class='labelCadastro'>Data de Atendimento</label>
-                                        </div>
-                                        
-                                        <div class='modal-footer'>
-                                            <button type='button' class='btn btn-outline-danger' data-bs-dismiss='modal'>Cancelar</button>
-                                            <p style='text-align:center'><input type='submit' class='btn btn-outline-success' name='update' value='Atualizar'>
-                                        </div> 
-                                        </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>";
-                            echo "</tr>";
+                            ?>
+                            <tr>
+                                <td><span  id="id<?php echo $row['id_responsavel']; ?>"><?php echo $row['id_responsavel']; ?></span></td>
+                                <td><span  id="nome<?php echo $row['id_responsavel']; ?>"><?php echo $row['nome_responsavel']; ?></span></td>
+                                <td><span  id="data_nascimento<?php echo $row['id_responsavel']; ?>"><?php echo $row['data_nascimento_responsavel']; ?></span></td>
+                                <td><span  id="cpf<?php echo $row['id_responsavel']; ?>"><?php echo $row['cpf_responsavel']; ?></span></td>
+                                <td><span  id="celular<?php echo $row['id_responsavel']; ?>"><?php echo $row['celular']; ?></span></td>
+                                
+                                <td> 
+                                
+                                <button class='btn btn-sm btn-outline-primary editR' value="<?php echo $row['id_responsavel']; ?>" id="<?php echo $row['id_responsavel']; ?>">
+                                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-clipboard' viewBox='0 0 16 16'>
+                                            <path d='M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z'/>
+                                            <path d='M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z'/>
+                                        </svg>
+                                </button>
+
+                                <button class='btn btn-sm btn-outline-danger deleteR' value="<?php echo $row['id_responsavel']; ?>">
+                                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
+                                            <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
+                                            <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
+                                        </svg>
+                                </button>
+
+
+                                </td>
+                            </tr>
+                        <?php
                         }
                         ?>
                     </tbody>
@@ -393,6 +242,46 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
             </div>
         </div>
     </div>
+    <div id="editarResponsavel"class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar Responsavel</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span id="editResp"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+         <script>
+        $(document).ready(function () {
+        $(document).on("click", ".editR", function () {
+            var user_id = $(this).val();
+            //alert (id);
+            if(user_id !== ''){
+                var dados = {
+                    user_id: user_id
+                };
+                $.post('editModalR.php', dados, function(retorna){
+                    //alert(retorna);
+                    $("#editResp").html(retorna);
+                    $('#editarResponsavel').modal('show')
+                });
+            } 
+             
+        });
+    });
+
+    </script> 
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
