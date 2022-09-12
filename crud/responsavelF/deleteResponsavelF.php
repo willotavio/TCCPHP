@@ -1,10 +1,10 @@
 <?php
 
- if(!empty($_GET['idResponsavel'])){
+ if(!empty($_GET['idResponsavel1'])){
         include_once('../../connection/conexao.php');
         $banco = new conexao();
         $con = $banco->getConexao();
-        $id = $_GET['idResponsavel'];
+        $id = $_GET['idResponsavel1'];
         $sqlSelect = "SELECT * FROM responsavel_familia WHERE id_responsavel =$id";
         $result = $con->query($sqlSelect);
 

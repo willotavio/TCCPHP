@@ -51,9 +51,9 @@ foreign key(contato_responsavel) references contato(id_contato)
 
 
 select * from usuario;
-select * from responsavelFamilia;
-select * from Contato;
-select * from CodigoEnderecoPostal;
+select * from responsavel_familia;
+select * from contato;
+select * from endereco_postal;
 select * from cestas;
 
 

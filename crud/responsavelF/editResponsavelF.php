@@ -5,13 +5,13 @@
 
     if(isset($_GET['update'])){
 
-            $idResponsavel = filter_input(INPUT_GET,'idResponsavel');
+            $idResponsavel = filter_input(INPUT_GET,'id');
             $nome_responsavel = filter_input(INPUT_GET,'nome');
             $data_nascimento_responsavel = filter_input(INPUT_GET,'dataNasc');
-            $sexo_responsavel =filter_input(INPUT_GET,'sexo_responsavel');
+            $sexo_responsavel =filter_input(INPUT_GET,'sexoP');
             $complemento_responsavel = filter_input(INPUT_GET,'complemento');
             $n_responsavel = filter_input(INPUT_GET,'numRes');
-            $data_atendimento = filter_input(INPUT_GET,'dataAtendimento');
+            $data_atendimento = filter_input(INPUT_GET,'atendimento');
             $cpf =filter_input(INPUT_GET, 'cpf');
             
             $celular = filter_input(INPUT_GET,'celular');

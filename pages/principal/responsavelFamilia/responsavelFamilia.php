@@ -18,9 +18,6 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
     <script src="../../../Js/consultaCEP.js"></script>
     <title>Familias</title>
     </title>
-
-
-
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
     </script>
@@ -217,12 +214,12 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                                 
                                 <td> 
                                 
-                                <button class='btn btn-sm btn-outline-primary editR' value="<?php echo $row['id_responsavel']; ?>" id="<?php echo $row['id_responsavel']; ?>">
+                                <a class='btn btn-sm btn-outline-primary' href='editRes.php?id=<?php echo $row['id_responsavel']?>'>
                                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-clipboard' viewBox='0 0 16 16'>
                                             <path d='M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z'/>
                                             <path d='M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z'/>
                                         </svg>
-                                </button>
+                                </a>
 
                                 <button class='btn btn-sm btn-outline-danger deleteR' value="<?php echo $row['id_responsavel']; ?>">
                                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
@@ -261,27 +258,17 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
             </div>
         </div>
     </div>
-         <script>
-        $(document).ready(function () {
-        $(document).on("click", ".editR", function () {
-            var user_id = $(this).val();
-            //alert (id);
-            if(user_id !== ''){
-                var dados = {
-                    user_id: user_id
-                };
-                $.post('editModalR.php', dados, function(retorna){
-                    //alert(retorna);
-                    $("#editResp").html(retorna);
-                    $('#editarResponsavel').modal('show')
-                });
-            } 
-             
+    <?php include('deleteRes.php'); ?>
+   <script>
+    $(document).ready(function () {
+	$(document).on("click", ".deleteR", function () {
+		var id = $(this).val();
+
+		$("#deleteR").modal("show");
+		$("#cod1").val(id);
         });
     });
-
-    </script> 
-   
+   </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
