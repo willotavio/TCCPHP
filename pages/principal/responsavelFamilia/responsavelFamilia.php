@@ -16,6 +16,7 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../../../Js/consultaCEP.js"></script>
+    <link rel="shortcut icon" href="../../../imgs/favicon.ico" type="image/x-icon">
     <title>Familias</title>
     </title>
     <script src="https://code.jquery.com/jquery-3.3.1.js"
@@ -47,6 +48,9 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                     <li class="nav-item">
                         <a class="nav-link" href="../cestas/cestas.php" style="color:green">CESTAS</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../pages/principal/financeira/dashboard.php" style="color:green">FINACEIRO</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false" style="color:green">
@@ -60,7 +64,7 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                             </li>
                             <li><a class="dropdown-item" href="../../../login/sair.php" style="color:green">SAIR</a>
                             </li>
-                        </ul>
+                        </ul>                        
                     </li>
                 </ul>
 

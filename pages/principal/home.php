@@ -24,6 +24,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../imgs/favicon.ico" type="image/x-icon">
     <title>Inicio</title>
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
@@ -53,6 +54,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="cestas/cestas.php" style="color:green">CESTAS</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../pages/principal/financeira/dashboard.php" style="color:green">FINACEIRO</a>
+                    </li> 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false" style="color:green">
@@ -66,7 +70,7 @@
                             </li>
                             <li><a class="dropdown-item" href="../../crud/login/sair.php" style="color:green">SAIR</a>
                             </li>
-                        </ul>
+                        </ul>                       
                     </li>
                 </ul>
 
