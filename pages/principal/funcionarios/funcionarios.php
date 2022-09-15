@@ -45,14 +45,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link " href="../responsavelFamilia/responsavelFamilia.php"  style="color:green">FAMILIAS</a>
+                        <a class="nav-link " href="../responsavelFamilia/responsavelFamilia.php" style="color:green">FAMILIAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cestas.php"  style="color:green">CESTAS</a>
+                        <a class="nav-link" href="../cestas/cestas.php" style="color:green">CESTAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../../pages/principal/financeira/dashboard.php" style="color:green">FINACEIRO</a>
-                    </li>
+                        <a class="nav-link" href="../financeira/dashboard.php" style="color:green">FINACEIRO</a>
+                    </li> 
                     <li class="nav-item">
                         <a class="nav-link" href="../funcionarios/funcionarios.php" style="color:green">FUNCIONÁRIOS</a>
                     <li class="nav-item dropdown">
@@ -66,7 +66,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="../../../crud/login/sair.php" style="color:green">SAIR</a>
+                            <li><a class="dropdown-item" href="../../crud/login/sair.php" style="color:green">SAIR</a>
                             </li>
                         </ul>                       
                     </li>
@@ -85,7 +85,7 @@
                 <div id="modalCadastro">
                     <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
                         data-bs-target="#exampleModal" style="font-size: 1.2em; width: 200px; margin-top:50px">Cadastrar
-                        <br> Cesta</button>
+                        <br> Funcionários</button>
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
@@ -101,19 +101,35 @@
                                     <form action='../../../crud/cestas/controlecestas.php' method='GET'
                                         autocomplete="off">
                                         <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputCadastro" type="number" min="0" name="idCestas"
+                                            <input class="form-control inputCadastro" type="text" min="0" name="idCestas"
                                                 placeholder="Id" >
-                                            <label class="labelCadastro">ID</label>
+                                            <label class="labelCadastro">Nome do usuário</label>
                                         </div>
                                         <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputCadastro" type="number" min="0" name="quantidadeCestas"
+                                            <input class="form-control inputCadastro" type="email" min="0" name="quantidadeCestas"
                                                 placeholder="Quantidade" >
-                                            <label class="labelCadastro">Quantidade Cestas</label>
+                                            <label class="labelCadastro">Email do usuário</label>
                                         </div>
                                         <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputCadastro" type="date" name="recebimentoCestas"
-                                                placeholder="Data de Recebimento" required >
-                                            <label class="labelCadastro">Data de Recebimento</label>
+                                            <input class="form-control inputCadastro" type="password" min="0" name="quantidadeCestas"
+                                                placeholder="Quantidade" >
+                                            <label class="labelCadastro">Senha do usuário</label>
+                                        </div>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input class="form-control inputCadastro" type="password" min="0" name="quantidadeCestas"
+                                                placeholder="Quantidade" >
+                                            <label class="labelCadastro">Confirmar senha</label>
+                                        </div>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <select class="form-select" name="cadastrarUTipo">
+                                                <option value="F" name="cadastrarUTipo">Funcionario</option>
+                                                <option value="A" name="cadastrarUTipo">Administrador</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input class="form-control inputCadastro" type="file" min="0" name="quantidadeCestas"
+                                                placeholder="Quantidade" >
+                                            <label class="labelCadastro">Foto do usuário</label>
                                         </div>
                                 </div>
                                 <div class="modal-footer">
@@ -139,8 +155,9 @@
                      <table class="table" style="color:green">
                         <thead>
                                 <th scope="col" style='text-align:center'>#</th>
-                                <th scope="col" style='text-align:center'>Quantidade</th>
-                                <th scope="col" style='text-align:center'>Data de Recebimento</th>
+                                <th scope="col" style='text-align:center'>Nome</th>
+                                <th scope="col" style='text-align:center'>Email</th>
+                                <th scope="col" style='text-align:center'>Fotos</th>
                                 <th scope="col">Ações</th>
                         </thead>
                         <tbody>

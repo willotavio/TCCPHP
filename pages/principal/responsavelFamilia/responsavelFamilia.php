@@ -43,14 +43,16 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link " href="responsavelFamilia.php" style="color:green">FAMILIAS</a>
+                        <a class="nav-link " href="" style="color:green">FAMILIAS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../cestas/cestas.php" style="color:green">CESTAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../../pages/principal/financeira/dashboard.php" style="color:green">FINACEIRO</a>
-                    </li>
+                        <a class="nav-link" href="../financeira/dashboard.php" style="color:green">FINACEIRO</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="../funcionarios/funcionarios.php" style="color:green">FUNCIONÁRIOS</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false" style="color:green">
@@ -62,9 +64,9 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="../../../login/sair.php" style="color:green">SAIR</a>
+                            <li><a class="dropdown-item" href="../../crud/login/sair.php" style="color:green">SAIR</a>
                             </li>
-                        </ul>                        
+                        </ul>                       
                     </li>
                 </ul>
 
