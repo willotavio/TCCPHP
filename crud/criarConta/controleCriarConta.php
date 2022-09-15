@@ -1,30 +1,41 @@
 <?php
-$cadastrarULogin = filter_input(INPUT_GET,'cadastrarULogin');
-$cadastrarUSenha = filter_input(INPUT_GET,'cadastrarUSenha');
-$cadastrarUCSenha = filter_input(INPUT_GET,'cadastrarUCSenha');
-$cadastrarUEmail = filter_input(INPUT_GET,'cadastrarUEmail');
-$botao =  filter_input(INPUT_GET,'botao');
-$cadastrarUTipo = filter_input(INPUT_GET,'cadastrarUTipo');
-
-include 'contaCriar.php';
-$contaC = new criarConta();
-
-
-
-$contaC->setULogin($cadastrarULogin);
-$contaC->setUsenha($cadastrarUSenha);
-$contaC->setUEmail($cadastrarUEmail); 
-$contaC->setUCSSenha($cadastrarUCSenha);
-$contaC->setUTipo($cadastrarUTipo);
-$contaC->setUCSSenha($cadastrarUCSenha); 
-
+header("Content-type: text/html; charset=utf=8");
+$cadastrarULogin = filter_input(INPUT_POST,'cadastrarULogin');
+$cadastrarUSenha = filter_input(INPUT_POST,'cadastrarUSenha');
+$cadastrarUCSenha = filter_input(INPUT_POST,'cadastrarUCSenha');
+$cadastrarUEmail = filter_input(INPUT_POST,'cadastrarUEmail');
+$cadastrarUTipo = filter_input(INPUT_POST,'cadastrarUTipo');
+$botao =  filter_input(INPUT_POST,'botao');
 
 
 include 'contaCriarDAO.php';
 $contaCDao = new contaCDao();
+
+$contaCDao->setULogin($cadastrarULogin);
+$contaCDao->setUsenha($cadastrarUSenha);
+$contaCDao->setUEmail($cadastrarUEmail); 
+$contaCDao->setUCSSenha($cadastrarUCSenha);
+$contaCDao->setUTipo($cadastrarUTipo);
+$contaCDao->setUCSSenha($cadastrarUCSenha);
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+if(isset($_FILES['arquivo'])){
+    $Atual = $_FILES['arquivo']['name'];
+    $Temp = $_FILES['arquivo']['tmp_name'];
+    $Dest = '../../imgs/conta/'.$Atual;
+    $_SESSION['arquivoAtual']  = $Atual;
+    $_SESSION['arquivoTemp'] =  $Temp;
+    $_SESSION['destino'] = $Dest;
+}
+
+
+
+
 if($botao=='cadastrar'){
     if($cadastrarUSenha == $cadastrarUCSenha){
-        $contaCDao->cadastrarNvC($contaC);
+        $contaCDao->cadastrarNvC();
     }else{
         echo "<script LANGUAGE= 'JavaScript'>
             window.alert('As senhas digitadas não indênticas tente novamente');
@@ -33,3 +44,9 @@ if($botao=='cadastrar'){
     }
     }
 ?>
+
+
+
+
+
+

@@ -17,6 +17,7 @@ body {
 /*home.php */
 #textoCardHome {
 	color: green;
+	
 }
 
 #cardContainer {
@@ -127,6 +128,7 @@ footer {
 }
 #textFooter {
 	color: rgb(36, 133, 65);
+	margin-bottom: 0;
 }
 /*footer.php*/
 
@@ -137,10 +139,7 @@ footer {
 	border-radius: 50%;
 	padding: 10px 0px 10px 0px;
 }
-#caixaConta {
-	transform: translate(-50%, -50%);
-	text-align: center;
-}
+
 #titleConta {
 	padding-top: 10px;
 	padding-bottom: 20px;

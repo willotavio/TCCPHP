@@ -22,7 +22,7 @@
                 <div class=" col-md-11 m-auto">
                     <div id="containerCadastroConta">
                         <div class="container mt-3">
-                            <form method="GET" action="../../crud/criarConta/controleCriarConta.php" autocomplete="off">
+                            <form method="POST" action="../../crud/criarConta/controleCriarConta.php" autocomplete="off" enctype="multipart/form-data">
                                 <h1 style="text-align:center; font-size:25px; padding:15px; color:rgba(25,135,84,255)">
                                     CRIAR CONTA</h1>
                                 <div class="form-floating mb-3 mt-3">
@@ -45,12 +45,18 @@
                                         name='cadastrarUCSenha' required>
                                     <label>Repita a sua Senha</label>
                                 </div>
+                                <div class="mt-3 mb-3">
+                                    <div class="container" style="text-align:start; margin:2px"> 
+                                        <label>Escolha uma foto de Perfil</label></div>
+                                    <input type="file" class="form-control" name='arquivo' required>
+                                </div>
                                 <div style="margin-bottom:15px">
                                     <select class="form-select" name="cadastrarUTipo">
                                         <option value="F" name="cadastrarUTipo">Funcionario</option>
                                         <option value="A" name="cadastrarUTipo">Administrador</option>
                                     </select>
                                 </div>
+
                                 <div class="row m-auto">
                                     <button type="submit" class="btn btn-success btn-lg btn-block"
                                         style="font-size:16px" value="cadastrar" name="botao">Cadastrar</button>

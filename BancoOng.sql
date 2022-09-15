@@ -30,8 +30,13 @@ create table usuario(
     nome_usuario varchar(10) not null,
     senha_usuario varchar(20) not null,
     tipo_usuario varchar(1) not null,
-    email_usuario varchar(90) not null
+    email_usuario varchar(90) not null,
+	foto_usuario char(40),
+    imagem_usuario blob
+
 );
+
+
 
 create table responsavel_familia(
 id_responsavel int(4) primary key not null auto_increment,
