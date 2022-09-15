@@ -10,13 +10,13 @@
         include_once('../../../connection/conexao.php');
         $banco = new conexao();
         $con = $banco->getConexao();
-        $sql = "select nome_usuario, tipo_usuario, email_usuario, foto_usuario from usuario where nome_usuario = '$logado'";
+        $sql = "select nome_usuario, tipo_usuario, email_usuario, imagem_usuario from usuario where nome_usuario = '$logado'";
         $result = $con->query($sql);
         if($result->rowCount() > 0){
 
             while( $row = $result->fetch()){
             $emailU = $row['email_usuario'];
-            $fotoU = $row['foto_usuario'];
+            $imagemU = $row['imagem_usuario'];
             $nomeU = $row['nome_usuario'];
             $tipoU = $row['tipo_usuario'];
         }
@@ -87,13 +87,13 @@
     </nav>
 </header>
 
-<body>
-    <div class="container">
+<body> 
+    <div class="container-fluid" style="padding:0">
         <h6 style="color:green; font-size: 200%;">CONTA</h6>
-        
-        <div class="container"><?php echo "<p><b>FOTO</b></p>"?></div>
-        <div class="container"><?php echo "<p><b>NOME: $nomeU</b></p>"?></div>
-        <div class="container"><?php echo "<p><b>EMAIL: $emailU</b></p>"?></div>
+        <div class="container"><?php echo'<img src="data:../../../imgs/conta;base64,' . base64_encode($imagemU) . '" style="border-radius:10px;width: 35%;"'?></div>
+        <div class="container"><?php echo "<p style='font-size:140%'><b>Perfil</b></p>"?></div>
+        <div class="container"><?php echo "<p style='font-size:120%'><b>NOME: $nomeU</b></p>"?></div>
+        <div class="container"><?php echo "<p style='font-size:120%'><b>EMAIL: $emailU</b></p>"?></div>
         <div class="container">
             <?php if($tipoU == "F"){
                     echo "<p><b>TIPO: FUNCIONARIO</b></p>";
@@ -104,7 +104,6 @@
                     echo "<p><b>ERRO</b></p>";
                 }
             ?>
-        
         </div>
     </div>
     <div class="container-fluid" style="padding:0; margin-top:28.3%;">

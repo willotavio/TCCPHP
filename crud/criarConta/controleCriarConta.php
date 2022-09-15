@@ -39,7 +39,7 @@ if($botao=='cadastrar'){
     }else{
         echo "<script LANGUAGE= 'JavaScript'>
             window.alert('As senhas digitadas não indênticas tente novamente');
-            window.location.href='../../pages/login/criarConta.php';
+            window.location.href='../../index.php';
             </script>"; 
     }
     }
