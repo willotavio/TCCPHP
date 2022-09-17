@@ -49,7 +49,7 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                         <a class="nav-link" href="../cestas/cestas.php" style="color:green">CESTAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../financeira/dashboard.php" style="color:green">FINACEIRO</a>
+                        <a class="nav-link" href="../dashboard/dashboard.php" style="color:green">FINACEIRO</a>
                     </li> 
                     <li class="nav-item">
                         <a class="nav-link" href="../funcionarios/funcionarios.php" style="color:green">FUNCIONÁRIOS</a>
@@ -64,7 +64,7 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="../../crud/login/sair.php" style="color:green">SAIR</a>
+                            <li><a class="dropdown-item" href="../../../crud/login/sair.php" style="color:green">SAIR</a>
                             </li>
                         </ul>                       
                     </li>

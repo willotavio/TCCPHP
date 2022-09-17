@@ -17,7 +17,6 @@ body {
 /*home.php */
 #textoCardHome {
 	color: green;
-	
 }
 
 #cardContainer {
@@ -168,3 +167,18 @@ footer {
 	color: green;
 }
 /* Input de Cadastro */
+
+/* Dashboard */
+#cardContainerD {
+	width: 17rem;
+	margin: auto;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+		rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+	transition: 0.4s;
+	margin-bottom: 20px;
+}
+
+#cardContainerD:hover {
+	box-shadow: rgba(5, 151, 41, 0.582) 0px 0px 0px 3px;
+}
+/* DashBoard */

@@ -55,8 +55,11 @@
                         <a class="nav-link" href="cestas/cestas.php" style="color:green">CESTAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../pages/principal/financeira/dashboard.php" style="color:green">FINACEIRO</a>
-                    </li> 
+                        <a class="nav-link" href="dashboard/dashboard.php" style="color:green">FINACEIRO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="funcionarios/funcionarios.php" style="color:green">FUNCIONÁRIOS</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false" style="color:green">

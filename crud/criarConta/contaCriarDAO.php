@@ -70,7 +70,7 @@ class contacDao{
                 
                 echo "<script LANGUAGE= 'JavaScript'>
                     window.alert('Cadastrado com sucesso');
-                    window.location.href='../../pages/login/criarConta.php';
+                    window.location.href='../../index.php';
                     </script>";
             }
             
