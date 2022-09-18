@@ -46,7 +46,7 @@ data_atendimento_responsavel date,
 sexo_responsavel char(1),
 foreign key(cep_responsavel) references endereco_postal(id_cep),
 foreign key(contato_responsavel) references contato(id_contato),
-foreign key (usuario_responsavel) references usuario(id_usuario)
+foreign key (usuario_responsavel) references usuario(id_usuario),
 
 );
 
@@ -63,8 +63,22 @@ create table conta(
 
 create table cestas(
     id_cestas int(4) primary key not null auto_increment,
+    usuario_cestas int(4),
     quantidade_cestas int(4) not null,
-    recebimento_cestas date not null
+    recebimento_cestas date not null,
+    foreign key (usuario_cestas) references usuario(id_usuario)
+
+);
+
+
+create table saidaCestas(
+    id_saidaCestas int (4) primary key not null auto_increment,
+    usuario_saidaCestas int(4),
+    responsavel_saidaCestas int(4),
+    quantidade_cestasS int(4) not null,
+    data_cadastro date,
+    foreign key(responsavel_saidaCestas) references responsavel_familia(id_responsavel),
+    foreign key (usuario_saidaCestas) references usuario(id_usuario)
 );
 
 
@@ -73,6 +87,8 @@ select * from responsavel_familia;
 select * from contato;
 select * from endereco_postal;
 select * from cestas;
+select * from saidaCestas;
+
 
 SELECT familia.idFamilia, familia.nome_familia,familia.data_nascimento_familia,
 familia.sexo_familia,contato.celular,contato.telefone,contato.email,familia.complemento_familia,

@@ -49,7 +49,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link " href="responsavelFamilia/responsavelFamilia.php" style="color:green">FAMILIAS</a>
+                        <a class="nav-link " href="responsavelFamilia/responsavelFamilia.php"
+                            style="color:green">FAMILIAS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="cestas/cestas.php" style="color:green">CESTAS</a>
@@ -73,7 +74,7 @@
                             </li>
                             <li><a class="dropdown-item" href="../../crud/login/sair.php" style="color:green">SAIR</a>
                             </li>
-                        </ul>                       
+                        </ul>
                     </li>
                 </ul>
 
@@ -146,7 +147,8 @@
                     </p>
                     <hr class="my-4">
                     <p class="lead">
-                        <a class="btn btn-success btn-lg" href="responsavelFamilia/responsavelFamilia.php" role="button">Ver Mais</a>
+                        <a class="btn btn-success btn-lg" href="responsavelFamilia/responsavelFamilia.php"
+                            role="button">Ver Mais</a>
                     </p>
                 </div>
             </div>
@@ -179,4 +181,5 @@
     </script>
 
 </body>
+
 </html>

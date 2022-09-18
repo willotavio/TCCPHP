@@ -20,9 +20,15 @@ if(isset($_POST['submit']) && !empty($_POST['nome_login']) && !empty($_POST['sen
         window.location.href='../../index.php';
         </script>");
     }else{
+
         $_SESSION['usuario'] = $nome_login;
         $_SESSION['senha'] = $senha ;
-        
+        $sqlquery1 = "select id_usuario from usuario where nome_usuario = '$nome_login';";
+        $result1 = $con->query($sqlquery1)->fetchColumn();
+        $_SESSION['id'] = $result1 ;
+
+
+
         header('location: ../../pages/principal/home.php');
     }
     

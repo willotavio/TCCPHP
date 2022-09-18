@@ -4,7 +4,18 @@
     {
         unset($_SESSION['usuario']);
         unset($_SESSION['senha']);
-        header('location: ../../index.php');
+        header('location: ../../../index.php');
+    }else{
+        $logado = $_SESSION['usuario'];
+        include_once('../../../connection/conexao.php');
+        $banco = new conexao();
+        $con = $banco->getConexao();
+        $contC = $con->query('SELECT COUNT(*) FROM cestas')->fetchColumn(); 
+        $contCMC = $con->query('SELECT SUM(quantidade_cestas) FROM cestas')->fetchColumn(); 
+        $contCMD = $con->query('SELECT SUM(quantidade_cestasS) FROM saidaCestas')->fetchColumn();
+        if($contC != 0){
+            $total = $contCMC - $contCMD;
+        }
     }
 
 ?>
@@ -22,18 +33,17 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
     </script>
-  
+
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
-        <?php 
-            include '../../style.css';
-        ?>
+    <?php include '../../style.css';
+    ?>
     </style>
 </head>
 
-<header style="margin-bottom: 100px;">
+<header>
     <nav class="navbar navbar-expand-lg" style="background-color: white;position: fixed;z-index: 1000;width: 100%;">
         <div class="container-fluid">
             <a class="navbar-brand" href="../home.php"><img src='../../../imgs/logo2.png' width="60"></a>
@@ -45,13 +55,15 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link " href="../responsavelFamilia/responsavelFamilia.php"  style="color:green">FAMILIAS</a>
+                        <a class="nav-link " href="../responsavelFamilia/responsavelFamilia.php"
+                            style="color:green">FAMILIAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cestas.php"  style="color:green">CESTAS</a>
+                        <a class="nav-link" href="cestas.php" style="color:green">CESTAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../../pages/principal/dashboard/dashboard.php" style="color:green">FINACEIRO</a>
+                        <a class="nav-link" href="../../../pages/principal/dashboard/dashboard.php"
+                            style="color:green">FINACEIRO</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../funcionarios/funcionarios.php" style="color:green">FUNCIONÁRIOS</a>
@@ -66,9 +78,10 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="../../../crud/login/sair.php" style="color:green">SAIR</a>
+                            <li><a class="dropdown-item" href="../../../crud/login/sair.php"
+                                    style="color:green">SAIR</a>
                             </li>
-                        </ul>                       
+                        </ul>
                     </li>
                 </ul>
 
@@ -83,16 +96,13 @@
         <div class="row" style="margin-bottom:15px">
             <div class="col m-auto" style="text-align:center">
                 <div id="modalCadastro">
-                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal" style="font-size: 1.2em; width: 200px; margin-top:50px">Cadastrar
-                        <br> Cesta</button>
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <div class="container" style="text-align:center">
-                                        <h5 class="modal-title" style="color: green;">Cesta</h5>
+                                        <h5 class="modal-title" style="color: green;">Entrada de Cesta</h5>
                                     </div>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
@@ -101,18 +111,13 @@
                                     <form action='../../../crud/cestas/controlecestas.php' method='GET'
                                         autocomplete="off">
                                         <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputCadastro" type="number" min="0" name="idCestas"
-                                                placeholder="Id" >
-                                            <label class="labelCadastro">ID</label>
-                                        </div>
-                                        <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputCadastro" type="number" min="0" name="quantidadeCestas"
-                                                placeholder="Quantidade" >
+                                            <input class="form-control inputCadastro" type="number" min="0"
+                                                name="quantidadeCestas" placeholder="Quantidade">
                                             <label class="labelCadastro">Quantidade Cestas</label>
                                         </div>
                                         <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputCadastro" type="date" name="recebimentoCestas"
-                                                placeholder="Data de Recebimento" required >
+                                            <input class="form-control inputCadastro" type="date"
+                                                name="recebimentoCestas" placeholder="Data de Recebimento" required>
                                             <label class="labelCadastro">Data de Recebimento</label>
                                         </div>
                                 </div>
@@ -120,7 +125,53 @@
                                     <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
                                         Fechar
                                     </button>
-                                    <p><input type="submit" class="btn btn-outline-success" name='botao' value='Cadastrar'>
+                                    <p><input type="submit" class="btn btn-outline-success" name='botao'
+                                            value='Cadastrar'>
+                                    </p>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row" style="margin-bottom:15px">
+            <div class="col m-auto" style="text-align:center">
+                <div id="modalCadastro">
+                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="container" style="text-align:center">
+                                        <h5 class="modal-title" style="color: green;">Saída de Cesta</h5>
+                                    </div>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action='../../../crud/cestas/saida/controlecestasS.php' method='GET'
+                                        autocomplete="off">
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input class="form-control inputCadastro" type="number" min="0"
+                                                name="quantidadeCestas" placeholder="Quantidade">
+                                            <label class="labelCadastro">Quantidade Cestas</label>
+                                        </div>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input class="form-control inputCadastro" type="date" name="dataCadastro"
+                                                placeholder="Data de Recebimento" required>
+                                            <label class="labelCadastro">Data de Saída</label>
+                                        </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
+                                        Fechar
+                                    </button>
+                                    <p><input type="submit" class="btn btn-outline-success" name='botao'
+                                            value='cadastrarSaida'>
                                     </p>
                                     </form>
                                 </div>
@@ -132,56 +183,72 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="overflow-auto">
-            <div class="column">
-                <div class="m-2 ">
-                     <table class="table" style="color:green">
-                        <thead>
-                                <th scope="col" style='text-align:center'>#</th>
-                                <th scope="col" style='text-align:center'>Quantidade</th>
-                                <th scope="col" style='text-align:center'>Data de Recebimento</th>
-                                <th scope="col">Ações</th>
-                        </thead>
-                        <tbody>
-                            <?php 
-                                
-                                include_once ("../../../connection/conexao.php");
-                                $sql= "SELECT * FROM cestas";
-                                $banco = new conexao();
-                                $con = $banco->getConexao();
-                                $result = $con->query($sql);
-                                while($row = $result->fetch()){
-                                    ?>
-                                    <tr>
-                                    <td><span  id="id<?php echo $row['id_cestas']; ?>"><?php echo $row['id_cestas']; ?></span></td>
-                                    <td><span  id="quantidade<?php echo $row['id_cestas']; ?>"><?php echo $row['quantidade_cestas']; ?></span></td>
-                                    <td><span  id="recebimento<?php echo $row['id_cestas']; ?>"><?php echo $row['recebimento_cestas']; ?></span></td>
-                                    <td> <button class='btn btn-sm btn-outline-primary edit' value="<?php echo $row['id_cestas']; ?>">
-                                            <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-clipboard' viewBox='0 0 16 16'>
-                                                <path d='M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z'/>
-                                                <path d='M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z'/>
-                                            </svg>
-                                    </button>
-                                        <button class='btn btn-sm btn-outline-danger delete' value="<?php echo $row['id_cestas']; ?>">
-                                            <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
-                                                <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
-                                                <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
-                                            </svg>
-                                    </button>
-                                    </td>
-                                    </tr>
-                                    <?php
-                                    }
-                                    ?>
-                        </tbody>
-                    </table>
+
+    <div class="container" style="margin-top:90px">
+        <div class="row">
+            <div class="container">
+                <?php
+                            echo" <h4>Total de Cestas Disponíveis: $total</h4>";
+                        ?>
+            </div>
+            <div class="row">
+                <div class="container">
+                    <h5 style="text-align:center; margin-top:20px">Área de Gerenciamento das Cestas</h5>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="card" id="cardContainerD">
+                                <a data-bs-toggle="modal" data-bs-target="#exampleModal" style="text-decoration: none;">
+                                    <img class="card-img-top" src="../../../imgs/iconesCestas/cestaCadastrada.png">
+                                    <hr>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Cestas Cadastradas</h5>
+                                        <?php
+                                            echo"<p class='card-text'>Total de Cestas Cadastradas: $contCMC</p>";
+                                        ?>
+
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="card" id="cardContainerD">
+                                <a data-bs-toggle="modal" data-bs-target="#exampleModal1"
+                                    style="text-decoration: none;">
+                                    <img class="card-img-top" src="../../../imgs/iconesCestas/cestaDoada.png">
+                                    <hr>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Cestas Doadas</h5>
+                                        <?php
+                                            echo"<p class='card-text'>Total de Cestas Doadas: $contCMD</p>";
+                                        ?>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="card" id="cardContainerD">
+                                <a href="relatorioCestas.php" style="text-decoration: none; color:black">
+                                    <img class="card-img-top" src="../../../imgs/iconesCestas/docs.png">
+                                    <hr>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Exibir Relatorios</h5>
+                                        <p class="card-text">Consulte a situação das Cestas</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    
+
+
+
+
     <?php include('modalEdit.php'); ?>
     <?php include('modalDelete.php'); ?>
     <script src="customEdit.js"></script>
