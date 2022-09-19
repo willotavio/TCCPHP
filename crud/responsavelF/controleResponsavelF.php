@@ -20,17 +20,9 @@ $email =  filter_input(INPUT_GET,'email');
 
 include 'contato.php';
 include 'responsavelF.php';
-include 'codigoEnderecoPostal.php';
+
 $responsavelF = new responsavelF();
-$codigoEnderecoPostal = new codigoEnderecoPostal();
 $contato = new contato();
-
-
-$codigoEnderecoPostal->setCep($cep);
-$codigoEnderecoPostal->setRua($rua);
-$codigoEnderecoPostal->setBairro($bairro);
-$codigoEnderecoPostal->setEstado($estado);
-$codigoEnderecoPostal->setCidade($cidade);
 
 $contato->setTelefone($telefone);
 $contato->setCelular($celular);
@@ -42,6 +34,7 @@ $responsavelF->setnumRes($numRes);
 $responsavelF->setComplemento($complemento);
 $responsavelF->setSexoF($sexoP);
 $responsavelF->setcpf($cpf);
+$responsavelF->setCep($cep);
 
 
 
@@ -49,6 +42,6 @@ include 'responsavelFDAO.php';
 $responsavelFDao = new responsavelFDao();
 
 if($botao=='Cadastrar'){
-    $responsavelFDao->cadastrarresponsavelF($responsavelF, $contato, $codigoEnderecoPostal);
+    $responsavelFDao->cadastrarresponsavelF($responsavelF, $contato);
   }
 ?>

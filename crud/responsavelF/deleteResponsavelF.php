@@ -10,10 +10,8 @@
 
         if($result->rowCount() > 0){
             $sqlDelete = "DELETE FROM responsavel_familia WHERE id_responsavel=$id";
-            $sqlDelete2 = "DELETE FROM endereco_postal WHERE id_cep=$id";
             $sqlDelete3 = "DELETE FROM contato WHERE id_contato=$id";
             $resultDelete = $con->query($sqlDelete);
-            $resultDelete2 = $con->query($sqlDelete2);
             $resultDelete3 = $con->query($sqlDelete3);
         }
     }header('location: ../../pages/principal/responsavelFamilia/responsavelFamilia.php');

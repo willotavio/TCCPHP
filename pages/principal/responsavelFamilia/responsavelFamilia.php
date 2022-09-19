@@ -18,7 +18,6 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
     <script src="../../../Js/consultaCEP.js"></script>
     <link rel="shortcut icon" href="../../../imgs/favicon.ico" type="image/x-icon">
     <title>Familias</title>
-    </title>
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
     </script>
@@ -145,22 +144,22 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                                         </div>
                                         <div class="form-floating mb-3 mt-3">
                                             <input class="form-control inputCadastro" type="text" id="endereco"
-                                                name="rua" placeholder="Rua">
+                                                name="rua" placeholder="Rua" readonly>
                                             <label class="labelCadastro">Rua</label>
                                         </div>
                                         <div class="form-floating mb-3 mt-3">
                                             <input class="form-control inputCadastro" type="text" id="bairro"
-                                                name="bairro" placeholder="Bairro">
+                                                name="bairro" placeholder="Bairro" readonly>
                                             <label class="labelCadastro">Bairro</label>
                                         </div>
                                         <div class="form-floating mb-3 mt-3">
                                             <input class="form-control inputCadastro" type="text" id="cidade"
-                                                name="cidade" placeholder="Cidade">
+                                                name="cidade" placeholder="Cidade" readonly>
                                             <label class="labelCadastro">Cidade</label>
                                         </div>
                                         <div class="form-floating mb-3 mt-3">
                                             <input class="form-control inputCadastro" type="text" name="estado"
-                                                id="estado" placeholder="Estado">
+                                                id="estado" placeholder="Estado" readonly>
                                             <label class="labelCadastro">Estado</label>
                                         </div>
                                         <div class="form-floating mb-3 mt-3">

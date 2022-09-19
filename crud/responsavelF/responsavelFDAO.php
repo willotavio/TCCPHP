@@ -3,7 +3,7 @@
     class responsavelFDao{
      
 
-        public function cadastrarResponsavelF(ResponsavelF $f, Contato $cont, CodigoEnderecoPostal $c){
+        public function cadastrarResponsavelF(ResponsavelF $f, Contato $cont){
             $banco = new conexao();
             $con = $banco->getConexao();
 
@@ -14,16 +14,7 @@
             $resultado1->bindvalue(3, $cont->getEmail());
             $final = $resultado1->execute();
             $idConR = $con->lastInsertId();
-            
-            $sqlCep = 'insert into endereco_postal (cep, rua, bairro, estado, cidade) values (?,?,?,?,?)';
-            $resultado = $con->prepare($sqlCep);
-            $resultado->bindValue(1, $c->getCep());
-            $resultado->bindValue(2, $c->getRua());
-            $resultado->bindValue(3, $c->getBairro());
-            $resultado->bindValue(4, $c->getEstado());
-            $resultado->bindValue(5, $c->getCidade());
-            $final = $resultado->execute();
-            $idCepR = $con->lastInsertId();
+        
 
             $date = date("Y/m/d");
             $sqlRes= 'insert into responsavel_familia (nome_responsavel, data_nascimento_responsavel, num_responsavel, complemento_responsavel,sexo_responsavel, cpf_responsavel, data_atendimento_responsavel,contato_responsavel,cep_responsavel) values (?,?,?,?,?,?,?,?,?)';
@@ -36,7 +27,7 @@
             $resultado2->bindValue(6, $f->getcpf()); 
             $resultado2->bindValue(7, $date); 
             $resultado2->bindValue(8, $idConR); 
-            $resultado2->bindValue(9, $idCepR); 
+            $resultado2->bindValue(9, $f->getCep()); 
             $final = $resultado2->execute();
 
             if($final){

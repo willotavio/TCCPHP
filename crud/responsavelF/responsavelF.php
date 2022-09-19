@@ -1,6 +1,6 @@
 <?php
     class responsavelF{
-        private  $nomeF, $dataNasc, $numRes, $complemento, $sexoF, $cpf;
+        private  $nomeF, $dataNasc, $numRes, $complemento, $sexoF, $cpf, $cep;
 
 
 
@@ -45,6 +45,13 @@
         }
         public function setComplemento($complemento){
             $this->complemento = $complemento;
+        }
+
+        public function getCep(){
+            return $this->cep;
+        }
+        public function setCep($cep){
+            $this->cep = $cep;
         }
 
     

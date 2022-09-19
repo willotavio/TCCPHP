@@ -15,6 +15,8 @@
         $contCMD = $con->query('SELECT SUM(quantidade_cestasS) FROM saidaCestas')->fetchColumn();
         if($contC != 0){
             $total = $contCMC - $contCMD;
+        }else{
+            $total = 0;
         }
     }
 
