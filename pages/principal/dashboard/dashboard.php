@@ -74,13 +74,13 @@
                         <?php echo '<img src="data:../../../imgs/conta;base64,' . base64_encode($imagemU) . '" style="border-radius:50px;width: 40px; height: 40px;">' ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="conta/conta.php" style="color:green">VER PERFIL</a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="../../crud/login/sair.php" style="color:green">SAIR</a>
-                        </li>
+                    <li><a class="dropdown-item" href="../conta/conta.php" style="color:green">VER PERFIL</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="../../../crud/login/sair.php" style="color:green">SAIR</a>
+                            </li>
                     </ul>
                 </li>
 

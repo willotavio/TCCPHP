@@ -32,7 +32,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../imgs/favicon.ico" type="image/x-icon">
-    <title>Cestas</title>
+    <title>Funcionario</title>
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
     </script>
@@ -77,13 +77,13 @@
                         <?php echo '<img src="data:../../../imgs/conta;base64,' . base64_encode($imagemU) . '" style="border-radius:50px;width: 40px; height: 40px;">' ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="conta/conta.php" style="color:green">VER PERFIL</a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="../../crud/login/sair.php" style="color:green">SAIR</a>
-                        </li>
+                    <li><a class="dropdown-item" href="../conta/conta.php" style="color:green">VER PERFIL</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="../../../crud/login/sair.php" style="color:green">SAIR</a>
+                            </li>
                     </ul>
                 </li>
 
