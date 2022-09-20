@@ -107,9 +107,22 @@
                     <label class="labelCadastro">Email</label>
                 </div>
                 <div class="form-floating mb-3 mt-3">
-                    <input class="form-control inputCadastro" type="text" onblur="pesquisacep(this.value);" id="cep"
+                    <input class="form-control inputCadastro" type="text"  id="cep"
                         name="cep" placeholder="CEP" required value=<?php echo $cep?>>
                     <label class="labelCadastro">CEP</label>
+                    <script>
+                        $.ajax({
+                        method: "POST",
+                        url: "../../../Js/consultaCEP.js",
+                        success: function( cep ) {
+                            var divItens =  document.getElementById("cep").value;
+                            pesquisacep(divItens);
+                            
+
+                        }
+                    })
+                       
+                    </script>
                 </div>
                 <div class="form-floating mb-3 mt-3">
                     <input class="form-control inputCadastro" type="text" id="endereco" name="rua" placeholder="Rua"
