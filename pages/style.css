@@ -152,6 +152,39 @@ footer {
 	margin-bottom: 20px;
 	font-family: sans-serif;
 }
+
+#lblArquivo{
+    background-color: #333;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#lblArquivoCriarConta{
+    cursor: pointer;
+	margin-bottom: 5px;
+	text-align: start;
+
+}
+
+input[type="file"] {
+    display: none;
+} 
+
+#editFoto{
+	border: solid 1px black;
+	padding: 5px;
+	border-radius: 10px;
+	font-size: 15px;
+	text-decoration: none;
+	color: black;
+}
+
+
+
 /*conta*/
 
 /* Input de Cadastro */
@@ -182,3 +215,22 @@ footer {
 	box-shadow: rgba(5, 151, 41, 0.582) 0px 0px 0px 3px;
 }
 /* DashBoard */
+
+
+/* ScrollBar*/
+
+::-webkit-scrollbar{
+    opacity: 1;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: rgba(25, 135, 84, 0.8);
+
+    border-radius: 10px;
+}
+
+:hover::-webkit-scrollbar-thumb{
+	background-color: rgba(121, 142, 128, 0.8);
+	
+}
+/* ScrollBar*/
