@@ -27,14 +27,13 @@ class cestasDao{
         }
 
     public function cadastrarCesta(){
-        $sql = 'insert into cestas (id_cestas, quantidade_cestas, recebimento_cestas) values (?,?,?)';
+        $sql = 'insert into cestas (quantidade_cestas, recebimento_cestas) values (?,?)';
         
         $banco = new conexao();
         $con = $banco->getConexao();
         $resultado = $con->prepare($sql);
-        $resultado->bindValue(1, $this->idCestas);
-        $resultado->bindValue(2, $this->quantidadeCestas);
-        $resultado->bindValue(3, $this->recebimentoCestas);
+        $resultado->bindValue(1, $this->quantidadeCestas);
+        $resultado->bindValue(2, $this->recebimentoCestas);
         
         $final = $resultado->execute();
 

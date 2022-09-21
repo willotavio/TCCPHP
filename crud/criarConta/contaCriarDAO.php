@@ -1,6 +1,6 @@
 <?php
 
-include '../../connection/conexao.php';
+include_once '../../connection/conexao.php';
 
 class contacDao{
         private $cadastrarULogin, $cadastrarUSenha, $cadastrarUEmail, $cadastrarUCSenha, $cadastrarUTipo, $cadastrarFoto, $dest, $figuraAtual;
