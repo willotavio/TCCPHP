@@ -169,8 +169,8 @@
                         <thead>
                                 <th scope="col" style='text-align:center'>#</th>
                                 <th scope="col" style='text-align:center'>Nome</th>
+                                <th scope="col" style='text-align:center'>Tipo</th>
                                 <th scope="col" style='text-align:center'>Email</th>
-                                <th scope="col" style='text-align:center'>Fotos</th>
                                 <th scope="col">Ações</th>
                         </thead>
                         <tbody>
@@ -184,6 +184,7 @@
                                 while($row = $result->fetch()){
                                     ?>
                                     <tr>
+                                    <td><span  id="nome<?php echo $row['id_usuario']; ?>"><?php echo $row['id_usuario']; ?></span></td>  
                                     <td><span  id="nome<?php echo $row['nome_usuario']; ?>"><?php echo $row['nome_usuario']; ?></span></td>
                                     <td><span  id="tipo<?php echo $row['tipo_usuario']; ?>"><?php echo $row['tipo_usuario']; ?></span></td>
                                     <td><span  id="email<?php echo $row['email_usuario']; ?>"><?php echo $row['email_usuario']; ?></span></td>
@@ -214,10 +215,10 @@
     </div>
 
     
-    <?php include('modalEdit.php'); ?>
+    <!-- <?php include('modalEdit.php'); ?>
     <?php include('modalDelete.php'); ?>
     <script src="customEdit.js"></script>
-    <script src="customDelete.js"></script>
+    <script src="customDelete.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
