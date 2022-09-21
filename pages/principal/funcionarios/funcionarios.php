@@ -107,53 +107,51 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <div class="container" style="text-align:center">
-                                        <h5 class="modal-title" style="color: green;">Cesta</h5>
+                                        <h5 class="modal-title" style="color: green;">Funcionários</h5>
                                     </div>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action='../../../crud/cestas/controlecestas.php' method='GET'
-                                        autocomplete="off">
-                                        <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputCadastro" type="text" min="0" name="idCestas"
-                                                placeholder="Id" >
-                                            <label class="labelCadastro">Nome do usuário</label>
-                                        </div>
-                                        <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputCadastro" type="email" min="0" name="quantidadeCestas"
-                                                placeholder="Quantidade" >
-                                            <label class="labelCadastro">Email do usuário</label>
-                                        </div>
-                                        <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputCadastro" type="password" min="0" name="quantidadeCestas"
-                                                placeholder="Quantidade" >
-                                            <label class="labelCadastro">Senha do usuário</label>
-                                        </div>
-                                        <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputCadastro" type="password" min="0" name="quantidadeCestas"
-                                                placeholder="Quantidade" >
-                                            <label class="labelCadastro">Confirmar senha</label>
-                                        </div>
-                                        <div class="form-floating mb-3 mt-3">
-                                            <select class="form-select" name="cadastrarUTipo">
-                                                <option value="F" name="cadastrarUTipo">Funcionario</option>
-                                                <option value="A" name="cadastrarUTipo">Administrador</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputCadastro" type="file" min="0" name="quantidadeCestas"
-                                                placeholder="Quantidade" >
-                                            <label class="labelCadastro">Foto do usuário</label>
-                                        </div>
+                                <form method="POST" action="../../../crud/criarConta/controleCriarConta.php" autocomplete="off" enctype="multipart/form-data">
+                                <h1 style="text-align:center; font-size:25px; padding:15px; color:rgba(25,135,84,255)">
+                                    CRIAR CONTA</h1>
+                                <div class="form-floating mb-3 mt-3">
+                                    <input type="text" class="form-control" placeholder="Digite o seu Usuario" required name="cadastrarULogin">
+                                    <label>Digite o Nome de Usuario</label>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
-                                        Fechar
-                                    </button>
-                                    <p><input type="submit" class="btn btn-outline-success" name='botao' value='Cadastrar'>
-                                    </p>
-                                    </form>
+                                <div class="form-floating mt-3 mb-3">
+                                    <input type="email" class="form-control" placeholder="Digite o seu Email" name='cadastrarUEmail' required>
+                                    <label>Digite o Email</label>
+                                </div>
+                                <div class="form-floating mt-3 mb-3">
+                                    <input type="password" class="form-control" placeholder="Digite a sua Senha" name='cadastrarUSenha' required>
+                                    <label>Digite a Senha</label>
+                                </div>
+                                <div class="form-floating mt-3 mb-3">
+                                    <input type="password" class="form-control" placeholder="Repita a sua Senha" name='cadastrarUCSenha' required>
+                                    <label>Repita a Senha</label>
+                                </div>
+                                <div class="mt-3 mb-3">
+                                    
+                                        <label for="arquivo" class="form-control" id="lblArquivoCriarConta">Escolha uma Foto de Perfil</label>
+                                        <input type="file" class="form-control" name="arquivo" id="arquivo">
+                                    </div>
+                                    <div style="margin-bottom:15px">
+                                        <select class="form-select" name="cadastrarUTipo">
+                                            <option value="F" name="cadastrarUTipo">Funcionario</option>
+                                            <option value="A" name="cadastrarUTipo">Administrador</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="row m-auto">
+                                        <button type="submit" class="btn btn-success btn-lg btn-block" style="font-size:16px" value="cadastrar" name="botao">Cadastrar</button>
+                                    </div>
+                                    <div style="margin-top:5px">
+                                        <div class="row m-auto">
+                                            <button type="submit" class="btn btn-success btn-lg btn-block" style="font-size:16px" onclick="window.location.href='../../index.php'">Voltar</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -179,25 +177,25 @@
                             <?php 
                                 
                                 include_once ("../../../connection/conexao.php");
-                                $sql= "SELECT * FROM cestas";
+                                $sql= "SELECT * FROM usuario";
                                 $banco = new conexao();
                                 $con = $banco->getConexao();
                                 $result = $con->query($sql);
                                 while($row = $result->fetch()){
                                     ?>
                                     <tr>
-                                    <td><span  id="id<?php echo $row['id_cestas']; ?>"><?php echo $row['id_cestas']; ?></span></td>
-                                    <td><span  id="quantidade<?php echo $row['id_cestas']; ?>"><?php echo $row['quantidade_cestas']; ?></span></td>
-                                    <td><span  id="recebimento<?php echo $row['id_cestas']; ?>"><?php echo $row['recebimento_cestas']; ?></span></td>
+                                    <td><span  id="nome<?php echo $row['nome_usuario']; ?>"><?php echo $row['nome_usuario']; ?></span></td>
+                                    <td><span  id="tipo<?php echo $row['tipo_usuario']; ?>"><?php echo $row['tipo_usuario']; ?></span></td>
+                                    <td><span  id="email<?php echo $row['email_usuario']; ?>"><?php echo $row['email_usuario']; ?></span></td>
                                     <td></td>
                                     <td>
-                                    <button class='btn btn-sm btn-outline-primary edit' value="<?php echo $row['id_cestas']; ?>">
+                                    <button class='btn btn-sm btn-outline-primary edit' value="<?php echo $row['id_usuario']; ?>">
                                             <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-clipboard' viewBox='0 0 16 16'>
                                                 <path d='M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z'/>
                                                 <path d='M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z'/>
                                             </svg>
                                     </button>
-                                        <button class='btn btn-sm btn-outline-danger delete' value="<?php echo $row['id_cestas']; ?>">
+                                        <button class='btn btn-sm btn-outline-danger delete' value="<?php echo $row['id_usuario']; ?>">
                                             <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
                                                 <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
                                                 <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
