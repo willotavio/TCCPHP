@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar uma Nova Senha</title>
+    <link rel="shortcut icon" href="../../imgs/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
@@ -14,7 +15,7 @@
     </style>
 </head>
 
-<body style="background: url('../../imgs/background2.jpg')fixed;">
+<body style="background-color: whitesmoke;" >
 
     <div class="container" style="margin-top:10%">
         <div class=" col-10 m-auto">
