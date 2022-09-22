@@ -1,5 +1,6 @@
 <?php
-
+ session_start();
+         $id= $_SESSION['id'];
 $idCestas = filter_input(INPUT_GET,'idCestas');
 $quantidadeCestas = filter_input(INPUT_GET,'quantidadeCestas');
 $dataCadastro = filter_input(INPUT_GET,'dataCadastro');
@@ -10,7 +11,7 @@ $botao =  filter_input(INPUT_GET,'botao');
         $banco = new conexao();
         $con = $banco->getConexao();
         $contCMC = $con->query('SELECT SUM(quantidade_cestas) FROM cestas')->fetchColumn(); 
-        $contCMD = $con->query('SELECT SUM(quantidade_cestasS) FROM saidaCestas')->fetchColumn();
+        $contCMD = $con->query('SELECT SUM(quantidade_saidaCestas) FROM saidaCestas')->fetchColumn();
         $total = $contCMC - $contCMD;
         
        
@@ -18,7 +19,8 @@ $botao =  filter_input(INPUT_GET,'botao');
 
         $cesDao->setidCestas($idCestas);
         $cesDao->setquantidadeCestas($quantidadeCestas);
-        $cesDao->setcadastroCestas($dataCadastro); 
+        $cesDao->setcadastroCestas($dataCadastro);
+        $cesDao->setUsuario($id); 
        
 
 

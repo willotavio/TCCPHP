@@ -12,7 +12,7 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
     $contF = $con->query('select count(*) from responsavel_familia')->fetchColumn();
      $contC = $con->query('SELECT COUNT(*) FROM cestas')->fetchColumn(); 
         $contCMC = $con->query('SELECT SUM(quantidade_cestas) FROM cestas')->fetchColumn(); 
-        $contCMD = $con->query('SELECT SUM(quantidade_cestasS) FROM saidaCestas')->fetchColumn();
+        $contCMD = $con->query('SELECT SUM(quantidade_saidaCestas) FROM saidaCestas')->fetchColumn();
         if($contC != 0){
             $total = $contCMC - $contCMD;
         }else{

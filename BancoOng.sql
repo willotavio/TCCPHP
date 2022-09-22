@@ -1,6 +1,7 @@
 create database ong;
 use ong;
 
+
 create table contato(
     id_contato int(4) primary key not null auto_increment,
     telefone char(10),
@@ -38,19 +39,6 @@ foreign key (usuario_responsavel) references usuario(id_usuario)
 
 );
 
-
-
-create table conta(
-	id_conta int(4) primary key auto_increment not null,
-	usuario_conta int(4),
-	nome_conta varchar(40) not null,
-	valor_conta decimal (6,3) not null,
-	data_cadastro_conta date not null,
-    tipo_conta varchar(20),
-	data_pagamentos_conta date not null,
-	foreign key (usuario_conta) references usuario(id_usuario)
-);
-
 create table cestas(
     id_cestas int(4) primary key not null auto_increment,
     usuario_cestas int(4),
@@ -65,11 +53,13 @@ create table saidaCestas(
     id_saidaCestas int (4) primary key not null auto_increment,
     usuario_saidaCestas int(4),
     responsavel_saidaCestas int(4),
-    quantidade_cestasS int(4) not null,
-    data_cadastro date,
+    quantidade_saidaCestas int(4) not null,
+    data_saidaCestas date,
     foreign key(responsavel_saidaCestas) references responsavel_familia(id_responsavel),
     foreign key (usuario_saidaCestas) references usuario(id_usuario)
 );
+
+
 
 
 select * from usuario;
@@ -89,8 +79,15 @@ codigoEnderecoPostal.bairro,codigoEnderecoPostal.estado,codigoEnderecoPostal.cid
 INNER JOIN codigoEnderecoPostal on familia.idFamilia = idCep where idFamilia=1;
 SELECT idCep FROM codigoEnderecoPostal WHERE idCep = LAST_INSERT_ID();
 
-
-
-
+create table conta(
+	id_conta int(4) primary key auto_increment not null,
+	usuario_conta int(4),
+	nome_conta varchar(40) not null,
+	valor_conta decimal (6,3) not null,
+	data_cadastro_conta date not null,
+    tipo_conta varchar(20),
+	data_pagamentos_conta date not null,
+	foreign key (usuario_conta) references usuario(id_usuario)
+);
 
 
