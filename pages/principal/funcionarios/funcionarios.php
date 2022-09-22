@@ -127,44 +127,45 @@
                                             style="text-align:center; font-size:25px; padding:15px; color:rgba(25,135,84,255)">
                                             CRIAR CONTA</h1>
                                         <div class="form-floating mb-3 mt-3">
-                                            <input type="text" class="form-control" placeholder="Digite o seu Usuario"
+                                            <input type="text" class="form-control inputCadastro" placeholder="Digite o seu Usuario"
                                                 required name="cadastrarULogin">
-                                            <label>Digite o Nome de Usuario</label>
+                                            <label class="labelCadastro">Digite o Nome de Usuario</label>
                                         </div>
                                         <div class="form-floating mt-3 mb-3">
-                                            <input type="email" class="form-control" placeholder="Digite o seu Email"
+                                            <input type="email" class="form-control inputCadastro" placeholder="Digite o seu Email"
                                                 name='cadastrarUEmail' required>
-                                            <label>Digite o Email</label>
+                                            <label class="labelCadastro">Digite o Email</label>
                                         </div>
                                         <div class="form-floating mt-3 mb-3">
-                                            <input type="password" class="form-control" placeholder="Digite a sua Senha"
+                                            <input type="password" class="form-control inputCadastro" placeholder="Digite a sua Senha"
                                                 name='cadastrarUSenha' required>
-                                            <label>Digite a Senha</label>
+                                            <label class="labelCadastro">Digite a Senha</label>
                                         </div>
                                         <div class="form-floating mt-3 mb-3">
-                                            <input type="password" class="form-control" placeholder="Repita a sua Senha"
+                                            <input type="password" class="form-control inputCadastro" placeholder="Repita a sua Senha"
                                                 name='cadastrarUCSenha' required>
-                                            <label>Repita a Senha</label>
+                                            <label class="labelCadastro">Repita a Senha</label>
                                         </div>
                                         <div class="mt-3 mb-3">
 
-                                            <label for="arquivo" class="form-control" id="lblArquivoCriarConta">Escolha
+                                            <label for="arquivo" class="form-control labelCadastro" id="lblArquivoCriarConta">Escolha
                                                 uma Foto de Perfil</label>
                                             <input type="file" class="form-control" name="arquivo" id="arquivo">
                                         </div>
                                         <div style="margin-bottom:15px">
-                                            <select class="form-select" name="cadastrarUTipo">
-                                                <option value="F" name="cadastrarUTipo">Funcionario</option>
-                                                <option value="A" name="cadastrarUTipo">Administrador</option>
+                                            <select class="form-select labelCadastro" name="cadastrarUTipo">
+                                                <option value="F" name="cadastrarUTipo" class="labelCadastro">Funcionario</option>
+                                                <option value="A" name="cadastrarUTipo" class="labelCadastro">Administrador</option>
                                             </select>
                                         </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-outline-danger btn-lg btn-block"
+                                                style="font-size:16px"
+                                                onclick="window.location.href='funcionarios.php'">Voltar</button>
                                             <button type="submit" class="btn btn-outline-success btn-lg btn-block"
                                                 style="font-size:16px" value="cadastrar" name="botao">Cadastrar</button>
-                                        
-                                                <button type="submit" class="btn btn-outline-danger btn-lg btn-block"
-                                                    style="font-size:16px"
-                                                    onclick="window.location.href='funcionarios.php'">Voltar</button>
-                                            
+                                    </form> 
+                                    </div>       
                                 </div>
                             </div>
                         </div>
