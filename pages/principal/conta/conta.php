@@ -90,8 +90,7 @@ $(document).ready(function() {
                         <?php echo '<img src="data:../../../imgs/conta;base64,' . base64_encode($imagemU) . '" style="border-radius:50px;width: 40px; height: 40px;">' ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="../conta/conta.php" style="color:green">VER PERFIL</a>
-                        </li>
+                        
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -109,11 +108,11 @@ $(document).ready(function() {
 
         <h6 style="color:green; font-size: 200%;">CONTA</h6>
         <div class="container">
-            <?php echo '<img src="data:../../../imgs/conta;base64,' . base64_encode($imagemU) . '" style="border-radius:10px;width: 35%;">' ?>
+            <?php echo '<img src="data:../../../imgs/conta;base64,' . base64_encode($imagemU) . '" style="border-radius:10px;width: 30%;">' ?>
         </div>
         <br>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-success openF" data-toggle="modal" data-target="#exampleModalCenter">
+        <button type="button" class="btn btn-outline-success openF" data-toggle="modal" data-target="#exampleModalCenter">
             Editar Imagem
         </button>
 
@@ -140,10 +139,10 @@ $(document).ready(function() {
                             </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success" name='botao' value='Alterar'>Alterar</button>
-                        <button type="submit" class="btn btn-danger" name='botao' value='Deletar'>Remover Foto</button>
+                        <button type="submit" class="btn btn-outline-success" name='botao' value='Alterar'>Alterar</button>
+                        <button type="submit" class="btn btn-outline-danger" name='botao' value='Deletar'>Remover Foto</button>
                         </form>
-                        <button type="button" class="btn btn-secondary close" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-outline-secondary close" data-dismiss="modal">Fechar</button>
                     </div>
                 </div>
 

@@ -221,16 +221,15 @@ input[type="file"] {
 
 ::-webkit-scrollbar{
     opacity: 1;
+	width: 10px;
 }
 
 ::-webkit-scrollbar-thumb{
-    background-color: rgba(25, 135, 84, 0.8);
-
+    background-color:gray;
     border-radius: 10px;
 }
 
 :hover::-webkit-scrollbar-thumb{
-	background-color: rgba(121, 142, 128, 0.8);
-	
+	background-color: gray;
 }
 /* ScrollBar*/
