@@ -16,7 +16,7 @@
 
 </head>
 
-<body style="background: url('imgs/background2.jpg')fixed;">
+<body">
 
     <div class="container" style="margin-top:10%">
         <div class=" col-10 m-auto">
