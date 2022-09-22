@@ -5,8 +5,12 @@
      unset($_SESSION['usuario']);
      unset($_SESSION['senha']);
      header('location: ../../index.php');
-    }
-
+    }else if ($_SESSION['tipo'] != 'A'){
+          echo "<script LANGUAGE= 'JavaScript'>
+                window.alert('Você não possui acesso a essa página');
+                window.location.href='../home.php';
+                </script>";
+    }else{
     include_once('../../../connection/conexao.php');
     $logado = $_SESSION['usuario'];
     $banco = new conexao();
@@ -19,6 +23,9 @@
     $imagemU = $row['imagem_usuario'];
 }
 }
+    }
+
+   
 
 ?>
 

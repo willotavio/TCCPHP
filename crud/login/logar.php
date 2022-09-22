@@ -23,9 +23,17 @@ if(isset($_POST['submit']) && !empty($_POST['nome_login']) && !empty($_POST['sen
 
         $_SESSION['usuario'] = $nome_login;
         $_SESSION['senha'] = $senha ;
-        $sqlquery1 = "select id_usuario from usuario where nome_usuario = '$nome_login';";
-        $result1 = $con->query($sqlquery1)->fetchColumn();
-        $_SESSION['id'] = $result1 ;
+        $sqlquery1 = "select id_usuario, tipo_usuario from usuario where nome_usuario = '$nome_login';";
+        $result = $con->query($sqlquery1);
+        if ($result->rowCount() > 0) {
+
+            while ($row = $result->fetch()) {
+                $idU = $row['id_usuario'];
+                $tipoU = $row['tipo_usuario'];
+            }
+        }
+        $_SESSION['tipo'] = $tipoU ;
+        $_SESSION['id'] = $idU ;
 
 
 
