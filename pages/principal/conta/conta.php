@@ -92,6 +92,8 @@ $(document).ready(function() {
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         
                         <li>
+                        <li><a class="dropdown-item" href="../conta/conta.php" style="color:green">VER PERFIL</a>
+                        </li>
                             <hr class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item" href="../../../crud/login/sair.php" style="color:green">SAIR</a>
