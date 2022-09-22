@@ -44,6 +44,19 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
     </style>
 </head>
 
+<script>
+$(document).ready(function() {
+    $(".openF").click(function() {
+        $("#modalfoto").modal('show');
+    });
+    $(".close").click(function() {
+        $("#modalfoto").modal('hide');
+    });
+
+});
+</script>
+
+
 <header style="margin-bottom: 100px;">
     <nav class="navbar navbar-expand-lg" style="background-color: white;position: fixed;z-index: 1000;width: 100%;">
         <div class="container-fluid">
@@ -99,24 +112,45 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
             <?php echo '<img src="data:../../../imgs/conta;base64,' . base64_encode($imagemU) . '" style="border-radius:10px;width: 35%;">' ?>
         </div>
         <br>
-        <div>
-            <li class="nav-item dropdown " style="list-style: none;">
-                <a data-bs-toggle="dropdown" href="#" role="button" id="editFoto" aria-expanded="false"><b>Editar
-                        Foto</b></a>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li style="list-style: none;">
-                        <form>
-                            <div>
-                                <label for="arquivo" class="dropdown-item">Alterar Foto</label>
-                                <input type="file" name="arquivo" id="arquivo">
-                            </div>
-                        </form>
-                    </li>
-                    <li><a class="dropdown-item" href="#">Remover Foto</a></li>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-success openF" data-toggle="modal" data-target="#exampleModalCenter">
+            Editar Imagem
+        </button>
 
-                </ul>
-            </li>
+        <!-- Modal -->
+        <div class="modal fade" id="modalfoto" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="container" style="text-align:center">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Editar
+                                Foto</h5>
+                        </div>
+
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="../../../crud/contaIMG/imagemControle.php" autocomplete="off"
+                            enctype="multipart/form-data">
+                            <div class="mt-3 mb-3">
+
+                                <label for="arquivo" class="form-control" id="lblArquivoCriarConta">Escolha uma Foto
+                                    de Perfil</label>
+                                <input type="file" class="form-control" name="arquivo" id="arquivo">
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" name='botao' value='Alterar'>Alterar</button>
+                        <button type="submit" class="btn btn-danger" name='botao' value='Deletar'>Remover Foto</button>
+                        </form>
+                        <button type="button" class="btn btn-secondary close" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+
+            </div>
         </div>
+
+
         <br>
         <div class="container"><?php echo "<p style='font-size:140%'><b>Perfil</b></p>" ?></div>
         <div class="container"><?php echo "<p style='font-size:120%'><b>NOME: $nomeU</b></p>" ?></div>
@@ -132,11 +166,6 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
             ?>
         </div>
     </div>
-
-
-
-
-
     <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>

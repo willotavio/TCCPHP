@@ -71,6 +71,9 @@ select * from saidaCestas;
 
 
 
+update usuario set foto_usuario = '$atual', imagem_usuario = '$imagem' where id_usuario = '$id';
+
+
 drop database ong;
 SELECT familia.idFamilia, familia.nome_familia,familia.data_nascimento_familia,
 familia.sexo_familia,contato.celular,contato.telefone,contato.email,familia.complemento_familia,

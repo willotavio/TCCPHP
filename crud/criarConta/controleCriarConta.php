@@ -1,5 +1,4 @@
 <?php
-header("Content-type: text/html; charset=utf=8");
 $cadastrarULogin = filter_input(INPUT_POST,'cadastrarULogin');
 $cadastrarUSenha = filter_input(INPUT_POST,'cadastrarUSenha');
 $cadastrarUCSenha = filter_input(INPUT_POST,'cadastrarUCSenha');
@@ -39,14 +38,8 @@ if($botao=='cadastrar'){
     }else{
         echo "<script LANGUAGE= 'JavaScript'>
             window.alert('As senhas digitadas não indênticas tente novamente');
-            window.location.href='../../index.php';
+            window.location.href='../../pages/login/criarConta.php';
             </script>"; 
     }
     }
 ?>
-
-
-
-
-
-
