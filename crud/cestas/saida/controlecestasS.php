@@ -19,13 +19,14 @@ $botao =  filter_input(INPUT_GET,'botao');
         $cesDao->setidCestas($idCestas);
         $cesDao->setquantidadeCestas($quantidadeCestas);
         $cesDao->setcadastroCestas($dataCadastro); 
-        $cesDao->setUsuario($id); 
+       
 
 
         if($botao=='cadastrarSaida'){
             if($total >= $quantidadeCestas){
                 $cesDao->cadastrarCesta();
             }else{
+                
                  echo "<script LANGUAGE= 'JavaScript'>
                 window.alert('O estoque não possui cestas suficientes para realizar essa doação');
                 window.location.href='../../../pages/principal/cestas/cestas.php';

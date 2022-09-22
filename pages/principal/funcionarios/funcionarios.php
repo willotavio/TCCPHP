@@ -36,14 +36,13 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
     </script>
-  
+
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
-        <?php 
-            include '../../style.css';
-        ?>
+    <?php include '../../style.css';
+    ?>
     </style>
 </head>
 
@@ -59,31 +58,33 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link " href="../responsavelFamilia/responsavelFamilia.php" style="color:green">FAMILIAS</a>
+                        <a class="nav-link " href="../responsavelFamilia/responsavelFamilia.php"
+                            style="color:green">FAMILIAS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../cestas/cestas.php" style="color:green">CESTAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../dashboard/dashboard.php" style="color:green">FINACEIRO</a>
-                    </li> 
+                        <a class="nav-link" href="../dashboard/dashboard.php" style="color:green">FINANCEIRO</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../funcionarios/funcionarios.php" style="color:green">FUNCIONÁRIOS</a>
                     </li>
-                  
+
                 </ul>
                 <li class="nav-item dropdown " style="list-style: none;">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:green">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" style="color:green">
                         <?php echo '<img src="data:../../../imgs/conta;base64,' . base64_encode($imagemU) . '" style="border-radius:50px;width: 40px; height: 40px;">' ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="../conta/conta.php" style="color:green">VER PERFIL</a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="../../../crud/login/sair.php" style="color:green">SAIR</a>
-                            </li>
+                        <li><a class="dropdown-item" href="../conta/conta.php" style="color:green">VER PERFIL</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="../../../crud/login/sair.php" style="color:green">SAIR</a>
+                        </li>
                     </ul>
                 </li>
 
@@ -113,45 +114,55 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                <form method="POST" action="../../../crud/criarConta/controleCriarConta.php" autocomplete="off" enctype="multipart/form-data">
-                                <h1 style="text-align:center; font-size:25px; padding:15px; color:rgba(25,135,84,255)">
-                                    CRIAR CONTA</h1>
-                                <div class="form-floating mb-3 mt-3">
-                                    <input type="text" class="form-control" placeholder="Digite o seu Usuario" required name="cadastrarULogin">
-                                    <label>Digite o Nome de Usuario</label>
-                                </div>
-                                <div class="form-floating mt-3 mb-3">
-                                    <input type="email" class="form-control" placeholder="Digite o seu Email" name='cadastrarUEmail' required>
-                                    <label>Digite o Email</label>
-                                </div>
-                                <div class="form-floating mt-3 mb-3">
-                                    <input type="password" class="form-control" placeholder="Digite a sua Senha" name='cadastrarUSenha' required>
-                                    <label>Digite a Senha</label>
-                                </div>
-                                <div class="form-floating mt-3 mb-3">
-                                    <input type="password" class="form-control" placeholder="Repita a sua Senha" name='cadastrarUCSenha' required>
-                                    <label>Repita a Senha</label>
-                                </div>
-                                <div class="mt-3 mb-3">
-                                    
-                                        <label for="arquivo" class="form-control" id="lblArquivoCriarConta">Escolha uma Foto de Perfil</label>
-                                        <input type="file" class="form-control" name="arquivo" id="arquivo">
-                                    </div>
-                                    <div style="margin-bottom:15px">
-                                        <select class="form-select" name="cadastrarUTipo">
-                                            <option value="F" name="cadastrarUTipo">Funcionario</option>
-                                            <option value="A" name="cadastrarUTipo">Administrador</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="row m-auto">
-                                        <button type="submit" class="btn btn-success btn-lg btn-block" style="font-size:16px" value="cadastrar" name="botao">Cadastrar</button>
-                                    </div>
-                                    <div style="margin-top:5px">
-                                        <div class="row m-auto">
-                                            <button type="submit" class="btn btn-success btn-lg btn-block" style="font-size:16px" onclick="window.location.href='../../index.php'">Voltar</button>
+                                    <form method="POST" action="../../../crud/criarConta/controleCriarConta.php"
+                                        autocomplete="off" enctype="multipart/form-data">
+                                        <h1
+                                            style="text-align:center; font-size:25px; padding:15px; color:rgba(25,135,84,255)">
+                                            CRIAR CONTA</h1>
+                                        <div class="form-floating mb-3 mt-3">
+                                            <input type="text" class="form-control" placeholder="Digite o seu Usuario"
+                                                required name="cadastrarULogin">
+                                            <label>Digite o Nome de Usuario</label>
                                         </div>
-                                    </div>
+                                        <div class="form-floating mt-3 mb-3">
+                                            <input type="email" class="form-control" placeholder="Digite o seu Email"
+                                                name='cadastrarUEmail' required>
+                                            <label>Digite o Email</label>
+                                        </div>
+                                        <div class="form-floating mt-3 mb-3">
+                                            <input type="password" class="form-control" placeholder="Digite a sua Senha"
+                                                name='cadastrarUSenha' required>
+                                            <label>Digite a Senha</label>
+                                        </div>
+                                        <div class="form-floating mt-3 mb-3">
+                                            <input type="password" class="form-control" placeholder="Repita a sua Senha"
+                                                name='cadastrarUCSenha' required>
+                                            <label>Repita a Senha</label>
+                                        </div>
+                                        <div class="mt-3 mb-3">
+
+                                            <label for="arquivo" class="form-control" id="lblArquivoCriarConta">Escolha
+                                                uma Foto de Perfil</label>
+                                            <input type="file" class="form-control" name="arquivo" id="arquivo">
+                                        </div>
+                                        <div style="margin-bottom:15px">
+                                            <select class="form-select" name="cadastrarUTipo">
+                                                <option value="F" name="cadastrarUTipo">Funcionario</option>
+                                                <option value="A" name="cadastrarUTipo">Administrador</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="row m-auto">
+                                            <button type="submit" class="btn btn-success btn-lg btn-block"
+                                                style="font-size:16px" value="cadastrar" name="botao">Cadastrar</button>
+                                        </div>
+                                        <div style="margin-top:5px">
+                                            <div class="row m-auto">
+                                                <button type="submit" class="btn btn-success btn-lg btn-block"
+                                                    style="font-size:16px"
+                                                    onclick="window.location.href='../../index.php'">Voltar</button>
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -165,13 +176,13 @@
         <div class="overflow-auto">
             <div class="column">
                 <div class="m-2 ">
-                     <table class="table" style="color:green">
+                    <table class="table" style="color:green">
                         <thead>
-                                <th scope="col" style='text-align:center'>#</th>
-                                <th scope="col" style='text-align:center'>Nome</th>
-                                <th scope="col" style='text-align:center'>Tipo</th>
-                                <th scope="col" style='text-align:center'>Email</th>
-                                <th scope="col">Ações</th>
+                            <th scope="col" style='text-align:center'>#</th>
+                            <th scope="col" style='text-align:center'>Nome</th>
+                            <th scope="col" style='text-align:center'>Tipo</th>
+                            <th scope="col" style='text-align:center'>Email</th>
+                            <th scope="col">Ações</th>
                         </thead>
                         <tbody>
                             <?php 
@@ -183,28 +194,44 @@
                                 $result = $con->query($sql);
                                 while($row = $result->fetch()){
                                     ?>
-                                    <tr>
-                                    <td><span  id="nome<?php echo $row['id_usuario']; ?>"><?php echo $row['id_usuario']; ?></span></td>  
-                                    <td><span  id="nome<?php echo $row['nome_usuario']; ?>"><?php echo $row['nome_usuario']; ?></span></td>
-                                    <td><span  id="tipo<?php echo $row['tipo_usuario']; ?>"><?php echo $row['tipo_usuario']; ?></span></td>
-                                    <td><span  id="email<?php echo $row['email_usuario']; ?>"><?php echo $row['email_usuario']; ?></span></td>
-                                    <td></td>
-                                    <td>
-                                    <button class='btn btn-sm btn-outline-primary edit' value="<?php echo $row['id_usuario']; ?>">
-                                            <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-clipboard' viewBox='0 0 16 16'>
-                                                <path d='M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z'/>
-                                                <path d='M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z'/>
-                                            </svg>
+                            <tr>
+                                <td><span
+                                        id="nome<?php echo $row['id_usuario']; ?>"><?php echo $row['id_usuario']; ?></span>
+                                </td>
+                                <td><span
+                                        id="nome<?php echo $row['nome_usuario']; ?>"><?php echo $row['nome_usuario']; ?></span>
+                                </td>
+                                <td><span
+                                        id="tipo<?php echo $row['tipo_usuario']; ?>"><?php echo $row['tipo_usuario']; ?></span>
+                                </td>
+                                <td><span
+                                        id="email<?php echo $row['email_usuario']; ?>"><?php echo $row['email_usuario']; ?></span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <button class='btn btn-sm btn-outline-primary edit'
+                                        value="<?php echo $row['id_usuario']; ?>">
+                                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'
+                                            fill='currentColor' class='bi bi-clipboard' viewBox='0 0 16 16'>
+                                            <path
+                                                d='M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z' />
+                                            <path
+                                                d='M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z' />
+                                        </svg>
                                     </button>
-                                        <button class='btn btn-sm btn-outline-danger delete' value="<?php echo $row['id_usuario']; ?>">
-                                            <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
-                                                <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
-                                                <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
-                                            </svg>
+                                    <button class='btn btn-sm btn-outline-danger delete'
+                                        value="<?php echo $row['id_usuario']; ?>">
+                                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'
+                                            fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
+                                            <path
+                                                d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z' />
+                                            <path fill-rule='evenodd'
+                                                d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z' />
+                                        </svg>
                                     </button>
-                                    </td>
-                                    </tr>
-                                    <?php
+                                </td>
+                            </tr>
+                            <?php
                                     }
                                     ?>
                         </tbody>
@@ -214,7 +241,7 @@
         </div>
     </div>
 
-    
+
     <!-- <?php include('modalEdit.php'); ?>
     <?php include('modalDelete.php'); ?>
     <script src="customEdit.js"></script>

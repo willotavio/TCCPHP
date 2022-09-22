@@ -60,7 +60,7 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                         <a class="nav-link" href="../cestas/cestas.php" style="color:green">CESTAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../dashboard/dashboard.php" style="color:green">FINACEIRO</a>
+                        <a class="nav-link" href="../dashboard/dashboard.php" style="color:green">FINANCEIRO</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../funcionarios/funcionarios.php" style="color:green">FUNCIONÁRIOS</a>

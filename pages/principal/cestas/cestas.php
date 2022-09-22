@@ -75,7 +75,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../../../pages/principal/dashboard/dashboard.php"
-                            style="color:green">FINACEIRO</a>
+                            style="color:green">FINANCEIRO</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../funcionarios/funcionarios.php" style="color:green">FUNCIONÁRIOS</a>
