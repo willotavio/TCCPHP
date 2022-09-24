@@ -221,7 +221,7 @@
                                                 d='M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z' />
                                         </svg>
                                     </button>
-                                    <button class='btn btn-sm btn-outline-danger delete'
+                                    <button class='btn btn-sm btn-outline-danger deleteU'
                                         value="<?php echo $row['id_usuario']; ?>">
                                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'
                                             fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
@@ -248,9 +248,20 @@
     </div>
 
 
-    <!-- <?php include('modalEdit.php'); ?>
-    <?php include('modalDelete.php'); ?>
-    <script src="customEdit.js"></script>
+
+    <?php include('deleteFunc.php'); ?>
+    <script>
+    $(document).ready(function() {
+        $(document).on("click", ".deleteU", function() {
+            var id = $(this).val();
+
+            $("#deleteU").modal("show");
+            $("#cod2").val(id);
+        });
+    });
+    </script>
+
+    <!--<script src="customEdit.js"></script>
     <script src="customDelete.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">

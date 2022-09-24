@@ -58,7 +58,7 @@
 
 
 <body>
-    <div class="container" style="margin: 4% 10% 0">
+    <div class="container" >
         <div class="row">
             <div class="container" style="text-align:center">
                 <h5 class="modal-title" style="color: green;">Editar Responsável da Família</h5>

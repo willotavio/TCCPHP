@@ -4,17 +4,17 @@ $(document).ready(function() {
     /* $("#edit").modal('show'); */
     // Close modal on button click
     $("#closeDelete").click(function() {
-        $("#deleteR").modal('hide');
+        $("#deleteU").modal('hide');
     });
     $(".close").click(function() {
-        $("#deleteR").modal('hide');
+        $("#deleteU").modal('hide');
     });
 });
 </script>
 
 
 
-<div class="modal fade" id="deleteR" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteU" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -25,13 +25,13 @@ $(document).ready(function() {
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <form action='../../../crud/responsavelF/deleteResponsavelF.php' method='GET' autocomplete='off'>
+                    <form action='../../../crud/criarConta/deleteFuncionario.php' method='GET' autocomplete='off'>
                         <div class='form-floating mb-3 mt-3'>
-                            <input class='form-control inputCadastro' type='number' name='idResponsavel1'
-                                placeholder='Id' id="cod1" readonly>
+                            <input class='form-control inputCadastro' type='number' name='idUsuario1'
+                                placeholder='Id' id="cod2" readonly>
                             <label class='labelCadastro'>ID</label>
                         </div>
-                        <p>Realmente deseja excluir esse Responsavel?</p>
+                        <p>Realmente deseja excluir esse Funcionário?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-danger" data-dismiss="modal"
