@@ -93,4 +93,4 @@ create table conta(
 	foreign key (usuario_conta) references usuario(id_usuario)
 );
 
-
+SELECT nome_responsavel FROM responsavel_familia WHERE id_responsavel = '3';
