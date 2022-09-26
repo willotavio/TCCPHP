@@ -349,6 +349,25 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
         </div>
     </div>
 
+    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="container" style="text-align:center">
+                        <h4 class="modal-title" id="exampleModalLabel1">Editar Responsavel</h4>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <span id="editar_usuario"></span>
+                </div>
+
+            </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
     <script>
     $(document).ready(function() {
         $(document).on("click", ".view", function() {
@@ -375,6 +394,30 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
 
         });
 
+        $(document).on("click", ".edit", function() {
+            var id = $(this).val();
+
+            if (id != '') {
+                var dados = {
+                    id: id
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "../../../crud/responsavelF/editResponsavelF.php",
+                    data: dados,
+                    success: function(resultado) {
+                        $("#editar_usuario").html(resultado);
+                        $('#edit').modal('show');
+                    }
+                });
+
+            } else {
+                alert("ERRO ID VAZIO");
+            }
+
+        });
+
         $(document).ready(function() {
             $(document).on("click", ".delete", function() {
                 var id = $(this).val();
@@ -390,6 +433,10 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
 
             $("#closeView").click(function() {
                 $("#visualizar").modal('hide');
+            });
+
+            $("#closeEdit").click(function() {
+                $("#edit").modal('hide');
             });
 
         });
