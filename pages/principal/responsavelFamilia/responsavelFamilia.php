@@ -150,9 +150,16 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                                             <label class="labelCadastro">Email</label>
                                         </div>
                                         <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputCadastro" type="text"
-                                                onblur="pesquisacep(this.value);" id="cep" name="cep" placeholder="CEP"
-                                                required>
+                                            <input class="form-control inputCep" type="text" id="cep" name="cep"
+                                                placeholder="CEP" required>
+                                            <script>
+                                            $(document).ready(function() {
+                                                $(".inputCep").blur(function() {
+                                                    var divItens = document.getElementById("cep").value;
+                                                    pesquisacep(divItens);
+                                                });
+                                            });
+                                            </script>
                                             <label class="labelCadastro">CEP</label>
                                         </div>
                                         <div class="form-floating mb-3 mt-3">
@@ -321,10 +328,11 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
-                        <form action='../../../crud/cestas/deleteCestas.php' method='GET' autocomplete='off'>
+                        <form action='../../../crud/responsavelF/deleteResponsavelF.php' method='GET'
+                            autocomplete='off'>
                             <div class='form-floating mb-3 mt-3'>
-                                <input class='form-control inputCadastro' type='number' name='idCestas1'
-                                    placeholder='Id' id="cod" readonly>
+                                <input class='form-control inputCadastro' type='number' name='idResponsavel'
+                                    placeholder='Id' id="idResponsavel" readonly>
                                 <label class='labelCadastro'>ID</label>
                             </div>
                             <p>Realmente deseja excluir esse Responsavel?</p>
@@ -332,8 +340,8 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-danger" data-dismiss="modal"
                             id="closeDelete">Fechar</button>
-                        <p style='text-align:center'><input type='submit' class='btn btn-outline-success' name='update'
-                                value='Atualizar'>
+                        <p style='text-align:center'><input type='submit' class='btn btn-outline-success' name='delete'
+                                value='Deletar'>
                     </div>
                 </div>
                 </form>
@@ -371,7 +379,7 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
             $(document).on("click", ".delete", function() {
                 var id = $(this).val();
                 $("#delete").modal("show");
-                $("#cod").val(id);
+                $("#idResponsavel").val(id);
             });
         });
 
