@@ -1,7 +1,7 @@
 <?php
 $cadastrarULogin = filter_input(INPUT_POST,'cadastrarULogin');
-$cadastrarUSenha = filter_input(INPUT_POST,'cadastrarUSenha');
-$cadastrarUCSenha = filter_input(INPUT_POST,'cadastrarUCSenha');
+$cadastrarUSenha = sha1(filter_input(INPUT_POST,'cadastrarUSenha'));
+$cadastrarUCSenha = sha1(filter_input(INPUT_POST,'cadastrarUCSenha'));
 $cadastrarUEmail = filter_input(INPUT_POST,'cadastrarUEmail');
 $cadastrarUTipo = filter_input(INPUT_POST,'cadastrarUTipo');
 $botao =  filter_input(INPUT_POST,'botao');

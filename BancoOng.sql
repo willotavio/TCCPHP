@@ -12,8 +12,8 @@ create table contato(
 
 create table usuario(
     id_usuario int(4) primary key not null auto_increment,
-    nome_usuario varchar(10) not null,
-    senha_usuario varchar(20) not null,
+    nome_usuario varchar(20) not null,
+    senha_usuario char(40) not null,
     tipo_usuario varchar(1) not null,
     email_usuario varchar(90) not null,
 	foto_usuario char(40),

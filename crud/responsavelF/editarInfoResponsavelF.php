@@ -13,7 +13,7 @@
             $n_responsavel = filter_input(INPUT_POST,'numRes');
             $data_atendimento = filter_input(INPUT_POST,'atendimento');
             $cpf =filter_input(INPUT_POST, 'cpf');
-            $cep = filter_input(INPUT_POST,'cep1');
+            $cep = filter_input(INPUT_POST,'cep2');
             
             $celular = filter_input(INPUT_POST,'celular');
             $telefone = filter_input(INPUT_POST,'telefone');

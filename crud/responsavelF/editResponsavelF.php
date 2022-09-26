@@ -1,19 +1,19 @@
 <script>
 function limpa_formulário_cep() {
     //Limpa valores do formulário de cep.
-    document.getElementById("endereco1").value = "";
-    document.getElementById("bairro1").value = "";
-    document.getElementById("cidade1").value = "";
-    document.getElementById("estado1").value = "";
+    document.getElementById("endereco2").value = "";
+    document.getElementById("bairro2").value = "";
+    document.getElementById("cidade2").value = "";
+    document.getElementById("estado2").value = "";
 }
 
 function meu_callback(conteudo) {
     if (!("erro" in conteudo)) {
         //Atualiza os campos com os valores.
-        document.getElementById("endereco1").value = conteudo.logradouro;
-        document.getElementById("bairro1").value = conteudo.bairro;
-        document.getElementById("cidade1").value = conteudo.localidade;
-        document.getElementById("estado1").value = conteudo.uf;
+        document.getElementById("endereco2").value = conteudo.logradouro;
+        document.getElementById("bairro2").value = conteudo.bairro;
+        document.getElementById("cidade2").value = conteudo.localidade;
+        document.getElementById("estado2").value = conteudo.uf;
     } //end if.
     else {
         //CEP não Encontrado.
@@ -34,10 +34,10 @@ function pesquisacep(valor) {
         //Valida o formato do CEP.
         if (validacep.test(cep)) {
             //Preenche os campos com "..." enquanto consulta webservice.
-            document.getElementById("endereco1").value = "...";
-            document.getElementById("bairro1").value = "...";
-            document.getElementById("cidade1").value = "...";
-            document.getElementById("estado1").value = "...";
+            document.getElementById("endereco2").value = "...";
+            document.getElementById("bairro2").value = "...";
+            document.getElementById("cidade2").value = "...";
+            document.getElementById("estado2").value = "...";
 
             //Cria um elemento javascript.
             var script = document.createElement("script");
@@ -61,6 +61,17 @@ function pesquisacep(valor) {
     }
 }
 </script>
+<script>
+     $(document).ready(function() {
+
+
+            $("#closeEdit").click(function() {
+                $("#edit").modal('hide');
+            });
+
+        });
+
+    </script>
 <?php 
 include_once '../../connection/conexao.php';
 $id = filter_input(INPUT_POST, 'id');
@@ -129,30 +140,20 @@ $id = filter_input(INPUT_POST, 'id');
             <label class="labelCadastro">CPF</label>
         </div>
         <div class="mb-3">
-            <select class="form-select" aria-label="Default select example">
-                <option selected value="<?php echo $sexo?>"><?php if($sexoR == "M"){
-                echo "MASCULINO";
+        <?php
+            if($sexoR == "F"){
+                echo "<select class='form-select' aria-label='Default select example'value='echo $sexoR' name='sexoP'>
+                <option value='F' name='sexoP'>Feminino</option>
+                <option value='M' name='sexoP'>Masculino</option>
+              </select>";
             }else{
-                echo "FEMININO";
+                echo "<select class='form-select' aria-label='Default select example'value='echo $sexoR' name='sexoP'> 
+                <option value='F' name='sexoP'>Feminino</option>
+                <option value='M' name='sexoP' selected>Masculino</option>
+              </select>";
             }
-            ?></option>
-
-                <option value="<?php if($sexoR == "M"){
-                echo "F";
-            }else{
-                echo "M";
-            }
-            ?>">
-
-                    <?php if($sexoR == "M"){
-                echo "FEMININO";
-            }else{
-                echo "MASCULINO";
-            }
-            ?>
-                </option>
-            </select>
-        </div>
+        
+        ?>
 
         <div class="form-floating mb-3 mt-3">
             <input class="form-control inputCadastro" type="text" name="celular" placeholder="Celular"
@@ -170,7 +171,7 @@ $id = filter_input(INPUT_POST, 'id');
             <label class="labelCadastro">Email</label>
         </div>
         <div class="form-floating mb-3 mt-3">
-            <input class="form-control inputCadastro" type="text" id="cep1" name="cep1" placeholder="CEP" required
+            <input class="form-control inputCadastro" type="text" id="cep2" name="cep2" placeholder="CEP" required
                 onblur="pesquisacep(this.value);" value=<?php echo $cep?>>
             <label class="labelCadastro">CEP</label>
             <script>
@@ -180,19 +181,19 @@ $id = filter_input(INPUT_POST, 'id');
             </script>
         </div>
         <div class="form-floating mb-3 mt-3">
-            <input class="form-control inputCadastro" type="text" id="endereco1" name="rua1" placeholder="Rua">
+            <input class="form-control inputCadastro" type="text" id="endereco2" name="rua2" placeholder="Rua">
             <label class="labelCadastro">Rua</label>
         </div>
         <div class="form-floating mb-3 mt-3">
-            <input class="form-control inputCadastro" type="text" id="bairro1" name="bairro1" placeholder="Bairro">
+            <input class="form-control inputCadastro" type="text" id="bairro2" name="bairro2" placeholder="Bairro">
             <label class="labelCadastro">Bairro</label>
         </div>
         <div class="form-floating mb-3 mt-3">
-            <input class="form-control inputCadastro" type="text" id="cidade1" name="cidade1" placeholder="Cidade">
+            <input class="form-control inputCadastro" type="text" id="cidade2" name="cidade2" placeholder="Cidade">
             <label class="labelCadastro">Cidade</label>
         </div>
         <div class="form-floating mb-3 mt-3">
-            <input class="form-control inputCadastro" type="text" name="estado1" id="estado1" 1 placeholder="Estado">
+            <input class="form-control inputCadastro" type="text" name="estado2" id="estado2" 1 placeholder="Estado">
             <label class="labelCadastro">Estado</label>
         </div>
         <div class="form-floating mb-3 mt-3">
