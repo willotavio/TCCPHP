@@ -100,6 +100,10 @@
 <body style="background-color:whitesmoke">
 
     <div class="container" style="margin-top:140px">
+    
+    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                        onclick="window.location.href='pdfCestas/pdfCestas.php';" style="font-size: 1.2em; width: 200px; margin-bottom: 10px">Gerar
+                        <br> Relatório</button>
         <h4 style="color:green; text-align:center">Entrada de Cestas</h4>
         <div class="overflow-auto">
             <div class="column">

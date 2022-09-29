@@ -241,7 +241,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="card" id="cardContainerD">
-                                <a href="pdfCestas/pdfCestas.php" style="text-decoration: none; color:black">
+                                <a href="relatorioCestas.php" style="text-decoration: none; color:black">
                                     <img class="card-img-top" src="../../../imgs/iconesCestas/docs.png">
                                     <hr>
                                     <div class="card-body">
