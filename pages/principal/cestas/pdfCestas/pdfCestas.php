@@ -9,7 +9,11 @@ include "../../../../connection/conexao.php";
 $banco = new conexao();
 $con = $banco->getConexao();
 
-$consulta_cestas = "SELECT id_cestas, quantidade_cestas, recebimento_cestas FROM cestas";
+$consulta_cestas = "SELECT cestas.quantidade_cestas, 
+cestas.recebimento_cestas,cestas.usuario_cestas, 
+usuario.nome_usuario FROM cestas INNER JOIN usuario 
+ON cestas.usuario_cestas=usuario.id_usuario";
+
 
 $result_cestas = $con->prepare($consulta_cestas);
 
@@ -21,13 +25,13 @@ $dados .= "<head>";
 $dados .= "<meta chartset 'UTF-8'>";
 $dados .= "</head>";
 $dados .= "<body>";
-$dados .= "<h1>Relatório de Cestas Doadas</h1><br>";
+$dados .= "<h1 style='text-align: center'>Relatório de Cestas Doadas</h1><br>";
 
 while($row_cestas = $result_cestas->fetch(PDO::FETCH_ASSOC)){
     extract($row_cestas);
-    $dados .= "ID: $id_cestas<br>";
     $dados .= "Quantidade: $quantidade_cestas<br>";
     $dados .= "Data de Recebimento: $recebimento_cestas<br>";
+    $dados .= "Usuário: $nome_usuario<br>";
     $dados .= "<hr>";
 }
 
