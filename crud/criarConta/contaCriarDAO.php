@@ -70,7 +70,7 @@ class contacDao{
                 
                 echo "<script LANGUAGE= 'JavaScript'>
                     window.alert('Cadastrado com sucesso');
-                    window.location.href='../../index.php';
+                    window.location.href='../../pages/principal/funcionarios/funcionarios.php';
                     </script>";
             }
             
