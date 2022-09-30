@@ -58,6 +58,7 @@ $(document).ready(function() {
 
 
 <header style="margin-bottom: 100px;">
+
     <nav class="navbar navbar-expand-lg" style="background-color: white;position: fixed;z-index: 1000;width: 100%;">
         <div class="container-fluid">
             <a class="navbar-brand" href="../home.php"><img src='../../../imgs/logo2.png' width="60"></a>
@@ -90,35 +91,26 @@ $(document).ready(function() {
                         <?php echo '<img src="data:../../../imgs/conta;base64,' . base64_encode($imagemU) . '" style="border-radius:50px;width: 40px; height: 40px;">' ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        
+
                         <li>
                         <li><a class="dropdown-item" href="../conta/conta.php" style="color:green">VER PERFIL</a>
                         </li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="../../../crud/login/sair.php" style="color:green">SAIR</a>
-                        </li>
-
+                        <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="../../../crud/login/sair.php" style="color:green">SAIR</a>
+                </li>
             </div>
         </div>
     </nav>
+
 </header>
 
 <body>
 
     <div class="container-fluid" style="padding:0">
 
-        <h6 style="color:green; font-size: 200%;">CONTA</h6>
-        <div class="container">
-            <?php echo '<img src="data:../../../imgs/conta;base64,' . base64_encode($imagemU) . '" style="border-radius:10px;width: 30%;">' ?>
-        </div>
-        <br>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-success openF" data-toggle="modal" data-target="#exampleModalCenter">
-            Editar Imagem
-        </button>
 
-        <!-- Modal -->
+
         <div class="modal fade" id="modalfoto" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -128,7 +120,6 @@ $(document).ready(function() {
                             <h5 class="modal-title" id="exampleModalLongTitle">Editar
                                 Foto</h5>
                         </div>
-
                     </div>
                     <div class="modal-body">
                         <form method="POST" action="../../../crud/contaIMG/imagemControle.php" autocomplete="off"
@@ -141,36 +132,66 @@ $(document).ready(function() {
                             </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-outline-success" name='botao' value='Alterar'>Alterar</button>
-                        <button type="submit" class="btn btn-outline-danger" name='botao' value='Deletar'>Remover Foto</button>
+                        <button type="submit" class="btn btn-outline-success" name='botao'
+                            value='Alterar'>Alterar</button>
+                        <button type="submit" class="btn btn-outline-danger" name='botao' value='Deletar'>Remover
+                            Foto</button>
                         </form>
-                        <button type="button" class="btn btn-outline-secondary close" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-outline-secondary close"
+                            data-dismiss="modal">Fechar</button>
                     </div>
                 </div>
-
             </div>
         </div>
 
 
-        <br>
-        <div class="container"><?php echo "<p style='font-size:140%'><b>Perfil</b></p>" ?></div>
-        <div class="container"><?php echo "<p style='font-size:120%'><b>NOME: $nomeU</b></p>" ?></div>
-        <div class="container"><?php echo "<p style='font-size:120%'><b>EMAIL: $emailU</b></p>" ?></div>
-        <div class="container">
-            <?php if ($tipoU == "F") {
-                echo "<p><b>TIPO: FUNCIONARIO</b></p>";
-            } else if ($tipoU == "A") {
-                echo "<p><b>TIPO: ADMINISTRADOR</b></p>";
-            } else {
-                echo "<p><b>ERRO</b></p>";
-            }
-            ?>
-        </div>
-    </div>
-    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-    </script>
+        <div class="container-fluid">
+            <div class="row">
 
+                <div class="col-sm-6 m-auto">
+                    <div class="container" style="width: 30rem;">
+                        <div class="card">
+                            <?php echo '<img  class="card-img-top" src="data:../../../imgs/conta;base64,' . base64_encode($imagemU) . '" style="padding:10px; border-radius:40px">' ?>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <?php echo "<p style='font-size:1rem'><b>NOME: $nomeU</b></p>" ?>
+                                    <?php echo "<p style='font-size:1rem'><b>EMAIL: $emailU</b></p>" ?>
+                                </p>
+                                <div class="container">
+                                    <?php if ($tipoU == "F") {
+                                        echo "<p style='color:blue; border: 2px solid blue; border-radius:10px; display: inline-block; padding:3px; font-size:0.8rem'>FUNCIONARIO</p>";
+                                    } else if ($tipoU == "A") {
+                                        echo "<p style='color:red; border: 2px solid red; border-radius:10px; display: inline-block; padding:3px; font-size:0.8rem'>ADMINISTRADOR</p>";
+                                    } else {
+                                        echo "<p><b>ERRO</b></p>";
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 m-auto">
+                    <div class="container" style="align-items: center; text-align:center">
+
+                        <div class="card m-auto" style="width: 18rem;">
+                            <a class="openF" style="text-decoration:none;">
+                                <img class="card-img-top" src="../../../imgs/iconesPerfil/ajustes.png" alt="Ajuste">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="color:green">Altere o seu Perfil</h5>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+                crossorigin="anonymous">
+            </script>
 </body>
 
 </html>

@@ -4,7 +4,7 @@
     {
      unset($_SESSION['usuario']);
      unset($_SESSION['senha']);
-     header('location: ../../index.php');
+     header('location: ../../../index.php');
     }else if ($_SESSION['tipo'] != 'A'){
           echo "<script LANGUAGE= 'JavaScript'>
                 window.alert('Você não possui acesso a essa página');

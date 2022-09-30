@@ -16,7 +16,7 @@ if(isset($_POST['submit']) && !empty($_POST['nome_login']) && !empty($_POST['sen
         unset($_SESSION['usuario']);
         unset($_SESSION['senha']);
         echo ("<script LANGUAGE='javaScript'>
-        window.alert('echo $senha');
+        window.alert('Senha ou Usuário Incorretos');
         window.location.href='../../index.php';
         </script>");
     }else{
@@ -42,7 +42,7 @@ if(isset($_POST['submit']) && !empty($_POST['nome_login']) && !empty($_POST['sen
     
 }else{
     echo ("<script LANGUAGE='javaScript'>
-    window.alert('Os dados inseridos estão Incoretos');
+    window.alert('Senha ou Usuário Incorretos');
     window.location.href='../../index.php';
     </script>");
 }
