@@ -92,6 +92,10 @@ body {
 	color: rgba(25, 135, 84, 255);
 }
 
+.nav-pills .nav-link.active{ 
+	background-color: white;
+} 
+
 #senha {
 	border-style: none none solid none;
 }
@@ -110,6 +114,14 @@ body {
 	border-color: rgba(25, 135, 84, 255);
 }
 
+#email_recuperacao{
+	border-style: none none solid none;
+}
+
+#email_recuperacao:focus{
+	box-shadow: none;
+	border-color: rgba(25, 135, 84, 255);
+}
 /* index.php */
 
 /*footer.php*/
