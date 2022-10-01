@@ -118,13 +118,13 @@ $(document).ready(function() {
                     </div>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" action="../../../crud/contaIMG/imagemControle.php" autocomplete="off"
+                    <form method="POST" action="../../crud/contaIMG/imagemControle.php" autocomplete="off"
                         enctype="multipart/form-data">
                         <div class="mt-3 mb-3">
 
                             <label for="arquivo" class="form-control">Escolha uma Foto
                                 de Perfil</label>
-                            <input type="file" class="form-control" name="arquivo" id="arquivo">
+                            <input type="file" class="form-control" name="foto" id="foto">
                         </div>
                 </div>
                 <div class="modal-footer">

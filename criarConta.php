@@ -17,7 +17,7 @@
 
 <body style="background-color: whitesmoke;">
 
-    <div class="container" style="margin-top:5%">
+    <div class="container">
         <div class=" col-10 m-auto">
             <div class="row">
                 <div class=" col-md-11 m-auto">

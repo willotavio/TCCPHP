@@ -99,8 +99,7 @@
                             <div class=" col-md-11 m-auto">
                                 <div id="containerEsqueciSenha">
                                     <div class="container mt-3">
-                                        <form method="GET" action="../../crud/criarConta/controleCriarConta.php"
-                                            autocomplete="off">
+                                        <form method="GET" onSubmit="recuperarSenha();" autocomplete="off">
                                             <h2 class="h2Index">
                                                 ESQUECI MINHA SENHA</h2>
                                             <div class="form-floating mb-3 mt-3">
@@ -150,6 +149,11 @@
             } else {
                 alert("ERRO 'SENHA/USUARIO' TENTE NOVAMENTE OU PEÇA AJUDA DOS ADMINISTRADORES");
             }
+        }
+
+        function recuperarSenha() {
+            var email = $("#emailRecuperacao").val();
+            alert("Foi enviado pra o Email: " + email + " um código para efetuar a recuperação da senha de sua conta");
         }
         </script>
 
