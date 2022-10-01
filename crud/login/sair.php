@@ -1,8 +1,12 @@
 <?php
+    if(!isset($_SESSION)){
+        session_start();
+    }
+    
+    unset($_SESSION['nomeUsuario']);
+    unset($_SESSION['tipoUsuario']);
+    session_destroy();
+    header("location: ../../index.php");
 
-    session_start();
-    unset($_SESSION['usuario']);
-    unset($_SESSION['senha']);
-    header("location:../../index.php");
 
 ?>

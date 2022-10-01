@@ -23,7 +23,7 @@
                 <div class=" col-md-11 m-auto">
                     <div id="containerCadastroConta">
                         <div class="container mt-3">
-                            <form method="POST" action="../../crud/criarConta/controleCriarConta.php" autocomplete="off"
+                            <form method="POST" action="crud/criarConta/controleCriarConta.php" autocomplete="off"
                                 enctype="multipart/form-data">
                                 <h1 style="text-align:center; font-size:25px; padding:15px; color:rgba(25,135,84,255)">
                                     CRIAR CONTA</h1>
@@ -68,7 +68,7 @@
                                     <div class="row m-auto">
                                         <button type="submit" class="btn btn-success btn-lg btn-block"
                                             style="font-size:16px"
-                                            onclick="window.location.href='../../index.php'">Voltar</button>
+                                            onclick="window.location.href='index.php'">Voltar</button>
                                     </div>
                                 </div>
 

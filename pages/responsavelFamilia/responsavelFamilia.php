@@ -1,12 +1,12 @@
 <?php
 session_start();
-if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == true)) {
-    unset($_SESSION['usuario']);
-    unset($_SESSION['senha']);
-    header('location: ../../../login.php');
+if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuario']) == true)) {
+    unset($_SESSION['nomeUsuario']);
+    unset($_SESSION['tipoUsuario']);
+    header('location: ../../login.php');
 }   
-    include_once('../../../connection/conexao.php');
-    $logado = $_SESSION['usuario'];
+    include_once('../../connection/conexao.php');
+    $logado = $_SESSION['nomeUsuario'];
     $banco = new conexao();
     $con = $banco->getConexao();
     $sql = "select imagem_usuario from usuario where nome_usuario = '$logado'";
@@ -14,74 +14,73 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
     if ($result->rowCount() > 0) {
 
     while ($row = $result->fetch()) {
-        $imagemU = $row['imagem_usuario'];
+        $imagemUsuario = $row['imagem_usuario'];
     }
 }
 
 ?>
 <script>
-    function limpa_formulário_cep() {
-	//Limpa valores do formulário de cep.
-	document.getElementById("endereco").value = "";
-	document.getElementById("bairro").value = "";
-	document.getElementById("cidade").value = "";
-	document.getElementById("estado").value = "";
+function limpa_formulário_cep() {
+    //Limpa valores do formulário de cep.
+    document.getElementById("endereco").value = "";
+    document.getElementById("bairro").value = "";
+    document.getElementById("cidade").value = "";
+    document.getElementById("estado").value = "";
 }
 
 function meu_callback(conteudo) {
-	if (!("erro" in conteudo)) {
-		//Atualiza os campos com os valores.
-		document.getElementById("endereco").value = conteudo.logradouro;
-		document.getElementById("bairro").value = conteudo.bairro;
-		document.getElementById("cidade").value = conteudo.localidade;
-		document.getElementById("estado").value = conteudo.uf;
-	} //end if.
-	else {
-		//CEP não Encontrado.
-		limpa_formulário_cep();
-		alert("CEP não encontrado.");
-	}
+    if (!("erro" in conteudo)) {
+        //Atualiza os campos com os valores.
+        document.getElementById("endereco").value = conteudo.logradouro;
+        document.getElementById("bairro").value = conteudo.bairro;
+        document.getElementById("cidade").value = conteudo.localidade;
+        document.getElementById("estado").value = conteudo.uf;
+    } //end if.
+    else {
+        //CEP não Encontrado.
+        limpa_formulário_cep();
+        alert("CEP não encontrado.");
+    }
 }
 
 function pesquisacep(valor) {
-	//Nova variável "cep" somente com dígitos.
-	var cep = valor.replace(/\D/g, "");
+    //Nova variável "cep" somente com dígitos.
+    var cep = valor.replace(/\D/g, "");
 
-	//Verifica se campo cep possui valor informado.
-	if (cep != "") {
-		//Expressão regular para validar o CEP.
-		var validacep = /^[0-9]{8}$/;
+    //Verifica se campo cep possui valor informado.
+    if (cep != "") {
+        //Expressão regular para validar o CEP.
+        var validacep = /^[0-9]{8}$/;
 
-		//Valida o formato do CEP.
-		if (validacep.test(cep)) {
-			//Preenche os campos com "..." enquanto consulta webservice.
-			document.getElementById("endereco").value = "...";
-			document.getElementById("bairro").value = "...";
-			document.getElementById("cidade").value = "...";
-			document.getElementById("estado").value = "...";
+        //Valida o formato do CEP.
+        if (validacep.test(cep)) {
+            //Preenche os campos com "..." enquanto consulta webservice.
+            document.getElementById("endereco").value = "...";
+            document.getElementById("bairro").value = "...";
+            document.getElementById("cidade").value = "...";
+            document.getElementById("estado").value = "...";
 
-			//Cria um elemento javascript.
-			var script = document.createElement("script");
+            //Cria um elemento javascript.
+            var script = document.createElement("script");
 
-			//Sincroniza com o callback.
-			script.src =
-				"https://viacep.com.br/ws/" + cep + "/json/?callback=meu_callback";
+            //Sincroniza com o callback.
+            script.src =
+                "https://viacep.com.br/ws/" + cep + "/json/?callback=meu_callback";
 
-			//Insere script no documento e carrega o conteúdo.
-			document.body.appendChild(script);
-		} //end if.
-		else {
-			//cep é inválido.
-			limpa_formulário_cep();
-			alert("Formato de CEP inválido.");
-		}
-	} //end if.
-	else {
-		//cep sem valor, limpa formulário.
-		limpa_formulário_cep();
-	}
+            //Insere script no documento e carrega o conteúdo.
+            document.body.appendChild(script);
+        } //end if.
+        else {
+            //cep é inválido.
+            limpa_formulário_cep();
+            alert("Formato de CEP inválido.");
+        }
+    } //end if.
+    else {
+        //cep sem valor, limpa formulário.
+        limpa_formulário_cep();
+    }
 }
-
 </script>
 
 <!DOCTYPE html>
@@ -91,8 +90,7 @@ function pesquisacep(valor) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../../../Js/consultaCEP.js"></script>
-    <link rel="shortcut icon" href="../../../imgs/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../imgs/favicon.ico" type="image/x-icon">
     <title>Familias</title>
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
@@ -102,7 +100,7 @@ function pesquisacep(valor) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
-    <?php include '../../style.css';
+    <?php include '../../css/style.css';
     ?>
     </style>
 </head>
@@ -110,39 +108,44 @@ function pesquisacep(valor) {
 <header style="margin-bottom: 100px;">
     <nav class="navbar navbar-expand-lg" style="background-color: white;position: fixed;z-index: 1000;width: 100%;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../home.php"><img src='../../../imgs/logo2.png' width="60"></a>
+            <a class="navbar-brand" href="../home.php"><img src='../../imgs/logo2.png' width="60"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link " href="" style="color:green">FAMILIAS</a>
+                        <a class="nav-link " href="../responsavelFamilia/responsavelFamilia.php"
+                            style="color:green">FAMILIAS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../cestas/cestas.php" style="color:green">CESTAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../dashboard/dashboard.php" style="color:green">FINANCEIRO</a>
+                        <a class="nav-link" href="../financeiro/financeiroProvisorio.php"
+                            style="color:green">FINANCEIRO</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../funcionarios/funcionarios.php" style="color:green">FUNCIONÁRIOS</a>
-
+                    </li>
                 </ul>
+
                 <li class="nav-item dropdown " style="list-style: none;">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false" style="color:green">
-                        <?php echo '<img src="data:../../../imgs/conta;base64,' . base64_encode($imagemU) . '" style="border-radius:50px;width: 40px; height: 40px;">' ?>
+                        <?php echo '<img src="data:../imgs/conta;base64,' . base64_encode($imagemUsuario) . '" style="border-radius:50px;width: 40px; height: 40px;">' ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="../conta/conta.php" style="color:green">VER PERFIL</a>
+                        <li>
+                            <a class="dropdown-item" href="../conta/conta.php" style="color:green">VER PERFIL</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="../../../crud/login/sair.php" style="color:green">SAIR</a>
+                        <li>
+                            <a class="dropdown-item" href="../../crud/login/sair.php" style="color:green">SAIR</a>
                         </li>
                     </ul>
                 </li>
@@ -182,7 +185,7 @@ function pesquisacep(valor) {
                                             <label class="labelCadastro">Nome</label>
                                         </div>
                                         <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputCadastro" type="date" name="dataNasc"
+                                            <input class="form-control inputCadastro" type="date" name="dataNascimento"
                                                 required placeholder="Data de Nascimento">
                                             <label class="labelCadastro">Data de Nascimento</label>
                                         </div>
@@ -193,9 +196,9 @@ function pesquisacep(valor) {
                                         </div>
                                         <div>
                                             <select class="form-select inputCadastro"
-                                                aria-label="Default select example" name="sexoP" class="labelCadastro">
-                                                <option value="F" name="sexoP" class="labelCadastro">Feminino</option>
-                                                <option value="M" name="sexoP" class="labelCadastro">Masculino</option>
+                                                aria-label="Default select example" name="sexo" class="labelCadastro">
+                                                <option value="F" name="sexo" class="labelCadastro">Feminino</option>
+                                                <option value="M" name="sexo" class="labelCadastro">Masculino</option>
                                             </select>
                                         </div>
                                         <div class="form-floating mb-3 mt-3">
@@ -247,8 +250,8 @@ function pesquisacep(valor) {
                                             <label class="labelCadastro">Estado</label>
                                         </div>
                                         <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputCadastro" type="number" name="numRes"
-                                                placeholder="Número da Residência" required>
+                                            <input class="form-control inputCadastro" type="number"
+                                                name="numeroResidencia" placeholder="Número da Residência" required>
                                             <label class="labelCadastro">Número Residência</label>
                                         </div>
                                         <div class="form-floating mb-3 mt-3">
@@ -290,7 +293,7 @@ function pesquisacep(valor) {
                         <tbody>
                             <?php
 
-                        include_once("../../../connection/conexao.php");
+                        include_once("../../connection/conexao.php");
                         $sql = "SELECT responsavel_familia.id_responsavel, responsavel_familia.nome_responsavel,
                                 responsavel_familia.data_nascimento_responsavel,responsavel_familia.cpf_responsavel,
                                 contato.celular FROM responsavel_familia INNER JOIN contato ON responsavel_familia.id_responsavel = contato.Id_contato";
@@ -381,7 +384,7 @@ function pesquisacep(valor) {
         </div>
     </div>
 
-    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -392,8 +395,7 @@ function pesquisacep(valor) {
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
-                        <form action='../../../crud/responsavelF/deleteResponsavelF.php' method='GET'
-                            autocomplete='off'>
+                        <form action='../../crud/responsavelF/deleteResponsavelF.php' method='GET' autocomplete='off'>
                             <div class='form-floating mb-3 mt-3'>
                                 <input class='form-control inputCadastro' type='number' name='idResponsavel'
                                     placeholder='Id' id="idResponsavel" readonly>
@@ -413,7 +415,7 @@ function pesquisacep(valor) {
         </div>
     </div>
 
-    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
+    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -444,7 +446,7 @@ function pesquisacep(valor) {
 
                 $.ajax({
                     type: "POST",
-                    url: "../../../crud/responsavelF/consultaResponsavel.php",
+                    url: "../../crud/responsavelF/consultaResponsavel.php",
                     data: dados,
                     success: function(resultado) {
                         $("#visul_usuario").html(resultado);
@@ -468,7 +470,7 @@ function pesquisacep(valor) {
 
                 $.ajax({
                     type: "POST",
-                    url: "../../../crud/responsavelF/editResponsavelF.php",
+                    url: "../../crud/responsavelF/editResponsavelF.php",
                     data: dados,
                     success: function(resultado) {
                         $("#editar_usuario").html(resultado);
