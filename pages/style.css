@@ -92,9 +92,9 @@ body {
 	color: rgba(25, 135, 84, 255);
 }
 
-.nav-pills .nav-link.active{ 
+.nav-pills .nav-link.active {
 	background-color: white;
-} 
+}
 
 #senha {
 	border-style: none none solid none;
@@ -114,11 +114,11 @@ body {
 	border-color: rgba(25, 135, 84, 255);
 }
 
-#email_recuperacao{
+#email_recuperacao {
 	border-style: none none solid none;
 }
 
-#email_recuperacao:focus{
+#email_recuperacao:focus {
 	box-shadow: none;
 	border-color: rgba(25, 135, 84, 255);
 }
@@ -165,28 +165,27 @@ footer {
 	font-family: sans-serif;
 }
 
-#lblArquivo{
-    background-color: #333;
-    color: #FFF;
-    text-transform: uppercase;
-    text-align: center;
-    display: block;
-    margin-top: 10px;
-    cursor: pointer;
+#lblArquivo {
+	background-color: #333;
+	color: #fff;
+	text-transform: uppercase;
+	text-align: center;
+	display: block;
+	margin-top: 10px;
+	cursor: pointer;
 }
 
-#lblArquivoCriarConta{
-    cursor: pointer;
+#lblArquivoCriarConta {
+	cursor: pointer;
 	margin-bottom: 5px;
 	text-align: start;
-
 }
 
 input[type="file"] {
-    display: none;
-} 
+	display: none;
+}
 
-#editFoto{
+#editFoto {
 	border: solid 1px black;
 	padding: 5px;
 	border-radius: 10px;
@@ -194,8 +193,6 @@ input[type="file"] {
 	text-decoration: none;
 	color: black;
 }
-
-
 
 /*conta*/
 
@@ -228,21 +225,19 @@ input[type="file"] {
 }
 /* DashBoard */
 
-
 /* ScrollBar*/
 
-::-webkit-scrollbar{
-    opacity: 1;
+::-webkit-scrollbar {
+	opacity: 1;
 	width: 10px;
 }
 
-::-webkit-scrollbar-thumb{
-    background-color:gray;
-    border-radius: 10px;
+::-webkit-scrollbar-thumb {
+	background-color: gray;
+	border-radius: 10px;
 }
 
-:hover::-webkit-scrollbar-thumb{
+:hover::-webkit-scrollbar-thumb {
 	background-color: gray;
 }
 /* ScrollBar*/
-
