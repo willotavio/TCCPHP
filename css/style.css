@@ -118,9 +118,24 @@ body {
 /* Home */
 
 /* Conta */
+
 input[type="file"] {
 	display: none;
 }
+
+#labelArquivo {
+	cursor: pointer;
+	margin-bottom: 5px;
+	text-align: start;
+	background-color: #333;
+	color: #fff;
+	text-transform: uppercase;
+	text-align: center;
+	display: block;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
 /* Conta */
 
 /* footer */

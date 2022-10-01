@@ -82,7 +82,7 @@ $(document).ready(function() {
                     </li>
                 </ul>
 
-                <li class="nav-item dropdown " style="list-style: none;">
+                <li class="nav-item dropdown" style="list-style: none;">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false" style="color:green">
                         <?php echo '<img src="data:../../imgs/conta;base64,' . base64_encode($imagemUsuario) . '" style="border-radius:50px;width: 40px; height: 40px;">' ?>
@@ -121,8 +121,7 @@ $(document).ready(function() {
                     <form method="POST" action="../../crud/contaIMG/imagemControle.php" autocomplete="off"
                         enctype="multipart/form-data">
                         <div class="mt-3 mb-3">
-
-                            <label for="arquivo" class="form-control">Escolha uma Foto
+                            <label for="foto" class="form-control" id="lblArquivoCriarConta">Escolha uma Foto
                                 de Perfil</label>
                             <input type="file" class="form-control" name="foto" id="foto">
                         </div>
