@@ -163,15 +163,15 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action='../../crud/cestas/saida/controlecestasS.php' method='GET'
+                                    <form action='../../crud/cestas/saida/controleCestasSaida.php' method='GET'
                                         autocomplete="off">
                                         <div class="form-floating mb-3 mt-3">
                                             <input class="form-control inputCadastro" type="number" min="0"
-                                                name="quantidadeCestas" placeholder="Quantidade">
+                                                name="quantidade" placeholder="Quantidade">
                                             <label class="labelCadastro">Quantidade Cestas</label>
                                         </div>
                                         <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputCadastro" type="date" name="dataCadastro"
+                                            <input class="form-control inputCadastro" type="date" name="dataSaida"
                                                 placeholder="Data de Recebimento" required>
                                             <label class="labelCadastro">Data de Saída</label>
                                         </div>

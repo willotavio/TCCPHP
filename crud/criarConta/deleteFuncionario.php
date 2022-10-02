@@ -1,10 +1,10 @@
 <?php
 
- if(!empty($_GET['idUsuario1'])){
+ if(!empty($_GET['idFuncionario'])){
         include_once('../../connection/conexao.php');
         $banco = new conexao();
         $con = $banco->getConexao();
-        $id = $_GET['idUsuario1'];
+        $id = $_GET['idFuncionario'];
         $sqlSelect = "SELECT * FROM usuario WHERE id_usuario =$id";
         $result = $con->query($sqlSelect);
 
@@ -12,6 +12,6 @@
             $sqlDelete = "DELETE FROM usuario WHERE id_usuario=$id";
             $resultDelete = $con->query($sqlDelete);
         }
-    }header('location: ../../pages/principal/funcionarios/funcionarios.php');
+    }header('location: ../../pages/funcionarios/funcionarios.php');
 
 ?>

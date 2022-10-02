@@ -23,43 +23,41 @@
                 <div class=" col-md-11 m-auto">
                     <div id="containerCadastroConta">
                         <div class="container mt-3">
-                            <form method="POST" action="crud/criarConta/controleCriarConta.php" autocomplete="off"
+                            <form method="POST" action="crud/criarConta/controleConta.php" autocomplete="off"
                                 enctype="multipart/form-data">
                                 <h1 style="text-align:center; font-size:25px; padding:15px; color:rgba(25,135,84,255)">
                                     CRIAR CONTA</h1>
                                 <div class="form-floating mb-3 mt-3">
                                     <input type="text" class="form-control" placeholder="Digite o seu Usuario" required
-                                        name="cadastrarULogin">
+                                        name="nome">
                                     <label>Digite o seu Nome de Usuario</label>
                                 </div>
                                 <div class="form-floating mt-3 mb-3">
                                     <input type="email" class="form-control" placeholder="Digite o seu Email"
-                                        name='cadastrarUEmail' required>
+                                        name='email' required>
                                     <label>Digite o seu Email</label>
                                 </div>
                                 <div class="form-floating mt-3 mb-3">
                                     <input type="password" class="form-control" placeholder="Digite a sua Senha"
-                                        name='cadastrarUSenha' required>
+                                        name='senha' required>
                                     <label>Digite a sua Senha</label>
                                 </div>
                                 <div class="form-floating mt-3 mb-3">
                                     <input type="password" class="form-control" placeholder="Repita a sua Senha"
-                                        name='cadastrarUCSenha' required>
+                                        name='confirmarSenha' required>
                                     <label>Repita a sua Senha</label>
                                 </div>
                                 <div class="mt-3 mb-3">
-
                                     <label for="arquivo" class="form-control" id="lblArquivoCriarConta">Escolha uma Foto
                                         de Perfil</label>
-                                    <input type="file" class="form-control" name="arquivo" id="arquivo">
+                                    <input type="file" class="form-control" name="foto" id="foto">
                                 </div>
                                 <div style="margin-bottom:15px">
-                                    <select class="form-select" name="cadastrarUTipo">
-                                        <option value="F" name="cadastrarUTipo">Funcionario</option>
-                                        <option value="A" name="cadastrarUTipo">Administrador</option>
+                                    <select class="form-select" name="tipo">
+                                        <option value="F" name="tipo">Funcionario</option>
+                                        <option value="A" name="tipo">Administrador</option>
                                     </select>
                                 </div>
-
                                 <div class="row m-auto">
                                     <button type="submit" class="btn btn-success btn-lg btn-block"
                                         style="font-size:16px" value="cadastrar" name="botao">Cadastrar</button>

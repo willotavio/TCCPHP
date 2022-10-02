@@ -3,33 +3,26 @@
 include '../../connection/conexao.php';
 
 class cestasDao{
-        private $idCestas, $quantidadeCestas, $recebimentoCestas, $usuarioU;
-
-        public function getidCestas(){
-            return $this->idCestas;
+        private  $quantidade, $recebimento, $usuario;
+        
+        public function getQuantidade(){
+            return $this->quantidade;
         }
-        public function setidCestas($id){
-            $this->idCestas = $id;
+        public function setQuantidade($quantidade){
+            $this->quantidade = $quantidade;
         }
         
-        public function getquantidadeCestas(){
-            return $this->quantidadeCestas;
+        public function getRecebimento(){
+            return $this->recebimento;
         }
-        public function setquantidadeCestas($qc){
-            $this->quantidadeCestas = $qc;
+        public function setRecebimento($recebimento){
+            $this->recebimento = $recebimento;
         }
-        
-        public function getrecebimentoCestas(){
-            return $this->recebimentoCestas;
+         public function getUsuario(){
+            return $this->usuario;
         }
-        public function setrecebimentoCestas($rc){
-            $this->recebimentoCestas = $rc;
-        }
-         public function getUsuarioU(){
-            return $this->usuarioU;
-        }
-        public function setUsuarioU($u){
-            $this->usuarioU = $u;
+        public function setUsuario($usuario){
+            $this->usuario = $usuario;
         }
         
 
@@ -38,9 +31,9 @@ class cestasDao{
         $banco = new conexao();
         $con = $banco->getConexao();
         $resultado = $con->prepare($sql);
-        $resultado->bindValue(1, $this->quantidadeCestas);
-        $resultado->bindValue(2, $this->recebimentoCestas);
-        $resultado->bindValue(3, $this->usuarioU);
+        $resultado->bindValue(1, $this->quantidade);
+        $resultado->bindValue(2, $this->recebimento);
+        $resultado->bindValue(3, $this->usuario);
         
         
         $final = $resultado->execute();
@@ -48,7 +41,7 @@ class cestasDao{
         if($final){
             echo "<script LANGUAGE= 'JavaScript'>
                 window.alert('Cadastrada com sucesso');
-                window.location.href='../../pages/principal/cestas/cestas.php';
+                window.location.href='../../pages/cestas/cestas.php'
                 </script>";
         }
     }

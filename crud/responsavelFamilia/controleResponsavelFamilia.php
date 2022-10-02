@@ -1,9 +1,9 @@
 <?php
 $nome =  filter_input(INPUT_GET,'nome');
-$dataNasc =  filter_input(INPUT_GET,'dataNasc');
-$numRes = filter_input(INPUT_GET,'numRes');
+$dataNascimento =  filter_input(INPUT_GET,'dataNascimento');
+$numeroResidencia = filter_input(INPUT_GET,'numeroResidencia');
 $complemento =  filter_input(INPUT_GET,'complemento');
-$sexoP= filter_input(INPUT_GET,'sexoP');
+$sexo= filter_input(INPUT_GET,'sexo');
 $botao =  filter_input(INPUT_GET,'botao');
 $cpf =  filter_input(INPUT_GET,'cpf');
 
@@ -19,29 +19,28 @@ $email =  filter_input(INPUT_GET,'email');
 
 
 include 'contato.php';
-include 'responsavelF.php';
+include 'responsavelFamilia.php';
 
-$responsavelF = new responsavelF();
+$responsavel = new responsavelFamilia();
 $contato = new contato();
 
 $contato->setTelefone($telefone);
 $contato->setCelular($celular);
 $contato->setEmail($email);
 
-$responsavelF->setNomeF($nome);
-$responsavelF->setdataNasc($dataNasc);
-$responsavelF->setnumRes($numRes);
-$responsavelF->setComplemento($complemento);
-$responsavelF->setSexoF($sexoP);
-$responsavelF->setcpf($cpf);
-$responsavelF->setCep($cep);
+$responsavel->setNome($nome);
+$responsavel->setDataNascimento($dataNascimento);
+$responsavel->setNumeroResidencia($numeroResidencia);
+$responsavel->setComplemento($complemento);
+$responsavel->setSexo($sexo);
+$responsavel->setCpf($cpf);
+$responsavel->setCep($cep);
 
 
-
-include 'responsavelFDAO.php';
-$responsavelFDao = new responsavelFDao();
+include 'responsavelFamiliaDAO.php';
+$responsavelDao = new responsavelFamiliaDao();
 
 if($botao=='Cadastrar'){
-    $responsavelFDao->cadastrarresponsavelF($responsavelF, $contato);
+    $responsavelDao->cadastrarResponsavelFamilia($responsavel, $contato);
   }
 ?>

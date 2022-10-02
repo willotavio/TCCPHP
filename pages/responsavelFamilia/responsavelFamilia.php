@@ -95,8 +95,6 @@ function pesquisacep(valor) {
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
     </script>
-
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
@@ -160,6 +158,7 @@ function pesquisacep(valor) {
     <div class="container-fluid">
         <div class="row" style="margin-bottom:15px">
             <div class="col m-auto" style="text-align:center">
+
                 <div id="modalCadastro">
                     <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
                         data-bs-target="#exampleModal" style="font-size: 1.2em; width: 200px; margin-top:50px">Cadastrar
@@ -177,8 +176,8 @@ function pesquisacep(valor) {
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action='../../../crud/responsavelF/controleResponsavelF.php' method='GET'
-                                        autocomplete="off">
+                                    <form action='../../crud/responsavelFamilia/controleResponsavelFamilia.php'
+                                        method='GET' autocomplete="off">
                                         <div class="form-floating mb-3 mt-3">
                                             <input type="text" class="form-control inputCadastro" name='nome' required
                                                 placeholder="Nome">
@@ -217,8 +216,8 @@ function pesquisacep(valor) {
                                             <label class="labelCadastro">Email</label>
                                         </div>
                                         <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputCep" type="text" id="cep" name="cep"
-                                                placeholder="CEP" required>
+                                            <input class="form-control inputCep inputCadastro" type="text" id="cep"
+                                                name="cep" placeholder="CEP" required>
                                             <script>
                                             $(document).ready(function() {
                                                 $(".inputCep").blur(function() {
@@ -273,6 +272,7 @@ function pesquisacep(valor) {
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -280,15 +280,16 @@ function pesquisacep(valor) {
     <div class="container">
         <div class="overflow-auto">
             <div class="column">
-                <div class="m-2 ">
+                <div class="m-2">
+
                     <table class="table" style="color:green">
                         <thead>
-                            <th scope="col">#</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Data de Nascimento</th>
-                            <th scope="col">CPF</th>
-                            <th scope="col">Celular</th>
-                            <th scope="col">Ações</th>
+                            <th scope="col" style="text-align:center">#</th>
+                            <th scope="col" style="text-align:center">Nome</th>
+                            <th scope="col" style="text-align:center">Data de Nascimento</th>
+                            <th scope="col" style="text-align:center">CPF</th>
+                            <th scope="col" style="text-align:center">Celular</th>
+                            <th scope="col" style="text-align:center">Ações</th>
                         </thead>
                         <tbody>
                             <?php
@@ -303,24 +304,32 @@ function pesquisacep(valor) {
                         while ($row = $resultados_responsavel->fetch()) {
                         ?>
                             <tr>
-                                <td><span
-                                        id="id<?php echo $row['id_responsavel']; ?>"><?php echo $row['id_responsavel']; ?></span>
+                                <td style='text-align:center'>
+                                    <span
+                                        id="id<?php echo $row['id_responsavel']; ?>"><?php echo $row['id_responsavel']; ?>
+                                    </span>
                                 </td>
-                                <td><span
-                                        id="nome<?php echo $row['id_responsavel']; ?>"><?php echo $row['nome_responsavel']; ?></span>
+                                <td style='text-align:center'>
+                                    <span
+                                        id="nome<?php echo $row['id_responsavel']; ?>"><?php echo $row['nome_responsavel']; ?>
+                                    </span>
                                 </td>
-                                <td><span
-                                        id="data_nascimento<?php echo $row['id_responsavel']; ?>"><?php echo $row['data_nascimento_responsavel']; ?></span>
+                                <td style='text-align:center'>
+                                    <span
+                                        id="data_nascimento<?php echo $row['id_responsavel']; ?>"><?php echo $row['data_nascimento_responsavel']; ?>
+                                    </span>
                                 </td>
-                                <td><span
-                                        id="cpf<?php echo $row['id_responsavel']; ?>"><?php echo $row['cpf_responsavel']; ?></span>
+                                <td style='text-align:center'>
+                                    <span
+                                        id="cpf<?php echo $row['id_responsavel']; ?>"><?php echo $row['cpf_responsavel']; ?>
+                                    </span>
                                 </td>
-                                <td><span
-                                        id="celular<?php echo $row['id_responsavel']; ?>"><?php echo $row['celular']; ?></span>
+                                <td style='text-align:center'>
+                                    <span
+                                        id="celular<?php echo $row['id_responsavel']; ?>"><?php echo $row['celular']; ?>
+                                    </span>
                                 </td>
-
-                                <td>
-
+                                <td style='text-align:center'>
                                     <button class='btn btn-sm btn-outline-primary view'
                                         value="<?php echo $row['id_responsavel']; ?>">
                                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'
@@ -351,7 +360,6 @@ function pesquisacep(valor) {
                                                 d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
                                         </svg>
                                     </button>
-
                                 </td>
                             </tr>
                             <?php
@@ -359,12 +367,13 @@ function pesquisacep(valor) {
                                     ?>
                         </tbody>
                     </table>
+
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="visualizar" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+    <div id="consultar" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -374,7 +383,7 @@ function pesquisacep(valor) {
                     </div>
                 </div>
                 <div class="modal-body">
-                    <span id="visul_usuario"></span>
+                    <span id="consultarResponsavel"></span>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-danger" data-dismiss="modal"
@@ -395,7 +404,8 @@ function pesquisacep(valor) {
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
-                        <form action='../../crud/responsavelF/deleteResponsavelF.php' method='GET' autocomplete='off'>
+                        <form action='../../crud/responsavelFamilia/deleteResponsavelFamilia.php' method='GET'
+                            autocomplete='off'>
                             <div class='form-floating mb-3 mt-3'>
                                 <input class='form-control inputCadastro' type='number' name='idResponsavel'
                                     placeholder='Id' id="idResponsavel" readonly>
@@ -425,63 +435,56 @@ function pesquisacep(valor) {
                     </div>
                 </div>
                 <div class="modal-body">
-                    <span id="editar_usuario"></span>
+                    <span id="editarResponsavel"></span>
                 </div>
-
             </div>
             </form>
         </div>
     </div>
-    </div>
+
+
 
     <script>
     $(document).ready(function() {
+
         $(document).on("click", ".view", function() {
             var id = $(this).val();
-
             if (id != '') {
                 var dados = {
                     id: id
                 }
-
                 $.ajax({
                     type: "POST",
-                    url: "../../crud/responsavelF/consultaResponsavel.php",
+                    url: "../../crud/responsavelFamilia/consultaResponsavelFamilia.php",
                     data: dados,
                     success: function(resultado) {
-                        $("#visul_usuario").html(resultado);
-                        $('#visualizar').modal('show');
+                        $("#consultarResponsavel").html(resultado);
+                        $('#consultar').modal('show');
                     }
                 });
-
             } else {
                 alert("ERRO ID VAZIO");
             }
-
         });
 
         $(document).on("click", ".edit", function() {
             var id = $(this).val();
-
             if (id != '') {
                 var dados = {
                     id: id
                 }
-
                 $.ajax({
                     type: "POST",
-                    url: "../../crud/responsavelF/editResponsavelF.php",
+                    url: "../../crud/responsavelFamilia/editResponsavelFamilia.php",
                     data: dados,
                     success: function(resultado) {
-                        $("#editar_usuario").html(resultado);
+                        $("#editarResponsavel").html(resultado);
                         $('#edit').modal('show');
                     }
                 });
-
             } else {
                 alert("ERRO ID VAZIO");
             }
-
         });
 
         $(document).ready(function() {
@@ -498,15 +501,13 @@ function pesquisacep(valor) {
             });
 
             $("#closeView").click(function() {
-                $("#visualizar").modal('hide');
+                $("#consultar").modal('hide');
             });
 
             $("#closeEdit").click(function() {
                 $("#edit").modal('hide');
             });
-
         });
-
 
     });
     </script>

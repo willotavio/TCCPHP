@@ -14,6 +14,6 @@
             $resultDelete = $con->query($sqlDelete);
             $resultDelete3 = $con->query($sqlDelete3);
         }
-    }header('location: ../../pages/principal/responsavelFamilia/responsavelFamilia.php');
+    }header('location: ../../pages/responsavelFamilia/responsavelFamilia.php');
 
 ?>

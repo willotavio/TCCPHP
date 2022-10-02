@@ -33,7 +33,7 @@ $Atual = $_FILES['foto']['name'];
         if($final){
 
             echo "<script LANGUAGE= 'JavaScript'>
-                window.alert('Cadastrado com sucesso');
+                window.alert('Alterado com sucesso');
                 window.location.href='../../pages/conta/conta.php';
                 </script>";
         }else{
@@ -81,6 +81,7 @@ $Atual = $_FILES['foto']['name'];
             
         echo "<script LANGUAGE= 'JavaScript'>
                 window.alert('ERRO SQL BUSCA IMAGEM');
+                window.location.href='../../pages/conta/conta.php';
                 </script>";
         }
     }
