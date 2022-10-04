@@ -1,33 +1,32 @@
 <?php
-    session_start();
-    if((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuario']) == true))
-    {
-        unset($_SESSION['nomeUsuario']);
-        unset($_SESSION['tipoUsuario']);
-        header('location: ../../index.php');
-    }else{
-        $logado = $_SESSION['nomeUsuario'];
-        include_once('../../connection/conexao.php');
-        $banco = new conexao();
-        $con = $banco->getConexao();
-        $totalCestasBanco= $con->query('SELECT COUNT(*) FROM cestas')->fetchColumn(); 
-        $totalCestasEntradaBanco = $con->query('SELECT SUM(quantidade_cestas) FROM cestas')->fetchColumn(); 
-        $totalCestasSaidaBanco = $con->query('SELECT SUM(quantidade_saidaCestas) FROM saidaCestas')->fetchColumn();
-        if($totalCestasBanco != 0){
-            $totalCestasReal = $totalCestasEntradaBanco - $totalCestasSaidaBanco;
-        }else{
-            $totalCestasReal = 0;
-        }
+session_start();
+if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuario']) == true)) {
+    unset($_SESSION['nomeUsuario']);
+    unset($_SESSION['tipoUsuario']);
+    header('location: ../../index.php');
+} else {
+    $logado = $_SESSION['nomeUsuario'];
+    include_once('../../connection/conexao.php');
+    $banco = new conexao();
+    $con = $banco->getConexao();
+    $totalCestasBanco = $con->query('SELECT COUNT(*) FROM cestas')->fetchColumn();
+    $totalCestasEntradaBanco = $con->query('SELECT SUM(quantidade_cestas) FROM cestas')->fetchColumn();
+    $totalCestasSaidaBanco = $con->query('SELECT SUM(quantidade_saidaCestas) FROM saidaCestas')->fetchColumn();
+    if ($totalCestasBanco != 0) {
+        $totalCestasReal = $totalCestasEntradaBanco - $totalCestasSaidaBanco;
+    } else {
+        $totalCestasReal = 0;
     }
+}
 
-    $sql = "select imagem_usuario from usuario where nome_usuario = '$logado'";
-    $result = $con->query($sql);
-    if ($result->rowCount() > 0) {
+$sql = "select imagem_usuario from usuario where nome_usuario = '$logado'";
+$result = $con->query($sql);
+if ($result->rowCount() > 0) {
 
-        while ($row = $result->fetch()) {
-            $imagemUsuario = $row['imagem_usuario'];
-        }
+    while ($row = $result->fetch()) {
+        $imagemUsuario = $row['imagem_usuario'];
     }
+}
 
 ?>
 
@@ -198,7 +197,7 @@
         <div class="row">
             <div class="container">
                 <?php
-                    echo" <h4>Total de Cestas Disponíveis: $totalCestasReal</h4>";
+                echo " <h4>Total de Cestas Disponíveis: $totalCestasReal</h4>";
                 ?>
             </div>
             <div class="row">
@@ -215,7 +214,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Cestas Cadastradas</h5>
                                         <?php
-                                            echo"<p class='card-text'>Total de Cestas Cadastradas: $totalCestasEntradaBanco</p>";
+                                        echo "<p class='card-text'>Total de Cestas Cadastradas: $totalCestasEntradaBanco</p>";
                                         ?>
 
                                     </div>
@@ -231,7 +230,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Cestas Doadas</h5>
                                         <?php
-                                            echo"<p class='card-text'>Total de Cestas Doadas: $totalCestasSaidaBanco</p>";
+                                        echo "<p class='card-text'>Total de Cestas Doadas: $totalCestasSaidaBanco</p>";
                                         ?>
                                     </div>
                                 </a>
@@ -240,7 +239,7 @@
                         <div class="col-sm-4">
                             <div class="card cardSquare">
                                 <a href="relatorioCestas.php" style="text-decoration: none; color:black">
-                                    <img class="card-img-top" src="../../imgs/iconesCestas/docs.png">
+                                    <img class="card-img-top" src="../../imgs/iconesCestas/documento.png">
                                     <hr>
                                     <div class="card-body">
                                         <h5 class="card-title">Exibir Relatorios</h5>

@@ -1,11 +1,11 @@
 <?php
-require_once '../../../../dompdf/autoload.inc.php';
+require_once '../../../dompdf/autoload.inc.php';
 
 use Dompdf\Dompdf;
 
 $dompdf = new Dompdf();
 
-include "../../../../connection/conexao.php";
+include "../../../connection/conexao.php";
 $banco = new conexao();
 $con = $banco->getConexao();
 
@@ -27,7 +27,7 @@ $dados .= "</head>";
 $dados .= "<body>";
 $dados .= "<h1 style='text-align: center'>Relatório de Cestas Doadas</h1><br>";
 
-while($row_cestas = $result_cestas->fetch(PDO::FETCH_ASSOC)){
+while ($row_cestas = $result_cestas->fetch(PDO::FETCH_ASSOC)) {
     extract($row_cestas);
     $dados .= "Quantidade: $quantidade_cestas<br>";
     $dados .= "Data de Recebimento: $recebimento_cestas<br>";
@@ -37,12 +37,8 @@ while($row_cestas = $result_cestas->fetch(PDO::FETCH_ASSOC)){
 
 $dompdf->loadHtml($dados);
 
-        $dompdf->setPaper('A4', 'portrait');
+$dompdf->setPaper('A4', 'portrait');
 
-        $dompdf->render();
+$dompdf->render();
 
-        $dompdf->stream("relatoriocestas.pdf", array("Attachment" => false));
-
-        
-
-?> 
+$dompdf->stream("relatoriocestas.pdf", array("Attachment" => false));
