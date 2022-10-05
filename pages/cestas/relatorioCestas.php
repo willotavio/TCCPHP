@@ -50,6 +50,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -96,7 +97,7 @@
 
 <body style="background-color:whitesmoke">
 
-    <div class="container" style="margin-top:140px">
+    <div class="container">
     
     <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
                         onclick="window.location.href='pdfCestas/pdfCestas.php';" style="font-size: 1.2em; width: 200px; margin-bottom: 10px">Gerar
@@ -107,9 +108,9 @@
                 <div class="m-2 ">
                     <table class="table" style="color:green">
                         <thead>
-                            <th scope="col" style='text-align:center'>Quantidade</th>
-                            <th scope="col" style='text-align:center'>Data de Recebimento</th>
-                            <th scope="col" style='text-align:center'>Nome</th>
+                            <th scope="col" style='text-align:center; width: 33%'>Quantidade</th>
+                            <th scope="col" style='text-align:center; width: 33%'>Data de Recebimento</th>
+                            <th scope="col" style='text-align:center; width: 33%'>Nome</th>
                         </thead>
                         <tbody>
                             <?php 
@@ -150,9 +151,9 @@
                 <div class="m-2 ">
                     <table class="table" style="color:green">
                         <thead>
-                            <th scope="col" style='text-align:center'>Quantidade</th>
-                            <th scope="col" style='text-align:center'>Data de Saida</th>
-                            <th scope="col" style='text-align:center'>Nome</th>
+                            <th scope="col" style='text-align:center; width: 33%'>Quantidade</th>
+                            <th scope="col" style='text-align:center; width: 33%'>Data de Saida</th>
+                            <th scope="col" style='text-align:center; width: 33%'>Nome</th>
                         </thead>
                         <tbody>
                             <?php 
