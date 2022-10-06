@@ -100,7 +100,7 @@
                             <div class=" col-md-11 m-auto">
                                 <div id="containerEsqueciSenha">
                                     <div class="container mt-3">
-                                        <form method="GET" onSubmit="recuperarSenha();" autocomplete="off">
+                                        <form method="POST" onSubmit="recuperarSenha();" autocomplete="off">
                                             <h2 class="h2Index">
                                                 ESQUECI MINHA SENHA</h2>
                                             <div class="form-floating mb-3 mt-3">

@@ -27,6 +27,13 @@ if(isset($_FILES['foto'])){
     $_SESSION['arquivoAtual']  = $Atual;
     $_SESSION['arquivoTemp'] =  $Temp;
     $_SESSION['destino'] = $Dest;
+}{
+    $Atual = "fotoPerfil.png";
+    $Temp = "fotoPerfil.png";
+    $Dest = '../../imgs/conta/'.$Atual;
+    $_SESSION['arquivoAtual']  = $Atual;
+    $_SESSION['arquivoTemp'] =  $Temp;
+    $_SESSION['destino'] = $Dest;
 }
 
 if($botao=='cadastrar'){
