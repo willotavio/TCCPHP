@@ -118,17 +118,13 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <div class="container" style="text-align:center">
-                                    <h5 class="modal-title" style="color: green;">Funcionários</h5>
+                                    <h5 class="modal-title" style="color: green;">Cadastrar uma Conta para Funcionário
+                                    </h5>
                                 </div>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <form method="POST" action="../../crud/criarConta/controleConta.php" autocomplete="off"
                                     enctype="multipart/form-data">
-                                    <h1
-                                        style="text-align:center; font-size:25px; padding:15px; color:rgba(25,135,84,255)">
-                                        CRIAR CONTA</h1>
                                     <div class="form-floating mb-3 mt-3">
                                         <input type="text" class="form-control inputGeral"
                                             placeholder="Digite o seu Usuario" required name="nome">
@@ -261,7 +257,9 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Deletar</h5>
+                    <div class="container" style="text-align:center">
+                        <h5 class="modal-title" id="exampleModalLabel" style="color:green">Deletar Funcionário</h5>
+                    </div>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
@@ -291,7 +289,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="container" style="text-align:center">
-                        <h4 class="modal-title" id="exampleModalLabel1">Editar Funcionario</h4>
+                        <h5 class="modal-title" id="exampleModalLabel1" style="color:green">Editar Funcionário</h5>
                     </div>
                 </div>
                 <div class="modal-body">

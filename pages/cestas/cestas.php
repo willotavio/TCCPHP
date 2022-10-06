@@ -114,8 +114,6 @@ if ($result->rowCount() > 0) {
                                     <div class="container" style="text-align:center">
                                         <h5 class="modal-title" style="color: green;">Entrada de Cesta</h5>
                                     </div>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <form action='../../crud/cestas/controlecestas.php' method='GET' autocomplete="off">
@@ -159,8 +157,6 @@ if ($result->rowCount() > 0) {
                                     <div class="container" style="text-align:center">
                                         <h5 class="modal-title" style="color: green;">Saída de Cesta</h5>
                                     </div>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <form action='../../crud/cestas/saida/controleCestasSaida.php' method='GET'

@@ -111,8 +111,6 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                                         <h5 class="modal-title" style="color: green;">Cadastrar Responsável da
                                             Família</h5>
                                     </div>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <form action='../../crud/responsavelFamilia/controleResponsavelFamilia.php'
@@ -360,7 +358,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="container" style="text-align:center">
-                        <h5 class="modal-title" id="exampleModalLabel">Consulta do Responsavel</h5>
+                        <h5 class="modal-title" id="exampleModalLabel" style="color:green">Consulta do Responsavel</h5>
                     </div>
                 </div>
                 <div class="modal-body">
@@ -380,7 +378,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="container" style="text-align:center">
-                        <h4 class="modal-title" id="exampleModalLabel1">Apagar Responsavel</h4>
+                        <h5 class="modal-title" id="exampleModalLabel1" style="color:green">Apagar Responsavel</h5>
                     </div>
                 </div>
                 <div class="modal-body">
@@ -412,7 +410,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="container" style="text-align:center">
-                        <h4 class="modal-title" id="exampleModalLabel1">Editar Responsavel</h4>
+                        <h5 class="modal-title" id="exampleModalLabel1" style="color:green">Editar Responsavel</h5>
                     </div>
                 </div>
                 <div class="modal-body">
