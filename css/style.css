@@ -127,8 +127,8 @@ input[type="file"] {
 	cursor: pointer;
 	margin-bottom: 5px;
 	text-align: start;
-	background-color: #333;
-	color: #fff;
+	background-color: white;
+	color: green;
 	text-transform: uppercase;
 	text-align: center;
 	display: block;

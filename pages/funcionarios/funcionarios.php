@@ -130,28 +130,27 @@
                                         style="text-align:center; font-size:25px; padding:15px; color:rgba(25,135,84,255)">
                                         CRIAR CONTA</h1>
                                     <div class="form-floating mb-3 mt-3">
-                                        <input type="text" class="form-control inputCadastro"
+                                        <input type="text" class="form-control inputGeral"
                                             placeholder="Digite o seu Usuario" required name="nome">
                                         <label class="labelCadastro">Digite o Nome de Usuario</label>
                                     </div>
                                     <div class="form-floating mt-3 mb-3">
-                                        <input type="email" class="form-control inputCadastro"
+                                        <input type="email" class="form-control inputGeral"
                                             placeholder="Digite o seu Email" name='email' required>
                                         <label class="labelCadastro">Digite o Email</label>
                                     </div>
                                     <div class="form-floating mt-3 mb-3">
-                                        <input type="password" class="form-control inputCadastro"
+                                        <input type="password" class="form-control inputGeral"
                                             placeholder="Digite a sua Senha" name='senha' required>
                                         <label class="labelCadastro">Digite a Senha</label>
                                     </div>
                                     <div class="form-floating mt-3 mb-3">
-                                        <input type="password" class="form-control inputCadastro"
+                                        <input type="password" class="form-control inputGeral"
                                             placeholder="Repita a sua Senha" name='confirmarSenha' required>
                                         <label class="labelCadastro">Repita a Senha</label>
                                     </div>
                                     <div class="mt-3 mb-3">
-                                        <label for="arquivo" class="form-control labelCadastro"
-                                            id="lblArquivoCriarConta">Escolha
+                                        <label for="arquivo" class="form-control" id="labelArquivo">Escolha
                                             uma Foto de Perfil</label>
                                         <input type="file" class="form-control" name="foto" id="arquivo">
                                     </div>
@@ -209,14 +208,19 @@
                                 <td><span
                                         id="nome<?php echo $row['nome_usuario']; ?>"><?php echo $row['nome_usuario']; ?></span>
                                 </td>
-                                <td><span
-                                        id="tipo<?php echo $row['tipo_usuario']; ?>"><?php echo $row['tipo_usuario']; ?></span>
+                                <td><span id="tipo<?php echo $row['tipo_usuario']; ?>"><?php if($row['tipo_usuario'] == "A"){
+                                            echo "ADMINISTRADOR";
+                                        }else if ($row['tipo_usuario'] == "F"){
+                                            echo "FUNCIONÁRIO";
+                                        }else{
+                                            echo "ERRO";
+                                        } ?></span>
                                 </td>
                                 <td><span
                                         id="email<?php echo $row['email_usuario']; ?>"><?php echo $row['email_usuario']; ?></span>
                                 </td>
                                 <td>
-                                    <button class='btn btn-sm btn-outline-primary edit'
+                                    <button class='btn btn-sm btn-outline-primary editFuncionario'
                                         value="<?php echo $row['id_usuario']; ?>">
                                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'
                                             fill='currentColor' class='bi bi-clipboard' viewBox='0 0 16 16'>
@@ -252,7 +256,52 @@
         </div>
     </div>
 
-    <?php include('deletarFuncionario.php'); ?>
+    <div class="modal fade" id="deleteFuncionario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Deletar</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form action='../../crud/criarConta/deleteFuncionario.php' method='GET' autocomplete='off'>
+                            <div class='form-floating mb-3 mt-3'>
+                                <input class='form-control inputGeral' type='number' name='idFuncionario'
+                                    placeholder='Id' id="idFuncionario" readonly>
+                                <label class='labelCadastro'>ID</label>
+                            </div>
+                            <p>Realmente deseja excluir esse Funcionário?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal"
+                            id="closeDelete">Fechar</button>
+                        <p style='text-align:center'><input type='submit' class='btn btn-outline-success' name='update'
+                                value='Deletar'>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="editFuncionario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="container" style="text-align:center">
+                        <h4 class="modal-title" id="exampleModalLabel1">Editar Funcionario</h4>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <span id="editarResponsavel"></span>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+
     <script>
     $(document).ready(function() {
         $(document).on("click", ".deleteFuncionario", function() {
@@ -260,6 +309,15 @@
 
             $("#deleteFuncionario").modal("show");
             $("#idFuncionario").val(id);
+        });
+        $(document).on("click", ".editFuncionario", function() {
+            var id = $(this).val();
+
+            $("#editFuncionario").modal("show");
+            $("#idFuncionario").val(id);
+        });
+        $("#closeDelete").click(function() {
+            $("#deleteFuncionario").modal('hide');
         });
     });
     </script>
