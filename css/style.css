@@ -160,10 +160,10 @@ footer {
 /* footer */
 
 /* Input de Cadastro */
-.inputCadastro {
+.inputGeral {
 	border-style: none none solid none;
 }
-.inputCadastro:focus {
+.inputGeral:focus {
 	box-shadow: none;
 	border-color: rgba(25, 135, 84, 255);
 }

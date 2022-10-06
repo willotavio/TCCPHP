@@ -57,18 +57,19 @@
                                 <div id="containerIndexLogin">
                                     <div class="container mt-3">
 
-                                        <form method="POST" action="" onSubmit="efetuarLogin();" autocomplete="off"
-                                            id="formLogar">
+                                        <form method="POST" action="" onSubmit="efetuarLogin();" id="formLogar">
                                             <h2 class="h2Index">
                                                 LOGIN</h2>
                                             <div class="form-floating mb-3 mt-3">
                                                 <input type="text" class="form-control" id="nomeUsuario"
-                                                    name='nomeUsuario' required placeholder="Usuario">
+                                                    name='nomeUsuario' required placeholder="Usuario"
+                                                    autocomplete="username">
                                                 <label>Usuario</label>
                                             </div>
                                             <div class="form-floating mt-3 mb-3">
                                                 <input type="password" class="form-control" id="senhaUsuario"
-                                                    placeholder="Senha" name='senhaUsuario' required>
+                                                    placeholder="Senha" name='senhaUsuario'
+                                                    autocomplete="current-password" required>
                                                 <label>Senha</label>
                                             </div>
                                             <div class="row m-auto">

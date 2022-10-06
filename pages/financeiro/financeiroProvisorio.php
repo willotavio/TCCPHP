@@ -95,12 +95,11 @@
 <body>
     <div class="container">
         <div class="row">
-
-            <div class="container">
-                <h4>Saldo atual</h4>
-                <h1>R$ 0.00</h1>
-            </div>
             <div class="row">
+                <div class="container">
+                    <h4>Saldo atual</h4>
+                    <h1>R$ 0.00</h1>
+                </div>
                 <div class="container">
                     <h5 style="text-align:center; margin-top:20px">Área Financeira</h5>
                 </div>

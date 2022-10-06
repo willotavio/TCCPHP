@@ -12,8 +12,6 @@ $(document).ready(function() {
 });
 </script>
 
-
-
 <div class="modal fade" id="deleteFuncionario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -28,8 +26,8 @@ $(document).ready(function() {
                 <div class="container-fluid">
                     <form action='../../crud/criarConta/deleteFuncionario.php' method='GET' autocomplete='off'>
                         <div class='form-floating mb-3 mt-3'>
-                            <input class='form-control inputCadastro' type='number' name='idFuncionario'
-                                placeholder='Id' id="idFuncionario" readonly>
+                            <input class='form-control inputGeral' type='number' name='idFuncionario' placeholder='Id'
+                                id="idFuncionario" readonly>
                             <label class='labelCadastro'>ID</label>
                         </div>
                         <p>Realmente deseja excluir esse Funcionário?</p>

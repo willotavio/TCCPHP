@@ -1,67 +1,4 @@
 <script>
-function limpa_formulário_cep() {
-    //Limpa valores do formulário de cep.
-    document.getElementById("endereco2").value = "";
-    document.getElementById("bairro2").value = "";
-    document.getElementById("cidade2").value = "";
-    document.getElementById("estado2").value = "";
-}
-
-function meu_callback(conteudo) {
-    if (!("erro" in conteudo)) {
-        //Atualiza os campos com os valores.
-        document.getElementById("endereco2").value = conteudo.logradouro;
-        document.getElementById("bairro2").value = conteudo.bairro;
-        document.getElementById("cidade2").value = conteudo.localidade;
-        document.getElementById("estado2").value = conteudo.uf;
-    } //end if.
-    else {
-        //CEP não Encontrado.
-        limpa_formulário_cep();
-        alert("CEP não encontrado.");
-    }
-}
-
-function pesquisacep(valor) {
-    //Nova variável "cep" somente com dígitos.
-    var cep = valor.replace(/\D/g, "");
-
-    //Verifica se campo cep possui valor informado.
-    if (cep != "") {
-        //Expressão regular para validar o CEP.
-        var validacep = /^[0-9]{8}$/;
-
-        //Valida o formato do CEP.
-        if (validacep.test(cep)) {
-            //Preenche os campos com "..." enquanto consulta webservice.
-            document.getElementById("endereco2").value = "...";
-            document.getElementById("bairro2").value = "...";
-            document.getElementById("cidade2").value = "...";
-            document.getElementById("estado2").value = "...";
-
-            //Cria um elemento javascript.
-            var script = document.createElement("script");
-
-            //Sincroniza com o callback.
-            script.src =
-                "https://viacep.com.br/ws/" + cep + "/json/?callback=meu_callback";
-
-            //Insere script no documento e carrega o conteúdo.
-            document.body.appendChild(script);
-        } //end if.
-        else {
-            //cep é inválido.
-            limpa_formulário_cep();
-            alert("Formato de CEP inválido.");
-        }
-    } //end if.
-    else {
-        //cep sem valor, limpa formulário.
-        limpa_formulário_cep();
-    }
-}
-</script>
-<script>
 $(document).ready(function() {
     $("#closeEdit").click(function() {
         $("#edit").modal('hide');
@@ -113,22 +50,22 @@ $id = filter_input(INPUT_POST, 'id');
 <div class="container">
     <form action='../../crud/responsavelFamilia/editarInfoResponsavelFamilia.php' method='POST' autocomplete="off">
         <div class="form-floating mb-3 mt-3">
-            <input class="form-control inputCadastro" type="number" name="id" required placeholder="Data de Nascimento"
+            <input class="form-control inputGeral" type="number" name="id" required placeholder="Data de Nascimento"
                 value=<?php echo $id?> readonly>
             <label class="labelCadastro">ID</label>
         </div>
         <div class="form-floating mb-3 mt-3">
-            <input class="form-control inputCadastro" type="date" name="dataNascimento" required
+            <input class="form-control inputGeral" type="date" name="dataNascimento" required
                 placeholder="Data de Nascimento" value=<?php echo $dataNascimento?>>
             <label class="labelCadastro">Data de Nascimento</label>
         </div>
         <div class="form-floating mb-3 mt-3">
-            <input type="text" class="form-control inputCadastro" name='nome' required placeholder="Nome"
+            <input type="text" class="form-control inputGeral" name='nome' required placeholder="Nome"
                 value=<?php echo $nome?>>
             <label class="labelCadastro">Nome</label>
         </div>
         <div class="form-floating mb-3 mt-3">
-            <input class="form-control inputCadastro" type="number" name="cpf" required placeholder="CPF"
+            <input class="form-control inputGeral" type="number" name="cpf" required placeholder="CPF"
                 value=<?php echo $cpf?>>
             <label class="labelCadastro">CPF</label>
         </div>
@@ -147,62 +84,132 @@ $id = filter_input(INPUT_POST, 'id');
             }
         ?>
             <div class="form-floating mb-3 mt-3">
-                <input class="form-control inputCadastro" type="text" name="celular" placeholder="Celular"
+                <input class="form-control inputGeral" type="text" name="celular" placeholder="Celular"
                     value=<?php echo $celular?>>
                 <label class="labelCadastro">Celular</label>
             </div>
             <div class="form-floating mb-3 mt-3">
-                <input class="form-control inputCadastro" type="text" name="telefone" placeholder="Telefone"
+                <input class="form-control inputGeral" type="text" name="telefone" placeholder="Telefone"
                     value=<?php echo $telefone?>>
                 <label class="labelCadastro">Telefone</label>
             </div>
             <div class="form-floating mb-3 mt-3">
-                <input class="form-control inputCadastro" type="email" name="email" placeholder="Email"
+                <input class="form-control inputGeral" type="email" name="email" placeholder="Email"
                     value=<?php echo $email?>>
                 <label class="labelCadastro">Email</label>
             </div>
             <div class="form-floating mb-3 mt-3">
-                <input class="form-control inputCadastro" type="text" name="cep" placeholder="CEP" required
-                    onblur="pesquisacep(this.value);" value=<?php echo $cep?>>
+                <input class="form-control inputCepEdit inputGeral" type="text" name="cep" placeholder="CEP" required
+                    value=<?php echo $cep?> id="cepEdit">
                 <label class="labelCadastro">CEP</label>
                 <script>
                 $(document).ready(function() {
-                    pesquisacep("<?php echo $cep?>");
+                    var cepCapturado = $("#cepEdit").val();
+                    var url = "https://viacep.com.br/ws/" +
+                        cepCapturado + "/json";
+                    $.ajax({
+                        url: url,
+                        dataType: 'json',
+                        type: 'GET',
+                        success: function(dados) {
+                            if (!("erro" in dados)) {
+                                console.log(dados);
+                                $("#ruaEdit").val(dados
+                                    .logradouro);
+                                $("#bairroEdit").val(dados.bairro);
+                                $("#cidadeEdit").val(dados
+                                    .localidade);
+                                $("#estadoEdit").val(dados.uf);
+                            } else {
+                                alert("CEP Não Encontrado");
+                                $("#ruaEdit").val("");
+                                $("#bairroEdit").val("");
+                                $("#cidadeEdit").val("");
+                                $("#estadoEdit").val("");
+                            }
+                        }
+                    });
+                });
+                $(".inputCepEdit").blur(function() {
+                    var cepCapturado = $("#cepEdit").val();
+                    if (cepCapturado != '') {
+                        var validarCep = cepCapturado.length;
+                        if (validarCep == 8) {
+                            var url = "https://viacep.com.br/ws/" +
+                                cepCapturado + "/json";
+                            $.ajax({
+                                url: url,
+                                dataType: 'json',
+                                type: 'GET',
+                                success: function(dados) {
+                                    if (!("erro" in dados)) {
+                                        console.log(dados);
+                                        $("#ruaEdit").val(dados
+                                            .logradouro);
+                                        $("#bairroEdit").val(dados.bairro);
+                                        $("#cidadeEdit").val(dados
+                                            .localidade);
+                                        $("#estadoEdit").val(dados.uf);
+                                    } else {
+                                        alert("CEP Não Encontrado");
+                                        $("#ruaEdit").val("");
+                                        $("#bairroEdit").val("");
+                                        $("#cidadeEdit").val("");
+                                        $("#estadoEdit").val("");
+                                    }
+                                }
+                            });
+                        } else {
+                            alert("Insira o CEP Correto");
+                            $("#cepEdit").val("");
+                            $("#ruaEdit").val("");
+                            $("#bairroEdit").val("");
+                            $("#cidadeEdit").val("");
+                            $("#estadoEdit").val("");
+                        }
+                    } else {
+                        alert("Insira o CEP");
+                        $("#cepEdit").val("");
+                        $("#ruaEdit").val("");
+                        $("#bairroEdit").val("");
+                        $("#cidadeEdit").val("");
+                        $("#estadoEdit").val("");
+                    }
                 });
                 </script>
             </div>
             <div class="form-floating mb-3 mt-3">
-                <input class="form-control inputCadastro" type="text" id="endereco2" name="rua2" placeholder="Rua"
+                <input class="form-control inputGeral" type="text" id="ruaEdit" name="ruaEdit" placeholder="Rua"
                     readonly>
                 <label class="labelCadastro">Rua</label>
             </div>
             <div class="form-floating mb-3 mt-3">
-                <input class="form-control inputCadastro" type="text" id="bairro2" name="bairro2" placeholder="Bairro"
-                    readonly>
+                <input class="form-control inputGeral" type="text" id="bairroEdit" name="bairroEdit"
+                    placeholder="Bairro" readonly>
                 <label class="labelCadastro">Bairro</label>
             </div>
             <div class="form-floating mb-3 mt-3">
-                <input class="form-control inputCadastro" type="text" id="cidade2" name="cidade2" placeholder="Cidade"
-                    readonly>
+                <input class="form-control inputGeral" type="text" id="cidadeEdit" name="cidadeEdit"
+                    placeholder="Cidade" readonly>
                 <label class="labelCadastro">Cidade</label>
             </div>
             <div class="form-floating mb-3 mt-3">
-                <input class="form-control inputCadastro" type="text" name="estado2" id="estado2" placeholder="Estado"
-                    readonly>
+                <input class="form-control inputGeral" type="text" name="estadoEdit" id="estadoEdit"
+                    placeholder="Estado" readonly>
                 <label class="labelCadastro">Estado</label>
             </div>
             <div class="form-floating mb-3 mt-3">
-                <input class="form-control inputCadastro" type="number" name="numeroResidencia"
+                <input class="form-control inputGeral" type="number" name="numeroResidencia"
                     placeholder="Número da Residência" required value=<?php echo $numeroResidencia?>>
                 <label class="labelCadastro">Número Residência</label>
             </div>
             <div class="form-floating mb-3 mt-3">
-                <input class="form-control inputCadastro" type="text" name="complemento" placeholder="Complemento"
+                <input class="form-control inputGeral" type="text" name="complemento" placeholder="Complemento"
                     value=<?php echo $complemento?>>
                 <label class="labelCadastro">Complemento</label>
             </div>
             <div class="form-floating mb-3 mt-3">
-                <input class="form-control inputCadastro" type="date" name="dataAtendimento" placeholder="atendimento"
+                <input class="form-control inputGeral" type="date" name="dataAtendimento" placeholder="atendimento"
                     value=<?php echo $dataAtendimento?>>
                 <label class="labelCadastro">Data atendimento</label>
             </div>

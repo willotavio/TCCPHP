@@ -120,13 +120,13 @@ if ($result->rowCount() > 0) {
                                 <div class="modal-body">
                                     <form action='../../crud/cestas/controlecestas.php' method='GET' autocomplete="off">
                                         <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputCadastro" type="number" min="0"
+                                            <input class="form-control inputGeral" type="number" min="0"
                                                 name="quantidadeCestas" placeholder="Quantidade">
                                             <label class="labelCadastro">Quantidade Cestas</label>
                                         </div>
                                         <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputCadastro" type="date"
-                                                name="recebimentoCestas" placeholder="Data de Recebimento" required>
+                                            <input class="form-control inputGeral" type="date" name="recebimentoCestas"
+                                                placeholder="Data de Recebimento" required>
                                             <label class="labelCadastro">Data de Recebimento</label>
                                         </div>
                                 </div>
@@ -166,12 +166,12 @@ if ($result->rowCount() > 0) {
                                     <form action='../../crud/cestas/saida/controleCestasSaida.php' method='GET'
                                         autocomplete="off">
                                         <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputCadastro" type="number" min="0"
+                                            <input class="form-control inputGeral" type="number" min="0"
                                                 name="quantidade" placeholder="Quantidade">
                                             <label class="labelCadastro">Quantidade Cestas</label>
                                         </div>
                                         <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputCadastro" type="date" name="dataSaida"
+                                            <input class="form-control inputGeral" type="date" name="dataSaida"
                                                 placeholder="Data de Recebimento" required>
                                             <label class="labelCadastro">Data de Saída</label>
                                         </div>
@@ -196,12 +196,12 @@ if ($result->rowCount() > 0) {
     <div class="container">
 
         <div class="row">
-            <div class="container">
-                <?php
+            <div class="row">
+                <div class="container">
+                    <?php
                 echo " <h4>Total de Cestas Disponíveis: $totalCestasReal</h4>";
                 ?>
-            </div>
-            <div class="row">
+                </div>
                 <div class="container">
                     <h5 style="text-align:center; margin-top:20px">Área de Gerenciamento das Cestas</h5>
                 </div>

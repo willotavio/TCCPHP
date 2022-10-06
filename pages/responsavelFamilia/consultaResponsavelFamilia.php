@@ -1,66 +1,3 @@
-<script>
-function limpa_formulário_cep() {
-    //Limpa valores do formulário de cep.
-    document.getElementById("endereco1").value = "";
-    document.getElementById("bairro1").value = "";
-    document.getElementById("cidade1").value = "";
-    document.getElementById("estado1").value = "";
-}
-
-function meu_callback(conteudo) {
-    if (!("erro" in conteudo)) {
-        //Atualiza os campos com os valores.
-        document.getElementById("endereco1").value = conteudo.logradouro;
-        document.getElementById("bairro1").value = conteudo.bairro;
-        document.getElementById("cidade1").value = conteudo.localidade;
-        document.getElementById("estado1").value = conteudo.uf;
-    } //end if.
-    else {
-        //CEP não Encontrado.
-        limpa_formulário_cep();
-        alert("CEP não encontrado.");
-    }
-}
-
-function pesquisacep(valor) {
-    //Nova variável "cep" somente com dígitos.
-    var cep = valor.replace(/\D/g, "");
-
-    //Verifica se campo cep possui valor informado.
-    if (cep != "") {
-        //Expressão regular para validar o CEP.
-        var validacep = /^[0-9]{8}$/;
-
-        //Valida o formato do CEP.
-        if (validacep.test(cep)) {
-            //Preenche os campos com "..." enquanto consulta webservice.
-            document.getElementById("endereco1").value = "...";
-            document.getElementById("bairro1").value = "...";
-            document.getElementById("cidade1").value = "...";
-            document.getElementById("estado1").value = "...";
-
-            //Cria um elemento javascript.
-            var script = document.createElement("script");
-
-            //Sincroniza com o callback.
-            script.src =
-                "https://viacep.com.br/ws/" + cep + "/json/?callback=meu_callback";
-
-            //Insere script no documento e carrega o conteúdo.
-            document.body.appendChild(script);
-        } //end if.
-        else {
-            //cep é inválido.
-            limpa_formulário_cep();
-            alert("Formato de CEP inválido.");
-        }
-    } //end if.
-    else {
-        //cep sem valor, limpa formulário.
-        limpa_formulário_cep();
-    }
-}
-</script>
 <?php 
 include_once '../../connection/conexao.php';
  $id = filter_input(INPUT_POST, 'id');
@@ -140,30 +77,57 @@ include_once '../../connection/conexao.php';
         <label class="labelCadastro">Email</label>
     </div>
     <div class="form-floating mb-3 mt-3">
-        <input class="form-control inputCadastro" type="text" id="cep1" name="cep1" placeholder="CEP" required
-            onblur="pesquisacep(this.value);" value=<?php echo $cep?> readonly>
+        <input class="form-control inputCadastro" type="text" id="cepConsulta" name="cepConsulta" placeholder="CEP"
+            required value=<?php echo $cep?> readonly>
         <label class="labelCadastro">CEP</label>
         <script>
         $(document).ready(function() {
-            pesquisacep("<?php echo $cep?>");
+            var cepCapturado = $("#cepConsulta").val();
+            var url = "https://viacep.com.br/ws/" +
+                cepCapturado + "/json";
+            $.ajax({
+                url: url,
+                dataType: 'json',
+                type: 'GET',
+                success: function(dados) {
+                    if (!("erro" in dados)) {
+                        console.log(dados);
+                        $("#ruaConsulta").val(dados
+                            .logradouro);
+                        $("#bairroConsulta").val(dados.bairro);
+                        $("#cidadeConsulta").val(dados
+                            .localidade);
+                        $("#estadoConsulta").val(dados.uf);
+                    } else {
+                        alert("CEP Não Encontrado");
+                        $("#ruaConsulta").val("");
+                        $("#bairroConsulta").val("");
+                        $("#cidadeConsulta").val("");
+                        $("#estadoConsulta").val("");
+                    }
+                }
+            });
         });
         </script>
     </div>
     <div class="form-floating mb-3 mt-3">
-        <input class="form-control inputCadastro" type="text" id="endereco1" name="rua1" placeholder="Rua" readonly>
+        <input class="form-control inputCadastro" type="text" id="ruaConsulta" name="ruaConsulta" placeholder="Rua"
+            readonly>
         <label class="labelCadastro">Rua</label>
     </div>
     <div class="form-floating mb-3 mt-3">
-        <input class="form-control inputCadastro" type="text" id="bairro1" name="bairro1" placeholder="Bairro" readonly>
+        <input class="form-control inputCadastro" type="text" id="bairroConsulta" name="bairroConsulta"
+            placeholder="Bairro" readonly>
         <label class="labelCadastro">Bairro</label>
     </div>
     <div class="form-floating mb-3 mt-3">
-        <input class="form-control inputCadastro" type="text" id="cidade1" name="cidade1" placeholder="Cidade" readonly>
+        <input class="form-control inputCadastro" type="text" id="cidadeConsulta" name="cidadeConsulta"
+            placeholder="Cidade" readonly>
         <label class="labelCadastro">Cidade</label>
     </div>
     <div class="form-floating mb-3 mt-3">
-        <input class="form-control inputCadastro" type="text" name="estado1" id="estado1" 1 placeholder="Estado"
-            readonly>
+        <input class="form-control inputCadastro" type="text" name="estadoConsulta" id="estadoConsulta" 1
+            placeholder="Estado" readonly>
         <label class="labelCadastro">Estado</label>
     </div>
     <div class="form-floating mb-3 mt-3">
