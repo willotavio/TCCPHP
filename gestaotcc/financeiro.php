@@ -3,12 +3,12 @@
 include "cabecalho.php";
 
 echo "<h1>tipos de receitas";
-echo "clique <a href='cad_tipodereceita.php'> aqui</a> para bovo tipo de receita.<br><br>";
+echo "clique <a href='cad_tipodereceita.php'>Clique aqui</a> para novo tipo de receita.<br><br>";
 
 # inicializar a variável  $campoordemdaconsulta
 $campoordemdaconsulta="ID";
 
-# verificar se o parâmetro $campoordemdaconsulta foi passado pelo métodp GET
+# verificar se o parâmetro $campoordemdaconsulta foi passado pelo método GET
 if(isset($_GET["campoordemdaconsulta"])){
     # atribui á variavel $campoordemdaconsulta o valor de parámetro passado 
     $campoordemdaconsulta=$_GET["campoordemdacpnsulta"];

@@ -136,6 +136,22 @@ input[type="file"] {
 	cursor: pointer;
 }
 
+#iconAccount{
+	color: black;
+	position: absolute;
+	top: 65%;
+	left: 90%;
+	transform: translate(-30%, -30%);
+	-ms-transform: translate(-30%, -30%);
+}
+
+#iconAccount:hover{
+	color: green;
+	width: 60;
+	height: 60;
+	cursor: pointer;
+}
+
 /* Conta */
 
 /* footer */
