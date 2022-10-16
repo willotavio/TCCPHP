@@ -263,12 +263,12 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
 
                     <table class="table" style="color:green">
                         <thead>
-                            <th scope="col" style="text-align:center">#</th>
-                            <th scope="col" style="text-align:center">Nome</th>
-                            <th scope="col" style="text-align:center">Data de Nascimento</th>
-                            <th scope="col" style="text-align:center">CPF</th>
-                            <th scope="col" style="text-align:center">Celular</th>
-                            <th scope="col" style="text-align:center">Ações</th>
+                            <th scope="col" style='text-align:center; width: 16.6%'>#</th>
+                            <th scope="col" style='text-align:center; width: 16.6%'>Nome</th>
+                            <th scope="col" style='text-align:center; width: 16.6%'>Data de Nascimento</th>
+                            <th scope="col" style='text-align:center; width: 16.6%'>CPF</th>
+                            <th scope="col" style='text-align:center; width: 16.6%'>Celular</th>
+                            <th scope="col" style='text-align:center; width: 16.6%'>Ações</th>
                         </thead>
                         <tbody>
                             <?php

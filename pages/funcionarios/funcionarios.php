@@ -181,11 +181,11 @@
                 <div class="m-2 ">
                     <table class="table" style="color:green">
                         <thead>
-                            <th scope="col" style='text-align:center'>#</th>
-                            <th scope="col" style='text-align:center'>Nome</th>
-                            <th scope="col" style='text-align:center'>Tipo</th>
-                            <th scope="col" style='text-align:center'>Email</th>
-                            <th scope="col">Ações</th>
+                            <th scope="col" style='text-align:center; width: 20%'>#</th>
+                            <th scope="col" style='text-align:center; width: 20%'>Nome</th>
+                            <th scope="col" style='text-align:center; width: 20%'>Tipo</th>
+                            <th scope="col" style='text-align:center; width: 20%'>Email</th>
+                            <th scope="col" style='text-align:center; width: 20%'>Ações</th>
                         </thead>
                         <tbody>
                             <?php 
@@ -198,13 +198,13 @@
                                 while($row = $result->fetch()){
                                     ?>
                             <tr>
-                                <td><span
+                                <td style='text-align:center'><span
                                         id="nome<?php echo $row['id_usuario']; ?>"><?php echo $row['id_usuario']; ?></span>
                                 </td>
-                                <td><span
+                                <td style='text-align:center'><span
                                         id="nome<?php echo $row['nome_usuario']; ?>"><?php echo $row['nome_usuario']; ?></span>
                                 </td>
-                                <td><span id="tipo<?php echo $row['tipo_usuario']; ?>"><?php if($row['tipo_usuario'] == "A"){
+                                <td style='text-align:center'><span id="tipo<?php echo $row['tipo_usuario']; ?>"><?php if($row['tipo_usuario'] == "A"){
                                             echo "ADMINISTRADOR";
                                         }else if ($row['tipo_usuario'] == "F"){
                                             echo "FUNCIONÁRIO";
@@ -212,10 +212,10 @@
                                             echo "ERRO";
                                         } ?></span>
                                 </td>
-                                <td><span
+                                <td style='text-align:center'><span
                                         id="email<?php echo $row['email_usuario']; ?>"><?php echo $row['email_usuario']; ?></span>
                                 </td>
-                                <td>
+                                <td style='text-align:center'>
                                     <button class='btn btn-sm btn-outline-primary editFuncionario'
                                         value="<?php echo $row['id_usuario']; ?>">
                                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'
