@@ -293,7 +293,7 @@
                     </div>
                 </div>
                 <div class="modal-body">
-                    <span id="editarResponsavel"></span>
+                    <span id="editarFuncionario"></span>
                 </div>
             </div>
             </form>

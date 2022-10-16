@@ -141,8 +141,8 @@ input[type="file"] {
 	position: absolute;
 	top: 65%;
 	left: 90%;
-	transform: translate(-30%, -30%);
-	-ms-transform: translate(-30%, -30%);
+	transform: translate(-130%, -130%);
+	-ms-transform: translate(-130%, -130%);
 }
 
 #iconAccount:hover{

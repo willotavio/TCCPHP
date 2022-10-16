@@ -100,8 +100,8 @@
     <div class="container">
     
     <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
-                        onclick="window.location.href='pdfCestas/pdfCestas.php';" style="font-size: 1.2em; width: 200px; margin-bottom: 10px">Gerar
-                        <br> Relatório</button>
+        onclick="window.location.href='pdfCestas/pdfCestas.php';" style="font-size: 1.2em; width: 200px; margin-bottom: 10px">Gerar Relatório
+        <img src="../../imgs/iconesCestas/relatorioCestas.png" alt="relatorioCestas" width= "50px"></button>
         <h4 style="color:green; text-align:center">Entrada de Cestas</h4>
         <div class="overflow-auto">
             <div class="column">
