@@ -220,3 +220,30 @@ footer {
 	box-shadow: rgba(5, 151, 41, 0.582) 0px 0px 0px 3px;
 }
 /* CardsSquare */
+
+/* header */
+
+.navBarLinks a {
+	color: green;
+}
+
+.navBarLinks a:hover {
+	color:  yellowgreen;
+	border-style: none none solid none;
+	border-color: yellowgreen;
+	border-width: 1px;
+}
+
+
+.headerNavBar{
+	background-color: white;
+	position: fixed;
+	z-index: 1000;
+	width: 100%;
+}
+.dropDownMenu a:hover{
+	border: none;
+}
+
+
+/* header */

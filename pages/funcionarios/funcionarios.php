@@ -51,7 +51,7 @@
 </head>
 
 <header style="margin-bottom: 100px;">
-    <nav class="navbar navbar-expand-lg" style="background-color: white;position: fixed;z-index: 1000;width: 100%;">
+    <nav class="navbar navbar-expand-lg headerNavBar">
         <div class="container-fluid">
             <a class="navbar-brand" href="../home.php"><img src='../../imgs/logo2.png' width="60"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -59,39 +59,37 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse navBarLinks">
 
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link " href="../responsavelFamilia/responsavelFamilia.php"
-                            style="color:green">FAMILIAS</a>
+                        <a class="nav-link " href="../responsavelFamilia/responsavelFamilia.php">FAMILIAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../cestas/cestas.php" style="color:green">CESTAS</a>
+                        <a class="nav-link" href="../cestas/cestas.php">CESTAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../financeiro/financeiroProvisorio.php"
-                            style="color:green">FINANCEIRO</a>
+                        <a class="nav-link" href="../financeiro/financeiroProvisorio.php">FINANCEIRO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="funcionarios.php" style="color:green">FUNCIONÁRIOS</a>
+                        <a class="nav-link" href="funcionarios.php">FUNCIONÁRIOS</a>
                     </li>
                 </ul>
 
-                <li class="nav-item dropdown " style="list-style: none;">
+                <li class="nav-item dropdown dropDownMenu" style="list-style: none;">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false" style="color:green">
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         <?php echo '<img src="data:../../imgs/conta;base64,' . base64_encode($imagemUsuario) . '" style="border-radius:50px;width: 40px; height: 40px;">' ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li>
-                            <a class="dropdown-item" href="../conta/conta.php" style="color:green">VER PERFIL</a>
+                            <a class="dropdown-item" href="../conta/conta.php">VER PERFIL</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <a class="dropdown-item" href="../../crud/login/sair.php" style="color:green">SAIR</a>
+                            <a class="dropdown-item" href="../../crud/login/sair.php">SAIR</a>
                         </li>
                     </ul>
                 </li>
