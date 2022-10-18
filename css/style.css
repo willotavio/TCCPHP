@@ -19,7 +19,7 @@ body {
 /* Index */
 #containerIndexLogin {
 	background-color: white;
-	border-radius: 20px;
+	border-radius: 10px;
 	padding-bottom: 10px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	border-style: none none none solid;
@@ -30,7 +30,7 @@ body {
 
 #containerEsqueciSenha {
 	background-color: white;
-	border-radius: 20px;
+	border-radius: 10px;
 	padding-bottom: 10px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	border-style: none none none solid;
@@ -136,7 +136,7 @@ input[type="file"] {
 	cursor: pointer;
 }
 
-#iconAccount{
+#iconAccount {
 	color: black;
 	position: absolute;
 	top: 65%;
@@ -145,7 +145,7 @@ input[type="file"] {
 	-ms-transform: translate(-130%, -130%);
 }
 
-#iconAccount:hover{
+#iconAccount:hover {
 	color: green;
 	width: 60;
 	height: 60;
@@ -228,22 +228,20 @@ footer {
 }
 
 .navBarLinks a:hover {
-	color:  yellowgreen;
+	color: yellowgreen;
 	border-style: none none solid none;
 	border-color: yellowgreen;
 	border-width: 1px;
 }
 
-
-.headerNavBar{
+.headerNavBar {
 	background-color: white;
 	position: fixed;
 	z-index: 1000;
 	width: 100%;
 }
-.dropDownMenu a:hover{
+.dropDownMenu a:hover {
 	border: none;
 }
-
 
 /* header */

@@ -55,16 +55,18 @@
                         <div class="row">
                             <div class=" col-md-11 m-auto">
                                 <div id="containerIndexLogin">
-                                    <div class="container mt-3">
+                                    <div class=" container mt-3">
 
                                         <form method="POST" action="" onSubmit="efetuarLogin();" id="formLogar">
                                             <h2 class="h2Index">
                                                 LOGIN</h2>
-                                            <div class="form-floating mb-3 mt-3">
+                                            <div class="form-floating mb-3 mt-3  has-feedback">
                                                 <input type="text" class="form-control" id="nomeUsuario"
                                                     name='nomeUsuario' required placeholder="Usuario"
                                                     autocomplete="username">
+                                                <i class="glyphicon glyphicon-user form-control-feedback"></i>
                                                 <label>Usuario</label>
+
                                             </div>
                                             <div class="form-floating mt-3 mb-3">
                                                 <input type="password" class="form-control" id="senhaUsuario"
