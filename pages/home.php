@@ -51,6 +51,50 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
     ?>
     </style>
 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load("current", {
+        packages: ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ["Element", "Total", {
+                role: "style"
+            }],
+            ["Cestas", <?php echo $totalCestasReal?>, "green"],
+            ["Familias", <?php echo $totalResponsavel?>, "green"],
+        ]);
+
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1,
+            {
+                calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation"
+            },
+            2
+        ]);
+
+        var options = {
+            title: "Total de Familias e Cestas",
+            width: 600,
+            height: 300,
+            bar: {
+                groupWidth: "95%"
+            },
+            legend: {
+                position: "none"
+            },
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+        chart.draw(view, options);
+    }
+    </script>
+
+
 </head>
 
 <header style="margin-bottom: 100px;">
@@ -111,89 +155,33 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
     <div class="container" style="margin-top:25px">
 
         <div class="row">
-            <div class="col-sm-4">
-                <div class=" card cardSquare">
-                    <a href="responsavelFamilia/responsavelFamilia.php" style="text-decoration: none;">
-                        <div class="container">
-                            <img src="../imgs/iconesCardHome/Familia.png" class="card-img-top" alt="Familia">
+            <div class="col">
+                <div id="columnchart_values" style="width: 700px; height: 350px;"></div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <a href="responsavelFamilia/responsavelFamilia.php" style="text-decoration:none">
+                        <div class="card cardSquare" style="width: 18rem;">
+                            <img src="../imgs/iconesCardHome/Familia.png" class="card-img-top m-auto" alt="..."
+                                style="width:30%">
+                            <div class="card-body">
+                                <p class="card-text" style="color:green">Familias</p>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <p class="card-text textSquareHome">
-                                <b>Cadastre e Gerencie as Familias</b>
-                            </p>
+                    </a>
+                    <a href="cestas/cestas.php" style="text-decoration:none">
+                        <div class="card cardSquare" style="width: 18rem;">
+                            <img src="../imgs/iconesCardHome/Cestas.png" class="card-img-top m-auto" alt="..."
+                                style="width:30%">
+                            <div class="card-body">
+                                <p class="card-text" style="color:green">Cestas</p>
+                            </div>
                         </div>
                     </a>
                 </div>
+
             </div>
 
-            <div class="col-sm-4">
-                <div class="card cardSquare">
-                    <a href="cestas/cestas.php" style="text-decoration: none;">
-                        <div class="container">
-                            <img src="../imgs/iconesCardHome/Cestas.png" class="card-img-top" alt="Cestas">
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text textSquareHome">
-                                <b>Cadastre e Gerencie as Cestas</b>
-                            </p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-sm-4">
-                <div class="card cardSquare">
-                    <a href="conta/conta.php" style="text-decoration: none;">
-                        <div class="container">
-                            <img src="../imgs/iconesCardHome/Conta.png" class="card-img-top" alt="Conta">
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text textSquareHome">
-                                <b>Configure a sua Conta</b>
-                            </p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="container cardsHorizontalHome">
-                <div class="jumbotron jumbotron-fluid">
-                    <h1 class="display-4" style="color:green">Familias</h1>
-                    <p class="lead">
-                        <?php
-                        echo "<p><b>Total de Familias Cadastradas: $totalResponsavel</b></p>";
-                        ?>
-                    </p>
-                    <hr class="my-4">
-                    <p class="lead">
-                        <a class="btn btn-success btn-lg" href="responsavelFamilia/responsavelFamilia.php"
-                            role="button">
-                            Ver Mais
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="container cardsHorizontalHome">
-                <div class="jumbotron jumbotron-fluid">
-                    <h1 class="display-4" style="color:green">Cestas</h1>
-                    <p class="lead">
-                        <?php
-                        echo "<p><b>Total de Cestas Disponiveis: $totalCestasReal</b></p>";
-                        ?>
-                    </p>
-                    <hr class="my-4">
-                    <p class="lead">
-                        <a class="btn btn-success btn-lg" href="cestas/cestas.php" role="button">
-                            Ver Mais
-                        </a>
-                    </p>
-                </div>
-            </div>
         </div>
 
     </div>
