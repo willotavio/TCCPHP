@@ -28,7 +28,7 @@
 
 </head>
 
-<body style="background-image: url('imgs/homeT.png');">
+<body id="bodyIndex">
 
     <div style="margin-top: 10rem">
 
@@ -50,115 +50,97 @@
 
             <div class="tab-pane fade show active" id="login-tab-pane" role="tabpanel" aria-labelledby="login-tab"
                 tabindex="0">
-                <div class="container" style="width: 50rem;">
-                    <div class=" col-10 m-auto">
-                        <div class="row">
-                            <div class=" col-md-11 m-auto">
-                                <div id="containerIndexLogin">
-                                    <div class=" container mt-3">
+                <div class="container m-auto mt-2" id="containerFormIndex">
+                    <div class="row justify-content-start">
+                        <div class="col-6" style="background-color:white; padding:20px">
+                            <form method="POST" action="" onSubmit="efetuarLogin();" id="formLogar">
+                                <h2 class="h2Index">
+                                    LOGIN</h2>
+                                <div class="form-floating mb-3 mt-3  has-feedback">
+                                    <input type="text" class="form-control" id="nomeUsuario" name='nomeUsuario' required
+                                        placeholder="Usuario" autocomplete="username">
+                                    <i class="glyphicon glyphicon-user form-control-feedback"></i>
+                                    <label>Usuario</label>
 
-                                        <form method="POST" action="" onSubmit="efetuarLogin();" id="formLogar">
-                                            <h2 class="h2Index">
-                                                LOGIN</h2>
-                                            <div class="form-floating mb-3 mt-3  has-feedback">
-                                                <input type="text" class="form-control" id="nomeUsuario"
-                                                    name='nomeUsuario' required placeholder="Usuario"
-                                                    autocomplete="username">
-                                                <i class="glyphicon glyphicon-user form-control-feedback"></i>
-                                                <label>Usuario</label>
-
-                                            </div>
-                                            <div class="form-floating mt-3 mb-3">
-                                                <input type="password" class="form-control" id="senhaUsuario"
-                                                    placeholder="Senha" name='senhaUsuario'
-                                                    autocomplete="current-password" required>
-                                                <label>Senha</label>
-                                            </div>
-                                            <div class="row m-auto">
-                                                <button type="submit" class="btn btn-success btn-lg btn-block"
-                                                    style="font-size:1rem" value="Logar" name="submit">Entrar</button>
-                                            </div>
-                                            <div class="container" style="padding-top:1rem; text-align:center">
-                                                <a href="criarConta.php" id="linkIndex">Cadastrar
-                                                    Conta</a>
-                                            </div>
-                                        </form>
-
-                                    </div>
                                 </div>
-                            </div>
+                                <div class="form-floating mt-3 mb-3">
+                                    <input type="password" class="form-control" id="senhaUsuario" placeholder="Senha"
+                                        name='senhaUsuario' autocomplete="current-password" required>
+                                    <label>Senha</label>
+                                </div>
+                                <div class="row m-auto">
+                                    <button type="submit" class="btn btn-success btn-lg btn-block"
+                                        style="font-size:1rem" value="Logar" name="submit">Entrar</button>
+                                </div>
+                                <div class="container" style="padding-top:1rem; text-align:center">
+                                    <a href="criarConta.php" id="linkIndex">Cadastrar
+                                        Conta</a>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <div class="tab-pane fade" id="recuperarSenha-tab-pane" role="tabpanel" aria-labelledby="recuperarSenha-tab"
                 tabindex="0">
-
-                <div class="container" style="width: 50rem">
-                    <div class=" col-10 m-auto">
-                        <div class="row">
-                            <div class=" col-md-11 m-auto">
-                                <div id="containerEsqueciSenha">
-                                    <div class="container mt-3">
-                                        <form method="POST" onSubmit="recuperarSenha();" autocomplete="off">
-                                            <h2 class="h2Index">
-                                                ESQUECI MINHA SENHA</h2>
-                                            <div class="form-floating mb-3 mt-3">
-                                                <input type="email" class="form-control"
-                                                    placeholder="Digite o seu Email" required name="cadastrarUEmail"
-                                                    id="emailRecuperacao">
-                                                <label>Digite o seu Email</label>
-                                            </div>
-                                            <div class="row m-auto">
-                                                <button type="submit" class="btn btn-success btn-lg btn-block"
-                                                    style="font-size:1rem" value="solicitar">Enviar</button>
-                                            </div>
-                                        </form>
-                                    </div>
+                <div class="container m-auto mt-2" id="containerFormRecuperarSenha">
+                    <div class="row justify-content-start">
+                        <div class="col-6" style="background-color:white; padding:20px">
+                            <form method="POST" onSubmit="recuperarSenha();" autocomplete="off">
+                                <h2 class="h2Index">
+                                    ESQUECI MINHA SENHA</h2>
+                                <div class="form-floating mb-3 mt-3">
+                                    <input type="email" class="form-control" placeholder="Digite o seu Email" required
+                                        name="cadastrarUEmail" id="emailRecuperacao">
+                                    <label>Digite o seu Email</label>
                                 </div>
-                            </div>
+                                <div class="row m-auto">
+                                    <button type="submit" class="btn btn-success btn-lg btn-block"
+                                        style="font-size:1rem" value="solicitar">Enviar</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
+
             </div>
-
-        </div>
-        <script src="https://code.jquery.com/jquery-3.6.1.js"
-            integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-        </script>
-        <script>
-        function efetuarLogin() {
-            var nomeUsuario = $("#nomeUsuario").val();
-            var senhaUsuario = $("#senhaUsuario").val();
-            if (senhaUsuario != "" && nomeUsuario != "") {
-                $.ajax({
-                    type: "POST",
-                    url: "crud/login/logar.php",
-                    data: $("#formLogar").serialize(),
-                    success: function(resultado) {
-                        if (resultado == 0) {
-                            alert("Senha ou Usuário Incorretos");
-                        } else if (resultado == 1) {
-                            window.location.href = "pages/home.php";
-                        } else {
-                            alert("ERRO 'INICIAL' TENTE NOVAMENTE OU PEÇA AJUDA DOS ADMINISTRADORES");
+            <script src="https://code.jquery.com/jquery-3.6.1.js"
+                integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+                crossorigin="anonymous">
+            </script>
+            <script>
+            function efetuarLogin() {
+                var nomeUsuario = $("#nomeUsuario").val();
+                var senhaUsuario = $("#senhaUsuario").val();
+                if (senhaUsuario != "" && nomeUsuario != "") {
+                    $.ajax({
+                        type: "POST",
+                        url: "crud/login/logar.php",
+                        data: $("#formLogar").serialize(),
+                        success: function(resultado) {
+                            if (resultado == 0) {
+                                alert("Senha ou Usuário Incorretos");
+                            } else if (resultado == 1) {
+                                window.location.href = "pages/home.php";
+                            } else {
+                                alert("ERRO 'INICIAL' TENTE NOVAMENTE OU PEÇA AJUDA DOS ADMINISTRADORES");
+                            }
                         }
-                    }
-                });
-            } else {
-                alert("ERRO 'SENHA/USUARIO' TENTE NOVAMENTE OU PEÇA AJUDA DOS ADMINISTRADORES");
+                    });
+                } else {
+                    alert("ERRO 'SENHA/USUARIO' TENTE NOVAMENTE OU PEÇA AJUDA DOS ADMINISTRADORES");
+                }
             }
-        }
 
-        function recuperarSenha() {
-            var email = $("#emailRecuperacao").val();
-            alert("Foi enviado pra o Email: " + email + " um código para efetuar a recuperação da senha de sua conta");
-        }
-        </script>
+            function recuperarSenha() {
+                var email = $("#emailRecuperacao").val();
+                alert("Foi enviado pra o Email: " + email +
+                    " um código para efetuar a recuperação da senha de sua conta");
+            }
+            </script>
 
 </body>
 
