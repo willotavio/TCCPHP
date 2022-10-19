@@ -56,16 +56,16 @@
 
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link " href="../responsavelFamilia/responsavelFamilia.php">FAMILIAS</a>
+                        <a class="nav-link " href="../responsavelFamilia/responsavelFamilia.php">Famílias</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../cestas/cestas.php">CESTAS</a>
+                        <a class="nav-link" href="../cestas/cestas.php">Cestas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../financeiro/financeiroProvisorio.php">FINANCEIRO</a>
+                        <a class="nav-link" href="../financeiro/financeiroProvisorio.php">Financeiro</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../funcionarios/funcionarios.php">FUNCIONÁRIOS</a>
+                        <a class="nav-link" href="../funcionarios/funcionarios.php">Funcionários</a>
                     </li>
                 </ul>
 
@@ -76,13 +76,13 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li>
-                            <a class="dropdown-item" href="../conta/conta.php">VER PERFIL</a>
+                            <a class="dropdown-item" href="../conta/conta.php">Ver perfil</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <a class="dropdown-item" href="../../crud/login/sair.php">SAIR</a>
+                            <a class="dropdown-item" href="../../crud/login/sair.php">Sair</a>
                         </li>
                     </ul>
                 </li>

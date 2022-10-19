@@ -54,16 +54,16 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
 
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link " href="../responsavelFamilia/responsavelFamilia.php">FAMILIAS</a>
+                        <a class="nav-link " href="../responsavelFamilia/responsavelFamilia.php">Famílias</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../cestas/cestas.php">CESTAS</a>
+                        <a class="nav-link" href="../cestas/cestas.php">Cestas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../financeiro/financeiroProvisorio.php">FINANCEIRO</a>
+                        <a class="nav-link" href="../financeiro/financeiroProvisorio.php">Financeiro</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../funcionarios/funcionarios.php">FUNCIONÁRIOS</a>
+                        <a class="nav-link" href="../funcionarios/funcionarios.php">Funcionários</a>
                     </li>
                 </ul>
 
@@ -74,13 +74,13 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li>
-                            <a class="dropdown-item" href="../conta/conta.php">VER PERFIL</a>
+                            <a class="dropdown-item" href="../conta/conta.php">Ver perfil</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <a class="dropdown-item" href="../../crud/login/sair.php">SAIR</a>
+                            <a class="dropdown-item" href="../../crud/login/sair.php">Sair</a>
                         </li>
                     </ul>
                 </li>
@@ -356,7 +356,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="container" style="text-align:center">
-                        <h5 class="modal-title" id="exampleModalLabel" style="color:green">Consulta do Responsavel</h5>
+                        <h5 class="modal-title" id="exampleModalLabel" style="color:green">Consulta do Responsável</h5>
                     </div>
                 </div>
                 <div class="modal-body">
@@ -376,7 +376,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="container" style="text-align:center">
-                        <h5 class="modal-title" id="exampleModalLabel1" style="color:green">Apagar Responsavel</h5>
+                        <h5 class="modal-title" id="exampleModalLabel1" style="color:green">Apagar Responsável</h5>
                     </div>
                 </div>
                 <div class="modal-body">
@@ -408,7 +408,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="container" style="text-align:center">
-                        <h5 class="modal-title" id="exampleModalLabel1" style="color:green">Editar Responsavel</h5>
+                        <h5 class="modal-title" id="exampleModalLabel1" style="color:green">Editar Responsável</h5>
                     </div>
                 </div>
                 <div class="modal-body">

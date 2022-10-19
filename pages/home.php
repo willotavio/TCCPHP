@@ -109,16 +109,16 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
             <div class="collapse navbar-collapse navBarLinks" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="responsavelFamilia/responsavelFamilia.php">FAMILIAS</a>
+                        <a class="nav-link" href="responsavelFamilia/responsavelFamilia.php">Famílias</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cestas/cestas.php">CESTAS</a>
+                        <a class="nav-link" href="cestas/cestas.php">Cestas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="financeiro/financeiroProvisorio.php">FINANCEIRO</a>
+                        <a class="nav-link" href="financeiro/financeiroProvisorio.php">Financeiro</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="funcionarios/funcionarios.php">FUNCIONÁRIOS</a>
+                        <a class="nav-link" href="funcionarios/funcionarios.php">Funcionários</a>
                     </li>
                 </ul>
                 <li class="nav-item dropdown dropDownMenu">
@@ -128,13 +128,13 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li>
-                            <a class="dropdown-item espcialLinksHeader" href="conta/conta.php">VER PERFIL</a>
+                            <a class="dropdown-item espcialLinksHeader" href="conta/conta.php">Ver perfil</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <a class="dropdown-item espcialLinksHeader" href="../crud/login/sair.php">SAIR</a>
+                            <a class="dropdown-item espcialLinksHeader" href="../crud/login/sair.php">Sair</a>
                         </li>
                     </ul>
                 </li>
@@ -163,7 +163,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                             <img src="../imgs/iconesCardHome/Familia.png" class="card-img-top m-auto imagemCard"
                                 alt="...">
                             <div class="card-body">
-                                <p class="card-text">Familias</p>
+                                <p class="card-text">Famílias</p>
                             </div>
                         </div>
                     </a>
