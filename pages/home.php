@@ -83,7 +83,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
             width: 600,
             height: 300,
             bar: {
-                groupWidth: "95%"
+                groupWidth: "50%"
             },
             legend: {
                 position: "none"
