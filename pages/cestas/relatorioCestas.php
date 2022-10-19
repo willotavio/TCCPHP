@@ -52,7 +52,7 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse navBarLinks">
+            <div class="collapse navbar-collapse navBarLinks" id="navbarSupportedContent">
 
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -96,10 +96,11 @@
 <body style="background-color:whitesmoke">
 
     <div class="container">
-    
-    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
-        onclick="window.location.href='pdfCestas/pdfCestas.php';" style="font-size: 1.2em; width: 200px; margin-bottom: 10px">Gerar Relatório
-        <img src="../../imgs/iconesCestas/relatorioCestas.png" alt="relatorioCestas" width= "50px"></button>
+
+        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+            onclick="window.location.href='pdfCestas/pdfCestas.php';"
+            style="font-size: 1.2em; width: 200px; margin-bottom: 10px">Gerar Relatório
+            <img src="../../imgs/iconesCestas/relatorioCestas.png" alt="relatorioCestas" width="50px"></button>
         <h4 style="color:green; text-align:center">Entrada de Cestas</h4>
         <div class="overflow-auto">
             <div class="column">

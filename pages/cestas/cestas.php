@@ -58,7 +58,7 @@ if ($result->rowCount() > 0) {
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse navBarLinks">
+            <div class="collapse navbar-collapse navBarLinks" id="navbarSupportedContent">
 
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -77,7 +77,7 @@ if ($result->rowCount() > 0) {
 
                 <li class="nav-item dropdown dropDownMenu" style="list-style: none;">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false" >
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         <?php echo '<img src="data:../../imgs/conta;base64,' . base64_encode($imagemUsuario) . '" style="border-radius:50px;width: 40px; height: 40px;">' ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
