@@ -50,7 +50,7 @@
     </style>
 </head>
 
-<header style="margin-bottom: 100px;">
+<header>
     <nav class="navbar navbar-expand-lg headerNavBar">
         <div class="container-fluid">
             <a class="navbar-brand" href="../home.php"><img src='../../imgs/logo2.png' width="60"></a>
@@ -76,7 +76,7 @@
                     </li>
                 </ul>
 
-                <li class="nav-item dropdown dropDownMenu" style="list-style: none;">
+                <li class="nav-item dropdown dropDownMenu">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <?php echo '<img src="data:../../imgs/conta;base64,' . base64_encode($imagemUsuario) . '" style="border-radius:50px;width: 40px; height: 40px;">' ?>

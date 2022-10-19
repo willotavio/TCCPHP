@@ -3,6 +3,10 @@
 	margin: 0;
 }
 
+a {
+	text-decoration: none;
+}
+
 :root {
 	--corPrincipal: green;
 	--backgroundPrincipal: whitesmoke;
@@ -28,6 +32,14 @@ body {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+
+#bodyIndex ul button {
+	color: var(--corPrincipal);
+}
+
+.tab-content button {
+	font-size: 1em;
 }
 
 #containerFormIndex {
@@ -56,7 +68,6 @@ body {
 
 #linkIndex {
 	color: rgba(25, 135, 84, 0.8);
-	text-decoration: none;
 	transition: 0.5s;
 }
 
@@ -117,19 +128,24 @@ body {
 /*criarConta.php */
 
 /* Home */
-.textSquareHome {
-	color: green;
+.card-text {
+	color: var(--corPrincipal);
+}
+.imagemCard {
+	width: 30%;
 }
 
-.cardsHorizontalHome {
-	margin: 10px 0 20px;
-	background-color: white;
-	border: solid 1px;
-	border-color: green;
-	box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
-		rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
-		rgba(0, 0, 0, 0.07) 0px 16px 16px;
+.cardSquare {
+	width: 18rem;
 }
+
+.containerTextoUsuario {
+	color: var(--corPrincipal);
+	font-size: 20px;
+	text-align: start;
+	margin-top: 20px;
+}
+
 /* Home */
 
 /* Conta */
@@ -143,7 +159,7 @@ input[type="file"] {
 	margin-bottom: 5px;
 	text-align: start;
 	background-color: white;
-	color: green;
+	color: var(--corPrincipal);
 	text-transform: uppercase;
 	text-align: center;
 	display: block;
@@ -161,7 +177,7 @@ input[type="file"] {
 }
 
 #iconAccount:hover {
-	color: green;
+	color: var(--corPrincipal);
 	width: 60;
 	height: 60;
 	cursor: pointer;
@@ -188,6 +204,11 @@ footer {
 	color: rgb(36, 133, 65);
 	margin-bottom: 0;
 }
+
+.containerFooter {
+	padding: 0;
+	margin-top: 6.3%;
+}
 /* footer */
 
 /* Input de Cadastro */
@@ -200,7 +221,7 @@ footer {
 }
 
 .labelCadastro {
-	color: green;
+	color: var(--corPrincipal);
 }
 /* Input de Cadastro */
 
@@ -238,8 +259,12 @@ footer {
 
 /* header */
 
+header {
+	margin-bottom: 7%;
+}
+
 .navBarLinks a {
-	color: green;
+	color: var(--corPrincipal);
 }
 
 .navBarLinks a:hover {
@@ -257,6 +282,9 @@ footer {
 }
 .dropDownMenu a:hover {
 	border: none;
+}
+.dropDownMenu {
+	list-style: none;
 }
 
 /* header */

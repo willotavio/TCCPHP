@@ -97,7 +97,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
 
 </head>
 
-<header style="margin-bottom: 100px;">
+<header>
     <nav class="navbar navbar-expand-lg  bg-light headerNavBar">
         <div class="container-fluid">
             <a class="navbar-brand" href="home.php"><img src='../imgs/logo2.png' width="60"></a>
@@ -121,7 +121,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                         <a class="nav-link" href="funcionarios/funcionarios.php">FUNCIONÁRIOS</a>
                     </li>
                 </ul>
-                <li class="nav-item dropdown dropDownMenu" style="list-style: none;">
+                <li class="nav-item dropdown dropDownMenu">
                     <a class="nav-link dropdown-toggle espcialLinksHeader" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <?php echo '<img src="data:../imgs/conta;base64,' . base64_encode($imagemUsuario) . '" style="border-radius:50px;width: 40px; height: 40px;">' ?>
@@ -145,9 +145,9 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
 
 <body>
 
-    <div class="container-fluid" style="margin-top:20px">
+    <div class="container-fluid containerTextoUsuario">
         <?php
-        echo "<p style='color:green; font-size:20px; text-align:start'>Bem vindo(a) <b>$logado</b> </p>";
+        echo "<p> Bem vindo(a) <b>$logado</b> </p>";
         ?></div>
     <div class="container" style="margin-top:25px">
 
@@ -155,34 +155,34 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
             <div class="col">
                 <div id="columnchart_values" style="width: 700px; height: 350px;"></div>
             </div>
+
             <div class="col">
                 <div class="d-grid gap-2">
-                    <a href="responsavelFamilia/responsavelFamilia.php" style="text-decoration:none">
-                        <div class="card cardSquare" style="width: 18rem;">
-                            <img src="../imgs/iconesCardHome/Familia.png" class="card-img-top m-auto" alt="..."
-                                style="width:30%">
+                    <a href="responsavelFamilia/responsavelFamilia.php">
+                        <div class="card cardSquare">
+                            <img src="../imgs/iconesCardHome/Familia.png" class="card-img-top m-auto imagemCard"
+                                alt="...">
                             <div class="card-body">
-                                <p class="card-text" style="color:green">Familias</p>
+                                <p class="card-text">Familias</p>
                             </div>
                         </div>
                     </a>
-                    <a href="cestas/cestas.php" style="text-decoration:none">
-                        <div class="card cardSquare" style="width: 18rem;">
-                            <img src="../imgs/iconesCardHome/Cestas.png" class="card-img-top m-auto" alt="..."
-                                style="width:30%">
+                    <a href="cestas/cestas.php">
+                        <div class="card cardSquare">
+                            <img src="../imgs/iconesCardHome/Cestas.png" class="card-img-top m-auto imagemCard"
+                                alt="...">
                             <div class="card-body">
-                                <p class="card-text" style="color:green">Cestas</p>
+                                <p class="card-text">Cestas</p>
                             </div>
                         </div>
                     </a>
                 </div>
-
             </div>
 
         </div>
 
     </div>
-    <div class="container-fluid" style="padding:0; margin-top:6.3%;">
+    <div class="container-fluid containerFooter">
         <?php include('footer.php'); ?>
     </div>
 

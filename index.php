@@ -35,13 +35,12 @@
         <ul class="nav nav-pills white justify-content-center" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-tab-pane"
-                    type="button" role="tab" aria-controls="login-tab-pane" aria-selected="true"
-                    style="color: green">Login</button>
+                    type="button" role="tab" aria-controls="login-tab-pane" aria-selected="true">Login</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="recuperarSenha-tab" data-bs-toggle="tab"
                     data-bs-target="#recuperarSenha-tab-pane" type="button" role="tab"
-                    aria-controls="recuperarSenha-tab-pane" aria-selected="false" style="color: green">Esqueci Minha
+                    aria-controls="recuperarSenha-tab-pane" aria-selected="false">Esqueci Minha
                     Senha</button>
             </li>
         </ul>
@@ -69,8 +68,8 @@
                                     <label>Senha</label>
                                 </div>
                                 <div class="row m-auto">
-                                    <button type="submit" class="btn btn-success btn-lg btn-block"
-                                        style="font-size:1rem" value="Logar" name="submit">Entrar</button>
+                                    <button type="submit" class="btn btn-success btn-lg btn-block" value="Logar"
+                                        name="submit">Entrar</button>
                                 </div>
                                 <div class="container" style="padding-top:1rem; text-align:center">
                                     <a href="criarConta.php" id="linkIndex">Cadastrar
@@ -97,7 +96,7 @@
                                 </div>
                                 <div class="row m-auto">
                                     <button type="submit" class="btn btn-success btn-lg btn-block"
-                                        style="font-size:1rem" value="solicitar">Enviar</button>
+                                        value="solicitar">Enviar</button>
                                 </div>
                             </form>
                         </div>
@@ -105,42 +104,42 @@
                 </div>
 
             </div>
-            <script src="https://code.jquery.com/jquery-3.6.1.js"
-                integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-                crossorigin="anonymous">
-            </script>
-            <script>
-            function efetuarLogin() {
-                var nomeUsuario = $("#nomeUsuario").val();
-                var senhaUsuario = $("#senhaUsuario").val();
-                if (senhaUsuario != "" && nomeUsuario != "") {
-                    $.ajax({
-                        type: "POST",
-                        url: "crud/login/logar.php",
-                        data: $("#formLogar").serialize(),
-                        success: function(resultado) {
-                            if (resultado == 0) {
-                                alert("Senha ou Usuário Incorretos");
-                            } else if (resultado == 1) {
-                                window.location.href = "pages/home.php";
-                            } else {
-                                alert("ERRO 'INICIAL' TENTE NOVAMENTE OU PEÇA AJUDA DOS ADMINISTRADORES");
-                            }
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.1.js"
+            integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+        </script>
+        <script>
+        function efetuarLogin() {
+            var nomeUsuario = $("#nomeUsuario").val();
+            var senhaUsuario = $("#senhaUsuario").val();
+            if (senhaUsuario != "" && nomeUsuario != "") {
+                $.ajax({
+                    type: "POST",
+                    url: "crud/login/logar.php",
+                    data: $("#formLogar").serialize(),
+                    success: function(resultado) {
+                        if (resultado == 0) {
+                            alert("Senha ou Usuário Incorretos");
+                        } else if (resultado == 1) {
+                            window.location.href = "pages/home.php";
+                        } else {
+                            alert("ERRO 'INICIAL' TENTE NOVAMENTE OU PEÇA AJUDA DOS ADMINISTRADORES");
                         }
-                    });
-                } else {
-                    alert("ERRO 'SENHA/USUARIO' TENTE NOVAMENTE OU PEÇA AJUDA DOS ADMINISTRADORES");
-                }
+                    }
+                });
+            } else {
+                alert("ERRO 'SENHA/USUARIO' TENTE NOVAMENTE OU PEÇA AJUDA DOS ADMINISTRADORES");
             }
+        }
 
-            function recuperarSenha() {
-                var email = $("#emailRecuperacao").val();
-                alert("Foi enviado pra o Email: " + email +
-                    " um código para efetuar a recuperação da senha de sua conta");
-            }
-            </script>
+        function recuperarSenha() {
+            var email = $("#emailRecuperacao").val();
+            alert("Foi enviado pra o Email: " + email +
+                " um código para efetuar a recuperação da senha de sua conta");
+        }
+        </script>
 
 </body>
 
