@@ -62,10 +62,18 @@
                                     <label>Usuario</label>
 
                                 </div>
-                                <div class="form-floating mt-3 mb-3">
+                                <div class="form-floating mt-3 mb-3 input-group">
                                     <input type="password" class="form-control" id="senhaUsuario" placeholder="Senha"
                                         name='senhaUsuario' autocomplete="current-password" required>
                                     <label>Senha</label>
+                                    <span class="input-group-text" id="spanExibirSenha">
+                                        <i onclick="eyeClick()" id="exibirSenha">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                                            </svg>
+                                        </i>
+                                    </span>
                                 </div>
                                 <div class="row m-auto">
                                     <button type="submit" class="btn btn-success btn-lg btn-block" value="Logar"
@@ -147,6 +155,7 @@
         }
         </script>
 
+    <script src="Js/exibirSenha.js"></script>
 </body>
 
 </html>

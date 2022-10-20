@@ -1,156 +1,171 @@
 * {
-	padding: 0;
-	margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 :root {
-	--corPrincipal: green;
-	--backgroundPrincipal: whitesmoke;
-	--backgroundSecundario: white;
-	--verdeContraste: rgba(25, 135, 84, 255);
+  --corPrincipal: green;
+  --backgroundPrincipal: whitesmoke;
+  --backgroundSecundario: white;
+  --verdeContraste: rgba(25, 135, 84, 255);
 }
 html {
-	height: 100%;
-	min-height: 100%;
+  height: 100%;
+  min-height: 100%;
 }
 
 body {
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	min-height: 100%;
-	background-color: var(--backgroundPrincipal);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background-color: var(--backgroundPrincipal);
 }
 
 .modalHeaderColorCenter {
-	text-align: center;
+  text-align: center;
 }
 .modalHeaderColorCenter h5 {
-	color: var(--corPrincipal);
+  color: var(--corPrincipal);
 }
 
 /* Index */
 #bodyIndex {
-	background-image: url("imgs/indexBackground.jpg");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+  background-image: url("imgs/indexBackground.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #bodyIndex ul button {
-	color: var(--corPrincipal);
+  color: var(--corPrincipal);
 }
 
 .tab-content button {
-	font-size: 1em;
+  font-size: 1em;
 }
 
 #containerFormIndex {
-	background-image: url("imgs/indexForms/efetuarLogin.jpg");
-	width: 70%;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	border-style: none none none solid;
-	border-color: rgba(25, 135, 84, 255);
-	border-width: 6px;
+  background-image: url("imgs/indexForms/efetuarLogin.jpg");
+  width: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-style: none none none solid;
+  border-color: rgba(25, 135, 84, 255);
+  border-width: 6px;
 }
 
 #containerFormRecuperarSenha {
-	background-image: url("imgs/indexForms/recuperarSenha.jpg");
-	width: 70%;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	border-style: none none none solid;
-	border-color: rgba(25, 135, 84, 255);
-	border-width: 6px;
+  background-image: url("imgs/indexForms/recuperarSenha.jpg");
+  width: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-style: none none none solid;
+  border-color: rgba(25, 135, 84, 255);
+  border-width: 6px;
 }
 
 #linkIndex {
-	color: rgba(25, 135, 84, 0.8);
-	transition: 0.5s;
+  color: rgba(25, 135, 84, 0.8);
+  transition: 0.5s;
 }
 
 #linkIndex:hover {
-	color: rgba(25, 135, 84, 255);
+  color: rgba(25, 135, 84, 255);
 }
 
 .nav-pills .nav-link.active {
-	background-color: white;
+  background-color: white;
 }
 
 #senhaUsuario {
-	border-style: none none solid none;
+  border-style: none none solid none;
 }
 
 #nomeUsuario {
-	border-style: none none solid none;
+  border-style: none none solid none;
 }
 
 #senhaUsuario:focus {
-	box-shadow: none;
-	border-color: var(--verdeContraste);
+  box-shadow: none;
+  border-color: var(--verdeContraste);
 }
 
 #nomeUsuario:focus {
-	box-shadow: none;
-	border-color: var(--verdeContraste);
+  box-shadow: none;
+  border-color: var(--verdeContraste);
 }
 
 #emailRecuperacao {
-	border-style: none none solid none;
+  border-style: none none solid none;
 }
 
 #emailRecuperacao:focus {
-	box-shadow: none;
-	border-color: var(--verdeContraste);
+  box-shadow: none;
+  border-color: var(--verdeContraste);
 }
 
 .h2Index {
-	text-align: center;
-	font-size: 2rem;
-	padding: 1rem;
-	color: var(--verdeContraste);
+  text-align: center;
+  font-size: 2rem;
+  padding: 1rem;
+  color: var(--verdeContraste);
+}
+#exibirSenha:hover {
+  color:  var(--corPrincipal);
+}
+
+#spanExibirSenha {
+  background-color: transparent;
+  border: none none solid none;
+  border-right: none;
+  border-top: none;
+}
+
+#spanExibirSenha:focus {
+  box-shadow: none;
+  border-bottom-color: var(--verdeContraste);
 }
 /* Index */
 
 /*criarConta.php*/
 #containerCadastroConta {
-	background-color: white;
-	border-radius: 20px;
-	padding-bottom: 10px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	border-style: none none none solid;
-	border-color: rgba(25, 135, 84, 255);
-	border-width: 12px;
-	color: black;
+  background-color: white;
+  border-radius: 20px;
+  padding-bottom: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-style: none none none solid;
+  border-color: rgba(25, 135, 84, 255);
+  border-width: 12px;
+  color: black;
 }
 /*criarConta.php */
 
 /* Home */
 .card-text {
-	color: var(--corPrincipal);
+  color: var(--corPrincipal);
 }
 .imagemCard {
-	width: 30%;
+  width: 30%;
 }
 
 .cardSquare {
-	width: 18rem;
+  width: 18rem;
 }
 
 .containerTextoUsuario {
-	color: var(--corPrincipal);
-	font-size: 20px;
-	text-align: start;
-	margin-top: 20px;
+  color: var(--corPrincipal);
+  font-size: 20px;
+  text-align: start;
+  margin-top: 20px;
 }
 
 /* Home */
@@ -158,161 +173,162 @@ body {
 /* Conta */
 
 input[type="file"] {
-	display: none;
+  display: none;
 }
 
 #labelArquivo {
-	cursor: pointer;
-	margin-bottom: 5px;
-	text-align: start;
-	background-color: white;
-	color: var(--corPrincipal);
-	text-align: center;
-	display: block;
-	margin-top: 10px;
-	cursor: pointer;
+  cursor: pointer;
+  margin-bottom: 5px;
+  text-align: start;
+  background-color: white;
+  color: var(--corPrincipal);
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
 #iconAccount {
-	color: black;
-	position: absolute;
-	top: 65%;
-	left: 90%;
-	transform: translate(-130%, -130%);
-	-ms-transform: translate(-130%, -130%);
+  color: black;
+  position: absolute;
+  top: 65%;
+  left: 90%;
+  transform: translate(-130%, -130%);
+  -ms-transform: translate(-130%, -130%);
 }
 
 #iconAccount:hover {
-	color: var(--corPrincipal);
-	width: 60;
-	height: 60;
-	cursor: pointer;
+  color: var(--corPrincipal);
+  width: 60;
+  height: 60;
+  cursor: pointer;
 }
 
 /* Conta */
 
 /* footer */
 footer {
-	position: absolute;
-	margin: auto;
-	text-align: center;
-	background-color: white;
-	padding-top: 10px;
-	left: 0;
-	bottom: 0;
-	width: 100%;
+  position: absolute;
+  margin: auto;
+  text-align: center;
+  background-color: white;
+  padding-top: 10px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 @media (max-width: 1200px) {
-	footer {
-		position: relative;
-	}
+  footer {
+    position: relative;
+  }
 }
 
 #titleFooter {
-	color: rgb(36, 133, 65);
+  color: rgb(36, 133, 65);
 }
 
 #textFooter {
-	color: rgb(36, 133, 65);
-	margin-bottom: 0;
+  color: rgb(36, 133, 65);
+  margin-bottom: 0;
 }
 
 .containerFooter {
-	padding: 0;
-	margin-top: 6.3%;
+  padding: 0;
+  margin-top: 6.3%;
 }
 /* footer */
 
 /* Input de Cadastro */
 .inputGeral {
-	border-style: none none solid none;
+  border-style: none none solid none;
 }
 .inputGeral:focus {
-	box-shadow: none;
-	border-color: rgba(25, 135, 84, 255);
+  box-shadow: none;
+  border-color: rgba(25, 135, 84, 255);
 }
 
 .labelCadastro {
-	color: var(--corPrincipal);
+  color: var(--corPrincipal);
 }
 /* Input de Cadastro */
 
 /* ScrollBar*/
 
 ::-webkit-scrollbar {
-	opacity: 1;
-	width: 10px;
+  opacity: 1;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: gray;
-	border-radius: 10px;
+  background-color: gray;
+  border-radius: 10px;
 }
 
 :hover::-webkit-scrollbar-thumb {
-	background-color: gray;
+  background-color: gray;
 }
 /* ScrollBar*/
 
 /* CardsSquare */
 .cardSquare {
-	width: 17rem;
-	margin: auto;
-	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-		rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-	transition: 0.4s;
-	margin-bottom: 20px;
+  width: 17rem;
+  margin: auto;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  transition: 0.4s;
+  margin-bottom: 20px;
 }
 
 .cardSquare:hover {
-	box-shadow: rgba(5, 151, 41, 0.582) 0px 0px 0px 3px;
+  box-shadow: rgba(5, 151, 41, 0.582) 0px 0px 0px 3px;
 }
 /* CardsSquare */
 
 /* header */
 
 header {
-	margin-bottom: 7%;
+  margin-bottom: 7%;
 }
 
 .navBarLinks a {
-	color: var(--corPrincipal);
+  color: var(--corPrincipal);
 }
 
 .navBarLinks a:hover {
-	color: yellowgreen;
-	border-style: none none solid none;
-	border-color: yellowgreen;
-	border-width: 1px;
+  color: yellowgreen;
+  border-style: none none solid none;
+  border-color: yellowgreen;
+  border-width: 1px;
 }
 
 .headerNavBar {
-	background-color: white;
-	position: fixed;
-	z-index: 1000;
-	width: 100%;
+  background-color: white;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
 }
 .dropDownMenu a:hover {
-	border: none;
-	background-color: white;
+  border: none;
+  background-color: white;
 }
 .dropDownMenu {
-	list-style: none;
+  list-style: none;
 }
 
 /* header */
 /* responsavel */
 .responsavelTable {
-	color: var(--corPrincipal);
+  color: var(--corPrincipal);
 }
 .responsavelTable th {
-	text-align: center;
-	width: 16.6%;
+  text-align: center;
+  width: 16.6%;
 }
 
 .resultadosDaTabela td {
-	text-align: center;
+  text-align: center;
 }
 
 /* responsavel */
