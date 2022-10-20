@@ -23,16 +23,33 @@ $dados = "<!DOCTYPE html>";
 $dados .= "html lang-'pt-br'";
 $dados .= "<head>";
 $dados .= "<meta chartset 'UTF-8'>";
+$dados .= "<style>
+                body{
+                    font-family: helvetica;
+                }
+                table, th, td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                    padding: 5px;
+                }
+            </style>";
 $dados .= "</head>";
 $dados .= "<body>";
 $dados .= "<h1 style='text-align: center'>Relatório de Cestas Doadas</h1><br>";
+$dados .= "<table style='text-align: center;margin: auto;'>
+        <tr>
+            <th>Quantidade</th>
+            <th>Data de recebimento</th>
+            <th>Usuário</th>
+        </tr>";
 
 while ($row_cestas = $result_cestas->fetch(PDO::FETCH_ASSOC)) {
     extract($row_cestas);
-    $dados .= "Quantidade: $quantidade_cestas<br>";
-    $dados .= "Data de Recebimento: $recebimento_cestas<br>";
-    $dados .= "Usuário: $nome_usuario<br>";
-    $dados .= "<hr>";
+    $dados .= "<tr>
+            <td> $quantidade_cestas </td>
+            <td> $recebimento_cestas </td>
+            <td> $nome_usuario </td>
+        </tr>";
 }
 
 $dompdf->loadHtml($dados);
