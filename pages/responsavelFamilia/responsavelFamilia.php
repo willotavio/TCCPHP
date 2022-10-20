@@ -105,8 +105,8 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <div class="container" style="text-align:center">
-                                        <h5 class="modal-title" style="color: green;">Cadastrar Responsável da
+                                    <div class="container modalHeaderColorCenter">
+                                        <h5 class="modal-title">Cadastrar Responsável da
                                             Família</h5>
                                     </div>
                                 </div>
@@ -259,14 +259,14 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
             <div class="column">
                 <div class="m-2">
 
-                    <table class="table" style="color:green">
+                    <table class="table responsavelTable">
                         <thead>
-                            <th scope="col" style='text-align:center; width: 16.6%'>#</th>
-                            <th scope="col" style='text-align:center; width: 16.6%'>Nome</th>
-                            <th scope="col" style='text-align:center; width: 16.6%'>Data de Nascimento</th>
-                            <th scope="col" style='text-align:center; width: 16.6%'>CPF</th>
-                            <th scope="col" style='text-align:center; width: 16.6%'>Celular</th>
-                            <th scope="col" style='text-align:center; width: 16.6%'>Ações</th>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Data de Nascimento</th>
+                            <th scope="col">CPF</th>
+                            <th scope="col">Celular</th>
+                            <th scope="col">Ações</th>
                         </thead>
                         <tbody>
                             <?php
@@ -280,33 +280,33 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                         $resultados_responsavel = $con->query($sql);
                         while ($row = $resultados_responsavel->fetch()) {
                         ?>
-                            <tr>
-                                <td style='text-align:center'>
+                            <tr class="resultadosDaTabela">
+                                <td>
                                     <span
                                         id="id<?php echo $row['id_responsavel']; ?>"><?php echo $row['id_responsavel']; ?>
                                     </span>
                                 </td>
-                                <td style='text-align:center'>
+                                <td>
                                     <span
                                         id="nome<?php echo $row['id_responsavel']; ?>"><?php echo $row['nome_responsavel']; ?>
                                     </span>
                                 </td>
-                                <td style='text-align:center'>
+                                <td>
                                     <span
                                         id="data_nascimento<?php echo $row['id_responsavel']; ?>"><?php echo $row['data_nascimento_responsavel']; ?>
                                     </span>
                                 </td>
-                                <td style='text-align:center'>
+                                <td>
                                     <span
                                         id="cpf<?php echo $row['id_responsavel']; ?>"><?php echo $row['cpf_responsavel']; ?>
                                     </span>
                                 </td>
-                                <td style='text-align:center'>
+                                <td>
                                     <span
                                         id="celular<?php echo $row['id_responsavel']; ?>"><?php echo $row['celular']; ?>
                                     </span>
                                 </td>
-                                <td style='text-align:center'>
+                                <td>
                                     <button class='btn btn-sm btn-outline-primary view'
                                         value="<?php echo $row['id_responsavel']; ?>">
                                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'
@@ -355,8 +355,8 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="container" style="text-align:center">
-                        <h5 class="modal-title" id="exampleModalLabel" style="color:green">Consulta do Responsável</h5>
+                    <div class="container modalHeaderColorCenter">
+                        <h5 class="modal-title" id="exampleModalLabel">Consulta do Responsável</h5>
                     </div>
                 </div>
                 <div class="modal-body">
@@ -375,8 +375,8 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="container" style="text-align:center">
-                        <h5 class="modal-title" id="exampleModalLabel1" style="color:green">Apagar Responsável</h5>
+                    <div class="container modalHeaderColorCenter">
+                        <h5 class="modal-title" id="exampleModalLabel1">Apagar Responsável</h5>
                     </div>
                 </div>
                 <div class="modal-body">
@@ -393,8 +393,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-danger" data-dismiss="modal"
                             id="closeDelete">Fechar</button>
-                        <p style='text-align:center'><input type='submit' class='btn btn-outline-success' name='delete'
-                                value='Deletar'>
+                        <input type='submit' class='btn btn-outline-success' name='delete' value='Deletar'>
                     </div>
                 </div>
                 </form>
@@ -407,8 +406,8 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="container" style="text-align:center">
-                        <h5 class="modal-title" id="exampleModalLabel1" style="color:green">Editar Responsável</h5>
+                    <div class="container modalHeaderColorCenter">
+                        <h5 class="modal-title" id="exampleModalLabel1">Editar Responsável</h5>
                     </div>
                 </div>
                 <div class="modal-body">

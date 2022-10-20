@@ -26,9 +26,16 @@ body {
 	background-color: var(--backgroundPrincipal);
 }
 
+.modalHeaderColorCenter {
+	text-align: center;
+}
+.modalHeaderColorCenter h5 {
+	color: var(--corPrincipal);
+}
+
 /* Index */
 #bodyIndex {
-	background-image: url("imgs/teste.jpg");
+	background-image: url("imgs/indexBackground.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -197,8 +204,8 @@ footer {
 	width: 100%;
 }
 
-@media (max-width: 1200px){
-	footer{
+@media (max-width: 1200px) {
+	footer {
 		position: relative;
 	}
 }
@@ -296,3 +303,17 @@ header {
 }
 
 /* header */
+/* responsavel */
+.responsavelTable {
+	color: var(--corPrincipal);
+}
+.responsavelTable th {
+	text-align: center;
+	width: 16.6%;
+}
+
+.resultadosDaTabela td {
+	text-align: center;
+}
+
+/* responsavel */
