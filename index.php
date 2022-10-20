@@ -110,8 +110,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
         </script>
-        <script>
+          <script>
         function efetuarLogin() {
+            event.preventDefault();
             var nomeUsuario = $("#nomeUsuario").val();
             var senhaUsuario = $("#senhaUsuario").val();
             if (senhaUsuario != "" && nomeUsuario != "") {
@@ -122,15 +123,20 @@
                     success: function(resultado) {
                         if (resultado == 0) {
                             alert("Senha ou Usuário Incorretos");
+                            $("#senhaUsuario").val("");
                         } else if (resultado == 1) {
                             window.location.href = "pages/home.php";
                         } else {
                             alert("ERRO 'INICIAL' TENTE NOVAMENTE OU PEÇA AJUDA DOS ADMINISTRADORES");
+                            $("#senhaUsuario").val("");
+                            $("#nomeUsuario").val("");
                         }
                     }
                 });
             } else {
                 alert("ERRO 'SENHA/USUARIO' TENTE NOVAMENTE OU PEÇA AJUDA DOS ADMINISTRADORES");
+                $("#senhaUsuario").val("");
+                $("#nomeUsuario").val("");
             }
         }
 
