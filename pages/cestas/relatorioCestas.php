@@ -148,14 +148,14 @@
         </div>
     </div>
     <div class="container" style="margin-top:60px">
-        <h4 style="color:green; text-align:center">Saida de Cestas</h4>
+        <h4 style="color:green; text-align:center">Saída de Cestas</h4>
         <div class="overflow-auto">
             <div class="column">
                 <div class="m-2 ">
                     <table class="table" style="color:green">
                         <thead>
                             <th scope="col" style='text-align:center; width: 33%'>Quantidade</th>
-                            <th scope="col" style='text-align:center; width: 33%'>Data de Saida</th>
+                            <th scope="col" style='text-align:center; width: 33%'>Data de Saída</th>
                             <th scope="col" style='text-align:center; width: 33%'>Nome</th>
                         </thead>
                         <tbody>

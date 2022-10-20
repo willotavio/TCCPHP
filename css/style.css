@@ -167,7 +167,6 @@ input[type="file"] {
 	text-align: start;
 	background-color: white;
 	color: var(--corPrincipal);
-	text-transform: uppercase;
 	text-align: center;
 	display: block;
 	margin-top: 10px;

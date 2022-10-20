@@ -126,7 +126,7 @@
                                     <div class="form-floating mb-3 mt-3">
                                         <input type="text" class="form-control inputGeral"
                                             placeholder="Digite o seu Usuario" required name="nome">
-                                        <label class="labelCadastro">Digite o Nome de Usuario</label>
+                                        <label class="labelCadastro">Digite o Nome de Usuário</label>
                                     </div>
                                     <div class="form-floating mt-3 mb-3">
                                         <input type="email" class="form-control inputGeral"
@@ -151,7 +151,7 @@
                                     <div style="margin-bottom:15px">
                                         <select class="form-select labelCadastro" name="tipo">
                                             <option value="F" name="tipo" class="labelCadastro">
-                                                Funcionario</option>
+                                                Funcionário</option>
                                             <option value="A" name="tipo" class="labelCadastro">
                                                 Administrador</option>
                                         </select>

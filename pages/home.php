@@ -64,7 +64,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                 role: "style"
             }],
             ["Cestas", <?php echo $totalCestasReal?>, "green"],
-            ["Familias", <?php echo $totalResponsavel?>, "green"],
+            ["Famílias", <?php echo $totalResponsavel?>, "green"],
         ]);
 
         var view = new google.visualization.DataView(data);
@@ -79,7 +79,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
         ]);
 
         var options = {
-            title: "Total de Familias e Cestas",
+            title: "Total de Famílias e Cestas",
             width: 600,
             height: 300,
             bar: {
@@ -147,7 +147,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
 
     <div class="container-fluid containerTextoUsuario">
         <?php
-        echo "<p> Bem vindo(a) <b>$logado</b> </p>";
+        echo "<p> Bem-vindo(a) <b>$logado</b> </p>";
         ?></div>
     <div class="container" style="margin-top:25px">
 
