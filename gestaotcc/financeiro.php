@@ -1,3 +1,4 @@
+
 <?php
 #apresentar o cabeçalho 
 include "cabecalho.php";
@@ -56,6 +57,7 @@ include "conectar_bancodedados.php";
 $resultadodaconsulta = myql_query ($ComandoSelect ) or print (myql_error());
 
 #vereficar o número de linhas (registros) apresentado na consulta 
+#"se o resultado da consulta for 0 se nenhuma linha se nenhum registro for apresentado, então a função mysql_num_rows ela verefica quantas linhas quantos registros foram apresentados na consulta" ," se o resultado se o numero de linhas apresentadas for 0 vai apenas apresentar 9não há registros) caso ao contrário no echo cria a tabela com três colunas  com alterações ID e nome"
 if (myql_num_rows ($resultadodaconsulta)==0){
     echo"não há registros";
 }else{
@@ -65,11 +67,21 @@ if (myql_num_rows ($resultadodaconsulta)==0){
         $camponome=$linhadaconsulta["nome"];
         echo "<tr>";
         echo "<td><a href='cad_tipodereceita.php?campoID=$campoID&camponome=camponome'><alterar</a> - ".
-        "<a href='excluircliente.php?campoID=$campoID'>excluir</a>".
+        "<a href='excluirtipodereceita.php?campoID=$campoID'>excluir</a>".
         "</td>";
-
+        echo"<td>$campoID</td>";
+        echo"<td>$camponome</td>";
+        echo"</tr>";
     }
+    echo"</table>";
+
 }
+
+echo "<br></br>";
+echo "clique <a href='cad_tipodereceita.php> aqui</a> para NOVO tipo de receita.<br></br>";
+
+?>
+
 
 
 
