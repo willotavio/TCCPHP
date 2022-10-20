@@ -32,3 +32,44 @@ if ($campoordemdaconsulta=='nome') {
     echo "<option value='nome'>nome</option>";
         
 }
+
+echo "</select>";
+echo "<input type='submit' name='botaoordemconsulta' value=atualizar>";
+echo "</form>";
+
+# define qual view será ultilizado na consulta 
+$ComandoSelect='';
+#se o comando ordem da consulta for igual a ID vai ser ultilizada a view criada ID "view_tipodereceitaID"
+if ($campoordemdaconsulta=='ID'){
+    $ComandoSelect="Select * From view_tipodereceita_nome;";
+}
+#se o campoordemdaconsulta for nome a variavel comandoSelect ela armazena a view_tipodereceitanome
+if ($campoordemdaconsulta=='nome'){
+    $ComandoSelect="Select * From view_tipodereceita_nome;";
+# após esse pacote de comandos ser executado a variavel comandoSelect ela vai armazenar uma das duas opções "ou a consulta sendo ordenada pelo ID ou a consulta sendo ordenada pelo nome" 
+}
+
+#conectar banco de dados 
+include "conectar_bancodedados.php";
+
+#executar a consulta 
+$resultadodaconsulta = myql_query ($ComandoSelect ) or print (myql_error());
+
+#vereficar o número de linhas (registros) apresentado na consulta 
+if (myql_num_rows ($resultadodaconsulta)==0){
+    echo"não há registros";
+}else{
+    echo "<tabela border='1'><tr><td>operações</td><td>ID</td><td>nome</td></tr>";
+    while  ($linhadaconsulta = mysql_fetch_array($resultadodaconsulta)){
+        $campoID=$linhadaconsulta["ID"];
+        $camponome=$linhadaconsulta["nome"];
+        echo "<tr>";
+        echo "<td><a href='cad_tipodereceita.php?campoID=$campoID&camponome=camponome'><alterar</a> - ".
+        "<a href='excluircliente.php?campoID=$campoID'>excluir</a>".
+        "</td>";
+
+    }
+}
+
+
+
