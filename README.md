@@ -9,21 +9,21 @@
 
 # Sobre
 <p>
-    Através de diversas pesquisas realizadas a fins de encontrar um tema para nosso TCC, acabamos dando de cara com o problema da Ong
-    Alem Brasil que atualmente vem passando por alguns problemas relacionados a sua gestão e com isso analizamos a situação e decidimos abraçar a ideia.
+    Através de diversas pesquisas realizadas a fim de encontrar um tema para nosso TCC, acabamos dando de cara com o problema da Ong
+    Alem Brasil que atualmente vem passando por alguns problemas relacionados a sua gestão. Com isso, analizamos a situação e decidimos abraçar a ideia.
 </p>
 
 ### Implementações
 
-- [x] Sistema de Login e Cadastro
-- [x] Cruds das Famílias e Cestas
-- [x] Sistema de Tipo de usúario
-- [x] Sistema de gerenciamento de Perfil
-- [x] API de CEP
-- [x] Geração de Relatórios
-- [ ] Área Financeira
-- [ ] Sistema de busca de Informações referentes aos Cruds
-- [ ] Responsividade
+- [x] Sistema de login e cadastro;
+- [x] Cruds das famílias e cestas;
+- [x] Sistema de tipos de usuários;
+- [x] Sistema de gerenciamento de perfil;
+- [x] API de CEP;
+- [x] Geração de relatórios;
+- [ ] Área financeira;
+- [ ] Sistema de busca de informações referentes aos cruds;
+- [ ] Responsividade.
 
 ### Linguagens | Bibliotecas 
 As seguintes ferramentas foram usadas na construção do projeto:
@@ -55,5 +55,3 @@ As seguintes ferramentas foram usadas na construção do projeto:
 <a href="https://github.com/pedrohrqphp">
   <img src="https://avatars.githubusercontent.com/u/90291886?v=4" width="80">
 </a>
-
-    
