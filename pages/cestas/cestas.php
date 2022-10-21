@@ -100,6 +100,7 @@ if ($result->rowCount() > 0) {
 
 <body style="background-color:whitesmoke">
 
+
     <div class="container-fluid">
         <div class="row" style="margin-bottom:15px">
             <div class="col m-auto" style="text-align:center">
@@ -200,8 +201,8 @@ if ($result->rowCount() > 0) {
                     <h5 style="text-align:center; margin-top:20px">Área de Gerenciamento das Cestas</h5>
                 </div>
                 <div class="container">
-                    <div class="row">
-                        <div class="col-sm-4">
+                    <div class="row cardSquareCestas">
+                        <div class="col-md-4">
                             <div class="card cardSquare">
                                 <a data-bs-toggle="modal" data-bs-target="#exampleModal" style="text-decoration: none;">
                                     <img class="card-img-top" src="../../imgs/iconesCestas/cestaCadastrada.png">
@@ -216,7 +217,7 @@ if ($result->rowCount() > 0) {
                                 </a>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-md-4">
                             <div class="card cardSquare">
                                 <a data-bs-toggle="modal" data-bs-target="#exampleModal1"
                                     style="text-decoration: none;">
@@ -231,7 +232,7 @@ if ($result->rowCount() > 0) {
                                 </a>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-md-4">
                             <div class="card cardSquare">
                                 <a href="relatorioCestas.php" style="text-decoration: none; color:black">
                                     <img class="card-img-top" src="../../imgs/iconesCestas/documento.png">

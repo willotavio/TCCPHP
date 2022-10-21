@@ -337,3 +337,13 @@ header {
 }
 
 /* responsavel */
+
+/* MediaQuerry */
+@media (max-width: 1050px) {
+	.cardSquareCestas .cardSquare {
+		width: 14rem;
+	}
+}
+
+
+/* MediaQuery */
