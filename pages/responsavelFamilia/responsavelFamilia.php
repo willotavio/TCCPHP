@@ -51,7 +51,6 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse navBarLinks" id="navbarSupportedContent">
-
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link " href="../responsavelFamilia/responsavelFamilia.php">Famílias</a>
@@ -153,56 +152,6 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                                         <div class="form-floating mb-3 mt-3">
                                             <input class="form-control inputCepCadastro inputGeral" type="text"
                                                 id="cepCadastro" name="cep" placeholder="CEP" required>
-                                            <script>
-                                            $(".inputCepCadastro").blur(function() {
-                                                var cepCapturado = $("#cepCadastro").val();
-                                                if (cepCapturado != '') {
-                                                    var validarCep = cepCapturado.length;
-                                                    if (validarCep == 8) {
-                                                        var url = "https://viacep.com.br/ws/" +
-                                                            cepCapturado + "/json";
-                                                        $.ajax({
-                                                            url: url,
-                                                            dataType: 'json',
-                                                            type: 'GET',
-                                                            success: function(dados) {
-                                                                if (!("erro" in dados)) {
-                                                                    console.log(dados);
-                                                                    $("#ruaCadastro").val(dados
-                                                                        .logradouro);
-                                                                    $("#bairroCadastro").val(dados
-                                                                        .bairro);
-                                                                    $("#cidadeCadastro").val(dados
-                                                                        .localidade);
-                                                                    $("#estadoCadastro").val(dados
-                                                                        .uf);
-                                                                } else {
-                                                                    alert("CEP Não Encontrado");
-                                                                    $("#ruaCadastro").val("");
-                                                                    $("#bairroCadastro").val("");
-                                                                    $("#cidadeCadastro").val("");
-                                                                    $("#estadoCadastro").val("");
-                                                                }
-                                                            }
-                                                        });
-                                                    } else {
-                                                        alert("Insira o CEP Correto");
-                                                        $("#cepCadastro").val("");
-                                                        $("#ruaCadastro").val("");
-                                                        $("#bairroCadastro").val("");
-                                                        $("#cidadeCadastro").val("");
-                                                        $("#estadoCadastro").val("");
-                                                    }
-                                                } else {
-                                                    alert("Insira o CEP");
-                                                    $("#cepCadastro").val("");
-                                                    $("#ruaCadastro").val("");
-                                                    $("#bairroCadastro").val("");
-                                                    $("#cidadeCadastro").val("");
-                                                    $("#estadoCadastro").val("");
-                                                }
-                                            });
-                                            </script>
                                             <label class="labelCadastro">CEP</label>
                                         </div>
                                         <div class="form-floating mb-3 mt-3">
@@ -363,43 +312,12 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                     <span id="consultarResponsavel"></span>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal"
-                        id="closeView">Fechar</button>
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="container modalHeaderColorCenter">
-                        <h5 class="modal-title" id="exampleModalLabel1">Apagar Responsável</h5>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <div class="container-fluid">
-                        <form action='../../crud/responsavelFamilia/deleteResponsavelFamilia.php' method='GET'
-                            autocomplete='off'>
-                            <div class='form-floating mb-3 mt-3'>
-                                <input class='form-control inputGeral' type='number' name='idResponsavel'
-                                    placeholder='Id' id="idResponsavel" readonly>
-                                <label class='labelCadastro'>ID</label>
-                            </div>
-                            <p>Realmente deseja excluir esse Responsavel?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal"
-                            id="closeDelete">Fechar</button>
-                        <input type='submit' class='btn btn-outline-success' name='delete' value='Deletar'>
-                    </div>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
 
     <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -418,83 +336,40 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
         </div>
     </div>
 
-
-
-    <script>
-    $(document).ready(function() {
-
-        $(document).on("click", ".view", function() {
-            var id = $(this).val();
-            if (id != '') {
-                var dados = {
-                    id: id
-                }
-                $.ajax({
-                    type: "POST",
-                    url: "consultaResponsavelFamilia.php",
-                    data: dados,
-                    success: function(resultado) {
-                        $("#consultarResponsavel").html(resultado);
-                        $('#consultar').modal('show');
-                    }
-                });
-            } else {
-                alert("ERRO ID VAZIO");
-            }
-        });
-
-        $(document).on("click", ".edit", function() {
-            var id = $(this).val();
-            if (id != '') {
-                var dados = {
-                    id: id
-                }
-                $.ajax({
-                    type: "POST",
-                    url: "editResponsavelFamilia.php",
-                    data: dados,
-                    success: function(resultado) {
-                        $("#editarResponsavel").html(resultado);
-                        $('#edit').modal('show');
-                    }
-                });
-            } else {
-                alert("ERRO ID VAZIO");
-            }
-        });
-
-        $(document).ready(function() {
-            $(document).on("click", ".delete", function() {
-                var id = $(this).val();
-                $("#delete").modal("show");
-                $("#idResponsavel").val(id);
-            });
-        });
-
-        $(document).ready(function() {
-            $("#closeDelete").click(function() {
-                $("#delete").modal('hide');
-            });
-            $("#closeView").click(function() {
-                $("#consultar").modal('hide');
-            });
-            $("#closeEdit").click(function() {
-                $("#edit").modal('hide');
-            });
-        });
-
-        $(document).ready(function() {
-            $(document).on("click", ".delete", function() {
-                var id = $(this).val();
-                $("#delete").modal("show");
-                $("#cod").val(id);
-            });
-        });
-    });
-    </script>
+    <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="container modalHeaderColorCenter">
+                        <h5 class="modal-title" id="exampleModalLabel1">Apagar Responsável</h5>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form action='../../crud/responsavelFamilia/deleteResponsavelFamilia.php' method='GET'
+                            autocomplete='off'>
+                            <div class='form-floating mb-3 mt-3'>
+                                <input class='form-control inputGeral' type='number' name='idResponsavel'
+                                    placeholder='Id' id="idResponsavel" readonly>
+                                <label class='labelCadastro'>ID</label>
+                            </div>
+                            <p>Realmente deseja excluir esse Responsavel?</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+                    <input type='submit' class='btn btn-outline-success' name='delete' value='Deletar'>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    <script src="../../Js/apiCep/cadastroCep.js"></script>
+    <script src="../../Js/responsavel/modalsResponsavel.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
+
 </body>
 
 </html>

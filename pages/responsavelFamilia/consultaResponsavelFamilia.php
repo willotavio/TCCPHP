@@ -80,35 +80,6 @@ include_once '../../connection/conexao.php';
         <input class="form-control inputCadastro" type="text" id="cepConsulta" name="cepConsulta" placeholder="CEP"
             required value=<?php echo $cep?> readonly>
         <label class="labelCadastro">CEP</label>
-        <script>
-        $(document).ready(function() {
-            var cepCapturado = $("#cepConsulta").val();
-            var url = "https://viacep.com.br/ws/" +
-                cepCapturado + "/json";
-            $.ajax({
-                url: url,
-                dataType: 'json',
-                type: 'GET',
-                success: function(dados) {
-                    if (!("erro" in dados)) {
-                        console.log(dados);
-                        $("#ruaConsulta").val(dados
-                            .logradouro);
-                        $("#bairroConsulta").val(dados.bairro);
-                        $("#cidadeConsulta").val(dados
-                            .localidade);
-                        $("#estadoConsulta").val(dados.uf);
-                    } else {
-                        alert("CEP Não Encontrado");
-                        $("#ruaConsulta").val("");
-                        $("#bairroConsulta").val("");
-                        $("#cidadeConsulta").val("");
-                        $("#estadoConsulta").val("");
-                    }
-                }
-            });
-        });
-        </script>
     </div>
     <div class="form-floating mb-3 mt-3">
         <input class="form-control inputCadastro" type="text" id="ruaConsulta" name="ruaConsulta" placeholder="Rua"
@@ -145,5 +116,5 @@ include_once '../../connection/conexao.php';
             value=<?php echo $dataAtenR?> readonly>
         <label class="labelCadastro">Data atendimento</label>
     </div>
-
 </div>
+<script src="../../Js/apiCep/consultaCep.js"></script>

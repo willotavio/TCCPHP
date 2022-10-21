@@ -51,7 +51,7 @@
                 tabindex="0">
                 <div class="container m-auto mt-2" id="containerFormIndex">
                     <div class="row justify-content-start">
-                        <div class="col-6" style="background-color:white; padding:20px">
+                        <div class="col-6 colunaFormularioIndex">
                             <form method="POST" action="" onSubmit="efetuarLogin();" id="formLogar">
                                 <h2 class="h2Index">
                                     LOGIN</h2>
@@ -68,9 +68,11 @@
                                     <label>Senha</label>
                                     <span class="input-group-text" id="spanExibirSenha">
                                         <i onclick="eyeClick()" id="exibirSenha">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                                                 <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
-                                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                                                <path
+                                                    d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
                                             </svg>
                                         </i>
                                     </span>
@@ -93,7 +95,7 @@
                 tabindex="0">
                 <div class="container m-auto mt-2" id="containerFormRecuperarSenha">
                     <div class="row justify-content-start">
-                        <div class="col-6" style="background-color:white; padding:20px">
+                        <div class="col-6 colunaFormularioIndex">
                             <form method="POST" onSubmit="recuperarSenha();" autocomplete="off">
                                 <h2 class="h2Index">
                                     ESQUECI MINHA SENHA</h2>
@@ -110,7 +112,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.6.1.js"
@@ -118,44 +119,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
         </script>
-          <script>
-        function efetuarLogin() {
-            event.preventDefault();
-            var nomeUsuario = $("#nomeUsuario").val();
-            var senhaUsuario = $("#senhaUsuario").val();
-            if (senhaUsuario != "" && nomeUsuario != "") {
-                $.ajax({
-                    type: "POST",
-                    url: "crud/login/logar.php",
-                    data: $("#formLogar").serialize(),
-                    success: function(resultado) {
-                        if (resultado == 0) {
-                            alert("Senha ou Usuário Incorretos");
-                            $("#senhaUsuario").val("");
-                        } else if (resultado == 1) {
-                            window.location.href = "pages/home.php";
-                        } else {
-                            alert("ERRO 'INICIAL' TENTE NOVAMENTE OU PEÇA AJUDA DOS ADMINISTRADORES");
-                            $("#senhaUsuario").val("");
-                            $("#nomeUsuario").val("");
-                        }
-                    }
-                });
-            } else {
-                alert("ERRO 'SENHA/USUARIO' TENTE NOVAMENTE OU PEÇA AJUDA DOS ADMINISTRADORES");
-                $("#senhaUsuario").val("");
-                $("#nomeUsuario").val("");
-            }
-        }
-
-        function recuperarSenha() {
-            var email = $("#emailRecuperacao").val();
-            alert("Foi enviado pra o Email: " + email +
-                " um código para efetuar a recuperação da senha de sua conta");
-        }
-        </script>
-
-    <script src="Js/exibirSenha.js"></script>
+        <script src="Js/login/efetuarLogin.js"></script>
+        <script src="Js/login/exibirSenha.js"></script>
+        <script src="Js/login/recuperarSenha.js"></script>
 </body>
 
 </html>

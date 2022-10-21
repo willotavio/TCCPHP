@@ -270,8 +270,7 @@
                             <p>Realmente deseja excluir esse Funcionário?</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal"
-                            id="closeDelete">Fechar</button>
+                        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
                         <p style='text-align:center'><input type='submit' class='btn btn-outline-success' name='update'
                                 value='Deletar'>
                     </div>
@@ -298,26 +297,7 @@
         </div>
     </div>
 
-    <script>
-    $(document).ready(function() {
-        $(document).on("click", ".deleteFuncionario", function() {
-            var id = $(this).val();
-
-            $("#deleteFuncionario").modal("show");
-            $("#idFuncionario").val(id);
-        });
-        $(document).on("click", ".editFuncionario", function() {
-            var id = $(this).val();
-
-            $("#editFuncionario").modal("show");
-            $("#idFuncionario").val(id);
-        });
-        $("#closeDelete").click(function() {
-            $("#deleteFuncionario").modal('hide');
-        });
-    });
-    </script>
-
+    <script src="../../Js/funcionario/deletarFuncionario.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>

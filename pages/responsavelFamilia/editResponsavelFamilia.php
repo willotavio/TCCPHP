@@ -102,81 +102,6 @@ $id = filter_input(INPUT_POST, 'id');
                 <input class="form-control inputCepEdit inputGeral" type="text" name="cep" placeholder="CEP" required
                     value=<?php echo $cep?> id="cepEdit">
                 <label class="labelCadastro">CEP</label>
-                <script>
-                $(document).ready(function() {
-                    var cepCapturado = $("#cepEdit").val();
-                    var url = "https://viacep.com.br/ws/" +
-                        cepCapturado + "/json";
-                    $.ajax({
-                        url: url,
-                        dataType: 'json',
-                        type: 'GET',
-                        success: function(dados) {
-                            if (!("erro" in dados)) {
-                                console.log(dados);
-                                $("#ruaEdit").val(dados
-                                    .logradouro);
-                                $("#bairroEdit").val(dados.bairro);
-                                $("#cidadeEdit").val(dados
-                                    .localidade);
-                                $("#estadoEdit").val(dados.uf);
-                            } else {
-                                alert("CEP Não Encontrado");
-                                $("#ruaEdit").val("");
-                                $("#bairroEdit").val("");
-                                $("#cidadeEdit").val("");
-                                $("#estadoEdit").val("");
-                            }
-                        }
-                    });
-                });
-                $(".inputCepEdit").blur(function() {
-                    var cepCapturado = $("#cepEdit").val();
-                    if (cepCapturado != '') {
-                        var validarCep = cepCapturado.length;
-                        if (validarCep == 8) {
-                            var url = "https://viacep.com.br/ws/" +
-                                cepCapturado + "/json";
-                            $.ajax({
-                                url: url,
-                                dataType: 'json',
-                                type: 'GET',
-                                success: function(dados) {
-                                    if (!("erro" in dados)) {
-                                        console.log(dados);
-                                        $("#ruaEdit").val(dados
-                                            .logradouro);
-                                        $("#bairroEdit").val(dados.bairro);
-                                        $("#cidadeEdit").val(dados
-                                            .localidade);
-                                        $("#estadoEdit").val(dados.uf);
-                                    } else {
-                                        alert("CEP Não Encontrado");
-                                        $("#ruaEdit").val("");
-                                        $("#bairroEdit").val("");
-                                        $("#cidadeEdit").val("");
-                                        $("#estadoEdit").val("");
-                                    }
-                                }
-                            });
-                        } else {
-                            alert("Insira o CEP Correto");
-                            $("#cepEdit").val("");
-                            $("#ruaEdit").val("");
-                            $("#bairroEdit").val("");
-                            $("#cidadeEdit").val("");
-                            $("#estadoEdit").val("");
-                        }
-                    } else {
-                        alert("Insira o CEP");
-                        $("#cepEdit").val("");
-                        $("#ruaEdit").val("");
-                        $("#bairroEdit").val("");
-                        $("#cidadeEdit").val("");
-                        $("#estadoEdit").val("");
-                    }
-                });
-                </script>
             </div>
             <div class="form-floating mb-3 mt-3">
                 <input class="form-control inputGeral" type="text" id="ruaEdit" name="ruaEdit" placeholder="Rua"
@@ -220,3 +145,4 @@ $id = filter_input(INPUT_POST, 'id');
             </div>
     </form>
 </div>
+<script src="../../Js/apiCep/editCep.js"></script>

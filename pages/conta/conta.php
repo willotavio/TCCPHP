@@ -43,18 +43,6 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
     </style>
 </head>
 
-<script>
-$(document).ready(function() {
-    $(".abrirModalFoto").click(function() {
-        $("#modalfoto").modal('show');
-    });
-    $(".fecharModalFoto").click(function() {
-        $("#modalfoto").modal('hide');
-    });
-
-});
-</script>
-
 <header>
     <nav class="navbar navbar-expand-lg headerNavBar">
         <div class="container-fluid">
@@ -130,8 +118,7 @@ $(document).ready(function() {
                     <button type="submit" class="btn btn-outline-danger" name='botao' value='Deletar'>Remover
                         Foto</button>
                     </form>
-                    <button type="button" class="btn btn-outline-secondary fecharModalFoto"
-                        data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
                 </div>
             </div>
         </div>
@@ -145,7 +132,7 @@ $(document).ready(function() {
                 <div class="container" style="width: 30rem;">
                     <div class="card">
                         <?php echo '<img  class="card-img-top" src="data:../../imgs/conta;base64,' . base64_encode($imagemUsuario) . '" style="padding:10px; border-radius:50%">' ?>
-                        <a class="abrirModalFoto" style="text-decoration:none;">
+                        <a style="text-decoration:none;" data-bs-toggle="modal" data-bs-target="#modalfoto">
                             <div class="card-body">
                                 <svg xmlns="http://www.w3.org/2000/svg" id="iconAccount" width="50" height="50"
                                     fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
