@@ -153,7 +153,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
 
         <div class="row">
             <div class="col">
-                <div id="columnchart_values" style="width: 700px; height: 350px;"></div>
+                <div id="columnchart_values" style="width: 55%; height: 20%;"></div>
             </div>
 
             <div class="col">

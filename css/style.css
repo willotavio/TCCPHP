@@ -33,6 +33,12 @@ body {
 	color: var(--corPrincipal);
 }
 
+.buttonCadastro{
+	font-size: 1.2em; 
+	width: 200px; 
+	margin-bottom: 50px;
+}
+
 /* Index */
 #bodyIndex {
 	background-image: url("imgs/indexBackground.jpg");
@@ -156,14 +162,10 @@ body {
 
 /* Home */
 .card-text {
-	color: var(--corPrincipal);
+	color: black;
 }
 .imagemCard {
 	width: 30%;
-}
-
-.cardSquare {
-	width: 18rem;
 }
 
 .containerTextoUsuario {
@@ -294,7 +296,7 @@ footer {
 /* header */
 
 header {
-	margin-bottom: 7%;
+	margin-bottom: 150px;
 }
 
 .navBarLinks a {
@@ -347,3 +349,14 @@ header {
 
 
 /* MediaQuery */
+
+/* funcionario */
+.funcionarioTable{
+	color: var(--corPrincipal);
+}
+.funcionarioTable th {
+	text-align: center;
+	width: 16.6%;
+}
+
+/* funcionario */

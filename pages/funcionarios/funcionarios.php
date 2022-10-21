@@ -100,14 +100,14 @@
 </header>
 
 
-<body style="background-color:whitesmoke">
+<body>
 
     <div class="container-fluid">
-        <div class="row" style="margin-bottom:15px">
-            <div class="col m-auto" style="text-align:center">
+        <div class="row">
+            <div class="col m-auto">
 
-                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal" style="font-size: 1.2em; width: 200px; margin-top:50px">Cadastrar
+                <button type="button" class="btn btn-outline-success buttonCadastro" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">Cadastrar
                     <br> Funcionários</button>
 
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -115,8 +115,8 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <div class="container" style="text-align:center">
-                                    <h5 class="modal-title" style="color: green;">Cadastrar uma Conta para Funcionário
+                                <div class="container modalHeaderColorCenter">
+                                    <h5 class="modal-title">Cadastrar uma Conta para Funcionário
                                     </h5>
                                 </div>
                             </div>
@@ -148,20 +148,18 @@
                                             uma Foto de Perfil</label>
                                         <input type="file" class="form-control" name="foto" id="arquivo">
                                     </div>
-                                    <div style="margin-bottom:15px">
-                                        <select class="form-select labelCadastro" name="tipo">
+                                        <select class="form-select inputGeral" name="tipo">
                                             <option value="F" name="tipo" class="labelCadastro">
                                                 Funcionário</option>
                                             <option value="A" name="tipo" class="labelCadastro">
                                                 Administrador</option>
                                         </select>
-                                    </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-outline-danger btn-lg btn-block"
-                                            style="font-size:16px"
-                                            onclick="window.location.href='funcionarios.php'">Voltar</button>
-                                        <button type="submit" class="btn btn-outline-success btn-lg btn-block"
-                                            style="font-size:16px" value="cadastrar" name="botao">Cadastrar</button>
+                                        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
+                                            Fechar
+                                        </button>
+                                        <button type="submit" class="btn btn-outline-success"
+                                         value="cadastrar" name="botao">Cadastrar</button>
                                 </form>
                             </div>
                         </div>
@@ -177,13 +175,13 @@
         <div class="overflow-auto">
             <div class="column">
                 <div class="m-2 ">
-                    <table class="table" style="color:green">
+                    <table class="table funcionarioTable">
                         <thead>
-                            <th scope="col" style='text-align:center; width: 20%'>#</th>
-                            <th scope="col" style='text-align:center; width: 20%'>Nome</th>
-                            <th scope="col" style='text-align:center; width: 20%'>Tipo</th>
-                            <th scope="col" style='text-align:center; width: 20%'>Email</th>
-                            <th scope="col" style='text-align:center; width: 20%'>Ações</th>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Ações</th>
                         </thead>
                         <tbody>
                             <?php 
@@ -236,9 +234,6 @@
                                     </button>
 
                                 </td>
-                                <td>
-
-                                </td>
                             </tr>
                             <?php
                                     }
@@ -255,8 +250,8 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="container" style="text-align:center">
-                        <h5 class="modal-title" id="exampleModalLabel" style="color:green">Deletar Funcionário</h5>
+                    <div class="container modalHeaderColorCenter">
+                        <h5 class="modal-title" id="exampleModalLabel">Deletar Funcionário</h5>
                     </div>
                 </div>
                 <div class="modal-body">
@@ -271,7 +266,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
-                        <p style='text-align:center'><input type='submit' class='btn btn-outline-success' name='update'
+                        <input type='submit' class='btn btn-outline-success' name='update'
                                 value='Deletar'>
                     </div>
                 </div>
@@ -285,8 +280,8 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="container" style="text-align:center">
-                        <h5 class="modal-title" id="exampleModalLabel1" style="color:green">Editar Funcionário</h5>
+                    <div class="container modalHeaderColorCenter">
+                        <h5 class="modal-title" id="exampleModalLabel1">Editar Funcionário</h5>
                     </div>
                 </div>
                 <div class="modal-body">

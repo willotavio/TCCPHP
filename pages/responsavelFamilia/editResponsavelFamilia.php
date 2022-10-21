@@ -140,7 +140,7 @@ $id = filter_input(INPUT_POST, 'id');
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-danger" data-dismiss="modal" id="closeEdit">Fechar</button>
-                <p style='text-align:center'><input type='submit' class='btn btn-outline-success' name='update'
+                <input type='submit' class='btn btn-outline-success' name='update'
                         value='Editar'>
             </div>
     </form>

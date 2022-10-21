@@ -89,15 +89,15 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
     </nav>
 </header>
 
-<body style="background-color:whitesmoke">
+<body>
 
     <div class="container-fluid">
-        <div class="row" style="margin-bottom:15px">
-            <div class="col m-auto" style="text-align:center">
+        <div class="row">
+            <div class="col m-auto">
 
                 <div id="modalCadastro">
-                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal" style="font-size: 1.2em; width: 200px; margin-top:50px">Cadastrar
+                    <button type="button" class="btn btn-outline-success buttonCadastro" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">Cadastrar
                         <br> Responsável</button>
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
@@ -189,9 +189,8 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                                     <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
                                         Fechar
                                     </button>
-                                    <p><input type="submit" class="btn btn-outline-success" name='botao'
+                                    <input type="submit" class="btn btn-outline-success" name='botao'
                                             value='Cadastrar'>
-                                    </p>
                                     </form>
                                 </div>
                             </div>
