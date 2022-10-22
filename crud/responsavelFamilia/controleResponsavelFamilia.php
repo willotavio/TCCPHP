@@ -3,7 +3,7 @@ $nome =  filter_input(INPUT_GET,'nome');
 $dataNascimento =  filter_input(INPUT_GET,'dataNascimento');
 $numeroResidencia = filter_input(INPUT_GET,'numeroResidencia');
 $complemento =  filter_input(INPUT_GET,'complemento');
-$sexo= filter_input(INPUT_GET,'sexo');
+$sexo = filter_input(INPUT_GET,'sexo');
 $botao =  filter_input(INPUT_GET,'botao');
 $cpf =  filter_input(INPUT_GET,'cpf');
 

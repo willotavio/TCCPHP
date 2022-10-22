@@ -14,15 +14,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
     $con = $banco->getConexao();
 
     $totalResponsavel = $con->query('SELECT COUNT(*) FROM responsavel_familia')->fetchColumn();
-    $totalCestasBanco = $con->query('SELECT COUNT(*) FROM cestas')->fetchColumn(); 
-
-    $totalCestasEntradaBanco = $con->query('SELECT SUM(quantidade_cestas) FROM cestas')->fetchColumn(); 
-    $totalCestasSaidaBanco = $con->query('SELECT SUM(quantidade_saidaCestas) FROM saidaCestas')->fetchColumn();
-    if($totalCestasBanco != 0){
-        $totalCestasReal = $totalCestasEntradaBanco - $totalCestasSaidaBanco;
-    }else{
-        $totalCestasReal = 0;
-    }
+    $totalCestas = $con->query('SELECT quantidade_estoque FROM estoque where produto_estoque = "cestas"')->fetchColumn(); 
 
     $sql = "select imagem_usuario from usuario where nome_usuario = '$logado'";
     $result = $con->query($sql);
@@ -63,7 +55,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
             ["Element", "Total", {
                 role: "style"
             }],
-            ["Cestas", <?php echo $totalCestasReal?>, "green"],
+            ["Cestas", <?php echo $totalCestas?>, "green"],
             ["Famílias", <?php echo $totalResponsavel?>, "green"],
         ]);
 

@@ -1,14 +1,12 @@
 create database ong;
 use ong;
 
-
 create table contato(
     id_contato int(4) primary key not null auto_increment,
     telefone char(10),
     celular char(11),
     email varchar(90)
 );
-
 
 create table usuario(
     id_usuario int(4) primary key not null auto_increment,
@@ -18,15 +16,13 @@ create table usuario(
     email_usuario varchar(90) not null,
 	foto_usuario char(40),
     imagem_usuario blob
-
 );
-
 
 create table responsavel_familia(
 id_responsavel int(4) primary key not null auto_increment,
 cpf_responsavel int (11) not null,
 cep_responsavel char (8),
-usuario_responsavel int(4),
+cesta_responsavel int(4),
 contato_responsavel int (4),
 nome_responsavel varchar(90) not null,
 data_nascimento_responsavel date,
@@ -34,63 +30,101 @@ complemento_responsavel varchar(40),
 num_responsavel int(5),
 data_atendimento_responsavel date,
 sexo_responsavel char(1),
-foreign key(contato_responsavel) references contato(id_contato),
-foreign key (usuario_responsavel) references usuario(id_usuario)
-
+foreign key(contato_responsavel) references contato(id_contato)
 );
 
-create table cestas(
-    id_cestas int(4) primary key not null auto_increment,
-    usuario_cestas int(4),
-    quantidade_cestas int(4) not null,
-    recebimento_cestas date not null,
-    foreign key (usuario_cestas) references usuario(id_usuario)
-
+create table estoque(
+	id_estoque int(4) primary key not null auto_increment,
+    produto_estoque varchar(20) not null,
+	quantidade_estoque int(4) not null,
+    tipo_estoque varchar(20)
+);
+insert into estoque (produto_Estoque,quantidade_estoque) values
+("cestas",0);
+  
+create table entradaEstoque(
+    id_entradaEstoque int (4) primary key not null auto_increment,
+    quantidade_entradaEstoque int(4) not null,
+    data_entradaEstoque date,
+    usuario_entradaEstoque varchar(20),
+    estoque_entradaEstoque int(4),
+	foreign key (estoque_entradaEstoque) references estoque(id_estoque)
 );
 
-
-create table saidaCestas(
-    id_saidaCestas int (4) primary key not null auto_increment,
-    usuario_saidaCestas int(4),
-    responsavel_saidaCestas int(4),
-    quantidade_saidaCestas int(4) not null,
-    data_saidaCestas date,
-    foreign key(responsavel_saidaCestas) references responsavel_familia(id_responsavel),
-    foreign key (usuario_saidaCestas) references usuario(id_usuario)
+create table saidaEstoque(
+    id_saidaEstoque int (4) primary key not null auto_increment,
+    quantidade_saidaEstoque int(4) not null,
+    data_saidaEstoque date,
+    usuario_saidaEstoque varchar(40),
+    responsavel_saidaEstoque varchar(40),
+	estoque_saidaEstoque int(4),
+    foreign key (estoque_saidaEstoque) references estoque(id_estoque)
 );
 
+ /*Trilha Entrada*/
+delimiter $
+	create trigger cadastroEntrada after insert on entradaEstoque
+    for each row
+		begin 
+			update estoque set quantidade_estoque = quantidade_estoque + new.quantidade_entradaEstoque
+            where id_estoque = new.estoque_entradaEstoque;
+		end$
+delimiter ;
 
+delimiter $
+	create trigger deletarEntrada after delete on entradaEstoque
+    for each row
+		begin 
+			update estoque set quantidade_estoque = quantidade_estoque - old.quantidade_entradaEstoque
+            where id_estoque = old.estoque_entradaEstoque;
+		end$
+delimiter ;
+ /*Trilha Entrada*/
 
+/*Trilha Saida*/
+delimiter $
+	create trigger cadastroSaida after insert on saidaEstoque
+    for each row
+		begin 
+			update estoque set quantidade_estoque = quantidade_estoque - new.quantidade_saidaEstoque
+            where id_estoque = new.estoque_saidaEstoque;
+		end$
+delimiter ;
+
+delimiter $
+	create trigger deletaSaida after delete on saidaEstoque
+    for each row
+		begin 
+			update estoque set quantidade_estoque = quantidade_estoque + old.quantidade_saidaEstoque
+            where id_estoque = old.estoque_saidaEstoque;
+		end$
+delimiter ;
+/*Trilha Saida*/
+
+insert into estoque values
+(5,"cestas",10,"comum");
+insert into saidaEstoque (id_saidaEstoque,quantidade_saidaEstoque,data_saidaEstoque,usuario_saidaEstoque,responsavel_saidaEstoque,estoque_saidaEstoque )
+values
+(3,50,current_date(),1,1,2);
+delete from saidaEstoque where id_saidaEstoque = 3;
+
+insert into entradaEstoque (quantidade_entradaEstoque,data_entradaEstoque,estoque_entradaEstoque )
+values
+(280,current_date(),1);
+delete from entradaEstoque where id_entradaEstoque = 1;
 
 select * from usuario;
 select * from responsavel_familia;
 select * from contato;
 select * from endereco_postal;
-select * from cestas;
-select * from saidaCestas;
-
-
-
-update usuario set foto_usuario = '$atual', imagem_usuario = '$imagem' where id_usuario = '$id';
-
+select * from estoque;
+select * from saidaEstoque;
+select * from entradaEstoque;
 
 drop database ong;
-SELECT familia.idFamilia, familia.nome_familia,familia.data_nascimento_familia,
-familia.sexo_familia,contato.celular,contato.telefone,contato.email,familia.complemento_familia,
-familia.n_familia,familia.data_atendimento,codigoEnderecoPostal.cep,codigoEnderecoPostal.rua,
-codigoEnderecoPostal.bairro,codigoEnderecoPostal.estado,codigoEnderecoPostal.cidade	 FROM familia INNER JOIN contato ON familia.idFamilia = contato.IdContato 
-INNER JOIN codigoEnderecoPostal on familia.idFamilia = idCep where idFamilia=1;
-SELECT idCep FROM codigoEnderecoPostal WHERE idCep = LAST_INSERT_ID();
 
-create table conta(
-	id_conta int(4) primary key auto_increment not null,
-	usuario_conta int(4),
-	nome_conta varchar(40) not null,
-	valor_conta decimal (6,3) not null,
-	data_cadastro_conta date not null,
-    tipo_conta varchar(20),
-	data_pagamentos_conta date not null,
-	foreign key (usuario_conta) references usuario(id_usuario)
-);
+SELECT SUM(quantidade_entradaEstoque) FROM entradaEstoque where estoque_entradaEstoque = '1';
 
-SELECT nome_responsavel FROM responsavel_familia WHERE id_responsavel = '3';
+SELECT id_saidaEstoque, quantidade_saidaEstoque, DATE_FORMAT(data_saidaEstoque, '%d/%m/%Y') as dataSaida,  usuario_saidaEstoque 
+                                FROM saidaEstoque;
+

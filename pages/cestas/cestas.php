@@ -9,24 +9,20 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
     include_once('../../connection/conexao.php');
     $banco = new conexao();
     $con = $banco->getConexao();
-    $totalCestasBanco = $con->query('SELECT COUNT(*) FROM cestas')->fetchColumn();
-    $totalCestasEntradaBanco = $con->query('SELECT SUM(quantidade_cestas) FROM cestas')->fetchColumn();
-    $totalCestasSaidaBanco = $con->query('SELECT SUM(quantidade_saidaCestas) FROM saidaCestas')->fetchColumn();
-    if ($totalCestasBanco != 0) {
-        $totalCestasReal = $totalCestasEntradaBanco - $totalCestasSaidaBanco;
-    } else {
-        $totalCestasReal = 0;
+    $totalCestas = $con->query('SELECT quantidade_estoque FROM estoque where produto_estoque = "cestas"')->fetchColumn();
+    $totalCestasEntrada = $con->query('SELECT SUM(quantidade_entradaEstoque) FROM entradaEstoque where estoque_entradaEstoque = 1')->fetchColumn();
+    $totalCestasSaida = $con->query('SELECT SUM(quantidade_saidaEstoque) FROM saidaEstoque where estoque_saidaEstoque = 1')->fetchColumn();
+
+    $sql = "select imagem_usuario from usuario where nome_usuario = '$logado'";
+    $result = $con->query($sql);
+    if ($result->rowCount() > 0) {
+
+        while ($row = $result->fetch()) {
+            $imagemUsuario = $row['imagem_usuario'];
+        }
     }
 }
 
-$sql = "select imagem_usuario from usuario where nome_usuario = '$logado'";
-$result = $con->query($sql);
-if ($result->rowCount() > 0) {
-
-    while ($row = $result->fetch()) {
-        $imagemUsuario = $row['imagem_usuario'];
-    }
-}
 
 ?>
 
@@ -194,7 +190,7 @@ if ($result->rowCount() > 0) {
             <div class="row">
                 <div class="container">
                     <?php
-                echo " <h4>Total de Cestas Disponíveis: $totalCestasReal</h4>";
+                echo " <h4>Total de Cestas Disponíveis: $totalCestas</h4>";
                 ?>
                 </div>
                 <div class="container">
@@ -210,7 +206,7 @@ if ($result->rowCount() > 0) {
                                     <div class="card-body cardBodyBlack">
                                         <h5 class="card-title">Cestas Cadastradas</h5>
                                         <?php
-                                        echo "<p class='card-text'>Total de Cestas Cadastradas: $totalCestasEntradaBanco</p>";
+                                        echo "<p class='card-text'>Total de Cestas Cadastradas: $totalCestasEntrada</p>";
                                         ?>
 
                                     </div>
@@ -225,7 +221,7 @@ if ($result->rowCount() > 0) {
                                     <div class="card-body cardBodyBlack">
                                         <h5 class="card-title">Cestas Doadas</h5>
                                         <?php
-                                        echo "<p class='card-text'>Total de Cestas Doadas: $totalCestasSaidaBanco</p>";
+                                        echo "<p class='card-text'>Total de Cestas Doadas: $totalCestasSaida</p>";
                                         ?>
                                     </div>
                                 </a>

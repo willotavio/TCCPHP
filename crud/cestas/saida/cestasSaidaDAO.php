@@ -3,7 +3,7 @@
 include '../../../connection/conexao.php';
 
 class cestasSaidaDao{
-        private  $quantidade, $dataSaida, $usuario;
+        private  $quantidade, $dataSaida, $usuario, $codigoProduto;
         
         public function getDataSaida(){
             return $this->dataSaida;
@@ -26,9 +26,15 @@ class cestasSaidaDao{
             $this->usuario = $usuario;
         }
         
+        public function getCodigoProduto(){
+            return $this->codigoProduto;
+        }
+        public function setCodigoProduto($codigoProduto){
+            $this->codigoProduto = $codigoProduto;
+        }
 
     public function cadastrarSaidaCesta(){
-        $sql = 'insert into saidaCestas (quantidade_saidaCestas, data_saidaCestas, usuario_saidaCestas ) values (?,?,?)';
+        $sql = 'insert into saidaEstoque (quantidade_saidaEstoque, data_saidaEstoque, usuario_saidaEstoque, estoque_saidaEstoque ) values (?,?,?,?)';
         
         $banco = new conexao();
         $con = $banco->getConexao();
@@ -36,6 +42,8 @@ class cestasSaidaDao{
         $resultado->bindValue(1, $this->quantidade);
         $resultado->bindValue(2, $this->dataSaida);
         $resultado->bindValue(3, $this->usuario);
+        $resultado->bindValue(4, $this->codigoProduto);
+        
         
         
         $final = $resultado->execute();

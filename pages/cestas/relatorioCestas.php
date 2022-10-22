@@ -100,9 +100,12 @@
         <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
             onclick="window.location.href='pdfCestas/pdfCestas.php';"
             style="font-size: 1.2em; width: 200px; margin-bottom: 10px">Gerar Relatório
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
-                <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
-                <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+                <path
+                    d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+                <path
+                    d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
             </svg>
         </button>
         <h4 style="color:green; text-align:center">Entrada de Cestas</h4>
@@ -119,8 +122,8 @@
                             <?php 
                                 
                                 include_once ("../../connection/conexao.php");
-                                $sql= "SELECT cestas.id_cestas, cestas.quantidade_cestas, cestas.recebimento_cestas, usuario.nome_usuario 
-                                FROM cestas INNER JOIN usuario on cestas.usuario_cestas = usuario.id_usuario";
+                                $sql= "SELECT id_entradaEstoque,quantidade_entradaEstoque, DATE_FORMAT(data_entradaEstoque, '%d/%m/%Y') as dataEntrada, usuario_entradaEstoque 
+                                FROM entradaEstoque";
                                 $banco = new conexao();
                                 $con = $banco->getConexao();
                                 $result = $con->query($sql);
@@ -128,13 +131,13 @@
                                     ?>
                             <tr>
                                 <td><span
-                                        id="quantidade<?php echo $row['id_cestas']; ?>"><?php echo $row['quantidade_cestas']; ?></span>
+                                        id="quantidade<?php echo $row['id_entradaEstoque']; ?>"><?php echo $row['quantidade_entradaEstoque']; ?></span>
                                 </td>
                                 <td><span
-                                        id="recebimento<?php echo $row['id_cestas']; ?>"><?php echo $row['recebimento_cestas']; ?></span>
+                                        id="recebimento<?php echo $row['id_entradaEstoque']; ?>"><?php echo $row['dataEntrada']; ?></span>
                                 </td>
                                 <td><span
-                                        id="recebimento<?php echo $row['id_cestas']; ?>"><?php echo $row['nome_usuario']; ?></span>
+                                        id="recebimento<?php echo $row['id_entradaEstoque']; ?>"><?php echo $row['usuario_entradaEstoque']; ?></span>
                                 </td>
 
                             </tr>
@@ -162,8 +165,8 @@
                             <?php 
                                 
                                 include_once ("../../connection/conexao.php");
-                                $sql= "SELECT saidaCestas.id_saidaCestas, saidaCestas.quantidade_saidaCestas, saidaCestas.data_saidaCestas, usuario.nome_usuario 
-                                FROM saidaCestas INNER JOIN usuario on saidaCestas.usuario_saidaCestas = usuario.id_usuario";
+                                $sql= "SELECT id_saidaEstoque, quantidade_saidaEstoque, DATE_FORMAT(data_saidaEstoque, '%d/%m/%Y') as dataSaida, usuario_saidaEstoque 
+                                FROM saidaEstoque";
                                 $banco = new conexao();
                                 $con = $banco->getConexao();
                                 $result = $con->query($sql);
@@ -171,13 +174,13 @@
                                     ?>
                             <tr>
                                 <td><span
-                                        id="quantidade<?php echo $row['id_saidaCestas']; ?>"><?php echo $row['quantidade_saidaCestas']; ?></span>
+                                        id="quantidade<?php echo $row['id_saidaEstoque']; ?>"><?php echo $row['quantidade_saidaEstoque']; ?></span>
                                 </td>
                                 <td><span
-                                        id="recebimento<?php echo $row['id_saidaCestas']; ?>"><?php echo $row['data_saidaCestas']; ?></span>
+                                        id="recebimento<?php echo $row['id_saidaEstoque']; ?>"><?php echo $row['dataSaida']; ?></span>
                                 </td>
                                 <td><span
-                                        id="recebimento<?php echo $row['id_saidaCestas']; ?>"><?php echo $row['nome_usuario']; ?></span>
+                                        id="recebimento<?php echo $row['id_saidaEstoque']; ?>"><?php echo $row['usuario_saidaEstoque']; ?></span>
                                 </td>
 
                             </tr>

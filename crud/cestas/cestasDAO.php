@@ -3,7 +3,7 @@
 include '../../connection/conexao.php';
 
 class cestasDao{
-        private  $quantidade, $recebimento, $usuario;
+        private  $quantidade, $recebimento, $usuario, $codigoProduto;
         
         public function getQuantidade(){
             return $this->quantidade;
@@ -18,22 +18,30 @@ class cestasDao{
         public function setRecebimento($recebimento){
             $this->recebimento = $recebimento;
         }
-         public function getUsuario(){
+        public function getUsuario(){
             return $this->usuario;
         }
         public function setUsuario($usuario){
             $this->usuario = $usuario;
         }
+        public function getCodigoProduto(){
+            return $this->codigoProduto;
+        }
+        public function setCodigoProduto($codigoProduto){
+            $this->codigoProduto = $codigoProduto;
+        }
         
 
     public function cadastrarCesta(){
-        $sql = 'insert into cestas (quantidade_cestas, recebimento_cestas, usuario_cestas) values (?,?,?)';
+        $sql = 'insert into entradaEstoque (quantidade_entradaEstoque, data_entradaEstoque, usuario_entradaEstoque, estoque_entradaEstoque) values (?,?,?,?)';
         $banco = new conexao();
         $con = $banco->getConexao();
         $resultado = $con->prepare($sql);
         $resultado->bindValue(1, $this->quantidade);
         $resultado->bindValue(2, $this->recebimento);
         $resultado->bindValue(3, $this->usuario);
+        $resultado->bindValue(4, $this->codigoProduto);
+        
         
         
         $final = $resultado->execute();

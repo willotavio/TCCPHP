@@ -9,10 +9,8 @@ include "../../../connection/conexao.php";
 $banco = new conexao();
 $con = $banco->getConexao();
 
-$consulta_cestas = "SELECT cestas.quantidade_cestas, 
-cestas.recebimento_cestas,cestas.usuario_cestas, 
-usuario.nome_usuario FROM cestas INNER JOIN usuario 
-ON cestas.usuario_cestas=usuario.id_usuario";
+$consulta_cestas = "SELECT id_saidaEstoque, quantidade_saidaEstoque, DATE_FORMAT(data_saidaEstoque, '%d/%m/%Y') as dataSaida,  usuario_saidaEstoque 
+FROM saidaEstoque;";
 
 
 $result_cestas = $con->prepare($consulta_cestas);
@@ -46,9 +44,9 @@ $dados .= "<table style='text-align: center;margin: auto;'>
 while ($row_cestas = $result_cestas->fetch(PDO::FETCH_ASSOC)) {
     extract($row_cestas);
     $dados .= "<tr>
-            <td> $quantidade_cestas </td>
-            <td> $recebimento_cestas </td>
-            <td> $nome_usuario </td>
+            <td> $quantidade_saidaEstoque </td>
+            <td> $dataSaida </td>
+            <td> $usuario_saidaEstoque </td>
         </tr>";
 }
 

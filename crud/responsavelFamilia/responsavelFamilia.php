@@ -21,7 +21,7 @@
             return $this->sexo;
         }
         public function setSexo($sexo){
-            $this->sexoF = $sexo;
+            $this->sexo = $sexo;
         }
 
         public function getDataNascimento(){

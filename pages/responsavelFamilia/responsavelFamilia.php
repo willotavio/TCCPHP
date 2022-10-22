@@ -189,8 +189,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                                     <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
                                         Fechar
                                     </button>
-                                    <input type="submit" class="btn btn-outline-success" name='botao'
-                                            value='Cadastrar'>
+                                    <input type="submit" class="btn btn-outline-success" name='botao' value='Cadastrar'>
                                     </form>
                                 </div>
                             </div>
@@ -221,7 +220,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
 
                         include_once("../../connection/conexao.php");
                         $sql = "SELECT responsavel_familia.id_responsavel, responsavel_familia.nome_responsavel,
-                                responsavel_familia.data_nascimento_responsavel,responsavel_familia.cpf_responsavel,
+                                DATE_FORMAT(responsavel_familia.data_nascimento_responsavel, '%d/%m/%Y') as dataNascimento,responsavel_familia.cpf_responsavel,
                                 contato.celular FROM responsavel_familia INNER JOIN contato ON responsavel_familia.id_responsavel = contato.Id_contato";
                         $banco = new conexao();
                         $con = $banco->getConexao();
@@ -241,7 +240,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                                 </td>
                                 <td>
                                     <span
-                                        id="data_nascimento<?php echo $row['id_responsavel']; ?>"><?php echo $row['data_nascimento_responsavel']; ?>
+                                        id="data_nascimento<?php echo $row['id_responsavel']; ?>"><?php echo $row['dataNascimento']; ?>
                                     </span>
                                 </td>
                                 <td>

@@ -1,24 +1,24 @@
 <?php
 session_start();
-$idUsuario = $_SESSION['idUsuario'];
+$nomeUsuario= $_SESSION['nomeUsuario'];
 $quantidade = filter_input(INPUT_GET,'quantidade');
 $dataSaida = filter_input(INPUT_GET,'dataSaida');
 $botao =  filter_input(INPUT_GET,'botao');
+$codigoProduto = 1;
 
     include_once 'cestasSaidaDAO.php';
     $banco = new conexao();
     $con = $banco->getConexao();
-    $totalCestasEntradaBanco = $con->query('SELECT SUM(quantidade_cestas) FROM cestas')->fetchColumn(); 
-    $totalCestasSaidaBanco = $con->query('SELECT SUM(quantidade_saidaCestas) FROM saidaCestas')->fetchColumn();
-    $total = $totalCestasEntradaBanco - $totalCestasSaidaBanco;
+    $totalCestas = $con->query('SELECT quantidade_estoque FROM estoque where produto_estoque = "cestas"')->fetchColumn(); 
     $cestasSaidaDao = new cestasSaidaDao();
 
     $cestasSaidaDao->setQuantidade($quantidade);
     $cestasSaidaDao->setDataSaida($dataSaida);
-    $cestasSaidaDao->setUsuario($idUsuario); 
+    $cestasSaidaDao->setUsuario($nomeUsuario); 
+    $cestasSaidaDao->setCodigoProduto($codigoProduto);
 
     if($botao=='cadastrarSaida'){
-        if($total >= $quantidade){
+        if($totalCestas >= $quantidade){
             $cestasSaidaDao ->cadastrarSaidaCesta();
         }else{
             
