@@ -58,7 +58,6 @@
                                 <div class="form-floating mb-3 mt-3  has-feedback">
                                     <input type="text" class="form-control" id="nomeUsuario" name='nomeUsuario' required
                                         placeholder="Usuario" autocomplete="username">
-                                    <i class="glyphicon glyphicon-user form-control-feedback"></i>
                                     <label>Usuario</label>
 
                                 </div>

@@ -100,35 +100,35 @@
                     <h1>R$ 0.00</h1>
                 </div>
                 <div class="container">
-                    <h5 style="text-align:center; margin-top:20px">Área Financeira</h5>
+                    <h5>Área Financeira</h5>
                 </div>
                 <div class="container">
-                    <div class="row">
-                        <div class="col-sm-4">
+                    <div class="row cardSquareFinanceiroProvisorio">
+                        <div class="col-md-4">
                             <div class="card cardSquare">
                                 <img class="card-img-top" src="../../imgs/iconesCardDash/lucro.png">
                                 <hr>
-                                <div class="card-body">
+                                <div class="card-body cardBodyBlack">
                                     <h5 class="card-title">Entradas</h5>
                                     <p class="card-text">Total R$: 140.20</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-md-4">
                             <div class="card cardSquare">
                                 <img class="card-img-top" src="../../imgs/iconesCardDash/despesa.png">
                                 <hr>
-                                <div class="card-body">
+                                <div class="card-body cardBodyBlack">
                                     <h5 class="card-title">Despesas</h5>
                                     <p class="card-text">Total R$: -240.00</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-md-4">
                             <div class="card cardSquare">
                                 <img class="card-img-top" src="../../imgs/iconesCardDash/docs.png">
                                 <hr>
-                                <div class="card-body">
+                                <div class="card-body cardBodyBlack">
                                     <h5 class="card-title">Exibir Relatórios</h5>
                                     <p class="card-text">Consulte a situação financeira</p>
                                 </div>

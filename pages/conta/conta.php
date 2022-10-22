@@ -99,7 +99,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="container" style="text-align:center">
+                    <div class="container modalHeaderColorCenter">
                         <h5 class="modal-title" id="exampleModalLongTitle">Editar
                             Foto</h5>
                     </div>
@@ -132,7 +132,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                 <div class="container" style="width: 30rem;">
                     <div class="card">
                         <?php echo '<img  class="card-img-top" src="data:../../imgs/conta;base64,' . base64_encode($imagemUsuario) . '" style="padding:10px; border-radius:50%">' ?>
-                        <a style="text-decoration:none;" data-bs-toggle="modal" data-bs-target="#modalfoto">
+                        <a data-bs-toggle="modal" data-bs-target="#modalfoto">
                             <div class="card-body">
                                 <svg xmlns="http://www.w3.org/2000/svg" id="iconAccount" width="50" height="50"
                                     fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">

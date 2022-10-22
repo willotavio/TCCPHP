@@ -98,20 +98,20 @@ if ($result->rowCount() > 0) {
     </nav>
 </header>
 
-<body style="background-color:whitesmoke">
+<body>
 
 
     <div class="container-fluid">
-        <div class="row" style="margin-bottom:15px">
-            <div class="col m-auto" style="text-align:center">
+        <div class="row">
+            <div class="col m-auto">
                 <div id="modalCadastro">
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <div class="container" style="text-align:center">
-                                        <h5 class="modal-title" style="color: green;">Entrada de Cesta</h5>
+                                    <div class="container modalHeaderColorCenter">
+                                        <h5 class="modal-title">Entrada de Cesta</h5>
                                     </div>
                                 </div>
                                 <div class="modal-body">
@@ -145,16 +145,16 @@ if ($result->rowCount() > 0) {
     </div>
 
     <div class="container-fluid">
-        <div class="row" style="margin-bottom:15px">
-            <div class="col m-auto" style="text-align:center">
+        <div class="row">
+            <div class="col m-auto">
                 <div id="modalCadastro">
                     <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <div class="container" style="text-align:center">
-                                        <h5 class="modal-title" style="color: green;">Saída de Cesta</h5>
+                                    <div class="container modalHeaderColorCenter">
+                                        <h5 class="modal-title">Saída de Cesta</h5>
                                     </div>
                                 </div>
                                 <div class="modal-body">
@@ -204,10 +204,10 @@ if ($result->rowCount() > 0) {
                     <div class="row cardSquareCestas">
                         <div class="col-md-4">
                             <div class="card cardSquare">
-                                <a data-bs-toggle="modal" data-bs-target="#exampleModal" style="text-decoration: none;">
+                                <a data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     <img class="card-img-top" src="../../imgs/iconesCestas/cestaCadastrada.png">
                                     <hr>
-                                    <div class="card-body">
+                                    <div class="card-body cardBodyBlack">
                                         <h5 class="card-title">Cestas Cadastradas</h5>
                                         <?php
                                         echo "<p class='card-text'>Total de Cestas Cadastradas: $totalCestasEntradaBanco</p>";
@@ -219,11 +219,10 @@ if ($result->rowCount() > 0) {
                         </div>
                         <div class="col-md-4">
                             <div class="card cardSquare">
-                                <a data-bs-toggle="modal" data-bs-target="#exampleModal1"
-                                    style="text-decoration: none;">
+                                <a data-bs-toggle="modal" data-bs-target="#exampleModal1">
                                     <img class="card-img-top" src="../../imgs/iconesCestas/cestaDoada.png">
                                     <hr>
-                                    <div class="card-body">
+                                    <div class="card-body cardBodyBlack">
                                         <h5 class="card-title">Cestas Doadas</h5>
                                         <?php
                                         echo "<p class='card-text'>Total de Cestas Doadas: $totalCestasSaidaBanco</p>";
@@ -234,10 +233,10 @@ if ($result->rowCount() > 0) {
                         </div>
                         <div class="col-md-4">
                             <div class="card cardSquare">
-                                <a href="relatorioCestas.php" style="text-decoration: none; color:black">
+                                <a href="relatorioCestas.php">
                                     <img class="card-img-top" src="../../imgs/iconesCestas/documento.png">
                                     <hr>
-                                    <div class="card-body">
+                                    <div class="card-body cardBodyBlack">
                                         <h5 class="card-title">Exibir Relatórios</h5>
                                         <p class="card-text">Consulte a situação das Cestas</p>
                                     </div>

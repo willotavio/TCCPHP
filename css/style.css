@@ -33,11 +33,124 @@ body {
 	color: var(--corPrincipal);
 }
 
-.buttonCadastro{
-	font-size: 1.2em; 
-	width: 200px; 
+.buttonCadastro {
+	font-size: 1.2em;
+	width: 200px;
 	margin-bottom: 50px;
 }
+
+.cardBodyBlack {
+	color: black;
+}
+
+/* header */
+header {
+	margin-bottom: 100px;
+}
+.navBarLinks a {
+	color: var(--corPrincipal);
+}
+.navBarLinks a:hover {
+	color: yellowgreen;
+	border-style: none none solid none;
+	border-color: yellowgreen;
+	border-width: 1px;
+}
+.headerNavBar {
+	background-color: white;
+	position: fixed;
+	z-index: 1000;
+	width: 100%;
+}
+.dropDownMenu a:hover {
+	border: none;
+	background-color: white;
+}
+.dropDownMenu {
+	list-style: none;
+}
+
+/* header */
+
+/* footer */
+footer {
+	position: absolute;
+	margin: auto;
+	text-align: center;
+	background-color: white;
+	padding-top: 10px;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+@media (max-width: 1200px) {
+	footer {
+		position: relative;
+	}
+}
+#titleFooter {
+	color: rgb(36, 133, 65);
+}
+#textFooter {
+	color: rgb(36, 133, 65);
+	margin-bottom: 0;
+}
+.containerFooter {
+	padding: 0;
+	margin-top: 6.3%;
+}
+/* footer */
+
+/* Input de Cadastro */
+.inputGeral {
+	border-style: none none solid none;
+}
+.inputGeral:focus {
+	box-shadow: none;
+	border-color: rgba(25, 135, 84, 255);
+}
+.labelCadastro {
+	color: var(--corPrincipal);
+}
+/* Input de Cadastro */
+
+/* ScrollBar*/
+::-webkit-scrollbar {
+	opacity: 1;
+	width: 10px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: gray;
+	border-radius: 10px;
+}
+:hover::-webkit-scrollbar-thumb {
+	background-color: gray;
+}
+/* ScrollBar*/
+
+/* CardsSquare */
+.cardSquare {
+	color: green;
+	width: 17rem;
+	margin: auto;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+		rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+	transition: 0.4s;
+	margin-bottom: 20px;
+}
+.cardSquare:hover {
+	box-shadow: rgba(5, 151, 41, 0.582) 0px 0px 0px 3px;
+}
+/* CardsSquare */
+
+/* MediaQuerry */
+@media (max-width: 1050px) {
+	.cardSquareCestas .cardSquare,
+	.cardSquareFinanceiroProvisorio .cardSquare {
+		width: 14rem;
+	}
+}
+/* MediaQuery */
 
 /* Index */
 #bodyIndex {
@@ -55,7 +168,8 @@ body {
 	font-size: 1em;
 }
 
-#containerFormIndex {
+#containerFormIndex,
+#containerFormRecuperarSenha {
 	background-image: url("imgs/indexForms/efetuarLogin.jpg");
 	width: 70%;
 	background-position: center;
@@ -74,14 +188,6 @@ body {
 
 #containerFormRecuperarSenha {
 	background-image: url("imgs/indexForms/recuperarSenha.jpg");
-	width: 70%;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	border-style: none none none solid;
-	border-color: rgba(25, 135, 84, 255);
-	border-width: 6px;
 }
 
 #linkIndex {
@@ -97,28 +203,14 @@ body {
 	background-color: white;
 }
 
-#senhaUsuario {
-	border-style: none none solid none;
-}
-
-#nomeUsuario {
-	border-style: none none solid none;
-}
-
-#senhaUsuario:focus {
-	box-shadow: none;
-	border-color: var(--verdeContraste);
-}
-
-#nomeUsuario:focus {
-	box-shadow: none;
-	border-color: var(--verdeContraste);
-}
-
+#senhaUsuario,
+#nomeUsuario,
 #emailRecuperacao {
 	border-style: none none solid none;
 }
 
+#nomeUsuario:focus,
+#senhaUsuario:focus,
 #emailRecuperacao:focus {
 	box-shadow: none;
 	border-color: var(--verdeContraste);
@@ -145,6 +237,7 @@ body {
 	box-shadow: none;
 	border-bottom-color: var(--verdeContraste);
 }
+
 /* Index */
 
 /*criarConta.php*/
@@ -161,24 +254,18 @@ body {
 /*criarConta.php */
 
 /* Home */
-.card-text {
-	color: black;
-}
 .imagemCard {
 	width: 30%;
 }
-
 .containerTextoUsuario {
 	color: var(--corPrincipal);
 	font-size: 20px;
 	text-align: start;
 	margin-top: 20px;
 }
-
 /* Home */
 
 /* Conta */
-
 input[type="file"] {
 	display: none;
 }
@@ -211,120 +298,8 @@ input[type="file"] {
 	height: 60;
 	cursor: pointer;
 }
-
 /* Conta */
 
-/* footer */
-footer {
-	position: absolute;
-	margin: auto;
-	text-align: center;
-	background-color: white;
-	padding-top: 10px;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-}
-
-@media (max-width: 1200px) {
-	footer {
-		position: relative;
-	}
-}
-
-#titleFooter {
-	color: rgb(36, 133, 65);
-}
-
-#textFooter {
-	color: rgb(36, 133, 65);
-	margin-bottom: 0;
-}
-
-.containerFooter {
-	padding: 0;
-	margin-top: 6.3%;
-}
-/* footer */
-
-/* Input de Cadastro */
-.inputGeral {
-	border-style: none none solid none;
-}
-.inputGeral:focus {
-	box-shadow: none;
-	border-color: rgba(25, 135, 84, 255);
-}
-
-.labelCadastro {
-	color: var(--corPrincipal);
-}
-/* Input de Cadastro */
-
-/* ScrollBar*/
-
-::-webkit-scrollbar {
-	opacity: 1;
-	width: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-	background-color: gray;
-	border-radius: 10px;
-}
-
-:hover::-webkit-scrollbar-thumb {
-	background-color: gray;
-}
-/* ScrollBar*/
-
-/* CardsSquare */
-.cardSquare {
-	width: 17rem;
-	margin: auto;
-	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-		rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-	transition: 0.4s;
-	margin-bottom: 20px;
-}
-
-.cardSquare:hover {
-	box-shadow: rgba(5, 151, 41, 0.582) 0px 0px 0px 3px;
-}
-/* CardsSquare */
-
-/* header */
-
-header {
-	margin-bottom: 150px;
-}
-
-.navBarLinks a {
-	color: var(--corPrincipal);
-}
-
-.navBarLinks a:hover {
-	color: yellowgreen;
-	border-style: none none solid none;
-	border-color: yellowgreen;
-	border-width: 1px;
-}
-
-.headerNavBar {
-	background-color: white;
-	position: fixed;
-	z-index: 1000;
-	width: 100%;
-}
-.dropDownMenu a:hover {
-	border: none;
-	background-color: white;
-}
-.dropDownMenu {
-	list-style: none;
-}
-
-/* header */
 /* responsavel */
 .responsavelTable {
 	color: var(--corPrincipal);
@@ -333,30 +308,17 @@ header {
 	text-align: center;
 	width: 16.6%;
 }
-
 .resultadosDaTabela td {
 	text-align: center;
 }
-
 /* responsavel */
 
-/* MediaQuerry */
-@media (max-width: 1050px) {
-	.cardSquareCestas .cardSquare {
-		width: 14rem;
-	}
-}
-
-
-/* MediaQuery */
-
 /* funcionario */
-.funcionarioTable{
+.funcionarioTable {
 	color: var(--corPrincipal);
 }
 .funcionarioTable th {
 	text-align: center;
 	width: 16.6%;
 }
-
 /* funcionario */
