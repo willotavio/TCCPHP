@@ -140,50 +140,6 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
         </div>
     </div>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col m-auto">
-                <div id="modalCadastro">
-                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <div class="container modalHeaderColorCenter">
-                                        <h5 class="modal-title">Saída de Cesta</h5>
-                                    </div>
-                                </div>
-                                <div class="modal-body">
-                                    <form action='../../crud/cestas/saida/controleCestasSaida.php' method='GET'
-                                        autocomplete="off">
-                                        <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputGeral" type="number" min="0"
-                                                name="quantidade" placeholder="Quantidade">
-                                            <label class="labelCadastro">Quantidade Cestas</label>
-                                        </div>
-                                        <div class="form-floating mb-3 mt-3">
-                                            <input class="form-control inputGeral" type="date" name="dataSaida"
-                                                placeholder="Data de Recebimento" required>
-                                            <label class="labelCadastro">Data de Saída</label>
-                                        </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
-                                        Fechar
-                                    </button>
-                                    <p><input type="submit" class="btn btn-outline-success" name='botao'
-                                            value='cadastrarSaida'>
-                                    </p>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="container">
 
         <div class="row">
@@ -215,16 +171,14 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                         </div>
                         <div class="col-md-4">
                             <div class="card cardSquare">
-                                <a data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                                    <img class="card-img-top" src="../../imgs/iconesCestas/cestaDoada.png">
-                                    <hr>
-                                    <div class="card-body cardBodyBlack">
-                                        <h5 class="card-title">Cestas Doadas</h5>
-                                        <?php
+                                <img class="card-img-top" src="../../imgs/iconesCestas/cestaDoada.png">
+                                <hr>
+                                <div class="card-body cardBodyBlack">
+                                    <h5 class="card-title">Cestas Doadas</h5>
+                                    <?php
                                         echo "<p class='card-text'>Total de Cestas Doadas: $totalCestasSaida</p>";
                                         ?>
-                                    </div>
-                                </a>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">

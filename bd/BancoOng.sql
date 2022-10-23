@@ -1,6 +1,5 @@
 create database ong;
 use ong;
-
 create table contato(
     id_contato int(4) primary key not null auto_increment,
     telefone char(10),
@@ -22,7 +21,6 @@ create table responsavel_familia(
 id_responsavel int(4) primary key not null auto_increment,
 cpf_responsavel int (11) not null,
 cep_responsavel char (8),
-cesta_responsavel int(4),
 contato_responsavel int (4),
 nome_responsavel varchar(90) not null,
 data_nascimento_responsavel date,
@@ -101,18 +99,6 @@ delimiter $
 delimiter ;
 /*Trilha Saida*/
 
-insert into estoque values
-(5,"cestas",10,"comum");
-insert into saidaEstoque (id_saidaEstoque,quantidade_saidaEstoque,data_saidaEstoque,usuario_saidaEstoque,responsavel_saidaEstoque,estoque_saidaEstoque )
-values
-(3,50,current_date(),1,1,2);
-delete from saidaEstoque where id_saidaEstoque = 3;
-
-insert into entradaEstoque (quantidade_entradaEstoque,data_entradaEstoque,estoque_entradaEstoque )
-values
-(280,current_date(),1);
-delete from entradaEstoque where id_entradaEstoque = 1;
-
 select * from usuario;
 select * from responsavel_familia;
 select * from contato;
@@ -122,9 +108,4 @@ select * from saidaEstoque;
 select * from entradaEstoque;
 
 drop database ong;
-
-SELECT SUM(quantidade_entradaEstoque) FROM entradaEstoque where estoque_entradaEstoque = '1';
-
-SELECT id_saidaEstoque, quantidade_saidaEstoque, DATE_FORMAT(data_saidaEstoque, '%d/%m/%Y') as dataSaida,  usuario_saidaEstoque 
-                                FROM saidaEstoque;
 
