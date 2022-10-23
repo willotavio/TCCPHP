@@ -190,12 +190,12 @@ footer {
 	background-image: url("imgs/indexForms/recuperarSenha.jpg");
 }
 
-#linkIndex {
+#linkIndex, #linkIndexRecupSenha{
 	color: rgba(25, 135, 84, 0.8);
 	transition: 0.5s;
 }
 
-#linkIndex:hover {
+#linkIndex, #linkIndexRecupSenha:hover {
 	color: rgba(25, 135, 84, 255);
 }
 
@@ -236,6 +236,10 @@ footer {
 #spanExibirSenha:focus {
 	box-shadow: none;
 	border-bottom-color: var(--verdeContraste);
+}
+
+#linkIndexRecupSenha{
+	text-align: end;
 }
 
 /* Index */
