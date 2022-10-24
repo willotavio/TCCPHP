@@ -326,3 +326,29 @@ input[type="file"] {
 	width: 16.6%;
 }
 /* funcionario */
+
+/* paginacao */
+.navPaginacao li a{
+	color: var(--corPrincipal);
+}
+.navPaginacao li a:focus{
+	outline: none;
+	box-shadow: none;
+}
+.navPaginacao li a:hover{
+	color: var(--corPrincipal);
+}
+.navPaginacao span{
+	color: var(--corPrincipal);
+}
+.navPaginacao span:hover{
+	color: var(--corPrincipal);
+}
+.navPaginacao li span.active{
+	color: white;
+	background-color: var(--corPrincipal);
+}
+.navPaginacao li a{
+	color: var(--corPrincipal);
+}
+/* paginacao */

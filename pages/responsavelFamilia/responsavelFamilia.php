@@ -18,6 +18,10 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
     }
 }
 
+    $quantidade = 10;
+    $pagina = (isset($_GET['pagina']))?(int)$_GET['pagina']:1;
+    $inicio = ($quantidade * $pagina) - $quantidade;
+
 ?>
 
 
@@ -221,7 +225,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                         include_once("../../connection/conexao.php");
                         $sql = "SELECT responsavel_familia.id_responsavel, responsavel_familia.nome_responsavel,
                                 DATE_FORMAT(responsavel_familia.data_nascimento_responsavel, '%d/%m/%Y') as dataNascimento,responsavel_familia.cpf_responsavel,
-                                contato.celular FROM responsavel_familia INNER JOIN contato ON responsavel_familia.id_responsavel = contato.Id_contato";
+                                contato.celular FROM responsavel_familia INNER JOIN contato ON responsavel_familia.id_responsavel = contato.Id_contato LIMIT $inicio, $quantidade";
                         $banco = new conexao();
                         $con = $banco->getConexao();
                         $resultados_responsavel = $con->query($sql);
@@ -305,6 +309,51 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
             </div>
         </div>
     </div>
+
+    <ul class="pagination justify-content-center navPaginacao">
+<?php
+    $con = mysqli_connect("localhost","root","","ong");
+    $sqlTotal = "SELECT id_responsavel FROM responsavel_familia";
+    $qrTotal = mysqli_query($con, $sqlTotal) or die( mysqli_error($con));
+    $numTotal = mysqli_num_rows($qrTotal);
+    $totalPagina = ceil($numTotal/$quantidade);
+    
+    ?>
+    <li class="page-item"><span class="page-link"><?php echo "Total: ".$numTotal ?></span></li>
+    <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina=1">Primeira página</a></li>
+    <?php
+
+    if($pagina>3){
+        ?>
+        <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina=<?php echo $pagina-1?>"> << </a></li>
+        <?php
+    }
+
+    for($i=1;$i<=$totalPagina;$i++){
+        if($i>=($pagina-5) && $i <= ($pagina+5)){
+            if($i==$pagina){
+                ?>
+                <li class="page-item"><span class="page-link active"><?php echo $i ?></span></li>
+                <?php
+            }else{
+                ?>
+                <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina= <?php echo $i ?>"> <?php echo $i?> </a></li>
+                <?php
+            }  
+        }
+    }
+
+    if($pagina< ($totalPagina-5)){
+        ?>
+        <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina=<?php echo $pagina+1 ?>"> >> </a></li>
+        <?php
+    }
+    ?>
+    <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina=<?php echo $totalPagina ?>">Última página</a></li>
+    <?php
+?>
+</ul>
+
     <div id="doarCesta" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
