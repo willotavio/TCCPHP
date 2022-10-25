@@ -5,7 +5,9 @@ $confirmarSenha = sha1(filter_input(INPUT_POST,'confirmarSenha'));
 $email = filter_input(INPUT_POST,'email');
 $tipo = filter_input(INPUT_POST,'tipo');
 $botao =  filter_input(INPUT_POST,'botao');
-
+$Atual = $_FILES['foto']['name'];
+$Temp = $_FILES['foto']['tmp_name'];
+$Dest = '../../imgs/conta/'.$Atual;
 
 include 'contaDAO.php';
 $contaDao = new contaDao();
@@ -20,20 +22,17 @@ $contaDao->setTipo($tipo);
 if (!isset($_SESSION)) {
     session_start();
 }
-if(isset($_FILES['foto'])){
-    $Atual = $_FILES['foto']['name'];
-    $Temp = $_FILES['foto']['tmp_name'];
-    $Dest = '../../imgs/conta/'.$Atual;
+if($Atual != ""){
     $_SESSION['arquivoAtual']  = $Atual;
     $_SESSION['arquivoTemp'] =  $Temp;
     $_SESSION['destino'] = $Dest;
 }else{
-    $Atual = "fotoPerfil.png";
-    $Temp = "fotoPerfil.png";
-    $Dest = '../../imgs/conta/'.$Atual;
-    $_SESSION['arquivoAtual']  = $Atual;
-    $_SESSION['arquivoTemp'] =  $Temp;
-    $_SESSION['destino'] = $Dest;
+    $AtualPadrao = "fotoPerfil.png";
+    $TempPadrao = "fotoPerfil.png";
+    $DestPadrao = '../../imgs/conta/'.$AtualPadrao;
+    $_SESSION['arquivoAtual']  = $AtualPadrao;
+    $_SESSION['arquivoTemp'] =  $TempPadrao;
+    $_SESSION['destino'] = $DestPadrao;
 }
 
 if($botao=='cadastrar'){

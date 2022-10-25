@@ -14,7 +14,8 @@ create table usuario(
     tipo_usuario varchar(1) not null,
     email_usuario varchar(90) not null,
 	foto_usuario char(40),
-    imagem_usuario blob
+    imagem_usuario blob,
+    recuperar_senha varchar(200)
 );
 
 create table responsavel_familia(
@@ -94,7 +95,7 @@ delimiter $
     for each row
 		begin 
 			update estoque set quantidade_estoque = quantidade_estoque + old.quantidade_saidaEstoque
-            where id_estoque = old.estoque_saidaEstoque;
+			where id_estoque = old.estoque_saidaEstoque;
 		end$
 delimiter ;
 /*Trilha Saida*/
@@ -108,4 +109,5 @@ select * from saidaEstoque;
 select * from entradaEstoque;
 
 drop database ong;
+
 
