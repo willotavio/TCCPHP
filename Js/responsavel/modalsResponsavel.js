@@ -46,10 +46,12 @@ $(document).ready(function () {
 			$("#idResponsavel").val(id);
 		});
 	});
+
 	$(document).ready(function () {
 		$(document).on("click", ".doar", function () {
 			var id = $(this).val();
 			$("#doarCesta").modal("show");
+			$("#idResponsavelDoar").val(id);
 		});
 	});
 });

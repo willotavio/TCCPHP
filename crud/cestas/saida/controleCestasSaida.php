@@ -1,6 +1,7 @@
 <?php
 session_start();
-$nomeUsuario= $_SESSION['nomeUsuario'];
+$idResponsavel = filter_input(INPUT_GET, 'idResponsavelDoar');
+$idUsuario= $_SESSION['idUsuario'];
 $quantidade = filter_input(INPUT_GET,'quantidade');
 $dataSaida = filter_input(INPUT_GET,'dataSaida');
 $botao =  filter_input(INPUT_GET,'botao');
@@ -14,8 +15,9 @@ $codigoProduto = 1;
 
     $cestasSaidaDao->setQuantidade($quantidade);
     $cestasSaidaDao->setDataSaida($dataSaida);
-    $cestasSaidaDao->setUsuario($nomeUsuario); 
+    $cestasSaidaDao->setCodigoUsuario($idResponsavel); 
     $cestasSaidaDao->setCodigoProduto($codigoProduto);
+    $cestasSaidaDao->setCodigoResponsavel($idResponsavel);
 
     if($botao=='cadastrarSaida'){
         if($totalCestas >= $quantidade){
@@ -24,7 +26,7 @@ $codigoProduto = 1;
             
             echo "<script LANGUAGE= 'JavaScript'>
             window.alert('O estoque não possui cestas suficientes para realizar essa doação');
-            window.location.href='../../../pages/cestas/cestas.php';
+            window.location.href='../../../pages/responsavelFamilia/responsavelFamilia.php';
             </script>";
         }
     }

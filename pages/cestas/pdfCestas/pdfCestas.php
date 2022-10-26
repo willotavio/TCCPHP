@@ -9,8 +9,8 @@ include "../../../connection/conexao.php";
 $banco = new conexao();
 $con = $banco->getConexao();
 
-$consulta_cestas = "SELECT id_saidaEstoque, quantidade_saidaEstoque, DATE_FORMAT(data_saidaEstoque, '%d/%m/%Y') as dataSaida,  usuario_saidaEstoque 
-FROM saidaEstoque;";
+$consulta_cestas = "SELECT id_saidaEstoque, quantidade_saidaEstoque, DATE_FORMAT(data_saidaEstoque, '%d/%m/%Y') as dataSaida,  usuario.nome_usuario, responsavel_familia.nome_responsavel
+FROM saidaEstoque INNER JOIN usuario on saidaEstoque.usuario_saidaEstoque = usuario.id_usuario INNER JOIN responsavel_familia on saidaEstoque.responsavel_saidaEstoque = responsavel_familia.id_responsavel;";
 
 
 $result_cestas = $con->prepare($consulta_cestas);
@@ -37,8 +37,9 @@ $dados .= "<h1 style='text-align: center'>Relatório de Cestas Doadas</h1><br>";
 $dados .= "<table style='text-align: center;margin: auto;'>
         <tr>
             <th>Quantidade</th>
-            <th>Data de recebimento</th>
+            <th>Data de saída</th>
             <th>Usuário</th>
+            <th>Responsável</th>
         </tr>";
 
 while ($row_cestas = $result_cestas->fetch(PDO::FETCH_ASSOC)) {
@@ -46,7 +47,8 @@ while ($row_cestas = $result_cestas->fetch(PDO::FETCH_ASSOC)) {
     $dados .= "<tr>
             <td> $quantidade_saidaEstoque </td>
             <td> $dataSaida </td>
-            <td> $usuario_saidaEstoque </td>
+            <td> $nome_usuario</td>
+            <td> $nome_responsavel</td>
         </tr>";
 }
 

@@ -289,12 +289,14 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                                         </svg>
                                     </button>
 
-                                    <button class='btn btn-sm btn-outline-success doar'
+                                    <button class='btn btn-sm btn-outline-info doar'
                                         value="<?php echo $row['id_responsavel']; ?>">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                            fill="currentColor" class="bi bi-box2-heart" viewBox="0 0 16 16">
                                             <path
-                                                d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                                                d="M8 7.982C9.664 6.309 13.825 9.236 8 13 2.175 9.236 6.336 6.31 8 7.982Z" />
+                                            <path
+                                                d="M3.75 0a1 1 0 0 0-.8.4L.1 4.2a.5.5 0 0 0-.1.3V15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4.5a.5.5 0 0 0-.1-.3L13.05.4a1 1 0 0 0-.8-.4h-8.5Zm0 1H7.5v3h-6l2.25-3ZM8.5 4V1h3.75l2.25 3h-6ZM15 5v10H1V5h14Z" />
                                         </svg>
                                     </button>
                                 </td>
@@ -311,7 +313,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
     </div>
 
     <ul class="pagination justify-content-center navPaginacao">
-<?php
+        <?php
     $con = mysqli_connect("localhost","root","","ong");
     $sqlTotal = "SELECT id_responsavel FROM responsavel_familia";
     $qrTotal = mysqli_query($con, $sqlTotal) or die( mysqli_error($con));
@@ -319,13 +321,15 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
     $totalPagina = ceil($numTotal/$quantidade);
     
     ?>
-    <li class="page-item"><span class="page-link"><?php echo "Total: ".$numTotal ?></span></li>
-    <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina=1">Primeira página</a></li>
-    <?php
+        <li class="page-item"><span class="page-link"><?php echo "Total: ".$numTotal ?></span></li>
+        <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina=1">Primeira página</a></li>
+        <?php
 
     if($pagina>3){
         ?>
-        <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina=<?php echo $pagina-1?>"> << </a></li>
+        <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina=<?php echo $pagina-1?>">
+                << </a>
+        </li>
         <?php
     }
 
@@ -333,26 +337,29 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
         if($i>=($pagina-5) && $i <= ($pagina+5)){
             if($i==$pagina){
                 ?>
-                <li class="page-item"><span class="page-link active"><?php echo $i ?></span></li>
-                <?php
+        <li class="page-item"><span class="page-link active"><?php echo $i ?></span></li>
+        <?php
             }else{
                 ?>
-                <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina= <?php echo $i ?>"> <?php echo $i?> </a></li>
-                <?php
+        <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina= <?php echo $i ?>">
+                <?php echo $i?> </a></li>
+        <?php
             }  
         }
     }
 
     if($pagina< ($totalPagina-5)){
         ?>
-        <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina=<?php echo $pagina+1 ?>"> >> </a></li>
+        <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina=<?php echo $pagina+1 ?>"> >>
+            </a></li>
         <?php
     }
     ?>
-    <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina=<?php echo $totalPagina ?>">Última página</a></li>
-    <?php
+        <li class="page-item"><a class="page-link"
+                href="?menuop=responsavel_familia&pagina=<?php echo $totalPagina ?>">Última página</a></li>
+        <?php
 ?>
-</ul>
+    </ul>
 
     <div id="doarCesta" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -365,6 +372,11 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                 </div>
                 <div class="modal-body">
                     <form action='../../crud/cestas/saida/controleCestasSaida.php' method='GET' autocomplete="off">
+                        <div class="form-floating mb-3 mt-3">
+                            <input class='form-control inputGeral' type='number' name='idResponsavelDoar'
+                                placeholder='Id' id="idResponsavelDoar" readonly>
+                            <label class='labelCadastro'>ID</label>
+                        </div>
                         <div class="form-floating mb-3 mt-3">
                             <input class="form-control inputGeral" type="number" min="0" name="quantidade"
                                 placeholder="Quantidade">

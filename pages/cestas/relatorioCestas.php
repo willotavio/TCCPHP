@@ -122,8 +122,8 @@
                             <?php 
                                 
                                 include_once ("../../connection/conexao.php");
-                                $sql= "SELECT id_entradaEstoque,quantidade_entradaEstoque, DATE_FORMAT(data_entradaEstoque, '%d/%m/%Y') as dataEntrada, usuario_entradaEstoque 
-                                FROM entradaEstoque";
+                                $sql= "SELECT id_entradaEstoque,quantidade_entradaEstoque, DATE_FORMAT(data_entradaEstoque, '%d/%m/%Y') as dataEntrada, usuario.nome_usuario
+                                FROM entradaEstoque INNER JOIN usuario on entradaEstoque.usuario_entradaEstoque = usuario.id_usuario";
                                 $banco = new conexao();
                                 $con = $banco->getConexao();
                                 $result = $con->query($sql);
@@ -137,7 +137,7 @@
                                         id="recebimento<?php echo $row['id_entradaEstoque']; ?>"><?php echo $row['dataEntrada']; ?></span>
                                 </td>
                                 <td><span
-                                        id="recebimento<?php echo $row['id_entradaEstoque']; ?>"><?php echo $row['usuario_entradaEstoque']; ?></span>
+                                        id="recebimento<?php echo $row['id_entradaEstoque']; ?>"><?php echo $row['nome_usuario']; ?></span>
                                 </td>
 
                             </tr>
@@ -157,16 +157,17 @@
                 <div class="m-2 ">
                     <table class="table" style="color:green">
                         <thead>
-                            <th scope="col" style='text-align:center; width: 33%'>Quantidade</th>
-                            <th scope="col" style='text-align:center; width: 33%'>Data de Saída</th>
-                            <th scope="col" style='text-align:center; width: 33%'>Nome</th>
+                            <th scope="col" style='text-align:center; width: 25%'>Quantidade</th>
+                            <th scope="col" style='text-align:center; width: 25%'>Data de Saída</th>
+                            <th scope="col" style='text-align:center; width: 25%'>Usuario</th>
+                            <th scope="col" style='text-align:center; width: 25%'>Responsavel</th>
                         </thead>
                         <tbody>
                             <?php 
                                 
                                 include_once ("../../connection/conexao.php");
-                                $sql= "SELECT id_saidaEstoque, quantidade_saidaEstoque, DATE_FORMAT(data_saidaEstoque, '%d/%m/%Y') as dataSaida, usuario_saidaEstoque 
-                                FROM saidaEstoque";
+                                $sql= "SELECT saidaEstoque.id_saidaEstoque, saidaEstoque.quantidade_saidaEstoque, DATE_FORMAT(saidaEstoque.data_saidaEstoque, '%d/%m/%Y') as dataSaida, usuario.nome_usuario,
+                                responsavel_familia.nome_responsavel FROM saidaEstoque INNER JOIN usuario on saidaEstoque.usuario_saidaEstoque = usuario.id_usuario INNER JOIN responsavel_familia on saidaEstoque.responsavel_saidaEstoque = responsavel_familia.id_responsavel";
                                 $banco = new conexao();
                                 $con = $banco->getConexao();
                                 $result = $con->query($sql);
@@ -180,7 +181,10 @@
                                         id="recebimento<?php echo $row['id_saidaEstoque']; ?>"><?php echo $row['dataSaida']; ?></span>
                                 </td>
                                 <td><span
-                                        id="recebimento<?php echo $row['id_saidaEstoque']; ?>"><?php echo $row['usuario_saidaEstoque']; ?></span>
+                                        id="recebimento<?php echo $row['id_saidaEstoque']; ?>"><?php echo $row['nome_usuario']; ?></span>
+                                </td>
+                                <td><span
+                                        id="recebimento<?php echo $row['id_saidaEstoque']; ?>"><?php echo $row['nome_responsavel']; ?></span>
                                 </td>
 
                             </tr>

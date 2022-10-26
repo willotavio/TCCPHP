@@ -40,27 +40,30 @@ create table estoque(
 );
 insert into estoque (produto_Estoque,quantidade_estoque) values
 ("cestas",0);
-  
+
 create table entradaEstoque(
     id_entradaEstoque int (4) primary key not null auto_increment,
     quantidade_entradaEstoque int(4) not null,
     data_entradaEstoque date,
-    usuario_entradaEstoque varchar(20),
+    usuario_entradaEstoque int(4),
     estoque_entradaEstoque int(4),
-	foreign key (estoque_entradaEstoque) references estoque(id_estoque)
+	foreign key (estoque_entradaEstoque) references estoque(id_estoque),
+    foreign key (usuario_entradaEstoque) references usuario(id_usuario)
 );
 
 create table saidaEstoque(
     id_saidaEstoque int (4) primary key not null auto_increment,
     quantidade_saidaEstoque int(4) not null,
     data_saidaEstoque date,
-    usuario_saidaEstoque varchar(40),
-    responsavel_saidaEstoque varchar(40),
+    usuario_saidaEstoque int(4),
+    responsavel_saidaEstoque int(4),
 	estoque_saidaEstoque int(4),
-    foreign key (estoque_saidaEstoque) references estoque(id_estoque)
+    foreign key (estoque_saidaEstoque) references estoque(id_estoque),
+    foreign key (usuario_saidaEstoque) references usuario(id_usuario),
+    foreign key (responsavel_saidaEstoque) references responsavel_familia(id_responsavel)
 );
 
- /*Trilha Entrada*/
+
 delimiter $
 	create trigger cadastroEntrada after insert on entradaEstoque
     for each row
@@ -71,22 +74,22 @@ delimiter $
 delimiter ;
 
 delimiter $
-	create trigger deletarEntrada after delete on entradaEstoque
-    for each row
-		begin 
-			update estoque set quantidade_estoque = quantidade_estoque - old.quantidade_entradaEstoque
-            where id_estoque = old.estoque_entradaEstoque;
-		end$
-delimiter ;
- /*Trilha Entrada*/
-
-/*Trilha Saida*/
-delimiter $
 	create trigger cadastroSaida after insert on saidaEstoque
     for each row
 		begin 
 			update estoque set quantidade_estoque = quantidade_estoque - new.quantidade_saidaEstoque
             where id_estoque = new.estoque_saidaEstoque;
+		end$
+delimiter ;
+
+
+/*
+delimiter $
+	create trigger deletarEntrada after delete on entradaEstoque
+    for each row
+		begin 
+			update estoque set quantidade_estoque = quantidade_estoque - old.quantidade_entradaEstoque
+            where id_estoque = old.estoque_entradaEstoque;
 		end$
 delimiter ;
 
@@ -98,7 +101,7 @@ delimiter $
 			where id_estoque = old.estoque_saidaEstoque;
 		end$
 delimiter ;
-/*Trilha Saida*/
+*/
 
 select * from usuario;
 select * from responsavel_familia;
@@ -107,6 +110,7 @@ select * from endereco_postal;
 select * from estoque;
 select * from saidaEstoque;
 select * from entradaEstoque;
+
 
 drop database ong;
 
