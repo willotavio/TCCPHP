@@ -205,6 +205,72 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
         </div>
     </div>
 
+    <ul class="pagination justify-content-center navPaginacao">
+        <?php
+    $con = mysqli_connect("localhost","root","","ong");
+    $sqlTotal = "SELECT id_responsavel FROM responsavel_familia";
+    $qrTotal = mysqli_query($con, $sqlTotal) or die( mysqli_error($con));
+    $numTotal = mysqli_num_rows($qrTotal);
+    $totalPagina = ceil($numTotal/$quantidade);
+    
+    ?>
+        <li class="page-item"><span class="page-link"><?php echo "Total: ".$numTotal ?></span></li>
+        <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina=1">Primeira página</a></li>
+        <?php
+
+    if($pagina>3){
+        ?>
+        <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina=<?php echo $pagina-1?>">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                </svg> </a>
+        </li>
+        <?php
+    }
+
+    for($i=1;$i<=$totalPagina;$i++){
+        if($i>=($pagina-5) && $i <= ($pagina+5)){
+            if($i==$pagina){
+                ?>
+        <li class="page-item"><span class="page-link active"><?php echo $i ?></span></li>
+        <?php
+            }else{
+                ?>
+        <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina= <?php echo $i ?>">
+                <?php echo $i?> </a></li>
+        <?php
+            }  
+        }
+    }
+
+    if($pagina< ($totalPagina-5)){
+        ?>
+        <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina=<?php echo $pagina+1 ?>">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                </svg>
+            </a></li>
+        <?php
+    }
+    if($totalPagina > 0){
+        ?>
+        <li class="page-item"><a class="page-link"
+                href="?menuop=responsavel_familia&pagina=<?php echo $totalPagina ?>">Última página</a></li>
+        <?php
+
+        }else if($totalPagina = 0){
+            ?>
+        <li class="page-item"><a class="page-link" href="">Última
+                página</a></li>
+        <?php
+        }
+?>
+    </ul>
+
     <div class="container">
         <div class="overflow-auto">
             <div class="column">
@@ -311,55 +377,6 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
             </div>
         </div>
     </div>
-
-    <ul class="pagination justify-content-center navPaginacao">
-        <?php
-    $con = mysqli_connect("localhost","root","","ong");
-    $sqlTotal = "SELECT id_responsavel FROM responsavel_familia";
-    $qrTotal = mysqli_query($con, $sqlTotal) or die( mysqli_error($con));
-    $numTotal = mysqli_num_rows($qrTotal);
-    $totalPagina = ceil($numTotal/$quantidade);
-    
-    ?>
-        <li class="page-item"><span class="page-link"><?php echo "Total: ".$numTotal ?></span></li>
-        <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina=1">Primeira página</a></li>
-        <?php
-
-    if($pagina>3){
-        ?>
-        <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina=<?php echo $pagina-1?>">
-                << </a>
-        </li>
-        <?php
-    }
-
-    for($i=1;$i<=$totalPagina;$i++){
-        if($i>=($pagina-5) && $i <= ($pagina+5)){
-            if($i==$pagina){
-                ?>
-        <li class="page-item"><span class="page-link active"><?php echo $i ?></span></li>
-        <?php
-            }else{
-                ?>
-        <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina= <?php echo $i ?>">
-                <?php echo $i?> </a></li>
-        <?php
-            }  
-        }
-    }
-
-    if($pagina< ($totalPagina-5)){
-        ?>
-        <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina=<?php echo $pagina+1 ?>"> >>
-            </a></li>
-        <?php
-    }
-    ?>
-        <li class="page-item"><a class="page-link"
-                href="?menuop=responsavel_familia&pagina=<?php echo $totalPagina ?>">Última página</a></li>
-        <?php
-?>
-    </ul>
 
     <div id="doarCesta" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
