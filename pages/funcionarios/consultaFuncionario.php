@@ -4,7 +4,7 @@ $banco = new conexao();
 $con = $banco->getConexao();
 $id = filter_input(INPUT_POST, 'id');
 
-$sql = "SELECT * FROM usuario";
+$sql = "SELECT * FROM usuario where id_usuario = $id";
 
 
 $result = $con->query($sql);
