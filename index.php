@@ -9,7 +9,6 @@
 
 
 
-
 ?>
 
 <!DOCTYPE html>
@@ -98,7 +97,7 @@
                 <div class="container m-auto mt-2" id="containerFormRecuperarSenha">
                     <div class="row justify-content-start">
                         <div class="col-6 colunaFormularioIndex">
-                            <form method="POST" action='recuperarSenha.php' autocomplete="off">
+                            <form method="POST" action='email.php' autocomplete="off">
                                 <h2 class="h2Index">
                                     ESQUECI MINHA SENHA</h2>
                                 <div class="form-floating mb-3 mt-3">

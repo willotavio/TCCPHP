@@ -39,13 +39,14 @@ if(!empty($_POST['recuperarEmail'])){
                         
                         // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                    
                         $mail->CharSet = "UTF-8";
-                        $mail->isSMTP();                                           
-                        $mail->Host       = 'smtp.mailtrap.io';                     
+                        $mail->IsSMTP();                                           
+                        $mail->Host       = 'smtp.gmail.com';                     
                         $mail->SMTPAuth   = true;                                   
-                        $mail->Username   = 'c33fd3a9414ed3';                     
-                        $mail->Password   = 'd480662e7fafcf';                               
+                        $mail->Username   = 'matheus.costa.7p@gmail.com';                     
+                        $mail->Password   = 'msxzhkhvecghtsno';                               
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            
-                        $mail->Port       = 2525; 
+                        $mail->Port       = 587; 
+                        $mail->SMTPSecure = 'tls';
 
                         $mail->setFrom('OngAlemBrasil@gmail.com', 'Ong');
                         $mail->addAddress($row_usuario['email_usuario'], $row_usuario['nome_usuario']);
@@ -87,13 +88,6 @@ if(!empty($_POST['recuperarEmail'])){
     }
 
 }
-
-if(isset($_SESSION['msg'])){
-    echo $_SESSION['msg'];
-    unset($_SESSION['msg']);
-}
-
-
 
 
 ?>
