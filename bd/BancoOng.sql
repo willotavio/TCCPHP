@@ -111,7 +111,13 @@ select * from estoque;
 select * from saidaEstoque;
 select * from entradaEstoque;
 
-
 drop database ong;
 
 
+SELECT * FROM usuario WHERE id_usuario =2;
+
+SELECT * FROM entradaEstoque WHERE usuario_entradaEstoque = 2;
+UPDATE entradaEstoque SET usuario_entradaEstoque = null  WHERE usuario_entradaEstoque = 2;
+
+SELECT * FROM saidaEstoque WHERE usuario_saidaEstoque = 2;
+SELECT * FROM entradaEstoque WHERE usuario_entradaEstoque = 2;
