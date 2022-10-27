@@ -172,7 +172,7 @@
                             <th scope="col" style='text-align:center; width: 25%'>Quantidade</th>
                             <th scope="col" style='text-align:center; width: 25%'>Data de Saída</th>
                             <th scope="col" style='text-align:center; width: 25%'>Usuario</th>
-                            <th scope="col" style='text-align:center; width: 25%'>Responsavel</th>
+                            <th scope="col" style='text-align:center; width: 25%'>Responsável</th>
                         </thead>
                         <tbody>
                             <?php 

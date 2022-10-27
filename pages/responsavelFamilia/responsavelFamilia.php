@@ -290,8 +290,12 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
 
                         include_once("../../connection/conexao.php");
                         $sql = "SELECT responsavel_familia.id_responsavel, responsavel_familia.nome_responsavel,
-                                DATE_FORMAT(responsavel_familia.data_nascimento_responsavel, '%d/%m/%Y') as dataNascimento,responsavel_familia.cpf_responsavel,SUM(saidaEstoque.quantidade_saidaEstoque) as quantidadeCesta,
-                                contato.celular FROM responsavel_familia INNER JOIN contato ON responsavel_familia.id_responsavel = contato.Id_contato  RIGHT JOIN saidaEstoque ON saidaEstoque.responsavel_saidaEstoque =  responsavel_familia.id_responsavel LIMIT $inicio, $quantidade";
+                                DATE_FORMAT(responsavel_familia.data_nascimento_responsavel, '%d/%m/%Y') AS dataNascimento,
+                                responsavel_familia.cpf_responsavel,SUM(saidaEstoque.quantidade_saidaEstoque) AS quantidadeCesta,
+                                contato.celular FROM responsavel_familia 
+                                LEFT JOIN contato ON responsavel_familia.id_responsavel = contato.Id_contato  
+                                LEFT JOIN saidaEstoque ON saidaEstoque.responsavel_saidaEstoque =  responsavel_familia.id_responsavel GROUP BY nome_responsavel
+                                LIMIT $inicio, $quantidade";
                         $banco = new conexao();
                         $con = $banco->getConexao();
                         $resultados_responsavel = $con->query($sql);
