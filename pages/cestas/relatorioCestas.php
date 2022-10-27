@@ -123,21 +123,33 @@
                                 
                                 include_once ("../../connection/conexao.php");
                                 $sql= "SELECT id_entradaEstoque,quantidade_entradaEstoque, DATE_FORMAT(data_entradaEstoque, '%d/%m/%Y') as dataEntrada, usuario.nome_usuario
-                                FROM entradaEstoque INNER JOIN usuario on entradaEstoque.usuario_entradaEstoque = usuario.id_usuario";
+                                FROM entradaEstoque LEFT JOIN usuario on entradaEstoque.usuario_entradaEstoque = usuario.id_usuario";
                                 $banco = new conexao();
                                 $con = $banco->getConexao();
                                 $result = $con->query($sql);
                                 while($row = $result->fetch()){
                                     ?>
                             <tr>
-                                <td><span
-                                        id="quantidade<?php echo $row['id_entradaEstoque']; ?>"><?php echo $row['quantidade_entradaEstoque']; ?></span>
+                                <td>
+                                    <span
+                                        id="quantidade<?php echo $row['id_entradaEstoque']; ?>"><?php echo $row['quantidade_entradaEstoque']; ?>
+                                    </span>
                                 </td>
-                                <td><span
-                                        id="recebimento<?php echo $row['id_entradaEstoque']; ?>"><?php echo $row['dataEntrada']; ?></span>
+                                <td>
+                                    <span
+                                        id="recebimento<?php echo $row['id_entradaEstoque']; ?>"><?php echo $row['dataEntrada']; ?>
+                                    </span>
                                 </td>
-                                <td><span
-                                        id="recebimento<?php echo $row['id_entradaEstoque']; ?>"><?php echo $row['nome_usuario']; ?></span>
+                                <td>
+                                    <span id="recebimento<?php echo $row['id_entradaEstoque']; ?>">
+                                        <?php 
+                                            if($row['nome_usuario'] == ""){
+                                                echo "Funcionário";
+                                            }else{
+                                                echo $row['nome_usuario']; 
+                                            }
+                                        ?>
+                                    </span>
                                 </td>
 
                             </tr>
@@ -167,30 +179,43 @@
                                 
                                 include_once ("../../connection/conexao.php");
                                 $sql= "SELECT saidaEstoque.id_saidaEstoque, saidaEstoque.quantidade_saidaEstoque, DATE_FORMAT(saidaEstoque.data_saidaEstoque, '%d/%m/%Y') as dataSaida, usuario.nome_usuario,
-                                responsavel_familia.nome_responsavel FROM saidaEstoque INNER JOIN usuario on saidaEstoque.usuario_saidaEstoque = usuario.id_usuario INNER JOIN responsavel_familia on saidaEstoque.responsavel_saidaEstoque = responsavel_familia.id_responsavel";
+                                responsavel_familia.nome_responsavel FROM saidaEstoque LEFT JOIN usuario on saidaEstoque.usuario_saidaEstoque = usuario.id_usuario LEFT JOIN responsavel_familia on saidaEstoque.responsavel_saidaEstoque = responsavel_familia.id_responsavel";
                                 $banco = new conexao();
                                 $con = $banco->getConexao();
                                 $result = $con->query($sql);
                                 while($row = $result->fetch()){
                                     ?>
                             <tr>
-                                <td><span
-                                        id="quantidade<?php echo $row['id_saidaEstoque']; ?>"><?php echo $row['quantidade_saidaEstoque']; ?></span>
+                                <td>
+                                    <span
+                                        id="quantidade<?php echo $row['id_saidaEstoque']; ?>"><?php echo $row['quantidade_saidaEstoque']; ?>
+                                    </span>
                                 </td>
-                                <td><span
-                                        id="recebimento<?php echo $row['id_saidaEstoque']; ?>"><?php echo $row['dataSaida']; ?></span>
+                                <td>
+                                    <span
+                                        id="recebimento<?php echo $row['id_saidaEstoque']; ?>"><?php echo $row['dataSaida']; ?>
+                                    </span>
                                 </td>
-                                <td><span
-                                        id="recebimento<?php echo $row['id_saidaEstoque']; ?>"><?php echo $row['nome_usuario']; ?></span>
+                                <td>
+                                    <span id="recebimento<?php echo $row['id_saidaEstoque']; ?>">
+                                        <?php 
+                                            if($row['nome_usuario'] == ""){
+                                                echo "Funcionário";
+                                            }else{
+                                                echo $row['nome_usuario'];
+                                            } 
+                                        ?>
+                                    </span>
                                 </td>
-                                <td><span
-                                        id="recebimento<?php echo $row['id_saidaEstoque']; ?>"><?php echo $row['nome_responsavel']; ?></span>
+                                <td>
+                                    <span id="recebimento<?php echo $row['id_saidaEstoque']; ?>">
+                                        <?php echo $row['nome_responsavel']; ?>
+                                    </span>
                                 </td>
-
                             </tr>
                             <?php
-                                    }
-                                    ?>
+                                }
+                            ?>
                         </tbody>
                     </table>
                 </div>

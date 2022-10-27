@@ -10,7 +10,7 @@ $banco = new conexao();
 $con = $banco->getConexao();
 
 $consulta_cestas = "SELECT id_saidaEstoque, quantidade_saidaEstoque, DATE_FORMAT(data_saidaEstoque, '%d/%m/%Y') as dataSaida,  usuario.nome_usuario, responsavel_familia.nome_responsavel
-FROM saidaEstoque INNER JOIN usuario on saidaEstoque.usuario_saidaEstoque = usuario.id_usuario INNER JOIN responsavel_familia on saidaEstoque.responsavel_saidaEstoque = responsavel_familia.id_responsavel;";
+FROM saidaEstoque LEFT JOIN usuario on saidaEstoque.usuario_saidaEstoque = usuario.id_usuario LEFT JOIN responsavel_familia on saidaEstoque.responsavel_saidaEstoque = responsavel_familia.id_responsavel;";
 
 
 $result_cestas = $con->prepare($consulta_cestas);
@@ -59,3 +59,5 @@ $dompdf->setPaper('A4', 'portrait');
 $dompdf->render();
 
 $dompdf->stream("relatoriocestas.pdf", array("Attachment" => false));
+
+?>
