@@ -22,7 +22,7 @@ $chave = filter_input(INPUT_GET, 'chave', FILTER_DEFAULT);
                 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
               //  var_dump($dados);
                 if(!empty($dados['SendNovaSenha'])){
-                    $senha_usuario = password_hash($dados['senha_usuario'], PASSWORD_DEFAULT);
+                    $senha_usuario = sha1($dados['senha_usuario']);
                      $recuperar_senha = 'NULL';
 
                 $query_up_usuario = "UPDATE usuario 

@@ -4,6 +4,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+
 require 'lib/vendor/autoload.php';
 $mail = new PHPMailer(true);
 $banco = new conexao();
@@ -21,7 +22,7 @@ if(!empty($_POST['recuperarEmail'])){
   
     if(($result) AND ($result->rowCount() != 0)){
         $row_usuario = $result->fetch(PDO::FETCH_ASSOC);
-        $chave_recuperar_senha = password_hash($row_usuario['id_usuario'], PASSWORD_DEFAULT);
+        $chave_recuperar_senha = sha1($row_usuario['id_usuario']);
       //  echo "CHAVE $chave_recuperar_senha<br>";
         $query_up_usaurio = "UPDATE usuario 
                 SET  recuperar_senha =:recuperar_senha 
@@ -42,8 +43,8 @@ if(!empty($_POST['recuperarEmail'])){
                         $mail->IsSMTP();                                           
                         $mail->Host       = 'smtp.gmail.com';                     
                         $mail->SMTPAuth   = true;                                   
-                        $mail->Username   = 'matheus.costa.7p@gmail.com';                     
-                        $mail->Password   = 'msxzhkhvecghtsno';                               
+                        $mail->Username   = ''; //Colocar Email da Ong                     
+                        $mail->Password   = ''; // Colocar Senha do Email da Ong, Se houver ATF2 criar uma senha para o site                              
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            
                         $mail->Port       = 587; 
                         $mail->SMTPSecure = 'tls';
@@ -52,9 +53,9 @@ if(!empty($_POST['recuperarEmail'])){
                         $mail->addAddress($row_usuario['email_usuario'], $row_usuario['nome_usuario']);
 
                         $mail->isHTML(true);                                  //Set email format to HTML
-                        $mail->Subject = 'Recuperar Senha';
+                        $mail->Subject = 'Recuperar Senha';    
                         $mail->Body    = 'Prezado(a) ' . $row_usuario['nome_usuario'] . "<br><br>Você Solicitou alteração de Senha. 
-                        <br><br> Para continuar o processo de recuperação da sua senha, clique no link abaixo ou cole no seu navegador: <br><br><a href='" . $link .  "'> " . $link . "</a> <br><br>
+                        <br><br> Para continuar o processo de recuperação da sua senha, clique no link abaixo ou cole no seu navegador: <br><br><a style='color:green; border:1px solid green; border: radius 5px; padding: 5px; text-decoration:none;' href='" . $link .  "'>Alterar Sua Senha</a> <br><br>
                         Se você não solicitou
                         esta alteração, nenhuma ação é necesséria. Sua senha permanecerá a mesma até que você ative esse código. <br><br>";
                         $mail->AltBody = 'Prezado(a) ' . $row_usuario['nome_usuario'] . "\n\n  Você Solicitou alteração de Senha. 
