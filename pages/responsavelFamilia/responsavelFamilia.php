@@ -408,7 +408,6 @@ $inicio = ($quantidade * $pagina) - $quantidade;
                     <span id="editarResponsavel"></span>
                 </div>
             </div>
-            </form>
         </div>
     </div>
 

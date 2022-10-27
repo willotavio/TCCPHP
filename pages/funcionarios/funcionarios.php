@@ -323,7 +323,7 @@
                                     placeholder='Id' id="idFuncionario" readonly>
                                 <label class='labelCadastro'>ID</label>
                             </div>
-                            <p>Realmente deseja excluir esse Funcionário?</p>
+                            <p>Excluir este Funcionário pode afetar os relátorios</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>

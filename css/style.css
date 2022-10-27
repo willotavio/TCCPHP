@@ -133,6 +133,11 @@ footer {
 	transition: 0.4s;
 	margin-bottom: 20px;
 }
+
+.cardSquare a {
+	color: var(--corPrincipal);
+}
+
 .cardSquare:hover {
 	box-shadow: rgba(5, 151, 41, 0.582) 0px 0px 0px 3px;
 }

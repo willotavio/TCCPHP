@@ -150,24 +150,26 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
 
             <div class="col">
                 <div class="d-grid gap-2">
-                    <a href="responsavelFamilia/responsavelFamilia.php">
-                        <div class="card cardSquare">
+                    <div class="card cardSquare">
+                        <a href="responsavelFamilia/responsavelFamilia.php">
                             <img src="../imgs/iconesCardHome/Familia.png" class="card-img-top m-auto imagemCard"
                                 alt="...">
                             <div class="card-body">
                                 <p class="card-text">Famílias</p>
                             </div>
-                        </div>
-                    </a>
-                    <a href="cestas/cestas.php">
-                        <div class="card cardSquare">
+                        </a>
+                    </div>
+                    
+                    <div class="card cardSquare">
+                        <a href="cestas/cestas.php">
                             <img src="../imgs/iconesCardHome/Cestas.png" class="card-img-top m-auto imagemCard"
                                 alt="...">
                             <div class="card-body">
                                 <p class="card-text">Cestas</p>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+                    
                 </div>
             </div>
 

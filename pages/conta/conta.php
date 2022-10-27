@@ -9,10 +9,11 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
     include_once('../../connection/conexao.php');
     $banco = new conexao();
     $con = $banco->getConexao();
-    $sql = "select nome_usuario, tipo_usuario, email_usuario, imagem_usuario from usuario where nome_usuario = '$logado'";
+    $sql = "select id_usuario, nome_usuario, tipo_usuario, email_usuario, imagem_usuario from usuario where nome_usuario = '$logado'";
     $result = $con->query($sql);
     if ($result->rowCount() > 0) {
         while ($row = $result->fetch()) {
+            $idUsuario = $row['id_usuario'];
             $emailUsuario = $row['email_usuario'];
             $imagemUsuario = $row['imagem_usuario'];
             $nomeUsuario = $row['nome_usuario'];
@@ -123,6 +124,57 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
             </div>
         </div>
     </div>
+    <div class="modal fade" id="modalConfigurações" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="container modalHeaderColorCenter">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Alterar minhas informações</h5>
+                    </div>
+                </div>
+                <div class="modal-body">
+                <form action='../../crud/criarConta/editarConta.php' method='POST' autocomplete="off">
+
+                    <div class="form-floating mb-3 mt-3">
+                        <input class="form-control inputGeral" type="number" name="id" required placeholder="ID"
+                            value=<?php echo $idUsuario?> readonly>
+                        <label class="labelCadastro">ID</label>
+                    </div>
+
+                    <div class="form-floating mb-3 mt-3">
+                    <input class="form-control inputGeral" type="text" name="nome" required placeholder="Nome"
+                            value=<?php echo $nomeUsuario?>>
+                        <label class="labelCadastro">Nome</label>
+                    </div>
+
+                    <div class="form-floating mb-3 mt-3">
+                    <input class="form-control inputGeral" type="email" name="email" required placeholder="Email"
+                            value=<?php echo $emailUsuario?>>
+                        <label class="labelCadastro">Email</label>
+                    </div>
+
+                    <div class="form-floating mb-3 mt-3">
+                    <input class="form-control inputGeral" type="text" name="tipo" required placeholder="Tipo"
+                            value=<?php 
+                                if($tipoUsuario == "A"){
+                                    echo "Administrador";
+                                }else if ($tipoUsuario == "F"){
+                                    echo "Funcionário";
+                                }
+                            ?> readonly>
+                        <label class="labelCadastro">Tipo</label>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+                    <input type='submit' class='btn btn-outline-success' name='Atualizar' value='Atualizar'>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
 
 
     <div class="container-fluid">
@@ -157,7 +209,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                                 ?>
                             </div>
                             <div class="container containerAjustes">
-                            <button type="button" class="btn btn-outline-success">
+                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalConfigurações">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
                                 <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
                                 <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
