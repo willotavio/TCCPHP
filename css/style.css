@@ -83,11 +83,6 @@ footer {
 	bottom: 0;
 	width: 100%;
 }
-@media (max-width: 1200px) {
-	footer {
-		position: relative;
-	}
-}
 #titleFooter {
 	color: rgb(36, 133, 65);
 }
@@ -150,6 +145,21 @@ footer {
 		width: 14rem;
 	}
 }
+
+@media (max-width: 1200px) {
+	footer {
+		position: relative;
+	}
+}
+
+@media (max-width:768px) {
+	#containerConta{
+		width: 64%;
+	}
+	
+}
+
+
 /* MediaQuery */
 
 /* Index */
@@ -288,20 +298,47 @@ input[type="file"] {
 }
 
 #iconAccount {
-	color: black;
-	position: absolute;
-	top: 65%;
-	left: 90%;
-	transform: translate(-130%, -130%);
-	-ms-transform: translate(-130%, -130%);
+	width: 20%;
+    position: absolute;
+	left: 70%;
+	bottom: 40%;
+	
 }
 
 #iconAccount:hover {
 	color: var(--corPrincipal);
-	width: 60;
-	height: 60;
 	cursor: pointer;
 }
+
+#containerConta{
+	width: 55%;
+}
+
+.containerAjustes{
+	text-align:end;
+}
+
+@media (max-width:991px) {
+	#iconAccount{
+		width: 25%;
+		bottom: 50%;
+	}
+	
+}
+
+
+@media (max-width:768px) {
+	#iconAccount{
+		display: none;
+	}
+	.containerAjustes{
+		text-align: center;
+	}
+	
+}
+
+
+
 /* Conta */
 
 /* responsavel */

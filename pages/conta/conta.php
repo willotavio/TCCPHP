@@ -126,27 +126,25 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
 
 
     <div class="container-fluid">
-
         <div class="row">
-            <div class="col-sm-6 m-auto">
-                <div class="container" style="width: 30rem;">
+            <div class="col-md-6 ">
+                <div class="container" id="containerConta">
                     <div class="card">
                         <?php echo '<img  class="card-img-top" src="data:../../imgs/conta;base64,' . base64_encode($imagemUsuario) . '" style="padding:10px; border-radius:50%">' ?>
-                        <a data-bs-toggle="modal" data-bs-target="#modalfoto">
                             <div class="card-body">
-                                <svg xmlns="http://www.w3.org/2000/svg" id="iconAccount" width="50" height="50"
-                                    fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                                    <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
-                                    <path fill-rule="evenodd"
-                                        d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z" />
-                                </svg>
-
-                            </div>
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">
-                                <?php echo "<p style='font-size:1rem'><b>NOME: $nomeUsuario</b></p>" ?>
-                                <?php echo "<p style='font-size:1rem'><b>EMAIL: $emailUsuario</b></p>" ?>
+                               <div class="container"  id="iconAccount" >
+                               <a data-bs-toggle="modal" data-bs-target="#modalfoto">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                        <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                        <path fill-rule="evenodd"
+                                            d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z" />
+                                    </svg>
+                                 </a>
+                               </div>
+                                <p class="card-text">
+                                <?php echo "<p style='font-size:90%'><b>NOME: $nomeUsuario</b></p>" ?>
+                                <?php echo "<p style='font-size:90%'><b>EMAIL: $emailUsuario</b></p>" ?>
                             </p>
                             <div class="container">
                                 <?php if ($tipoUsuario == "F") {
@@ -158,12 +156,21 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                                 }
                                 ?>
                             </div>
-                        </div>
+                            <div class="container containerAjustes">
+                            <button type="button" class="btn btn-outline-success">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+                                </svg> Ajustes
+                            </button>
+                            </div>
+                            </div>
+                       
                     </div>
                 </div>
             </div>
         </div>
-
+    </div>
 
 
         <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -172,3 +179,4 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
 </body>
 
 </html>
+
