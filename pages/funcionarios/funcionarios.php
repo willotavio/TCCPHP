@@ -273,7 +273,7 @@
                                         id="email<?php echo $row['email_usuario']; ?>"><?php echo $row['email_usuario']; ?></span>
                                 </td>
                                 <td style='text-align:center'>
-                                    <button class='btn btn-sm btn-outline-primary editFuncionario'
+                                    <button class='btn btn-sm btn-outline-primary consultFuncionario'
                                         value="<?php echo $row['id_usuario']; ?>">
                                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'
                                             fill='currentColor' class='bi bi-clipboard' viewBox='0 0 16 16'>
@@ -335,20 +335,23 @@
     </div>
 
 
-    <div class="modal fade" id="editFuncionario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="consultarFuncionarioModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="container modalHeaderColorCenter">
-                        <h5 class="modal-title" id="exampleModalLabel1">Editar Funcionário</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Consultar Funcionário</h5>
                     </div>
                 </div>
                 <div class="modal-body">
-                    <span id="editarFuncionario"></span>
+                    
+                <span id="consultarFuncionario"></span>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+                    </div>
                 </div>
             </div>
-            </form>
         </div>
     </div>
 
@@ -357,5 +360,30 @@
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
 </body>
+
+<script>
+    
+
+    $(document).on("click", ".consultFuncionario", function () {
+		var id = $(this).val();
+		if (id != "") {
+			var dados = {
+				id: id,
+			};
+			$.ajax({
+				type: "POST",
+				url: "consultaFuncionario.php",
+				data: dados,
+				success: function (resultado) {
+					$("#consultarFuncionario").html(resultado);
+					$("#consultarFuncionarioModal").modal("show");
+				},
+			});
+		} else {
+			alert("ERRO ID VAZIO");
+		}
+	});
+
+</script>
 
 </html>
