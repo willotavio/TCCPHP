@@ -17,11 +17,11 @@ $result_cestas = $con->prepare($consulta_cestas);
 
 $result_cestas->execute();
 
-$dados = "<!DOCTYPE html>";
-$dados .= "html lang-'pt-br'";
-$dados .= "<head>";
-$dados .= "<meta chartset 'UTF-8'>";
-$dados .= "<style>
+$dados = "<!DOCTYPE html>
+html lang-'pt-br'
+<head>
+<meta chartset 'UTF-8'>
+<style>
                 body{
                     font-family: helvetica;
                 }
@@ -30,11 +30,11 @@ $dados .= "<style>
                     border-collapse: collapse;
                     padding: 5px;
                 }
-            </style>";
-$dados .= "</head>";
-$dados .= "<body>";
-$dados .= "<h1 style='text-align: center'>Relatório de Cestas Doadas</h1><br>";
-$dados .= "<table style='text-align: center;margin: auto;'>
+            </style>
+</head>
+<body>
+<h1 style='text-align: center'>Relatório de Cestas Doadas</h1><br>
+<table style='text-align: center;margin: auto;'>
         <tr>
             <th>Quantidade</th>
             <th>Data de saída</th>
