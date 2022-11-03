@@ -15,7 +15,7 @@ $codigoProduto = 1;
 
     $cestasSaidaDao->setQuantidade($quantidade);
     $cestasSaidaDao->setDataSaida($dataSaida);
-    $cestasSaidaDao->setCodigoUsuario($idResponsavel); 
+    $cestasSaidaDao->setCodigoUsuario($idUsuario); 
     $cestasSaidaDao->setCodigoProduto($codigoProduto);
     $cestasSaidaDao->setCodigoResponsavel($idResponsavel);
 
