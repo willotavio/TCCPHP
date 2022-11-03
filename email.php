@@ -37,21 +37,18 @@ if(!empty($_POST['recuperarEmail'])){
                    $link = "http://localhost/TCCPHP/atualizarSenha.php?chave=$chave_recuperar_senha";
                     
                     try{
-                        
                         // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                    
                         $mail->CharSet = "UTF-8";
                         $mail->IsSMTP();                                           
                         $mail->Host       = 'smtp.gmail.com';                     
                         $mail->SMTPAuth   = true;                                   
-                        $mail->Username   = ''; //Colocar Email da Ong                     
-                        $mail->Password   = ''; // Colocar Senha do Email da Ong, Se houver ATF2 criar uma senha para o site                              
+                        $mail->Username   = 'alembrasilong@gmail.com'; //Colocar Email da Ong                     
+                        $mail->Password   = 'mjhdlagoxsfcpdga'; // Colocar Senha do Email da Ong, Se houver ATF2 criar uma senha para o site                              
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            
                         $mail->Port       = 587; 
                         $mail->SMTPSecure = 'tls';
-
                         $mail->setFrom('OngAlemBrasil@gmail.com', 'Ong');
                         $mail->addAddress($row_usuario['email_usuario'], $row_usuario['nome_usuario']);
-
                         $mail->isHTML(true);                                  //Set email format to HTML
                         $mail->Subject = 'Recuperar Senha';    
                         $mail->Body    = 'Prezado(a) ' . $row_usuario['nome_usuario'] . "<br><br>Você Solicitou alteração de Senha. 
