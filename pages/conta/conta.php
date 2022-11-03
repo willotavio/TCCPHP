@@ -5,11 +5,11 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
     unset($_SESSION['tipoUsuario']);
     header('location: ../../index.php');
 } else {
-    $logado = $_SESSION['nomeUsuario'];
+    $logado = $_SESSION['idUsuario'];
     include_once('../../connection/conexao.php');
     $banco = new conexao();
     $con = $banco->getConexao();
-    $sql = "select id_usuario, nome_usuario, tipo_usuario, email_usuario, imagem_usuario from usuario where nome_usuario = '$logado'";
+    $sql = "select id_usuario, nome_usuario, tipo_usuario, email_usuario, imagem_usuario from usuario where id_usuario = '$logado'";
     $result = $con->query($sql);
     if ($result->rowCount() > 0) {
         while ($row = $result->fetch()) {
