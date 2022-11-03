@@ -179,7 +179,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6 ">
+            <div class="col-lg-6 ">
                 <div class="container" id="containerConta">
                     <div class="card">
                         <?php echo '<img  class="card-img-top" src="data:../../imgs/conta;base64,' . base64_encode($imagemUsuario) . '" style="padding:10px; border-radius:50%">' ?>
@@ -221,9 +221,99 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                     </div>
                 </div>
             </div>
+            <div class="col-lg-4">
+                <h4 style="color:green; text-align:center">Entrada de Cestas</h4>
+                <div class="overflow-auto">
+                    <div class="column">
+                        <div class="m-2 ">
+                            <table class="table" style="color:green">
+                                <thead>
+                                    <th scope="col" style='text-align:center; width: 33%'>Quantidade</th>
+                                    <th scope="col" style='text-align:center; width: 33%'>Data de Recebimento</th>
+                                </thead>
+                                <tbody>
+                                    <?php 
+                                        
+                                        include_once ("../../connection/conexao.php");
+                                        $sql= "SELECT id_entradaEstoque,quantidade_entradaEstoque, DATE_FORMAT(data_entradaEstoque, '%d/%m/%Y') as dataEntrada, usuario.nome_usuario
+                                        FROM entradaEstoque LEFT JOIN usuario on entradaEstoque.usuario_entradaEstoque = usuario.id_usuario where id_usuario = $logado";
+                                        $banco = new conexao();
+                                        $con = $banco->getConexao();
+                                        $result = $con->query($sql);
+                                        while($row = $result->fetch()){
+                                            ?>
+                                        <tr>
+                                            <td>
+                                                <span
+                                                    id="quantidade<?php echo $row['id_entradaEstoque']; ?>"><?php echo $row['quantidade_entradaEstoque']; ?>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span
+                                                    id="recebimento<?php echo $row['id_entradaEstoque']; ?>"><?php echo $row['dataEntrada']; ?>
+                                                </span>
+                                            </td>
+
+                                        </tr>
+                                        <?php
+                                                }
+                                        ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" style="margin-top:60px">
+                    <h4 style="color:green; text-align:center">Saída de Cestas</h4>
+                    <div class="overflow-auto">
+                        <div class="column">
+                            <div class="m-2 ">
+                                <table class="table" style="color:green">
+                                    <thead>
+                                        <th scope="col" style='text-align:center; width: 25%'>Quantidade</th>
+                                        <th scope="col" style='text-align:center; width: 25%'>Data de Saída</th>
+                                        <th scope="col" style='text-align:center; width: 25%'>Usuario</th>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
+                                            
+                                            include_once ("../../connection/conexao.php");
+                                            $sql= "SELECT saidaEstoque.id_saidaEstoque, saidaEstoque.quantidade_saidaEstoque, DATE_FORMAT(saidaEstoque.data_saidaEstoque, '%d/%m/%Y') as dataSaida,
+                                            responsavel_familia.nome_responsavel FROM saidaEstoque LEFT JOIN usuario on saidaEstoque.usuario_saidaEstoque = usuario.id_usuario LEFT JOIN responsavel_familia on saidaEstoque.responsavel_saidaEstoque = responsavel_familia.id_responsavel where id_usuario = $logado";
+                                            $banco = new conexao();
+                                            $con = $banco->getConexao();
+                                            $result = $con->query($sql);
+                                            while($row = $result->fetch()){
+                                                ?>
+                                            <tr>
+                                                <td>
+                                                    <span
+                                                        id="quantidade<?php echo $row['id_saidaEstoque']; ?>"><?php echo $row['quantidade_saidaEstoque']; ?>
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span
+                                                        id="recebimento<?php echo $row['id_saidaEstoque']; ?>"><?php echo $row['dataSaida']; ?>
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span id="recebimento<?php echo $row['id_saidaEstoque']; ?>">
+                                                        <?php echo $row['nome_responsavel']; ?>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        <?php
+                                            }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
 
         <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
