@@ -267,7 +267,7 @@ $inicio = ($quantidade * $pagina) - $quantidade;
                                 responsavel_familia.cpf_responsavel,SUM(saidaEstoque.quantidade_saidaEstoque) AS quantidadeCesta,
                                 contato.celular FROM responsavel_familia 
                                 LEFT JOIN contato ON responsavel_familia.id_responsavel = contato.Id_contato  
-                                LEFT JOIN saidaEstoque ON saidaEstoque.responsavel_saidaEstoque =  responsavel_familia.id_responsavel GROUP BY nome_responsavel
+                                LEFT JOIN saidaEstoque ON saidaEstoque.responsavel_saidaEstoque =  responsavel_familia.id_responsavel GROUP BY id_responsavel
                                 LIMIT $inicio, $quantidade";
                             $banco = new conexao();
                             $con = $banco->getConexao();
