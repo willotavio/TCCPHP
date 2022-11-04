@@ -7,7 +7,7 @@ $tipo = filter_input(INPUT_POST,'tipo');
 $botao =  filter_input(INPUT_POST,'botao');
 $Atual = $_FILES['foto']['name'];
 $Temp = $_FILES['foto']['tmp_name'];
-$Dest = '../../imgs/conta/'.$Atual;
+$Destino = '../../imgs/conta/'.$Atual;
 
 include 'contaDAO.php';
 $contaDao = new contaDao();
@@ -15,7 +15,6 @@ $contaDao = new contaDao();
 $contaDao->setNome($nome);
 $contaDao->setSenha($senha);
 $contaDao->setEmail($email); 
-$contaDao->setConfirmarSenha($senha);
 $contaDao->setTipo($tipo);
 
 
@@ -25,14 +24,14 @@ if (!isset($_SESSION)) {
 if($Atual != ""){
     $_SESSION['arquivoAtual']  = $Atual;
     $_SESSION['arquivoTemp'] =  $Temp;
-    $_SESSION['destino'] = $Dest;
+    $_SESSION['destino'] = $Destino;
 }else{
     $AtualPadrao = "fotoPerfil.png";
     $TempPadrao = "fotoPerfil.png";
-    $DestPadrao = '../../imgs/conta/'.$AtualPadrao;
+    $DestinoPadrao = '../../imgs/conta/'.$AtualPadrao;
     $_SESSION['arquivoAtual']  = $AtualPadrao;
     $_SESSION['arquivoTemp'] =  $TempPadrao;
-    $_SESSION['destino'] = $DestPadrao;
+    $_SESSION['destino'] = $DestinoPadrao;
 }
 
 if($botao=='cadastrar'){

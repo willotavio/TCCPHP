@@ -3,7 +3,7 @@
 include_once '../../connection/conexao.php';
 
 class contaDao{
-        private $nome, $senha, $email, $confirmarSenha, $tipo, $foto, $dest, $figuraAtual;
+        private $nome, $senha, $email, $tipo, $foto, $destino, $figuraAtual;
 
         public function getNome(){
             return $this->nome;
@@ -24,13 +24,6 @@ class contaDao{
         }
         public function setEmail($email){
             $this->email = $email;
-        }
-
-        public function getConfirmarSenha(){
-            return $this->confirmarSenha;
-        }
-        public function setConfirmarSenha($confirmarSenha){
-            $this->confirmarSenha = $confirmarSenha;
         }
 
         public function getTipo(){
