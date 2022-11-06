@@ -64,7 +64,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                         <a class="nav-link" href="cestas.php">Cestas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../financeiro/financeiroProvisorio.php">Financeiro</a>
+                        <a class="nav-link" href="../financeiro/financeiro.php">Financeiro</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../funcionarios/funcionarios.php">Funcionários</a>

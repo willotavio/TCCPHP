@@ -63,55 +63,15 @@ create table saidaEstoque(
     foreign key (responsavel_saidaEstoque) references responsavel_familia(id_responsavel)
 );
 
-
-
-create table totalFinanceiro(
-	id_total int(4) primary key not null auto_increment,
-    quantidade_total decimal (10,2) not null
+create table financeiro(
+	id_financeiro int (4) primary key not null auto_increment,
+    tipo_financeiro char(1) not null,
+    descricao_financeiro varchar(55),
+    valor_financeiro decimal(6,2),
+    data_financeiro date,
+    usuario_financeiro int(4),
+    foreign key (usuario_financeiro) references usuario(id_usuario)
 );
-
-insert into totalFinanceiro values ("","10");
-
-update totalFinanceiro set quantidade_total = quantidade_total + 10 where id_total = '1';
-
-select * from totalFinanceiro;
-
-create table entradaFinanceiro(
-	id_entradaFinanceiro int(4) primary key not null auto_increment,
-    quantidade_entradaFinanceiro int (4) not null,
-    data_entradaFinanceiro date not null,
-	usuario_entradaFinanceiro int(4),
-    foreign key (usuario_entradaFinanceiro) references usuario(id_usuario)
-);
-
-create table saidaFinanceiro(
-	id_saidaFinanceiro int(4) primary key not null auto_increment,
-    quantidade_saidaFinanceiro int (4) not null,
-    data_saidaFinanceiro date not null,
-	usuario_saidaFinanceiro int(4),
-    foreign key (usuario_saidaFinanceiro) references usuario(id_usuario)
-);
-
-delimiter $
-	create trigger trilha_entradaFinanceiro after insert on entradaFinanceiro
-    for each row
-		begin 
-			update estoque set quantidade_estoque = quantidade_estoque + new.quantidade_entradaEstoque
-            where id_estoque = new.estoque_entradaEstoque;
-		end$
-delimiter ;
-
-delimiter $
-	create trigger cadastroSaida after insert on saidaEstoque
-    for each row
-		begin 
-			update estoque set quantidade_estoque = quantidade_estoque - new.quantidade_saidaEstoque
-            where id_estoque = new.estoque_saidaEstoque;
-		end$
-delimiter ;
-
-
-
 
 delimiter $
 	create trigger cadastroEntrada after insert on entradaEstoque
@@ -159,5 +119,6 @@ select * from endereco_postal;
 select * from estoque;
 select * from saidaEstoque;
 select * from entradaEstoque;
+select * from financeiro;
 
 drop database ong;

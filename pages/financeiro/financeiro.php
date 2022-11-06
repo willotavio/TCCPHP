@@ -15,8 +15,6 @@
         $logado = $_SESSION['nomeUsuario'];
         $banco = new conexao();
         $con = $banco->getConexao();
-        $totalFinanceiro = $con->query("SELECT quantidade_total FROM totalFinanceiro")->fetchColumn();
-
         $sql = "select imagem_usuario from usuario where nome_usuario = '$logado'";
         $result = $con->query($sql);
         if ($result->rowCount() > 0) {
@@ -25,9 +23,16 @@
             $imagemUsuario = $row['imagem_usuario'];
             }
         }
+        $verificarQuantidadeFinanceiro = $con->query('SELECT COUNT(*) FROM financeiro')->fetchColumn();
+        $entradaFinanceiro = $con->query("SELECT SUM(valor_financeiro) FROM financeiro WHERE tipo_financeiro = 'E'")->fetchColumn();
+        $saidaFinanceiro = $con->query("SELECT SUM(valor_financeiro) FROM financeiro WHERE tipo_financeiro = 'S'")->fetchColumn();
+        if ($verificarQuantidadeFinanceiro != 0) {
+            $total = $entradaFinanceiro - $saidaFinanceiro;
+        } else {
+            $total = 0;
+        }
+        
     }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +70,7 @@
                         <a class="nav-link" href="../cestas/cestas.php">Cestas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="financeiroProvisorio.php">Financeiro</a>
+                        <a class="nav-link" href="financeiro.php">Financeiro</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../funcionarios/funcionarios.php">Funcionários</a>
@@ -96,50 +101,12 @@
 </header>
 
 <body>
-
-<div class="modal fade" id="modalEntrada" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Entrada de Finanças</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="modal fade" id="modalSaida" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Saída de Finanças</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
     <div class="container">
         <div class="row">
             <div class="row">
                 <div class="container">
                     <h4>Saldo atual</h4>
-                    <h1>R$ 0.00</h1>
+                    <h1>R$ <?php echo $total ?></h1>
                 </div>
                 <div class="container">
                     <h5>Área Financeira</h5>
@@ -148,44 +115,123 @@
                     <div class="row cardSquareFinanceiroProvisorio">
                         <div class="col-md-4">
                             <div class="card cardSquare">
-                            <a data-bs-toggle="modal" data-bs-target="#modalEntrada">
-                                
-                                <img class="card-img-top" src="../../imgs/iconesCardDash/lucro.png">
-                                <hr>
-                                <div class="card-body cardBodyBlack">
-                                    <h5 class="card-title">Entradas</h5>
-                                    <?php
-                                        echo "<p class='card-text'>Total: R$ $totalFinanceiro</p>";
-                                        ?>
-                                </div>
-                            </a>
+                                <a data-bs-toggle="modal" data-bs-target="#entradaFinanceiroModal">
+                                    <img class="card-img-top" src="../../imgs/iconesCardDash/lucro.png">
+                                    <hr>
+                                    <div class="card-body cardBodyBlack">
+                                        <h5 class="card-title">Entradas</h5>
+                                        <p class="card-text">Total R$: <?php echo $entradaFinanceiro ?></p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="card cardSquare">
-                            <a data-bs-toggle="modal" data-bs-target="#modalSaida">
-                                <img class="card-img-top" src="../../imgs/iconesCardDash/despesa.png">
-                                <hr>
-                                <div class="card-body cardBodyBlack">
-                                    <h5 class="card-title">Despesas</h5>
-                                    <p class="card-text">Total R$: -240.00</p>
-                                </div>
-</a>
+                                <a data-bs-toggle="modal" data-bs-target="#saidaFinanceiroModal">
+                                    <img class="card-img-top" src="../../imgs/iconesCardDash/despesa.png">
+                                    <hr>
+                                    <div class="card-body cardBodyBlack">
+                                        <h5 class="card-title">Despesas</h5>
+                                        <p class="card-text">Total R$: <?php echo $saidaFinanceiro ?></p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="card cardSquare">
-                                <img class="card-img-top" src="../../imgs/iconesCardDash/docs.png">
-                                <hr>
-                                <div class="card-body cardBodyBlack">
-                                    <h5 class="card-title">Exibir Relatórios</h5>
-                                    <p class="card-text">Consulte a situação financeira</p>
-                                </div>
+                                <a href="relatorioFinanceiro.php">
+                                    <img class="card-img-top" src="../../imgs/iconesCardDash/docs.png">
+                                    <hr>
+                                    <div class="card-body cardBodyBlack">
+                                        <h5 class="card-title">Exibir Relatórios</h5>
+                                        <p class="card-text">Consulte a situação financeira</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="entradaFinanceiroModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar uma Entrada</h1>
+                </div>
+                <div class="modal-body">
+                    <form action='../../crud/financeiro/controleFinanceiro.php' method='POST' autocomplete="off">
+                        <div class="form-floating mb-3 mt-3">
+                            <input class="form-control inputGeral" type="text" name="tipo" placeholder="Tipo" readonly
+                                value='Entrada'>
+                            <label class="labelCadastro">Tipo</label>
+                        </div>
+                        <div class="form-floating mb-3 mt-3">
+                            <input class="form-control inputGeral" type="text" name="descricao" placeholder="Descrição"
+                                required>
+                            <label class="labelCadastro">Descrição</label>
+                        </div>
+                        <div class="form-floating mb-3 mt-3">
+                            <input class="form-control inputGeral" type="number" name="valor" min="1" max="9999"
+                                placeholder="valor" required>
+                            <label class="labelCadastro">valor</label>
+                        </div>
+
+                        <div class="form-floating mb-3 mt-3">
+                            <input class="form-control inputGeral" type="date" name="dataCadastro"
+                                placeholder="Data de Recebimento" required>
+                            <label class="labelCadastro">Data de Entrada</label>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-outline-success" value="entrada"
+                        name="button">Cadastrar</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal fade" id="saidaFinanceiroModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar uma Saida</h1>
+                </div>
+                <div class="modal-body">
+                    <form action='../../crud/financeiro/controleFinanceiro.php' method='POST' autocomplete="off">
+                        <div class="form-floating mb-3 mt-3">
+                            <input class="form-control inputGeral" type="text" name="tipo" placeholder="Tipo" readonly
+                                value='Saída'>
+                            <label class="labelCadastro">Tipo</label>
+                        </div>
+                        <div class="form-floating mb-3 mt-3">
+                            <input class="form-control inputGeral" type="text" name="descricao" placeholder="Descrição"
+                                required>
+                            <label class="labelCadastro">Descrição</label>
+                        </div>
+                        <div class="form-floating mb-3 mt-3">
+                            <input class="form-control inputGeral" type="number" name="valor" min="1" max="9999"
+                                placeholder="valor" required>
+                            <label class="labelCadastro">valor</label>
+                        </div>
+                        <div class="form-floating mb-3 mt-3">
+                            <input class="form-control inputGeral" type="date" name="dataCadastro"
+                                placeholder="Data de Recebimento" required>
+                            <label class="labelCadastro">Data de Saída</label>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-outline-success" value="saida" name="button">Cadastrar</button>
+                </div>
+            </div>
+            </form>
         </div>
     </div>
 

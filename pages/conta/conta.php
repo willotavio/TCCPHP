@@ -63,7 +63,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                         <a class="nav-link" href="../cestas/cestas.php">Cestas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../financeiro/financeiroProvisorio.php">Financeiro</a>
+                        <a class="nav-link" href="../financeiro/financeiro.php">Financeiro</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../funcionarios/funcionarios.php">Funcionários</a>
@@ -124,8 +124,8 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
             </div>
         </div>
     </div>
-    <div class="modal fade" id="modalConfigurações" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
+    <div class="modal fade" id="modalConfigurações" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -134,44 +134,44 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                     </div>
                 </div>
                 <div class="modal-body">
-                <form action='../../crud/criarConta/editarConta.php' method='POST' autocomplete="off">
+                    <form action='../../crud/criarConta/editarConta.php' method='POST' autocomplete="off">
 
-                    <div class="form-floating mb-3 mt-3">
-                        <input class="form-control inputGeral" type="number" name="id" required placeholder="ID"
-                            value=<?php echo $idUsuario?> readonly>
-                        <label class="labelCadastro">ID</label>
-                    </div>
+                        <div class="form-floating mb-3 mt-3">
+                            <input class="form-control inputGeral" type="number" name="id" required placeholder="ID"
+                                value=<?php echo $idUsuario?> readonly>
+                            <label class="labelCadastro">ID</label>
+                        </div>
 
-                    <div class="form-floating mb-3 mt-3">
-                    <input class="form-control inputGeral" type="text" name="nome" required placeholder="Nome"
-                            value=<?php echo $nomeUsuario?>>
-                        <label class="labelCadastro">Nome</label>
-                    </div>
+                        <div class="form-floating mb-3 mt-3">
+                            <input class="form-control inputGeral" type="text" name="nome" required placeholder="Nome"
+                                value=<?php echo $nomeUsuario?>>
+                            <label class="labelCadastro">Nome</label>
+                        </div>
 
-                    <div class="form-floating mb-3 mt-3">
-                    <input class="form-control inputGeral" type="email" name="email" required placeholder="Email"
-                            value=<?php echo $emailUsuario?>>
-                        <label class="labelCadastro">Email</label>
-                    </div>
+                        <div class="form-floating mb-3 mt-3">
+                            <input class="form-control inputGeral" type="email" name="email" required
+                                placeholder="Email" value=<?php echo $emailUsuario?>>
+                            <label class="labelCadastro">Email</label>
+                        </div>
 
-                    <div class="form-floating mb-3 mt-3">
-                    <input class="form-control inputGeral" type="text" name="tipo" required placeholder="Tipo"
-                            value=<?php 
+                        <div class="form-floating mb-3 mt-3">
+                            <input class="form-control inputGeral" type="text" name="tipo" required placeholder="Tipo"
+                                value=<?php 
                                 if($tipoUsuario == "A"){
                                     echo "Administrador";
                                 }else if ($tipoUsuario == "F"){
                                     echo "Funcionário";
                                 }
                             ?> readonly>
-                        <label class="labelCadastro">Tipo</label>
-                    </div>
+                            <label class="labelCadastro">Tipo</label>
+                        </div>
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
                     <input type='submit' class='btn btn-outline-success' name='Atualizar' value='Atualizar'>
                 </div>
-            </form>
+                </form>
             </div>
         </div>
     </div>
@@ -183,18 +183,18 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                 <div class="container" id="containerConta">
                     <div class="card">
                         <?php echo '<img  class="card-img-top" src="data:../../imgs/conta;base64,' . base64_encode($imagemUsuario) . '" style="padding:10px; border-radius:50%">' ?>
-                            <div class="card-body">
-                               <div class="container"  id="iconAccount" >
-                               <a data-bs-toggle="modal" data-bs-target="#modalfoto">
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                        fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <div class="card-body">
+                            <div class="container" id="iconAccount">
+                                <a data-bs-toggle="modal" data-bs-target="#modalfoto">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                        class="bi bi-person-circle" viewBox="0 0 16 16">
                                         <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
                                         <path fill-rule="evenodd"
                                             d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z" />
                                     </svg>
-                                 </a>
-                               </div>
-                                <p class="card-text">
+                                </a>
+                            </div>
+                            <p class="card-text">
                                 <?php echo "<p style='font-size:90%'><b>NOME: $nomeUsuario</b></p>" ?>
                                 <?php echo "<p style='font-size:90%'><b>EMAIL: $emailUsuario</b></p>" ?>
                             </p>
@@ -209,15 +209,19 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                                 ?>
                             </div>
                             <div class="container containerAjustes">
-                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalConfigurações">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
-                                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
-                                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
-                                </svg> Ajustes
-                            </button>
+                                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                                    data-bs-target="#modalConfigurações">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-gear" viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
+                                        <path
+                                            d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z" />
+                                    </svg> Ajustes
+                                </button>
                             </div>
-                            </div>
-                       
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -242,20 +246,20 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                                         $result = $con->query($sql);
                                         while($row = $result->fetch()){
                                             ?>
-                                        <tr>
-                                            <td>
-                                                <span
-                                                    id="quantidade<?php echo $row['id_entradaEstoque']; ?>"><?php echo $row['quantidade_entradaEstoque']; ?>
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span
-                                                    id="recebimento<?php echo $row['id_entradaEstoque']; ?>"><?php echo $row['dataEntrada']; ?>
-                                                </span>
-                                            </td>
+                                    <tr>
+                                        <td>
+                                            <span
+                                                id="quantidade<?php echo $row['id_entradaEstoque']; ?>"><?php echo $row['quantidade_entradaEstoque']; ?>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span
+                                                id="recebimento<?php echo $row['id_entradaEstoque']; ?>"><?php echo $row['dataEntrada']; ?>
+                                            </span>
+                                        </td>
 
-                                        </tr>
-                                        <?php
+                                    </tr>
+                                    <?php
                                                 }
                                         ?>
                                 </tbody>
@@ -285,23 +289,23 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                                             $result = $con->query($sql);
                                             while($row = $result->fetch()){
                                                 ?>
-                                            <tr>
-                                                <td>
-                                                    <span
-                                                        id="quantidade<?php echo $row['id_saidaEstoque']; ?>"><?php echo $row['quantidade_saidaEstoque']; ?>
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span
-                                                        id="recebimento<?php echo $row['id_saidaEstoque']; ?>"><?php echo $row['dataSaida']; ?>
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span id="recebimento<?php echo $row['id_saidaEstoque']; ?>">
-                                                        <?php echo $row['nome_responsavel']; ?>
-                                                    </span>
-                                                </td>
-                                            </tr>
+                                        <tr>
+                                            <td>
+                                                <span
+                                                    id="quantidade<?php echo $row['id_saidaEstoque']; ?>"><?php echo $row['quantidade_saidaEstoque']; ?>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span
+                                                    id="recebimento<?php echo $row['id_saidaEstoque']; ?>"><?php echo $row['dataSaida']; ?>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span id="recebimento<?php echo $row['id_saidaEstoque']; ?>">
+                                                    <?php echo $row['nome_responsavel']; ?>
+                                                </span>
+                                            </td>
+                                        </tr>
                                         <?php
                                             }
                                         ?>
@@ -315,10 +319,9 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
         </div>
     </div>
 
-        <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-        </script>
+    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
-

@@ -107,7 +107,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                         <a class="nav-link" href="cestas/cestas.php">Cestas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="financeiro/financeiroProvisorio.php">Financeiro</a>
+                        <a class="nav-link" href="financeiro/financeiro.php">Financeiro</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="funcionarios/funcionarios.php">Funcionários</a>
@@ -159,7 +159,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="card cardSquare">
                         <a href="cestas/cestas.php">
                             <img src="../imgs/iconesCardHome/Cestas.png" class="card-img-top m-auto imagemCard"
@@ -169,7 +169,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                             </div>
                         </a>
                     </div>
-                    
+
                 </div>
             </div>
 
