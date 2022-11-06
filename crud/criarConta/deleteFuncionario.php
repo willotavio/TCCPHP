@@ -25,19 +25,25 @@
 
             if($result->rowCount() > 0){
 
-                $sqlConsultaEntrada= "SELECT * FROM entradaEstoque WHERE usuario_entradaEstoque = $id";
-                $resultConsultaEntrada = $con->query($sqlConsultaEntrada);
+                $sqlConsultaEntradaCestas= "SELECT * FROM entradaEstoque WHERE usuario_entradaEstoque = $id";
+                $resultConsultaEntradaCestas = $con->query($sqlConsultaEntradaCestas);
 
-                $sqlConsultaSaida= "SELECT * FROM saidaEstoque WHERE usuario_saidaEstoque = $id;";
-                $resultConsultaSaida = $con->query($sqlConsultaSaida);
+                $sqlConsultaSaidaCestas= "SELECT * FROM saidaEstoque WHERE usuario_saidaEstoque = $id;";
+                $resultConsultaSaidaCestas = $con->query($sqlConsultaSaidaCestas);
+
+                $sqlConsultaFinanceiro = "SELECT * FROM financeiro WHERE usuario_financeiro = $id;";
+                $resultConsultaFinanceiro = $con->query($sqlConsultaFinanceiro);
                 
-                if($resultConsultaEntrada->rowCount() > 0 || $resultConsultaSaida->rowCount() > 0){
+                if($resultConsultaEntradaCestas->rowCount() > 0 || $resultConsultaSaidaCestas->rowCount() > 0 ||$resultConsultaFinanceiro->rowCount() > 0){
 
                     $sqlApagarEntrada="UPDATE entradaEstoque SET usuario_entradaEstoque = null  WHERE usuario_entradaEstoque = $id;";
                     $sqlApagarSaida="UPDATE saidaEstoque SET usuario_saidaEstoque = null  WHERE usuario_saidaEstoque = $id;";
+                    $sqlApagarFinanceiro="UPDATE financeiro SET usuario_financeiro = null  WHERE usuario_financeiro = $id;";
+
                     $sqlApagarFuncionario = "DELETE FROM usuario WHERE id_usuario=$id";
                     $resultApagarSaida = $con->query($sqlApagarSaida);
                     $resultApagarEntrada = $con->query($sqlApagarEntrada);
+                    $resultApagarFinanceiro = $con->query($sqlApagarFinanceiro);
                     $resultApagarFuncionario = $con->query($sqlApagarFuncionario);
                     echo "<script LANGUAGE= 'JavaScript'>
                     window.alert('Deletado com Sucesso');

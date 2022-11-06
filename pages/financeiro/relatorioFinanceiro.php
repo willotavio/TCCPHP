@@ -148,8 +148,14 @@
                                     </span>
                                 </td>
                                 <td>
-                                    <span id="recebimento<?php echo $row['id_financeiro']; ?>">
-                                        <?php echo $row['nome_usuario']; ?>
+                                    <span id="nome<?php echo $row['id_financeiro']; ?>">
+                                        <?php 
+                                            if($row['nome_usuario'] == ""){
+                                                echo "Funcionário";
+                                            }else{
+                                                echo $row['nome_usuario'];
+                                            } 
+                                        ?>
                                     </span>
                                 </td>
                             </tr>
@@ -203,8 +209,14 @@
                                     </span>
                                 </td>
                                 <td>
-                                    <span id="recebimento<?php echo $row['id_financeiro']; ?>">
-                                        <?php echo $row['nome_usuario']; ?>
+                                    <span id="nome<?php echo $row['id_financeiro']; ?>">
+                                        <?php 
+                                            if($row['nome_usuario'] == ""){
+                                                echo "Funcionário";
+                                            }else{
+                                                echo $row['nome_usuario'];
+                                            } 
+                                        ?>
                                     </span>
                                 </td>
                             </tr>
