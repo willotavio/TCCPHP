@@ -1,63 +1,30 @@
 <?php
-require_once '../../../dompdf/autoload.inc.php';
+        require '../../../dompdf/vendor/autoload.php';
 
-use Dompdf\Dompdf;
+        use Dompdf\Dompdf;
+        use Dompdf\Options;
 
-$dompdf = new Dompdf();
+        
+        $options = new Options();
 
-include "../../../connection/conexao.php";
-$banco = new conexao();
-$con = $banco->getConexao();
+        $options->setChroot(__DIR__);
 
-$consulta_cestas = "SELECT id_saidaEstoque, quantidade_saidaEstoque, DATE_FORMAT(data_saidaEstoque, '%d/%m/%Y') as dataSaida,  usuario.nome_usuario, responsavel_familia.nome_responsavel
-FROM saidaEstoque LEFT JOIN usuario on saidaEstoque.usuario_saidaEstoque = usuario.id_usuario LEFT JOIN responsavel_familia on saidaEstoque.responsavel_saidaEstoque = responsavel_familia.id_responsavel;";
+        $dompdf = new Dompdf($options);
 
+        
+        ob_start();
+        require 'layoutPDF.php';
 
-$result_cestas = $con->prepare($consulta_cestas);
+        
+        $dompdf->loadHtml(ob_get_clean());
 
-$result_cestas->execute();
+        $dompdf->setPaper('A4', 'portrait');
 
-$dados = "<!DOCTYPE html>
-html lang-'pt-br'
-<head>
-<meta chartset 'UTF-8'>
-<style>
-                body{
-                    font-family: helvetica;
-                }
-                table, th, td {
-                    border: 1px solid black;
-                    border-collapse: collapse;
-                    padding: 5px;
-                }
-            </style>
-</head>
-<body>
-<h1 style='text-align: center'>Relatório de Cestas Doadas</h1><br>
-<table style='text-align: center;margin: auto;'>
-        <tr>
-            <th>Quantidade</th>
-            <th>Data de saída</th>
-            <th>Usuário</th>
-            <th>Responsável</th>
-        </tr>";
+        $dompdf->render();
+      
+        header('Content-type: application/pdf');
+        echo $dompdf->output();
 
-while ($row_cestas = $result_cestas->fetch(PDO::FETCH_ASSOC)) {
-    extract($row_cestas);
-    $dados .= "<tr>
-            <td> $quantidade_saidaEstoque </td>
-            <td> $dataSaida </td>
-            <td> $nome_usuario</td>
-            <td> $nome_responsavel</td>
-        </tr>";
-}
+        $dompdf->stream("relatoriocestas.pdf", array("Attachment" => false));
 
-$dompdf->loadHtml($dados);
-
-$dompdf->setPaper('A4', 'portrait');
-
-$dompdf->render();
-
-$dompdf->stream("relatoriocestas.pdf", array("Attachment" => false));
-
-?>
+    ?>
