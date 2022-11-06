@@ -13,7 +13,7 @@
 
         
         ob_start();
-        require 'layoutPDFCestas.php';
+        require 'layoutPDFFinanceiro.php';
 
         
         $dompdf->loadHtml(ob_get_clean());
@@ -25,6 +25,6 @@
         header('Content-type: application/pdf');
         echo $dompdf->output();
 
-        $dompdf->stream("relatoriocestas.pdf", array("Attachment" => false));
+        $dompdf->stream("relatorioFinanceiro.pdf", array("Attachment" => false));
 
     ?>

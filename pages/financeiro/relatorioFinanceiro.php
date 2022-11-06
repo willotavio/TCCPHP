@@ -98,7 +98,7 @@
     <div class="container">
 
         <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
-            onclick="window.open('pdfCestas/pdfCestas.php','_blank')"
+            onclick="window.open('pdfFinanceiro/pdfFinanceiro.php','_blank')"
             style="font-size: 1.2em; width: 200px; margin-bottom: 10px">Gerar Relatório
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
                 class="bi bi-file-earmark-text" viewBox="0 0 16 16">
