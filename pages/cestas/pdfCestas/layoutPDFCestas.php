@@ -40,8 +40,8 @@
 
 <body>
 
-
-
+    <div class="container" style="text-align:center; margin:10px auto;">
+    <img src="http://localhost/tccphp/imgs/logo.jpg" alt="" style="widht:70px;height:70px; "></div>
     <h1 style='text-align: center'>Relatório de Cestas Doadas</h1><br>
     <table>
         <thead>

@@ -15,7 +15,8 @@
         ob_start();
         require 'layoutPDFCestas.php';
 
-        
+        $dompdf->set_option('isRemoteEnabled',true);
+
         $dompdf->loadHtml(ob_get_clean());
 
         $dompdf->setPaper('A4', 'portrait');

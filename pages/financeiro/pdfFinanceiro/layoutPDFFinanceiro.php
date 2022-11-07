@@ -39,6 +39,8 @@
 </head>
 
 <body>
+    <div class="container" style="text-align:center; margin:10px auto;">
+        <img src="http://localhost/tccphp/imgs/logo.jpg" alt="" style="widht:70px;height:70px; "></div>
 
     <div class="container" style="text-align:center">
         <h1>Relatório Financeiro</h1>

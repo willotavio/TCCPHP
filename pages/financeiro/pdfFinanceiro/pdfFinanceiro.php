@@ -15,6 +15,7 @@
         ob_start();
         require 'layoutPDFFinanceiro.php';
 
+        $dompdf->set_option('isRemoteEnabled',true);
         
         $dompdf->loadHtml(ob_get_clean());
 
