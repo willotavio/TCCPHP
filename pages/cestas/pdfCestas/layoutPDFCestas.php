@@ -24,7 +24,7 @@
         margin: auto;
         border: 1px solid black;
         border-collapse: collapse;
-
+        font-size: 14px;
     }
 
     span {
@@ -40,15 +40,18 @@
 
 <body>
 
-    <div class="container" style="text-align:center; margin:10px auto;">
-    <img src="http://localhost/tccphp/imgs/logo.jpg" alt="" style="widht:70px;height:70px; "></div>
-    <h1 style='text-align: center'>Relatório de Cestas Doadas</h1><br>
+<div class="container" style="text-align:center; margin:10px auto;display:inline">
+            <img src="http://localhost/tccphp/imgs/logo.jpg" alt="" style="height:70px; display: inline">
+            <p style="font-size:10px;display:inline;padding-left:10%">R. Curitiba, 94  - Parque Erasmo Assunção  Santo André - SP, 09271-480 (11) 94717-4050</p>
+            <hr>
+        </div>
+    <p style='text-align: center;font-size:26px'> <b>Relatório de Cestas Doadas </b> </p><br>
     <table>
         <thead>
-            <th>Quantidade</th>
-            <th>Data de saída</th>
-            <th>Responsável</th>
-            <th>Usuário</th>
+            <th scope="col" style='text-align:center; width: 25%'>Quantidade</th>
+            <th scope="col" style='text-align:center; width: 25%'>Data de saída</th>
+            <th scope="col" style='text-align:center; width: 25%'>Responsável</th>
+            <th scope="col" style='text-align:center; width: 25%'>Usuário</th>
         </thead>
         <tbody>
             <?php 

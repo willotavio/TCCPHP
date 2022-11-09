@@ -8,8 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <style>
-    body {
-        font-family: helvetica;
+    * {
+        font-family: helvetica, sans-serif;
     }
 
     td {
@@ -24,7 +24,7 @@
         margin: auto;
         border: 1px solid black;
         border-collapse: collapse;
-
+        font-size: 14px;
     }
 
     span {
@@ -39,15 +39,18 @@
 </head>
 
 <body>
-    <div class="container" style="text-align:center; margin:10px auto;">
-        <img src="http://localhost/tccphp/imgs/logo.jpg" alt="" style="widht:70px;height:70px; "></div>
+    <div class="container" style="text-align:center; margin:10px auto;display:inline">
+            <img src="http://localhost/tccphp/imgs/logo.jpg" alt="" style="height:70px; display: inline">
+            <p style="font-size:10px;display:inline;padding-left:10%">R. Curitiba, 94  - Parque Erasmo Assunção  Santo André - SP, 09271-480 (11) 94717-4050</p>
+            <hr>
+        </div>
 
     <div class="container" style="text-align:center">
-        <h1>Relatório Financeiro</h1>
+        <p style="font-size: 26px;"> <b>Relatório Financeiro</b> </p>
     </div>
 
     <div class="container">
-        <h4 style="text-align:center">Entrada</h4>
+        <p style="text-align:center"><b>Entrada</b></p>
         <div class="overflow-auto">
             <div class="column">
                 <div class="m-2 ">
@@ -108,7 +111,7 @@
         </div>
     </div>
     <div class="container" style="margin-top:20px">
-        <h4 style="text-align:center">Saída</h4>
+        <p style="text-align:center"><b>Saída</b></p>
         <div class="overflow-auto">
             <div class="column">
                 <div class="m-2 ">
