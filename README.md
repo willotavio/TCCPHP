@@ -21,9 +21,9 @@
 - [x] Sistema de gerenciamento de perfil;
 - [x] API de CEP;
 - [x] Geração de relatórios;
-- [ ] Área financeira;
+- [x] Área financeira;
 - [ ] Sistema de busca de informações referentes aos cruds;
-- [ ] Responsividade.
+- [x] Responsividade.
 
 ### Linguagens | Bibliotecas 
 As seguintes ferramentas foram usadas na construção do projeto:
