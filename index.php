@@ -6,9 +6,6 @@
         if(isset($_SESSION['nomeUsuario'])){
             header("location: pages/home.php");
         }
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +50,7 @@
                 tabindex="0">
                 <div class="container m-auto mt-2" id="containerFormIndex">
                     <div class="row justify-content-start">
-                        <div class="col-6 colunaFormularioIndex">
+                        <div class="col-xl-6 colunaFormularioIndex">
                             <form method="POST" action="" onSubmit="efetuarLogin();" id="formLogar">
                                 <h2 class="h2Index">
                                     LOGIN</h2>
@@ -82,10 +79,6 @@
                                     <button type="submit" class="btn btn-success btn-lg btn-block" value="Logar"
                                         name="submit">Entrar</button>
                                 </div>
-                                <div class="container" style="padding-top:1rem; text-align:center">
-                                    <a href="criarConta.php" id="linkIndex">Cadastrar
-                                        Conta</a>
-                                </div>
                             </form>
                         </div>
                     </div>
@@ -96,7 +89,7 @@
                 tabindex="0">
                 <div class="container m-auto mt-2" id="containerFormRecuperarSenha">
                     <div class="row justify-content-start">
-                        <div class="col-6 colunaFormularioIndex">
+                        <div class="col-xl-6 colunaFormularioIndex">
                             <form method="POST" action='email.php' autocomplete="off">
                                 <h2 class="h2Index">
                                     ESQUECI MINHA SENHA</h2>

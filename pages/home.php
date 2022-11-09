@@ -161,7 +161,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                 include_once('../connection/conexao.php');
                 $banco = new conexao();
                 $con = $banco->getConexao();
-                $dataEntrada = $con->query("SELECT DATE_FORMAT(data_entradaEstoque, '%d/%m/%Y') as data_entradaEstoque FROM entradaEstoque");
+                $dataEntrada = $con->query("SELECT DATE_FORMAT(data_entradaEstoque, '%d/%m/%Y') as data_entradaEstoque FROM entradaEstoque ORDER BY data_entradaEstoque");
                 while ($row = $dataEntrada->fetch()) {
                     ?>
         <?php echo "'".$row['data_entradaEstoque']."',";?>
@@ -181,7 +181,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                 include_once('../connection/conexao.php');
                 $banco = new conexao();
                 $con = $banco->getConexao();
-                $quantidadeEntrada = $con->query("SELECT quantidade_entradaEstoque FROM entradaEstoque");
+                $quantidadeEntrada = $con->query("SELECT quantidade_entradaEstoque FROM entradaEstoque ORDER BY data_entradaEstoque");
                 while ($row = $quantidadeEntrada->fetch()) {
                     ?>
                 <?php echo $row['quantidade_entradaEstoque'].",";?>

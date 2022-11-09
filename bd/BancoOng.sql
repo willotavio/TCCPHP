@@ -121,5 +121,7 @@ select * from saidaEstoque;
 select * from entradaEstoque;
 select * from financeiro;
 
-
 drop database ong;
+
+insert into usuario (nome_usuario,senha_usuario,tipo_usuario,email_usuario) values
+('teste','40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'A', 'teste@gmail.com');
