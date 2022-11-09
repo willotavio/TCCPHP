@@ -45,6 +45,52 @@
             <p style="font-size:10px;display:inline;padding-left:10%">R. Curitiba, 94  - Parque Erasmo Assunção  Santo André - SP, 09271-480 (11) 94717-4050</p>
             <hr>
         </div>
+    <p style='text-align: center;font-size:26px'> <b>Relatório de Entrada de Cestas </b> </p><br>
+    <table>
+        <thead>
+            <th scope="col" style='text-align:center; width: 25%'>Quantidade</th>
+            <th scope="col" style='text-align:center; width: 25%'>Data de Entrada</th>
+            <th scope="col" style='text-align:center; width: 25%'>Usuário</th>
+        </thead>
+        <tbody>
+            <?php 
+            include_once ("../../../connection/conexao.php");
+            $sql= "SELECT id_entradaEstoque, quantidade_entradaEstoque, DATE_FORMAT(data_entradaEstoque, '%d/%m/%Y') as dataEntrada,  usuario.nome_usuario
+            FROM entradaEstoque LEFT JOIN usuario on entradaEstoque.usuario_entradaEstoque = usuario.id_usuario";
+            $banco = new conexao();
+            $con = $banco->getConexao();
+            $result = $con->query($sql);
+
+            while($row = $result->fetch()){
+                ?>
+            <tr>
+                <td>
+                    <span
+                        id="quantidade<?php echo $row['id_entradaEstoque']; ?>"><?php echo $row['quantidade_entradaEstoque']; ?>
+                    </span>
+                </td>
+                <td>
+                    <span id="data<?php echo $row['id_entradaEstoque']; ?>"><?php echo $row['dataEntrada']; ?>
+                    </span>
+                </td>
+                <td>
+                    <span id="nomeUsuario<?php echo $row['id_entradaEstoque']; ?>">
+                        <?php 
+                                if($row['nome_usuario'] == ""){
+                                    echo "Funcionário";
+                                }else{
+                                    echo $row['nome_usuario'];
+                                } 
+                            ?>
+                    </span>
+                </td>
+            </tr>
+            <?php
+            }
+        ?>
+        </tbody>
+    </table>
+    <br>
     <p style='text-align: center;font-size:26px'> <b>Relatório de Cestas Doadas </b> </p><br>
     <table>
         <thead>
