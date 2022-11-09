@@ -13,9 +13,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
     $banco = new conexao();
     $con = $banco->getConexao();
 
-    $totalResponsavel = $con->query('SELECT COUNT(*) FROM responsavel_familia')->fetchColumn();
-    $totalCestas = $con->query('SELECT quantidade_estoque FROM estoque where produto_estoque = "cestas"')->fetchColumn(); 
-
+   
     $sql = "select imagem_usuario from usuario where nome_usuario = '$logado'";
     $result = $con->query($sql);
     if ($result->rowCount() > 0) {
@@ -23,6 +21,9 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
             $imagemUsuario = $row['imagem_usuario'];
         }
     }
+    $totalResponsavel = $con->query('SELECT COUNT(*) FROM responsavel_familia')->fetchColumn();
+    $totalCestas = $con->query('SELECT quantidade_estoque FROM estoque where produto_estoque = "cestas"')->fetchColumn();
+
 
 }
 ?>
@@ -43,48 +44,6 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
     ?>
     </style>
 
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-    google.charts.load("current", {
-        packages: ['corechart']
-    });
-    google.charts.setOnLoadCallback(drawChart);
-
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-            ["Element", "Total", {
-                role: "style"
-            }],
-            ["Cestas", <?php echo $totalCestas?>, "green"],
-            ["Famílias", <?php echo $totalResponsavel?>, "green"],
-        ]);
-
-        var view = new google.visualization.DataView(data);
-        view.setColumns([0, 1,
-            {
-                calc: "stringify",
-                sourceColumn: 1,
-                type: "string",
-                role: "annotation"
-            },
-            2
-        ]);
-
-        var options = {
-            title: "Total de Famílias e Cestas",
-            width: 600,
-            height: 300,
-            bar: {
-                groupWidth: "50%"
-            },
-            legend: {
-                position: "none"
-            },
-        };
-        var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
-        chart.draw(view, options);
-    }
-    </script>
 
 
 </head>
@@ -137,25 +96,34 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
 
 <body>
 
+
     <div class="container-fluid containerTextoUsuario">
         <?php
         echo "<p> Bem-vindo(a) <b>$logado</b> </p>";
         ?></div>
-    <div class="container" style="margin-top:25px">
+    <div class="container">
 
         <div class="row">
-            <div class="col">
-                <div id="columnchart_values" style="width: 55%; height: 20%;"></div>
+            <div class="col-lg-6">
+                <div class="row">
+                    <canvas id="entradaCestas" width="600" height="170"></canvas>
+                </div>
+                <div class="row">
+                    <canvas id="saidaCestas" width="600" height="170"></canvas>
+                </div>
+
+
             </div>
 
-            <div class="col">
+
+            <div class="col-lg-4 m-auto">
                 <div class="d-grid gap-2">
                     <div class="card cardSquare">
                         <a href="responsavelFamilia/responsavelFamilia.php">
                             <img src="../imgs/iconesCardHome/Familia.png" class="card-img-top m-auto imagemCard"
                                 alt="...">
                             <div class="card-body">
-                                <p class="card-text">Famílias</p>
+                                <p class="card-text">Famílias: <?php echo $totalResponsavel?></p>
                             </div>
                         </a>
                     </div>
@@ -165,7 +133,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                             <img src="../imgs/iconesCardHome/Cestas.png" class="card-img-top m-auto imagemCard"
                                 alt="...">
                             <div class="card-body">
-                                <p class="card-text">Cestas</p>
+                                <p class="card-text">Cestas: <?php echo $totalCestas?></p>
                             </div>
                         </a>
                     </div>
@@ -184,7 +152,112 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js">
+    </script>
+    <script>
+    const labels = [
+        <?php
+                include_once('../connection/conexao.php');
+                $banco = new conexao();
+                $con = $banco->getConexao();
+                $dataEntrada = $con->query("SELECT DATE_FORMAT(data_entradaEstoque, '%d/%m/%Y') as data_entradaEstoque FROM entradaEstoque");
+                while ($row = $dataEntrada->fetch()) {
+                    ?>
+        <?php echo "'".$row['data_entradaEstoque']."',";?>
 
+
+        <?php
+            }?>
+    ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Entrada de Cestas',
+            backgroundColor: 'rgb(0,255,127)',
+            borderColor: 'rgb(0,250,154)',
+            data: [<?php
+                include_once('../connection/conexao.php');
+                $banco = new conexao();
+                $con = $banco->getConexao();
+                $quantidadeEntrada = $con->query("SELECT quantidade_entradaEstoque FROM entradaEstoque");
+                while ($row = $quantidadeEntrada->fetch()) {
+                    ?>
+                <?php echo $row['quantidade_entradaEstoque'].",";?>
+
+
+                <?php
+            }?>
+            ],
+        }]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {
+
+        }
+    };
+
+    const myChart = new Chart(
+        document.getElementById('entradaCestas'),
+        config
+    );
+    </script>
+
+    <script>
+    const labels2 = [
+        <?php
+                include_once('../connection/conexao.php');
+                $banco = new conexao();
+                $con = $banco->getConexao();
+                $dataSaida = $con->query("SELECT DATE_FORMAT(data_saidaEstoque, '%d/%m/%Y') as data_saidaEstoque FROM saidaEstoque");
+                while ($row = $dataSaida->fetch()) {
+                    ?>
+        <?php echo "'".$row['data_saidaEstoque']."',";?>
+
+
+        <?php
+            }?>
+    ];
+
+    const data2 = {
+        labels: labels2,
+        datasets: [{
+            label: 'Saida de Cestas',
+            backgroundColor: 'rgb(255,99,71)',
+            borderColor: 'rgb(240,128,128)',
+            data: [<?php
+                include_once('../connection/conexao.php');
+                $banco = new conexao();
+                $con = $banco->getConexao();
+                $dataSaida = $con->query("SELECT quantidade_saidaEstoque FROM saidaEstoque");
+                while ($row = $dataSaida->fetch()) {
+                    ?>
+                <?php echo $row['quantidade_saidaEstoque'].",";?>
+
+
+                <?php
+            }?>
+            ],
+        }]
+    };
+
+    const config2 = {
+        type: 'line',
+        data: data2,
+        options: {
+
+        }
+    };
+
+    const myChart2 = new Chart(
+        document.getElementById('saidaCestas'),
+        config2,
+    );
+    </script>
 </body>
 
 </html>
