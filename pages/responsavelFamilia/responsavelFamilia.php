@@ -425,7 +425,7 @@ $inicio = ($quantidade * $pagina) - $quantidade;
                     <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
                         Fechar
                     </button>
-                    <input type="submit" class="btn btn-outline-success" name='botao' value='cadastrarSaida'>
+                    <input type="submit" class="btn btn-outline-success" name='botao' value='Doar'>
                     </form>
                 </div>
             </div>

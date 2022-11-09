@@ -160,7 +160,9 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar uma Entrada</h1>
+                    <div class="container modalHeaderColorCenter">
+                        <h5 class="modal-title fs-5" id="exampleModalLabel">Cadastrar uma Entrada</h1>
+                    </div>
                 </div>
                 <div class="modal-body">
                     <form action='../../crud/financeiro/controleFinanceiro.php' method='POST' autocomplete="off">
@@ -201,7 +203,9 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar uma Saida</h1>
+                <div class="container modalHeaderColorCenter">
+                    <h5 class="modal-title fs-5" id="exampleModalLabel">Cadastrar uma Saída</h5>
+                </div>
                 </div>
                 <div class="modal-body">
                     <form action='../../crud/financeiro/controleFinanceiro.php' method='POST' autocomplete="off">
