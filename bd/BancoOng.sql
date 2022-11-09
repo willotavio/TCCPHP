@@ -31,12 +31,10 @@ data_atendimento_responsavel date,
 sexo_responsavel char(1),
 foreign key(contato_responsavel) references contato(id_contato)
 );
-
 create table estoque(
 	id_estoque int(4) primary key not null auto_increment,
     produto_estoque varchar(20) not null,
-	quantidade_estoque int(4) not null,
-    tipo_estoque varchar(20)
+	quantidade_estoque int(4) not null
 );
 insert into estoque (produto_Estoque,quantidade_estoque) values
 ("cestas",0);
@@ -50,7 +48,6 @@ create table entradaEstoque(
 	foreign key (estoque_entradaEstoque) references estoque(id_estoque),
     foreign key (usuario_entradaEstoque) references usuario(id_usuario)
 );
-
 create table saidaEstoque(
     id_saidaEstoque int (4) primary key not null auto_increment,
     quantidade_saidaEstoque int(4) not null,
@@ -62,7 +59,6 @@ create table saidaEstoque(
     foreign key (usuario_saidaEstoque) references usuario(id_usuario),
     foreign key (responsavel_saidaEstoque) references responsavel_familia(id_responsavel)
 );
-
 create table financeiro(
 	id_financeiro int (4) primary key not null auto_increment,
     tipo_financeiro char(1) not null,
@@ -120,8 +116,6 @@ select * from estoque;
 select * from saidaEstoque;
 select * from entradaEstoque;
 select * from financeiro;
-
-drop database ong;
 
 insert into usuario (nome_usuario,senha_usuario,tipo_usuario,email_usuario) values
 ('teste','40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'A', 'teste@gmail.com');
