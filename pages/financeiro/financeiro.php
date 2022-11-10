@@ -12,10 +12,10 @@
             </script>";
     }else{
         include_once('../../connection/conexao.php');
-        $logado = $_SESSION['nomeUsuario'];
+        $logado = $_SESSION['idUsuario'];
         $banco = new conexao();
         $con = $banco->getConexao();
-        $sql = "select imagem_usuario from usuario where nome_usuario = '$logado'";
+        $sql = "select imagem_usuario from usuario where id_usuario = '$logado'";
         $result = $con->query($sql);
         if ($result->rowCount() > 0) {
 

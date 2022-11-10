@@ -213,7 +213,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                 include_once('../connection/conexao.php');
                 $banco = new conexao();
                 $con = $banco->getConexao();
-                $dataSaida = $con->query("SELECT DATE_FORMAT(data_saidaEstoque, '%d/%m/%Y') as data_saidaEstoque FROM saidaEstoque");
+                $dataSaida = $con->query("SELECT DATE_FORMAT(data_saidaEstoque, '%d/%m/%Y') as data_saidaEstoque FROM saidaEstoque ORDER BY data_saidaEstoque");
                 while ($row = $dataSaida->fetch()) {
                     ?>
         <?php echo "'".$row['data_saidaEstoque']."',";?>

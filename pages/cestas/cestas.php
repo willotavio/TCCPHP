@@ -5,7 +5,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
     unset($_SESSION['tipoUsuario']);
     header('location: ../../index.php');
 } else {
-    $logado = $_SESSION['nomeUsuario'];
+    $logado = $_SESSION['idUsuario'];
     include_once('../../connection/conexao.php');
     $banco = new conexao();
     $con = $banco->getConexao();
@@ -13,7 +13,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
     $totalCestasEntrada = $con->query('SELECT SUM(quantidade_entradaEstoque) FROM entradaEstoque where estoque_entradaEstoque = 1')->fetchColumn();
     $totalCestasSaida = $con->query('SELECT SUM(quantidade_saidaEstoque) FROM saidaEstoque where estoque_saidaEstoque = 1')->fetchColumn();
 
-    $sql = "select imagem_usuario from usuario where nome_usuario = '$logado'";
+    $sql = "select imagem_usuario from usuario where id_usuario = '$logado'";
     $result = $con->query($sql);
     if ($result->rowCount() > 0) {
 
