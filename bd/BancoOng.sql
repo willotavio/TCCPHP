@@ -36,8 +36,6 @@ create table estoque(
     produto_estoque varchar(20) not null,
 	quantidade_estoque int(4) not null
 );
-insert into estoque (produto_Estoque,quantidade_estoque) values
-("cestas",0);
 
 create table entradaEstoque(
     id_entradaEstoque int (4) primary key not null auto_increment,
@@ -116,6 +114,23 @@ select * from estoque;
 select * from saidaEstoque;
 select * from entradaEstoque;
 select * from financeiro;
+drop database ong;
+
+insert into estoque (produto_Estoque,quantidade_estoque) values
+("cestas",0);
 
 insert into usuario (nome_usuario,senha_usuario,tipo_usuario,email_usuario) values
-('teste','40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'A', 'teste@gmail.com');
+('teste','40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'F', 'teste@gmail.com'),
+('kaiki','40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'F', 'kaikiaoto22@gmail.com'),
+('admin','40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'A', 'admin@gmail.com'),
+('matheus','40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'A', 'matheus.costa.7p@gmail.com');
+
+insert into contato ( telefone,celular,email) values
+('1141789201','11998087520','henrique@gmail.com'),
+('1190876521','11993236765','carlos@gmail.com'),
+('1145678921','11998926712','renata@gmail.com');
+
+insert into responsavel_familia( ) values 
+('','',''),
+('','',''),
+('','','');
