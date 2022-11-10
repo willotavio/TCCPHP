@@ -130,7 +130,8 @@ insert into contato ( telefone,celular,email) values
 ('1190876521','11993236765','carlos@gmail.com'),
 ('1145678921','11998926712','renata@gmail.com');
 
-insert into responsavel_familia( ) values 
-('','',''),
-('','',''),
-('','','');
+insert into responsavel_familia(cpf_responsavel,cep_responsavel,contato_responsavel,nome_responsavel,data_nascimento_responsavel,
+complemento_responsavel,num_responsavel,data_atendimento_responsavel,sexo_responsavel) values
+(78905643,'53350590',1,'Henrique Dias de Oliveira',19801203,'apartamento 1',223,20221110,'M'),
+(39029312,'79044532',2,'Carlos da Costa Silva',19981123,'casa 4',401,20221110, 'M'),
+(32451232,'29177235',3,'Renata Gomes Santana',20000804,'apartamento 323 bloco C',602,20221110, 'F');
