@@ -42,7 +42,7 @@ insert into estoque (produto_Estoque,quantidade_estoque) values
 create table entradaEstoque(
     id_entradaEstoque int (4) primary key not null auto_increment,
     quantidade_entradaEstoque int(4) not null,
-    data_entradaEstoque date,
+    data_entradaEstoque date not null,
     usuario_entradaEstoque int(4),
     estoque_entradaEstoque int(4),
 	foreign key (estoque_entradaEstoque) references estoque(id_estoque),
@@ -51,7 +51,7 @@ create table entradaEstoque(
 create table saidaEstoque(
     id_saidaEstoque int (4) primary key not null auto_increment,
     quantidade_saidaEstoque int(4) not null,
-    data_saidaEstoque date,
+    data_saidaEstoque date not null,
     usuario_saidaEstoque int(4),
     responsavel_saidaEstoque int(4),
 	estoque_saidaEstoque int(4),
@@ -62,9 +62,9 @@ create table saidaEstoque(
 create table financeiro(
 	id_financeiro int (4) primary key not null auto_increment,
     tipo_financeiro char(1) not null,
-    descricao_financeiro varchar(55),
-    valor_financeiro decimal(6,2),
-    data_financeiro date,
+    descricao_financeiro varchar(55) not null,
+    valor_financeiro decimal(6,2) not null,
+    data_financeiro date not null,
     usuario_financeiro int(4),
     foreign key (usuario_financeiro) references usuario(id_usuario)
 );
