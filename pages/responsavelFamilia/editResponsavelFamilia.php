@@ -61,7 +61,7 @@ $id = filter_input(INPUT_POST, 'id');
         </div>
         <div class="form-floating mb-3 mt-3">
             <input type="text" class="form-control inputGeral" name='nome' required placeholder="Nome"
-                value=<?php echo $nome?>>
+                value='<?php echo $nome?>'>
             <label class="labelCadastro">Nome</label>
         </div>
         <div class="form-floating mb-3 mt-3">
@@ -130,7 +130,7 @@ $id = filter_input(INPUT_POST, 'id');
             </div>
             <div class="form-floating mb-3 mt-3">
                 <input class="form-control inputGeral" type="text" name="complemento" placeholder="Complemento"
-                    value=<?php echo $complemento?>>
+                    value='<?php echo $complemento?>'>
                 <label class="labelCadastro">Complemento</label>
             </div>
             <div class="form-floating mb-3 mt-3">
@@ -140,8 +140,7 @@ $id = filter_input(INPUT_POST, 'id');
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-danger" data-dismiss="modal" id="closeEdit">Fechar</button>
-                <input type='submit' class='btn btn-outline-success' name='update'
-                        value='Editar'>
+                <input type='submit' class='btn btn-outline-success' name='update' value='Editar'>
             </div>
     </form>
 </div>

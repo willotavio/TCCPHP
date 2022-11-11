@@ -38,7 +38,7 @@ include_once '../../connection/conexao.php';
 <div class="container">
     <div class="form-floating mb-3 mt-3">
         <input type="text" class="form-control inputCadastro" name='nome' required placeholder="Nome"
-            value=<?php echo $nomeR?> readonly>
+            value='<?php echo $nomeR?>' readonly>
         <label class="labelCadastro">Nome</label>
     </div>
     <div class="form-floating mb-3 mt-3">
@@ -108,7 +108,7 @@ include_once '../../connection/conexao.php';
     </div>
     <div class="form-floating mb-3 mt-3">
         <input class="form-control inputCadastro" type="text" name="complemento" placeholder="Complemento"
-            value=<?php echo $compR?> readonly>
+            value='<?php echo $compR?>' readonly>
         <label class="labelCadastro">Complemento</label>
     </div>
     <div class="form-floating mb-3 mt-3">

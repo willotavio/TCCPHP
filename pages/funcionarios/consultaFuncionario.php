@@ -22,19 +22,23 @@ if ($result->rowCount() > 0) {
 <div class="container">
     <form autocomplete="off">
         <div class='form-floating mb-3 mt-3'>
-            <input class='form-control inputGeral' type='number' name='idFuncionario' placeholder='Id' id="idFuncionario" value=<?php echo $id?> readonly>
+            <input class='form-control inputGeral' type='number' name='idFuncionario' placeholder='Id'
+                id="idFuncionario" value=<?php echo $id?> readonly>
             <label class='labelCadastro'>ID</label>
         </div>
         <div class="form-floating mb-3 mt-3">
-            <input class="form-control inputGeral" type="text" name="celular" placeholder="Celular" readonly value=<?php echo $nomeU ?>>
+            <input class="form-control inputGeral" type="text" name="celular" placeholder="Celular" readonly
+                value='<?php echo $nomeU ?>'>
             <label class="labelCadastro">Nome</label>
         </div>
         <div class="form-floating mb-3 mt-3">
-            <input class="form-control inputGeral" type="text" name="telefone" placeholder="Telefone" readonly value=<?php echo $tipoU ?>>
+            <input class="form-control inputGeral" type="text" name="telefone" placeholder="Telefone" readonly
+                value=<?php echo $tipoU ?>>
             <label class="labelCadastro">Tipo do Usuario</label>
         </div>
         <div class="form-floating mb-3 mt-3">
-            <input class="form-control inputGeral" type="email" name="email" placeholder="Email" readonly value=<?php echo $emailU ?>>
+            <input class="form-control inputGeral" type="email" name="email" placeholder="Email" readonly
+                value=<?php echo $emailU ?>>
             <label class="labelCadastro">Email</label>
         </div>
         <div class="form-floating mb-3 mt-3">
