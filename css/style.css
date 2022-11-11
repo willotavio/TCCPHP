@@ -158,13 +158,11 @@ footer {
 	}
 }
 
-@media (max-width:768px) {
-	#containerConta{
+@media (max-width: 768px) {
+	#containerConta {
 		width: 64%;
 	}
-	
 }
-
 
 /* MediaQuery */
 
@@ -206,12 +204,14 @@ footer {
 	background-image: url("imgs/indexForms/recuperarSenha.jpg");
 }
 
-#linkIndex, #linkIndexRecupSenha{
+#linkIndex,
+#linkIndexRecupSenha {
 	color: rgba(25, 135, 84, 0.8);
 	transition: 0.5s;
 }
 
-#linkIndex, #linkIndexRecupSenha:hover {
+#linkIndex,
+#linkIndexRecupSenha:hover {
 	color: rgba(25, 135, 84, 255);
 }
 
@@ -254,7 +254,7 @@ footer {
 	border-bottom-color: var(--verdeContraste);
 }
 
-#linkIndexRecupSenha{
+#linkIndexRecupSenha {
 	text-align: end;
 }
 
@@ -305,10 +305,9 @@ input[type="file"] {
 
 #iconAccount {
 	width: 20%;
-    position: absolute;
+	position: absolute;
 	left: 70%;
 	bottom: 40%;
-	
 }
 
 #iconAccount:hover {
@@ -316,34 +315,38 @@ input[type="file"] {
 	cursor: pointer;
 }
 
-#containerConta{
+#containerConta {
 	width: 55%;
 }
 
-.containerAjustes{
-	text-align:end;
+.containerAjustes {
+	text-align: end;
 }
 
-@media (max-width:991px) {
-	#iconAccount{
+@media (min-width: 768px) {
+	#fotoButton {
+		display: none;
+	}
+}
+
+@media (max-width: 991px) {
+	#iconAccount {
 		width: 25%;
 		bottom: 50%;
 	}
-	
 }
 
-
-@media (max-width:768px) {
-	#iconAccount{
+@media (max-width: 768px) {
+	#iconAccount {
 		display: none;
 	}
-	.containerAjustes{
+	.containerAjustes {
 		text-align: center;
 	}
-	
+	#fotoButton {
+		display: inline-block;
+	}
 }
-
-
 
 /* Conta */
 
@@ -371,27 +374,27 @@ input[type="file"] {
 /* funcionario */
 
 /* paginacao */
-.navPaginacao li a{
+.navPaginacao li a {
 	color: var(--corPrincipal);
 }
-.navPaginacao li a:focus{
+.navPaginacao li a:focus {
 	outline: none;
 	box-shadow: none;
 }
-.navPaginacao li a:hover{
+.navPaginacao li a:hover {
 	color: var(--corPrincipal);
 }
-.navPaginacao span{
+.navPaginacao span {
 	color: var(--corPrincipal);
 }
-.navPaginacao span:hover{
+.navPaginacao span:hover {
 	color: var(--corPrincipal);
 }
-.navPaginacao li span.active{
+.navPaginacao li span.active {
 	color: white;
 	background-color: var(--corPrincipal);
 }
-.navPaginacao li a{
+.navPaginacao li a {
 	color: var(--corPrincipal);
 }
 /* paginacao */
