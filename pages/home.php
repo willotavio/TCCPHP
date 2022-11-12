@@ -48,7 +48,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
 
 </head>
 
-<header>
+<header style="margin:0">
     <nav class="navbar navbar-expand-lg  bg-light headerNavBar">
         <div class="container-fluid">
             <a class="navbar-brand" href="home.php"><img src='../imgs/logo2.png' width="60"></a>
@@ -96,57 +96,25 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
 
 <body>
 
-
-    <div class="container-fluid containerTextoUsuario">
-        <?php
-        echo "<p> Bem-vindo(a) <b>$logado</b> </p>";
-        ?></div>
-    <div class="container">
-
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="row">
-                    <canvas id="entradaCestas" width="600" height="170"></canvas>
-                </div>
-                <div class="row">
-                    <canvas id="saidaCestas" width="600" height="170"></canvas>
-                </div>
-
-
-            </div>
-
-
-            <div class="col-lg-4 m-auto">
-                <div class="d-grid gap-2">
-                    <div class="card cardSquare">
-                        <a href="responsavelFamilia/responsavelFamilia.php">
-                            <img src="../imgs/iconesCardHome/Familia.png" class="card-img-top m-auto imagemCard"
-                                alt="...">
-                            <div class="card-body">
-                                <p class="card-text">Famílias: <?php echo $totalResponsavel?></p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="card cardSquare">
-                        <a href="cestas/cestas.php">
-                            <img src="../imgs/iconesCardHome/Cestas.png" class="card-img-top m-auto imagemCard"
-                                alt="...">
-                            <div class="card-body">
-                                <p class="card-text">Cestas: <?php echo $totalCestas?></p>
-                            </div>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-
+    <div class="container-fluid" id="bannerHome">
+        <div class="container" id="containerHomeAnimation">
+            <p id="textoBoasVindas">Bem-vindo(a)</p>
+            <?php
+        echo "<p id='textoBoasVindasUsuario'> <b>$logado</b> </p>";
+        ?>
         </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 m-auto">
+                <canvas id="entradaCestas" width="600" height="240"></canvas>
+            </div>
+            <div class="col-lg-6 m-auto">
+                <canvas id="saidaCestas" width="600" height="240"></canvas>
+            </div>
+        </div>
+    </div>
 
-    </div>
-    <div class="container-fluid containerFooter">
-        <?php include('footer.php'); ?>
-    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"

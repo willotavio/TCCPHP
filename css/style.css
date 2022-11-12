@@ -277,12 +277,7 @@ footer {
 .imagemCard {
 	width: 30%;
 }
-.containerTextoUsuario {
-	color: var(--corPrincipal);
-	font-size: 20px;
-	text-align: start;
-	margin-top: 20px;
-}
+
 /* Home */
 
 /* Conta */
@@ -398,3 +393,60 @@ input[type="file"] {
 	color: var(--corPrincipal);
 }
 /* paginacao */
+
+/* animation */
+
+@keyframes moveLeft {
+	0% {
+		transform: translateX(120px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes moveRight {
+	0% {
+		transform: translateX(-120px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+/* animation */
+
+/* Home provisorio */
+#textoBoasVindas {
+	color: white;
+	animation-name: moveLeft;
+	animation-duration: 3s;
+	opacity: 1;
+}
+#textoBoasVindasUsuario {
+	color: white;
+	animation-name: moveRight;
+	animation-duration: 3s;
+	opacity: 1;
+}
+
+#containerHomeAnimation {
+	overflow: hidden;
+	position: relative;
+	margin-top: 2rem;
+}
+
+#bannerHome {
+	margin-top: 5rem;
+	background-image: url(../imgs/bannerHome40.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	min-height: 150px;
+}
+
+/* Home provisorio */
