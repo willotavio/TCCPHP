@@ -73,15 +73,14 @@ header {
 /* header */
 
 /* footer */
-footer {
-	position: absolute;
-	margin: auto;
-	text-align: center;
-	background-color: white;
-	padding-top: 10px;
-	left: 0;
-	bottom: 0;
-	width: 100%;
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  padding: 5px;
 }
 #titleFooter {
 	color: rgb(36, 133, 65);
@@ -89,10 +88,6 @@ footer {
 #textFooter {
 	color: rgb(36, 133, 65);
 	margin-bottom: 0;
-}
-.containerFooter {
-	padding: 0;
-	margin-top: 6.3%;
 }
 /* footer */
 

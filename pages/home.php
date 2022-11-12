@@ -226,6 +226,10 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
         config2,
     );
     </script>
+    <div class="containerFooter">
+        <?php include('footer.php'); ?>
+    </div>
+
 </body>
 
 </html>

@@ -85,27 +85,6 @@ delimiter $
 		end$
 delimiter ;
 
-
-/*
-delimiter $
-	create trigger deletarEntrada after delete on entradaEstoque
-    for each row
-		begin 
-			update estoque set quantidade_estoque = quantidade_estoque - old.quantidade_entradaEstoque
-            where id_estoque = old.estoque_entradaEstoque;
-		end$
-delimiter ;
-
-delimiter $
-	create trigger deletaSaida after delete on saidaEstoque
-    for each row
-		begin 
-			update estoque set quantidade_estoque = quantidade_estoque + old.quantidade_saidaEstoque
-			where id_estoque = old.estoque_saidaEstoque;
-		end$
-delimiter ;
-*/
-
 select * from usuario;
 select * from responsavel_familia;
 select * from contato;
