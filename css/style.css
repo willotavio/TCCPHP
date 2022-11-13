@@ -39,6 +39,10 @@ body {
 	margin-bottom: 50px;
 }
 
+.barraPesquisa{
+	margin-bottom: 2rem;
+}
+
 .cardBodyBlack {
 	color: black;
 }

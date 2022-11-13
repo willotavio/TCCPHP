@@ -22,6 +22,11 @@ $quantidade = 1;
 $pagina = (isset($_GET['pagina'])) ? (int)$_GET['pagina'] : 1;
 $inicio = ($quantidade * $pagina) - $quantidade;
 
+if(!isset($_GET['pesquisar'])){
+    header("Location: responsavelFamilia.php");
+}else{
+    $valor_pesquisar = $_GET['pesquisar'];
+}
 ?>
 
 
@@ -225,19 +230,21 @@ $inicio = ($quantidade * $pagina) - $quantidade;
     <ul class="pagination justify-content-center navPaginacao">
         <?php
         $con = mysqli_connect("localhost", "root", "", "ong");
-        $sqlTotal = "SELECT id_responsavel FROM responsavel_familia";
+        $sqlTotal = "SELECT id_responsavel FROM responsavel_familia 
+        WHERE responsavel_familia.nome_responsavel LIKE '%$valor_pesquisar%'";
         $qrTotal = mysqli_query($con, $sqlTotal) or die(mysqli_error($con));
         $numTotal = mysqli_num_rows($qrTotal);
         $totalPagina = ceil($numTotal / $quantidade);
 
         ?>
         <li class="page-item"><span class="page-link"><?php echo "Total: " . $numTotal ?></span></li>
-        <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina=1">Primeira página</a></li>
+        <li class="page-item"><a class="page-link" href="?menuop=pesquisar&pagina=1&pesquisar=<?php echo $valor_pesquisar; ?>">Primeira página</a></li>
         <?php
 
         if ($pagina > 3) {
         ?>
-        <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina=<?php echo $pagina - 1 ?>">
+        <li class="page-item"><a class="page-link" href="?menuop=pesquisar&pagina=<?php echo $pagina - 1 ?>
+        &pesquisar=<?php echo $valor_pesquisar; ?>">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-arrow-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -255,7 +262,8 @@ $inicio = ($quantidade * $pagina) - $quantidade;
         <?php
                 } else {
                 ?>
-        <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina= <?php echo $i ?>">
+        <li class="page-item"><a class="page-link" href="?menuop=pesquisar&pagina= <?php echo $i ?>
+        &pesquisar=<?php echo $valor_pesquisar; ?>">
                 <?php echo $i ?> </a></li>
         <?php
                 }
@@ -264,7 +272,8 @@ $inicio = ($quantidade * $pagina) - $quantidade;
 
         if ($pagina < ($totalPagina - 5)) {
             ?>
-        <li class="page-item"><a class="page-link" href="?menuop=responsavel_familia&pagina=<?php echo $pagina + 1 ?>">
+        <li class="page-item"><a class="page-link" href="?menuop=pesquisar&pagina=<?php echo $pagina + 1 ?>
+        &pesquisar=<?php echo $valor_pesquisar; ?>">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-arrow-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -276,7 +285,8 @@ $inicio = ($quantidade * $pagina) - $quantidade;
         if ($totalPagina > 0) {
         ?>
         <li class="page-item"><a class="page-link"
-                href="?menuop=responsavel_familia&pagina=<?php echo $totalPagina ?>">Última página</a></li>
+                href="?menuop=pesquisar&pagina=<?php echo $totalPagina ?>
+                &pesquisar=<?php echo $valor_pesquisar; ?>">Última página</a></li>
         <?php
 
         } else if ($totalPagina = 0) {
@@ -311,7 +321,9 @@ $inicio = ($quantidade * $pagina) - $quantidade;
                                 responsavel_familia.cpf_responsavel,SUM(saidaEstoque.quantidade_saidaEstoque) AS quantidadeCesta,
                                 contato.celular FROM responsavel_familia
                                 LEFT JOIN contato ON responsavel_familia.id_responsavel = contato.Id_contato  
-                                LEFT JOIN saidaEstoque ON saidaEstoque.responsavel_saidaEstoque =  responsavel_familia.id_responsavel GROUP BY id_responsavel
+                                LEFT JOIN saidaEstoque ON saidaEstoque.responsavel_saidaEstoque =  responsavel_familia.id_responsavel
+                                WHERE responsavel_familia.nome_responsavel LIKE '%$valor_pesquisar%'
+                                GROUP BY id_responsavel
                                 LIMIT $inicio, $quantidade";
                             $banco = new conexao();
                             $con = $banco->getConexao();
