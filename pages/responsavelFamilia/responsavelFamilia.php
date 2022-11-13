@@ -18,7 +18,7 @@ if ($result->rowCount() > 0) {
     }
 }
 
-$quantidade = 1;
+$quantidade = 10;
 $pagina = (isset($_GET['pagina'])) ? (int)$_GET['pagina'] : 1;
 $inicio = ($quantidade * $pagina) - $quantidade;
 
@@ -205,18 +205,14 @@ $inicio = ($quantidade * $pagina) - $quantidade;
         </div>
     </div>
 
-    <form action="pesquisar.php" method="get">
-        <div class="row justify-content-center barraPesquisa">
-            <div class="col-3">
+    <form action="pesquisarResponsavel.php" method="get">
+        <div class="container justify-content-center barraPesquisa">
                 <div class="form-floating">
-                    <input class="form-control inputGeral" type="search" name="pesquisar"
+                    <input class="form-control inputGeral" type="search" name="pesquisarResponsavel"
                     placeholder="Pesquisar">
                     <label class="labelCadastro">Pesquisar</label>
                 </div>
-            </div>
-            <div class="col-1">
                 <button type="submit" class="btn btn-outline-success">Pesquisar</button>
-            </div>
         </div>
     </form>
 

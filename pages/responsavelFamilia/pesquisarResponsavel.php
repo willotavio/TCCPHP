@@ -18,14 +18,14 @@ if ($result->rowCount() > 0) {
     }
 }
 
-$quantidade = 1;
+$quantidade = 10;
 $pagina = (isset($_GET['pagina'])) ? (int)$_GET['pagina'] : 1;
 $inicio = ($quantidade * $pagina) - $quantidade;
 
-if(!isset($_GET['pesquisar'])){
+if(!isset($_GET['pesquisarResponsavel'])){
     header("Location: responsavelFamilia.php");
 }else{
-    $valor_pesquisar = $_GET['pesquisar'];
+    $valor_pesquisarResponsavel = $_GET['pesquisarResponsavel'];
 }
 ?>
 
@@ -210,18 +210,14 @@ if(!isset($_GET['pesquisar'])){
         </div>
     </div>
 
-    <form action="pesquisar.php" method="get">
-        <div class="row justify-content-center barraPesquisa">
-            <div class="col-3">
+    <form action="pesquisarResponsavel.php" method="get">
+        <div class="container justify-content-center barraPesquisa">
                 <div class="form-floating">
-                    <input class="form-control inputGeral" type="search" name="pesquisar"
+                    <input class="form-control inputGeral" type="search" name="pesquisarResponsavel"
                     placeholder="Pesquisar">
                     <label class="labelCadastro">Pesquisar</label>
                 </div>
-            </div>
-            <div class="col-1">
                 <button type="submit" class="btn btn-outline-success">Pesquisar</button>
-            </div>
         </div>
     </form>
 
@@ -231,20 +227,20 @@ if(!isset($_GET['pesquisar'])){
         <?php
         $con = mysqli_connect("localhost", "root", "", "ong");
         $sqlTotal = "SELECT id_responsavel FROM responsavel_familia 
-        WHERE responsavel_familia.nome_responsavel LIKE '%$valor_pesquisar%'";
+        WHERE responsavel_familia.nome_responsavel LIKE '%$valor_pesquisarResponsavel%'";
         $qrTotal = mysqli_query($con, $sqlTotal) or die(mysqli_error($con));
         $numTotal = mysqli_num_rows($qrTotal);
         $totalPagina = ceil($numTotal / $quantidade);
 
         ?>
         <li class="page-item"><span class="page-link"><?php echo "Total: " . $numTotal ?></span></li>
-        <li class="page-item"><a class="page-link" href="?menuop=pesquisar&pagina=1&pesquisar=<?php echo $valor_pesquisar; ?>">Primeira página</a></li>
+        <li class="page-item"><a class="page-link" href="?menuop=pesquisarResponsavel&pagina=1&pesquisarResponsavel=<?php echo $valor_pesquisarResponsavel; ?>">Primeira página</a></li>
         <?php
 
         if ($pagina > 3) {
         ?>
-        <li class="page-item"><a class="page-link" href="?menuop=pesquisar&pagina=<?php echo $pagina - 1 ?>
-        &pesquisar=<?php echo $valor_pesquisar; ?>">
+        <li class="page-item"><a class="page-link" href="?menuop=pesquisarResponsavel&pagina=<?php echo $pagina - 1 ?>
+        &pesquisarResponsavel=<?php echo $valor_pesquisarResponsavel; ?>">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-arrow-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -262,8 +258,8 @@ if(!isset($_GET['pesquisar'])){
         <?php
                 } else {
                 ?>
-        <li class="page-item"><a class="page-link" href="?menuop=pesquisar&pagina= <?php echo $i ?>
-        &pesquisar=<?php echo $valor_pesquisar; ?>">
+        <li class="page-item"><a class="page-link" href="?menuop=pesquisarResponsavel&pagina= <?php echo $i ?>
+        &pesquisarResponsavel=<?php echo $valor_pesquisarResponsavel; ?>">
                 <?php echo $i ?> </a></li>
         <?php
                 }
@@ -272,8 +268,8 @@ if(!isset($_GET['pesquisar'])){
 
         if ($pagina < ($totalPagina - 5)) {
             ?>
-        <li class="page-item"><a class="page-link" href="?menuop=pesquisar&pagina=<?php echo $pagina + 1 ?>
-        &pesquisar=<?php echo $valor_pesquisar; ?>">
+        <li class="page-item"><a class="page-link" href="?menuop=pesquisarResponsavel&pagina=<?php echo $pagina + 1 ?>
+        &pesquisarResponsavel=<?php echo $valor_pesquisarResponsavel; ?>">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-arrow-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -285,8 +281,8 @@ if(!isset($_GET['pesquisar'])){
         if ($totalPagina > 0) {
         ?>
         <li class="page-item"><a class="page-link"
-                href="?menuop=pesquisar&pagina=<?php echo $totalPagina ?>
-                &pesquisar=<?php echo $valor_pesquisar; ?>">Última página</a></li>
+                href="?menuop=pesquisarResponsavel&pagina=<?php echo $totalPagina ?>
+                &pesquisarResponsavel=<?php echo $valor_pesquisarResponsavel; ?>">Última página</a></li>
         <?php
 
         } else if ($totalPagina = 0) {
@@ -322,7 +318,7 @@ if(!isset($_GET['pesquisar'])){
                                 contato.celular FROM responsavel_familia
                                 LEFT JOIN contato ON responsavel_familia.id_responsavel = contato.Id_contato  
                                 LEFT JOIN saidaEstoque ON saidaEstoque.responsavel_saidaEstoque =  responsavel_familia.id_responsavel
-                                WHERE responsavel_familia.nome_responsavel LIKE '%$valor_pesquisar%'
+                                WHERE responsavel_familia.nome_responsavel LIKE '%$valor_pesquisarResponsavel%'
                                 GROUP BY id_responsavel
                                 LIMIT $inicio, $quantidade";
                             $banco = new conexao();

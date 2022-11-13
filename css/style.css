@@ -41,6 +41,7 @@ body {
 
 .barraPesquisa{
 	margin-bottom: 2rem;
+	max-width: 60rem;
 }
 
 .cardBodyBlack {
@@ -140,6 +141,10 @@ header {
 
 .cardSquare:hover {
 	box-shadow: rgba(5, 151, 41, 0.582) 0px 0px 0px 3px;
+}
+.tabelaRelatorioCestas{
+	margin-top:60px; 
+	padding-bottom: 10rem
 }
 /* CardsSquare */
 
