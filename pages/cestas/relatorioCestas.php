@@ -228,7 +228,7 @@
             </div>
         </div>
     </div>
-    <div class="container tabelaRelatorioCestas">
+    <div class="container tabelaRelatorio">
         <h4 style="color:green; text-align:center">Saída de Cestas</h4>
         <ul class="pagination justify-content-center navPaginacao">
         <?php

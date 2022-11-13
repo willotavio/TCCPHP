@@ -142,7 +142,7 @@ header {
 .cardSquare:hover {
 	box-shadow: rgba(5, 151, 41, 0.582) 0px 0px 0px 3px;
 }
-.tabelaRelatorioCestas{
+.tabelaRelatorio{
 	margin-top:60px; 
 	padding-bottom: 10rem
 }
