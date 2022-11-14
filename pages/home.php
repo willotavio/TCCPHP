@@ -105,68 +105,66 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
         </div>
     </div>
     <div class="container-fluid">
-        <div class="col-sm-4" style="margin-top:30px">
-            <div class="row" style="margin:2px">
-                <div class="col-3 m-auto">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16"
-                        style="width:3rem; color:green; margin:5px">
-                        <path
-                            d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816ZM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z" />
-                    </svg>
-                </div>
-                <div class="col-8 m-auto">
-                    <div class="row" style="color:green; font-size:2em">234</div>
-                    <div class="row" style="color:green; padding-bottom:2px">Familias Cadastradas</div>
-                </div>
-                <hr>
-
-            </div>
-            <div class="row" style="margin:2px">
-                <div class="col-3 m-auto">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-box-seam"
-                        style="width:3rem; color:green; margin:5px" viewBox="0 0 16 16">
-                        <path
-                            d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z" />
-                    </svg>
-                </div>
-                <div class="col-8 m-auto">
-                    <div class="row" style="color:green; font-size:2em">70</div>
-                    <div class="row" style="color:green; padding-bottom:2px">Cestas Disponíveis</div>
-                </div>
-                <hr>
-
-            </div>
-            <div class="row" style="margin:2px">
-                <div class="col-3 m-auto">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-wallet2"
-                        style="width:3rem; color:green; margin:5px" viewBox="0 0 16 16">
-                        <path
-                            d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z" />
-                    </svg>
-                </div>
-                <div class="col-8 m-auto">
-                    <div class="row" style="color:green; font-size:2em">R$: 203.20</div>
-                    <div class="row" style="color:green; padding-bottom:2px">Saldo Disponivel</div>
-                </div>
-                <hr>
-
-            </div>
-        </div>
-        <div class="col-sm-6">
-
-        </div>
-
-    </div>
-    <!-- <div class="container">
         <div class="row">
-            <div class="col-lg-6 m-auto">
-                <canvas id="entradaCestas" width="600" height="240"></canvas>
+            <div class="col-lg-3" style="margin-top:30px">
+                <div class="row" style="margin:2px">
+                    <div class="col-3 m-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-people"
+                            viewBox="0 0 16 16" style="width:3rem; color:green; margin:5px">
+                            <path
+                                d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816ZM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z" />
+                        </svg>
+                    </div>
+                    <div class="col-8 m-auto">
+                        <div class="row">
+                            <p class="textItensHome"><?php echo $totalResponsavel?></p>
+                        </div>
+                        <div class="row">
+                            <p class="subTextItensHome">Familias Cadastradas</p>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="row" style="margin:2px">
+                    <div class="col-3 m-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-box-seam"
+                            style="width:3rem; color:green; margin:5px" viewBox="0 0 16 16">
+                            <path
+                                d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z" />
+                        </svg>
+                    </div>
+                    <div class="col-8 m-auto">
+                        <div class="row">
+                            <p class="textItensHome"><?php echo $totalCestas?></p>
+                        </div>
+                        <div class="row">
+                            <p class="subTextItensHome"> Cestas Disponíveis</p>
+                        </div>
+                    </div>
+                    <hr>
+
+                </div>
             </div>
-            <div class="col-lg-6 m-auto">
-                <canvas id="saidaCestas" width="600" height="240"></canvas>
+            <div class="col-lg-8 m-auto">
+                <div class="container" style="margin-top:30px">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="chart-container" style="height:100%; width:95%; margin:auto">
+                                <canvas id="entradaCestas"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="chart-container" style="height:100%; width:95%; margin:auto">
+                                <canvas id="saidaCestas"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
-    </div> -->
+    </div>
+
 
 
 
@@ -182,10 +180,10 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                 include_once('../connection/conexao.php');
                 $banco = new conexao();
                 $con = $banco->getConexao();
-                $dataEntrada = $con->query("SELECT DATE_FORMAT(data_entradaEstoque, '%d/%m/%Y') as data_entradaEstoque FROM entradaEstoque ORDER BY data_entradaEstoque");
+                $dataEntrada = $con->query("SELECT DATE_FORMAT(data_entradaEstoque, '%d/%m/%Y') as data_entradaEstoqueFormat FROM entradaEstoque ORDER BY data_entradaEstoque");
                 while ($row = $dataEntrada->fetch()) {
                     ?>
-        <?php echo "'".$row['data_entradaEstoque']."',";?>
+        <?php echo "'".$row['data_entradaEstoqueFormat']."',";?>
 
 
         <?php
@@ -218,7 +216,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
         type: 'line',
         data: data,
         options: {
-
+            responsive: true,
         }
     };
 
@@ -234,10 +232,10 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                 include_once('../connection/conexao.php');
                 $banco = new conexao();
                 $con = $banco->getConexao();
-                $dataSaida = $con->query("SELECT DATE_FORMAT(data_saidaEstoque, '%d/%m/%Y') as data_saidaEstoque FROM saidaEstoque ORDER BY data_saidaEstoque");
+                $dataSaida = $con->query("SELECT DATE_FORMAT(data_saidaEstoque, '%d/%m/%Y') as data_saidaEstoqueFormat FROM saidaEstoque ORDER BY data_saidaEstoque");
                 while ($row = $dataSaida->fetch()) {
                     ?>
-        <?php echo "'".$row['data_saidaEstoque']."',";?>
+        <?php echo "'".$row['data_saidaEstoqueFormat']."',";?>
 
 
         <?php
@@ -270,7 +268,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
         type: 'line',
         data: data2,
         options: {
-
+            responsive: true,
         }
     };
 

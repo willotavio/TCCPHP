@@ -39,7 +39,7 @@ body {
 	margin-bottom: 50px;
 }
 
-.barraPesquisa{
+.barraPesquisa {
 	margin-bottom: 2rem;
 	max-width: 60rem;
 }
@@ -142,9 +142,9 @@ header {
 .cardSquare:hover {
 	box-shadow: rgba(5, 151, 41, 0.582) 0px 0px 0px 3px;
 }
-.tabelaRelatorio{
-	margin-top:60px; 
-	padding-bottom: 10rem
+.tabelaRelatorio {
+	margin-top: 60px;
+	padding-bottom: 10rem;
 }
 /* CardsSquare */
 
@@ -422,7 +422,37 @@ input[type="file"] {
 	}
 }
 
+@keyframes textHomeCards {
+	0% {
+		letter-spacing: -0.5em;
+		filter: blur(12px);
+		opacity: 0;
+	}
+	100% {
+		filter: blur(0px);
+		opacity: 1;
+	}
+}
+
 /* animation */
+
+.textItensHome {
+	color: green;
+	font-size: 2em;
+	display: inline-flex;
+	margin: 0;
+	padding: 0;
+	animation-name: textHomeCards;
+	animation-duration: 1.3s;
+}
+
+.subTextItensHome {
+	padding: 0;
+	margin: 0;
+	display: inline-block;
+	color: green;
+	text-align: start;
+}
 
 /* Home provisorio */
 #textoBoasVindas {
