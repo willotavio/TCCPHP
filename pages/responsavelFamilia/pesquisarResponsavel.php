@@ -1,32 +1,32 @@
 <?php
-session_start();
-if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuario']) == true)) {
-    unset($_SESSION['nomeUsuario']);
-    unset($_SESSION['tipoUsuario']);
-    header('location: ../../login.php');
-}
-include_once('../../connection/conexao.php');
-$logado = $_SESSION['idUsuario'];
-$banco = new conexao();
-$con = $banco->getConexao();
-$sql = "select imagem_usuario from usuario where id_usuario = '$logado'";
-$result = $con->query($sql);
-if ($result->rowCount() > 0) {
-
-    while ($row = $result->fetch()) {
-        $imagemUsuario = $row['imagem_usuario'];
+    session_start();
+    if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuario']) == true)) {
+        unset($_SESSION['nomeUsuario']);
+        unset($_SESSION['tipoUsuario']);
+        header('location: ../../login.php');
     }
-}
+    include_once('../../connection/conexao.php');
+    $logado = $_SESSION['idUsuario'];
+    $banco = new conexao();
+    $con = $banco->getConexao();
+    $sql = "select imagem_usuario from usuario where id_usuario = '$logado'";
+    $result = $con->query($sql);
+    if ($result->rowCount() > 0) {
 
-$quantidade = 10;
-$pagina = (isset($_GET['pagina'])) ? (int)$_GET['pagina'] : 1;
-$inicio = ($quantidade * $pagina) - $quantidade;
+        while ($row = $result->fetch()) {
+            $imagemUsuario = $row['imagem_usuario'];
+        }
+    }
 
-if(!isset($_GET['pesquisarResponsavel'])){
-    header("Location: responsavelFamilia.php");
-}else{
-    $valor_pesquisarResponsavel = $_GET['pesquisarResponsavel'];
-}
+    $quantidade = 10;
+    $pagina = (isset($_GET['pagina'])) ? (int)$_GET['pagina'] : 1;
+    $inicio = ($quantidade * $pagina) - $quantidade;
+
+    if(!isset($_GET['pesquisarResponsavel'])){
+        header("Location: responsavelFamilia.php");
+    }else{
+        $valor_pesquisarResponsavel = $_GET['pesquisarResponsavel'];
+    }
 ?>
 
 

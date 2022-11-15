@@ -78,6 +78,9 @@ header {
 /* header */
 
 /* footer */
+.containerFooter{
+	padding-top: 10rem;
+}
 .footer {
 	position: fixed;
 	left: 0;
@@ -85,7 +88,6 @@ header {
 	width: 100%;
 	background-color: white;
 	text-align: center;
-	padding: 5px;
 }
 #titleFooter {
 	color: rgb(36, 133, 65);

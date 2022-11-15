@@ -28,6 +28,12 @@
     $quantidade = 10;
     $pagina = (isset($_GET['pagina']))?(int)$_GET['pagina']:1;
     $inicio = ($quantidade * $pagina) - $quantidade;
+
+    if(!isset($_GET['pesquisarFuncionario'])){
+        header("Location: pesquisarFuncionario.php");
+    }else{
+        $valor_pesquisarFuncionario = $_GET['pesquisarFuncionario'];
+    }
 ?>
 
 
@@ -189,19 +195,19 @@
     <ul class="pagination justify-content-center navPaginacao">
         <?php
     $con = mysqli_connect("localhost","root","","ong");
-    $sqlTotal = "SELECT id_usuario FROM usuario";
+    $sqlTotal = "SELECT id_usuario FROM usuario WHERE nome_usuario LIKE '%$valor_pesquisarFuncionario%'";
     $qrTotal = mysqli_query($con, $sqlTotal) or die( mysqli_error($con));
     $numTotal = mysqli_num_rows($qrTotal);
     $totalPagina = ceil($numTotal/$quantidade);
     
     ?>
         <li class="page-item"><span class="page-link"><?php echo "Total: ".$numTotal ?></span></li>
-        <li class="page-item"><a class="page-link" href="?menuop=usuario&pagina=1">Primeira página</a></li>
+        <li class="page-item"><a class="page-link" href="?menuop=usuario&pagina=1&pesquisarFuncionario=<?php echo $valor_pesquisarFuncionario; ?>">Primeira página</a></li>
         <?php
 
     if($pagina>3){
         ?>
-        <li class="page-item"><a class="page-link" href="?menuop=usuario&pagina=<?php echo $pagina-1?>">
+        <li class="page-item"><a class="page-link" href="?menuop=usuario&pagina=<?php echo $pagina-1?>&pesquisarFuncionario=<?php echo $valor_pesquisarFuncionario; ?>">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-arrow-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -219,7 +225,7 @@
         <?php
             }else{
                 ?>
-        <li class="page-item"><a class="page-link" href="?menuop=usuario&pagina= <?php echo $i ?>"> <?php echo $i?> </a>
+        <li class="page-item"><a class="page-link" href="?menuop=usuario&pagina= <?php echo $i ?>&pesquisarFuncionario=<?php echo $valor_pesquisarFuncionario; ?>"> <?php echo $i?> </a>
         </li>
         <?php
             }  
@@ -228,7 +234,7 @@
 
     if($pagina< ($totalPagina-5)){
         ?>
-        <li class="page-item"><a class="page-link" href="?menuop=usuario&pagina=<?php echo $pagina+1 ?>"> <svg
+        <li class="page-item"><a class="page-link" href="?menuop=usuario&pagina=<?php echo $pagina+1 ?>&pesquisarFuncionario=<?php echo $valor_pesquisarFuncionario; ?>"> <svg
                     xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-arrow-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -237,7 +243,7 @@
         <?php
     }
     ?>
-        <li class="page-item"><a class="page-link" href="?menuop=usuario&pagina=<?php echo $totalPagina ?>">Última
+        <li class="page-item"><a class="page-link" href="?menuop=usuario&pagina=<?php echo $totalPagina ?>&pesquisarFuncionario=<?php echo $valor_pesquisarFuncionario; ?>">Última
 
                 página</a></li>
         <?php
@@ -259,7 +265,7 @@
                             <?php 
                                 
                                 include_once ("../../connection/conexao.php");
-                                $sql= "SELECT * FROM usuario LIMIT $inicio, $quantidade";
+                                $sql= "SELECT * FROM usuario WHERE nome_usuario LIKE '%$valor_pesquisarFuncionario%' LIMIT $inicio, $quantidade";
                                 $banco = new conexao();
                                 $con = $banco->getConexao();
                                 $result = $con->query($sql);
