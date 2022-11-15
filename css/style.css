@@ -187,6 +187,7 @@ header {
 }
 
 #containerFormIndex,
+#containerFormAtualizarSenha,
 #containerFormRecuperarSenha {
 	background-image: url("imgs/indexForms/efetuarLogin.jpg");
 	width: 70%;
@@ -197,6 +198,10 @@ header {
 	border-style: none none none solid;
 	border-color: rgba(25, 135, 84, 255);
 	border-width: 6px;
+}
+
+#containerFormAtualizarSenha{
+background-image: url("imgs/indexForms/attSenha.jpg");
 }
 
 .colunaFormularioIndex {
@@ -225,13 +230,14 @@ header {
 
 #senhaUsuario,
 #nomeUsuario,
-#emailRecuperacao {
+#emailRecuperacao, .recupSenha {
 	border-style: none none solid none;
 }
 
 #nomeUsuario:focus,
 #senhaUsuario:focus,
-#emailRecuperacao:focus {
+#emailRecuperacao:focus,
+.recupSenha:focus {
 	box-shadow: none;
 	border-color: var(--verdeContraste);
 }
