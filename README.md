@@ -22,7 +22,7 @@
 - [x] API de CEP;
 - [x] Geração de relatórios;
 - [x] Área financeira;
-- [ ] Sistema de busca de informações referentes aos cruds;
+- [x] Sistema de busca de informações referentes aos cruds;
 - [x] Responsividade.
 
 ### Linguagens | Bibliotecas 
