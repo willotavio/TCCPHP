@@ -102,7 +102,7 @@ delimiter $
 	create trigger deletaSaida after delete on saidaEstoque
     for each row
 		begin 
-			update estoque set quantidade_estoque = quantidade_estoque - old.quantidade_saidaEstoque
+			update estoque set quantidade_estoque = quantidade_estoque + old.quantidade_saidaEstoque
 			where id_estoque = old.estoque_saidaEstoque;
 		end$
 delimiter ;

@@ -3,7 +3,7 @@
 include '../../../connection/conexao.php';
 
 class cestasSaidaDao{
-        private  $quantidade, $dataSaida, $usuario, $codigoProduto, $codigoResponsavel;
+        private  $quantidade, $dataSaida, $usuario, $codigoProduto, $codigoResponsavel, $id;
         
         public function getDataSaida(){
             return $this->dataSaida;
@@ -40,6 +40,13 @@ class cestasSaidaDao{
             $this->codigoResponsavel = $codigoResponsavel;
         }
 
+        public function getId(){
+            return $this->id;
+        }
+        public function setId($id){
+            $this->id = $id;
+        }
+
     public function cadastrarSaidaCesta(){
         $sql = 'insert into saidaEstoque (quantidade_saidaEstoque, data_saidaEstoque, usuario_saidaEstoque, estoque_saidaEstoque, responsavel_saidaEstoque ) values (?,?,?,?,?)';
         
@@ -58,6 +65,21 @@ class cestasSaidaDao{
             echo "<script LANGUAGE= 'JavaScript'>
                 window.alert('Cadastrada com sucesso');
                 window.location.href='../../../pages/responsavelFamilia/responsavelFamilia.php';
+                </script>";
+        }
+    }
+    public function deletarSaidaCesta(){
+        $sql = 'DELETE FROM saidaEstoque WHERE id_saidaEstoque = ?';
+        $banco = new conexao();
+        $con = $banco->getConexao();
+        $resultado = $con->prepare($sql);
+        $resultado->bindValue(1, $this->id);
+        $final = $resultado->execute();
+
+        if($final){
+            echo "<script LANGUAGE= 'JavaScript'>
+                window.alert('Deletado com sucesso');
+                window.location.href='../../../pages/cestas/relatorioCestas.php'
                 </script>";
         }
     }

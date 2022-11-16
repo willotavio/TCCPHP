@@ -20,7 +20,5 @@ if($botao=='Cadastrar'){
     $cestaDao->cadastrarCesta($cestaDao);
     }else if ($botao=='Deletar'){
         $cestaDao->deletarCesta($cestaDao);
-    }else if($botao=='Editar'){
-        $cestaDao->editarCesta($cestaDao);
     }
 ?>

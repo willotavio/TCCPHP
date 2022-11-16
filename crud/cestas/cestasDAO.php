@@ -75,23 +75,6 @@ class cestasDao{
                 </script>";
         }
     }
-    public function editarCesta(){
-        $sql = 'UPDATE entradaEstoque SET data_entradaEstoque = ?, quantidade_entradaEstoque = ? WHERE id_entradaEstoque = ?';
-        $banco = new conexao();
-        $con = $banco->getConexao();
-        $resultado = $con->prepare($sql);
-        $resultado->bindValue(1, $this->dataEntrada);
-        $resultado->bindValue(2, $this->quantidade);
-        $resultado->bindValue(3, $this->id);
-        $final = $resultado->execute();
-
-        if($final){
-            echo "<script LANGUAGE= 'JavaScript'>
-                window.alert('Alterado com sucesso');
-                window.location.href='../../pages/cestas/relatorioCestas.php'
-                </script>";
-        }
-    }
 }
 
 ?>

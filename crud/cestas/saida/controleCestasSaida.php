@@ -5,6 +5,7 @@ $idUsuario= $_SESSION['idUsuario'];
 $quantidade = filter_input(INPUT_GET,'quantidade');
 $dataSaida = filter_input(INPUT_GET,'dataSaida');
 $botao =  filter_input(INPUT_GET,'botao');
+$idSaidaCestas = filter_input(INPUT_GET,'idCesta'); 
 $codigoProduto = 1;
 
     include_once 'cestasSaidaDAO.php';
@@ -18,6 +19,7 @@ $codigoProduto = 1;
     $cestasSaidaDao->setCodigoUsuario($idUsuario); 
     $cestasSaidaDao->setCodigoProduto($codigoProduto);
     $cestasSaidaDao->setCodigoResponsavel($idResponsavel);
+    $cestasSaidaDao->setId($idSaidaCestas);
 
     if($botao=='Doar'){
         if($totalCestas >= $quantidade){
@@ -31,8 +33,6 @@ $codigoProduto = 1;
         }
     }else if ($botao=='Deletar'){
         $cestasSaidaDao->deletarSaidaCesta($cestasSaidaDao);
-    }else if($botao=='Editar'){
-        $cestasSaidaDao->editarSaidaCesta($cestasSaidaDao);
     }
     
 

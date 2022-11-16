@@ -224,7 +224,7 @@
                                     </span>
                                 </td>
                                 <td>
-                                    <button class='btn btn-sm btn-outline-danger delete'
+                                    <button class='btn btn-sm btn-outline-danger deleteEntradaCestas'
                                         value="<?php echo $row['id_entradaEstoque']; ?>">
                                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'
                                             fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
@@ -232,14 +232,6 @@
                                                 d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z' />
                                             <path fill-rule='evenodd'
                                                 d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z' />
-                                        </svg>
-                                    </button>
-                                    <button class='btn btn-sm btn-outline-info edit'
-                                        value="<?php echo $row['id_entradaEstoque']; ?>">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-                                            <path
-                                                d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
                                         </svg>
                                     </button>
                                 </td>
@@ -252,70 +244,25 @@
                     </table>
                 </div>
             </div>
-            <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <div class="container modalHeaderColorCenter">
-                                <h5 class="modal-title" id="exampleModalLabel1">Apagar Responsável</h5>
-                            </div>
-                        </div>
-                        <div class="modal-body">
-                            <div class="container-fluid">
-                                <form action='../../crud/cestas/controlecestas.php' method='GET' autocomplete='off'>
-                                    <div class='form-floating mb-3 mt-3'>
-                                        <input class='form-control inputGeral' type='number' name='idCesta'
-                                            placeholder='Id' id="idEntradaEstoque" readonly>
-                                        <label class='labelCadastro'>ID</label>
-                                    </div>
-                                    <p>Realmente deseja excluir a entrada desta Cesta?
-                                    </p>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
-                            <input type='submit' class='btn btn-outline-success' name='botao' value='Deletar'>
-                        </div>
-                    </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <div class="container modalHeaderColorCenter">
-                                <h5 class="modal-title" id="exampleModalLabel1">Editar Responsável</h5>
-                            </div>
-                        </div>
-                        <div class="modal-body">
-                            <span id="editarCestas"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <div class="container tabelaRelatorio">
         <h4 style="color:green; text-align:center">Saída de Cestas</h4>
         <ul class="pagination justify-content-center navPaginacao">
             <?php
-            $con = mysqli_connect("localhost","root","","ong");
-            $sqlTotal = "SELECT id_saidaEstoque FROM saidaEstoque";
-            $qrTotal = mysqli_query($con, $sqlTotal) or die( mysqli_error($con));
-            $numTotal = mysqli_num_rows($qrTotal);
-            $totalPaginaSaida = ceil($numTotal/$quantidadeSaida);
-    
-        ?>
+                $con = mysqli_connect("localhost","root","","ong");
+                $sqlTotal = "SELECT id_saidaEstoque FROM saidaEstoque";
+                $qrTotal = mysqli_query($con, $sqlTotal) or die( mysqli_error($con));
+                $numTotal = mysqli_num_rows($qrTotal);
+                $totalPaginaSaida = ceil($numTotal/$quantidadeSaida);
+            ?>
             <li class="page-item"><span class="page-link"><?php echo "Total: ".$numTotal ?></span></li>
             <li class="page-item"><a class="page-link" href="?menuop=saidaEstoque&paginaSaida=1">Primeira página</a>
             </li>
             <?php
 
             if($paginaSaida>3){
-        ?>
+            ?>
             <li class="page-item"><a class="page-link"
                     href="?menuop=SaidaEstoque&paginaSaida=<?php echo $paginaSaida-1?>">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -325,7 +272,7 @@
                     </svg></a>
             </li>
             <?php
-        }
+            }
 
             for($i=1;$i<=$totalPaginaSaida;$i++){
             if($i>=($paginaSaida-5) && $i <= ($paginaSaida+5)){
@@ -367,10 +314,11 @@
                 <div class="m-2 ">
                     <table class="table" style="color:green">
                         <thead>
-                            <th scope="col" style='text-align:center; width: 25%'>Quantidade</th>
-                            <th scope="col" style='text-align:center; width: 25%'>Data de Saída</th>
-                            <th scope="col" style='text-align:center; width: 25%'>Usuario</th>
-                            <th scope="col" style='text-align:center; width: 25%'>Responsável</th>
+                            <th scope="col" style='text-align:center; width: 20%'>Quantidade</th>
+                            <th scope="col" style='text-align:center; width: 20%'>Data de Saída</th>
+                            <th scope="col" style='text-align:center; width: 20%'>Usuario</th>
+                            <th scope="col" style='text-align:center; width: 20%'>Responsável</th>
+                            <th scope="col" style='text-align:center; width: 20%'>Ações</th>
                         </thead>
                         <tbody>
                             <?php 
@@ -411,6 +359,18 @@
                                         <?php echo $row['nome_responsavel']; ?>
                                     </span>
                                 </td>
+                                <td>
+                                    <button class='btn btn-sm btn-outline-danger deleteSaidaCestas'
+                                        value="<?php echo $row['id_saidaEstoque']; ?>">
+                                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'
+                                            fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
+                                            <path
+                                                d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z' />
+                                            <path fill-rule='evenodd'
+                                                d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z' />
+                                        </svg>
+                                    </button>
+                                </td>
                             </tr>
                             <?php
                                 }
@@ -422,8 +382,62 @@
         </div>
     </div>
 
-
-
+    <div class="modal fade" id="deleteEntrada" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="container modalHeaderColorCenter">
+                        <h5 class="modal-title" id="exampleModalLabel1">Deletar Entrada de Cesta</h5>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form action='../../crud/cestas/controlecestas.php' method='GET' autocomplete='off'>
+                            <div class='form-floating mb-3 mt-3'>
+                                <input class='form-control inputGeral' type='number' name='idCesta' placeholder='Id'
+                                    id="idEntradaEstoque" readonly>
+                                <label class='labelCadastro'>ID</label>
+                            </div>
+                            <p>Realmente deseja excluir a entrada desta Cesta?
+                            </p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+                    <input type='submit' class='btn btn-outline-success' name='botao' value='Deletar'>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal fade" id="deleteSaida" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="container modalHeaderColorCenter">
+                        <h5 class="modal-title" id="exampleModalLabel1">Deletar Saída de Cesta</h5>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form action='../../crud/cestas/saida/controleCestasSaida.php' method='GET' autocomplete='off'>
+                            <div class='form-floating mb-3 mt-3'>
+                                <input class='form-control inputGeral' type='number' name='idCesta' placeholder='Id'
+                                    id="idSaidaEstoque" readonly>
+                                <label class='labelCadastro'>ID</label>
+                            </div>
+                            <p>Realmente deseja excluir a saída desta Cesta?
+                            </p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+                    <input type='submit' class='btn btn-outline-success' name='botao' value='Deletar'>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
@@ -432,30 +446,15 @@
     </script>
     <script>
     $(document).ready(function() {
-        $(document).on("click", ".delete", function() {
+        $(document).on("click", ".deleteEntradaCestas", function() {
             var id = $(this).val();
-            $("#delete").modal("show");
+            $("#deleteEntrada").modal("show");
             $("#idEntradaEstoque").val(id);
         });
-        $(document).on("click", ".edit", function() {
+        $(document).on("click", ".deleteSaidaCestas", function() {
             var id = $(this).val();
-            var botao = 'Consulta';
-            if (id != "") {
-                var dados = {
-                    id: id,
-                };
-                $.ajax({
-                    type: "POST",
-                    url: "../../crud/cestas/consultaEditCestas.php",
-                    data: dados,
-                    success: function(resultado) {
-                        $("#editarCestas").html(resultado);
-                        $("#edit").modal("show");
-                    },
-                });
-            } else {
-                alert("ERRO ID VAZIO");
-            }
+            $("#deleteSaida").modal("show");
+            $("#idSaidaEstoque").val(id);
         });
     });
     </script>
