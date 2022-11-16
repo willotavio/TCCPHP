@@ -86,14 +86,6 @@ delimiter $
 		end$
 delimiter ;
 
-delimiter $
-	create trigger atualizarEntrada after update on entradaEstoque
-    for each row
-		begin 
-			update estoque set quantidade_estoque = quantidade_estoque - old.quantidade_entradaEstoque
-            where id_estoque = new.estoque_entradaEstoque;
-		end$
-delimiter ;
 /*Trigers de Entrada*/
 
 /*Trigers de Saida*/
@@ -106,14 +98,15 @@ delimiter $
 		end$
 delimiter ;
 
-/*delimiter $
+delimiter $
 	create trigger deletaSaida after delete on saidaEstoque
     for each row
 		begin 
-			update estoque set quantidade_estoque = quantidade_estoque + old.quantidade_saidaEstoque
+			update estoque set quantidade_estoque = quantidade_estoque - old.quantidade_saidaEstoque
 			where id_estoque = old.estoque_saidaEstoque;
 		end$
-delimiter ;*/
+delimiter ;
+
 /*Trigers de Saida*/
 
 select * from usuario;

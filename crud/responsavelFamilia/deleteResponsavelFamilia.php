@@ -9,9 +9,11 @@
         $result = $con->query($sqlSelect);
 
         if($result->rowCount() > 0){
-            $sqlDelete = "DELETE FROM responsavel_familia WHERE id_responsavel=$id";
+            $sqlDelete= "UPDATE saidaEstoque SET responsavel_saidaEstoque = null  WHERE responsavel_saidaEstoque = $id";
+            $sqlDelete2 = "DELETE FROM responsavel_familia WHERE id_responsavel=$id";
             $sqlDelete3 = "DELETE FROM contato WHERE id_contato=$id";
             $resultDelete = $con->query($sqlDelete);
+            $resultDelete2 = $con->query($sqlDelete2);
             $resultDelete3 = $con->query($sqlDelete3);
         }
     }header('location: ../../pages/responsavelFamilia/responsavelFamilia.php');

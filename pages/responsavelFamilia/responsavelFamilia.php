@@ -207,12 +207,12 @@ $inicio = ($quantidade * $pagina) - $quantidade;
 
     <form action="pesquisarResponsavel.php" method="get">
         <div class="container justify-content-center barraPesquisa">
-                <div class="form-floating">
-                    <input class="form-control inputGeral" type="search" name="pesquisarResponsavel"
+            <div class="form-floating">
+                <input class="form-control inputGeral" type="search" name="pesquisarResponsavel"
                     placeholder="Pesquisar">
-                    <label class="labelCadastro">Pesquisar</label>
-                </div>
-                <button type="submit" class="btn btn-outline-success">Pesquisar</button>
+                <label class="labelCadastro">Pesquisar</label>
+            </div>
+            <button type="submit" class="btn btn-outline-success">Pesquisar</button>
         </div>
     </form>
 
@@ -438,7 +438,7 @@ $inicio = ($quantidade * $pagina) - $quantidade;
                     <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
                         Fechar
                     </button>
-                    <button type="submit" class="btn btn-outline-success" name='botao' value="cadastrarSaida">Doar</button>
+                    <input type="submit" class="btn btn-outline-success" name='botao' value="Doar"></input>
                     </form>
                 </div>
             </div>
@@ -515,7 +515,7 @@ $inicio = ($quantidade * $pagina) - $quantidade;
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
 
-<div class="containerFooter">
+    <div class="containerFooter">
         <?php include('../footer.php'); ?>
     </div>
 

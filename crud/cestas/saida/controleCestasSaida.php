@@ -19,7 +19,7 @@ $codigoProduto = 1;
     $cestasSaidaDao->setCodigoProduto($codigoProduto);
     $cestasSaidaDao->setCodigoResponsavel($idResponsavel);
 
-    if($botao=='cadastrarSaida'){
+    if($botao=='Doar'){
         if($totalCestas >= $quantidade){
             $cestasSaidaDao ->cadastrarSaidaCesta();
         }else{
@@ -29,6 +29,10 @@ $codigoProduto = 1;
             window.location.href='../../../pages/responsavelFamilia/responsavelFamilia.php';
             </script>";
         }
+    }else if ($botao=='Deletar'){
+        $cestasSaidaDao->deletarSaidaCesta($cestasSaidaDao);
+    }else if($botao=='Editar'){
+        $cestasSaidaDao->editarSaidaCesta($cestasSaidaDao);
     }
     
 

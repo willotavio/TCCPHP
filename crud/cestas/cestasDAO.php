@@ -56,7 +56,7 @@ class cestasDao{
         if($final){
             echo "<script LANGUAGE= 'JavaScript'>
                 window.alert('Cadastrada com sucesso');
-                window.location.href='../../pages/cestas/relatorioCestas.php'
+                window.location.href='../../pages/cestas/cestas.php'
                 </script>";
         }
     }
