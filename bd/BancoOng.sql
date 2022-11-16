@@ -67,6 +67,7 @@ create table financeiro(
     foreign key (usuario_financeiro) references usuario(id_usuario)
 );
 
+/*Trigers de Entrada*/
 delimiter $
 	create trigger cadastroEntrada after insert on entradaEstoque
     for each row
@@ -77,6 +78,26 @@ delimiter $
 delimiter ;
 
 delimiter $
+	create trigger deletarEntrada after delete on entradaEstoque
+    for each row
+		begin 
+			update estoque set quantidade_estoque = quantidade_estoque - old.quantidade_entradaEstoque
+            where id_estoque = old.estoque_entradaEstoque;
+		end$
+delimiter ;
+
+delimiter $
+	create trigger atualizarEntrada after update on entradaEstoque
+    for each row
+		begin 
+			update estoque set quantidade_estoque = quantidade_estoque - old.quantidade_entradaEstoque
+            where id_estoque = new.estoque_entradaEstoque;
+		end$
+delimiter ;
+/*Trigers de Entrada*/
+
+/*Trigers de Saida*/
+delimiter $
 	create trigger cadastroSaida after insert on saidaEstoque
     for each row
 		begin 
@@ -84,6 +105,16 @@ delimiter $
             where id_estoque = new.estoque_saidaEstoque;
 		end$
 delimiter ;
+
+/*delimiter $
+	create trigger deletaSaida after delete on saidaEstoque
+    for each row
+		begin 
+			update estoque set quantidade_estoque = quantidade_estoque + old.quantidade_saidaEstoque
+			where id_estoque = old.estoque_saidaEstoque;
+		end$
+delimiter ;*/
+/*Trigers de Saida*/
 
 select * from usuario;
 select * from responsavel_familia;
@@ -114,3 +145,6 @@ complemento_responsavel,num_responsavel,data_atendimento_responsavel,sexo_respon
 (78905643,'53350590',1,'Henrique Dias de Oliveira',19801203,'apartamento 1',223,20221110,'M'),
 (39029312,'79044532',2,'Carlos da Costa Silva',19981123,'casa 4',401,20221110, 'M'),
 (32451232,'29177235',3,'Renata Gomes Santana',20000804,'apartamento 323 bloco C',602,20221110, 'F');
+
+
+

@@ -1,12 +1,3 @@
-<script>
-$(document).ready(function() {
-    $("#closeEdit").click(function() {
-        $("#edit").modal('hide');
-    });
-
-});
-</script>
-
 <?php 
 include_once '../../connection/conexao.php';
 $id = filter_input(INPUT_POST, 'id');
@@ -139,7 +130,8 @@ $id = filter_input(INPUT_POST, 'id');
                 <label class="labelCadastro">Data atendimento</label>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-danger" data-dismiss="modal" id="closeEdit">Fechar</button>
+                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal"
+                    id="closeEdit">Fechar</button>
                 <input type='submit' class='btn btn-outline-success' name='update' value='Editar'>
             </div>
     </form>

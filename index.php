@@ -115,7 +115,6 @@
         </script>
         <script src="Js/login/efetuarLogin.js"></script>
         <script src="Js/login/exibirSenha.js"></script>
-        <script src="Js/login/recuperarSenha.js"></script>
 </body>
 
 </html>

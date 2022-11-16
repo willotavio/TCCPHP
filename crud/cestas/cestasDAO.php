@@ -3,7 +3,7 @@
 include '../../connection/conexao.php';
 
 class cestasDao{
-        private  $quantidade, $dataEntrada, $usuario, $codigoProduto;
+        private  $quantidade, $dataEntrada, $usuario, $codigoProduto, $id;
         
         public function getQuantidade(){
             return $this->quantidade;
@@ -30,10 +30,17 @@ class cestasDao{
         public function setCodigoProduto($codigoProduto){
             $this->codigoProduto = $codigoProduto;
         }
+        public function getId(){
+            return $this->id;
+        }
+        public function setId($id){
+            $this->id = $id;
+        }
+
         
 
     public function cadastrarCesta(){
-        $sql = 'insert into entradaEstoque (quantidade_entradaEstoque, data_entradaEstoque, usuario_entradaEstoque, estoque_entradaEstoque) values (?,?,?,?)';
+        $sql = 'INSERT INTO entradaEstoque (quantidade_entradaEstoque, data_entradaEstoque, usuario_entradaEstoque, estoque_entradaEstoque) values (?,?,?,?)';
         $banco = new conexao();
         $con = $banco->getConexao();
         $resultado = $con->prepare($sql);
@@ -49,7 +56,39 @@ class cestasDao{
         if($final){
             echo "<script LANGUAGE= 'JavaScript'>
                 window.alert('Cadastrada com sucesso');
-                window.location.href='../../pages/cestas/cestas.php'
+                window.location.href='../../pages/cestas/relatorioCestas.php'
+                </script>";
+        }
+    }
+    public function deletarCesta(){
+        $sql = 'DELETE FROM entradaEstoque WHERE id_entradaEstoque = ?';
+        $banco = new conexao();
+        $con = $banco->getConexao();
+        $resultado = $con->prepare($sql);
+        $resultado->bindValue(1, $this->id);
+        $final = $resultado->execute();
+
+        if($final){
+            echo "<script LANGUAGE= 'JavaScript'>
+                window.alert('Deletado com sucesso');
+                window.location.href='../../pages/cestas/relatorioCestas.php'
+                </script>";
+        }
+    }
+    public function editarCesta(){
+        $sql = 'UPDATE entradaEstoque SET data_entradaEstoque = ?, quantidade_entradaEstoque = ? WHERE id_entradaEstoque = ?';
+        $banco = new conexao();
+        $con = $banco->getConexao();
+        $resultado = $con->prepare($sql);
+        $resultado->bindValue(1, $this->dataEntrada);
+        $resultado->bindValue(2, $this->quantidade);
+        $resultado->bindValue(3, $this->id);
+        $final = $resultado->execute();
+
+        if($final){
+            echo "<script LANGUAGE= 'JavaScript'>
+                window.alert('Alterado com sucesso');
+                window.location.href='../../pages/cestas/relatorioCestas.php'
                 </script>";
         }
     }
