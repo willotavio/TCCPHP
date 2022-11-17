@@ -51,7 +51,7 @@
     </style>
 </head>
 
-<header id="headerFinanceiro">
+<header>
     <nav class="navbar navbar-expand-lg headerNavBar">
         <div class="container-fluid">
             <a class="navbar-brand" href="../home.php"><img src='../../imgs/logo2.png' width="60"></a>
@@ -70,7 +70,7 @@
                         <a class="nav-link" href="../cestas/cestas.php">Cestas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link selectLinkHeader" href="financeiro.php">Financeiro</a>
+                        <a class="nav-link" href="financeiro.php">Financeiro</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../funcionarios/funcionarios.php">Funcionários</a>

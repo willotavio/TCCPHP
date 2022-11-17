@@ -61,18 +61,6 @@ header {
 	border-color: yellowgreen;
 	border-width: 1px;
 }
-
-#headerResponsavel .selectLinkHeader,
-#headerCestas .selectLinkHeader,
-#headerFinanceiro .selectLinkHeader,
-#headerFuncionario .selectLinkHeader
-{
-	color: yellowgreen;
-	border-style: none none solid none;
-	border-color: yellowgreen;
-	border-width: 1px;
-}
-
 .headerNavBar {
 	background-color: white;
 	position: fixed;
@@ -457,7 +445,7 @@ input[type="file"] {
 /* animation */
 
 .textItensHome {
-	color: var(--corPrincipal);
+	color: green;
 	font-size: 2em;
 	display: inline-flex;
 	margin: 0;
@@ -470,7 +458,7 @@ input[type="file"] {
 	padding: 0;
 	margin: 0;
 	display: inline-block;
-	color: var(--corPrincipal);
+	color: green;
 	text-align: start;
 }
 

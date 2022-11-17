@@ -51,7 +51,7 @@ $inicio = ($quantidade * $pagina) - $quantidade;
     </style>
 </head>
 
-<header id="headerFuncionario">
+<header>
     <nav class="navbar navbar-expand-lg headerNavBar">
         <div class="container-fluid">
             <a class="navbar-brand" href="../home.php"><img src='../../imgs/logo2.png' width="60"></a>
@@ -71,7 +71,7 @@ $inicio = ($quantidade * $pagina) - $quantidade;
                         <a class="nav-link" href="../financeiro/financeiro.php">Financeiro</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link selectLinkHeader" href="funcionarios.php">Funcionários</a>
+                        <a class="nav-link" href="funcionarios.php">Funcionários</a>
                     </li>
                 </ul>
 
