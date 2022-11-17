@@ -45,7 +45,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
     </style>
 </head>
 
-<header>
+<header id="headerCestas">
     <nav class="navbar navbar-expand-lg headerNavBar">
         <div class="container-fluid">
             <a class="navbar-brand" href="../home.php"><img src='../../imgs/logo2.png' width="60"></a>
@@ -61,7 +61,7 @@ if ((!isset($_SESSION['nomeUsuario']) == true) and (!isset($_SESSION['tipoUsuari
                         <a class="nav-link " href="../responsavelFamilia/responsavelFamilia.php">Famílias</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cestas.php">Cestas</a>
+                        <a class="nav-link selectLinkHeader" href="cestas.php">Cestas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../financeiro/financeiro.php">Financeiro</a>
