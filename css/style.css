@@ -292,6 +292,54 @@ header {
 	width: 30%;
 }
 
+.textItensHome {
+	color: green;
+	font-size: 2em;
+	display: inline-flex;
+	margin: 0;
+	padding: 0;
+	animation-name: textHomeCards;
+	animation-duration: 1.3s;
+}
+
+.subTextItensHome {
+	padding: 0;
+	margin: 0;
+	display: inline-block;
+	color: green;
+	text-align: start;
+}
+
+#textoBoasVindas {
+	color: white;
+	animation-name: moveLeft;
+	animation-duration: 3s;
+	opacity: 1;
+	font-size: 1.5em;
+}
+#textoBoasVindasUsuario {
+	color: white;
+	animation-name: moveRight;
+	animation-duration: 3s;
+	opacity: 1;
+	font-size: 1.2em;
+}
+
+#containerHomeAnimation {
+	overflow: hidden;
+	position: relative;
+	margin-top: 2rem;
+}
+
+#bannerHome {
+	margin-top: 5rem;
+	background-image: url(../imgs/bannerHome40.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	min-height: 150px;
+}
+
 /* Home */
 
 /* Conta */
@@ -445,54 +493,3 @@ input[type="file"] {
 }
 
 /* animation */
-
-.textItensHome {
-	color: green;
-	font-size: 2em;
-	display: inline-flex;
-	margin: 0;
-	padding: 0;
-	animation-name: textHomeCards;
-	animation-duration: 1.3s;
-}
-
-.subTextItensHome {
-	padding: 0;
-	margin: 0;
-	display: inline-block;
-	color: green;
-	text-align: start;
-}
-
-/* Home provisorio */
-#textoBoasVindas {
-	color: white;
-	animation-name: moveLeft;
-	animation-duration: 3s;
-	opacity: 1;
-	font-size: 1.5em;
-}
-#textoBoasVindasUsuario {
-	color: white;
-	animation-name: moveRight;
-	animation-duration: 3s;
-	opacity: 1;
-	font-size: 1.2em;
-}
-
-#containerHomeAnimation {
-	overflow: hidden;
-	position: relative;
-	margin-top: 2rem;
-}
-
-#bannerHome {
-	margin-top: 5rem;
-	background-image: url(../imgs/bannerHome40.jpg);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	min-height: 150px;
-}
-
-/* Home provisorio */
