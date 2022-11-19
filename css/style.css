@@ -88,6 +88,7 @@ header {
 	width: 100%;
 	background-color: white;
 	text-align: center;
+	z-index: 4;
 }
 #titleFooter {
 	color: rgb(36, 133, 65);
