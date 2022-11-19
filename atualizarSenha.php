@@ -77,10 +77,11 @@ $chave = filter_input(INPUT_GET, 'chave', FILTER_DEFAULT);
     <title>Atualizar Senha</title>
     <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
-        <?php include 'css/style.css';
-        ?>
+    <?php include 'css/style.css';
+    ?>
     </style>
 </head>
 
@@ -91,7 +92,8 @@ $chave = filter_input(INPUT_GET, 'chave', FILTER_DEFAULT);
         <ul class="nav nav-pills white justify-content-center" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-tab-pane"
-                    type="button" role="tab" aria-controls="login-tab-pane" aria-selected="true">Esqueceu Sua Senha</button>
+                    type="button" role="tab" aria-controls="login-tab-pane" aria-selected="true">Esqueceu Sua
+                    Senha</button>
             </li>
         </ul>
 
@@ -102,7 +104,7 @@ $chave = filter_input(INPUT_GET, 'chave', FILTER_DEFAULT);
                 <div class="container m-auto mt-2" id="containerFormAtualizarSenha">
                     <div class="row justify-content-start">
                         <div class="col-xl-6 colunaFormularioIndex">
-                        <form method="POST" autocomplete="off" enctype="multipart/form-data">
+                            <form method="POST" autocomplete="off" enctype="multipart/form-data">
                                 <?php
                                     $usuario = "";
                                     if(isset($dados['senha_usuario'])){
@@ -112,10 +114,12 @@ $chave = filter_input(INPUT_GET, 'chave', FILTER_DEFAULT);
                                 <h1 style="text-align:center; font-size:25px; padding:15px; color:rgba(25,135,84,255)">
                                     Atualizar Senha</h1>
                                 <div class="form-floating mt-3 mb-3 input-group">
-                                    <input type="password" class="form-control recupSenha" placeholder="Digite a sua Senha" name='senha_usuario' required value="<?php echo $usuario;?>">
+                                    <input type="password" class="form-control recupSenha"
+                                        placeholder="Digite a sua Senha" name='senha_usuario' required
+                                        value="<?php echo $usuario;?>" id="senhaUsuario">
                                     <label>Digite a Sua Nova Senha</label>
                                     <span class="input-group-text" id="spanExibirSenha">
-                                        <i onclick="eyeClick()" id="exibirSenha">
+                                        <i onclick="eyeClick(this)" id="exibirSenha">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                 fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                                                 <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
@@ -126,10 +130,12 @@ $chave = filter_input(INPUT_GET, 'chave', FILTER_DEFAULT);
                                     </span>
                                 </div>
                                 <div class="form-floating mt-3 mb-3 input-group">
-                                    <input type="password" class="form-control recupSenha" placeholder="Repita a sua Senha" name='confirmarSenha' required>
+                                    <input type="password" class="form-control recupSenha"
+                                        placeholder="Repita a sua Senha" name='confirmarSenha' required
+                                        id="senhaUsuarioConfirma">
                                     <label>Repita a Sua Senha</label>
                                     <span class="input-group-text" id="spanExibirSenha">
-                                        <i onclick="eyeClick()" id="exibirSenha">
+                                        <i onclick="eyeClick(this)" id="exibirSenhaConfirma">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                 fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                                                 <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
@@ -140,11 +146,14 @@ $chave = filter_input(INPUT_GET, 'chave', FILTER_DEFAULT);
                                     </span>
                                 </div>
                                 <div class="row m-auto">
-                                    <button type="submit" class="btn btn-success btn-lg btn-block" style="font-size:16px" value="atualizar" name="SendNovaSenha">Atualizar</button>
+                                    <button type="submit" class="btn btn-success btn-lg btn-block"
+                                        style="font-size:16px" value="atualizar" name="SendNovaSenha">Atualizar</button>
                                 </div>
                                 <div style="margin-top:5px">
                                     <div class="row m-auto">
-                                        <button type="submit" class="btn btn-success btn-lg btn-block" style="font-size:16px" onclick="window.location.href='index.php'">Voltar</button>
+                                        <button type="submit" class="btn btn-success btn-lg btn-block"
+                                            style="font-size:16px"
+                                            onclick="window.location.href='index.php'">Voltar</button>
                                     </div>
                                 </div>
                             </form>
@@ -152,11 +161,11 @@ $chave = filter_input(INPUT_GET, 'chave', FILTER_DEFAULT);
                     </div>
                 </div>
             </div>
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-    </script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+                crossorigin="anonymous">
+            </script>
+            <script src="Js/login/exibirSenhaRecuperacao.js"></script>
 </body>
 
 </html>

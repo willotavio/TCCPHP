@@ -78,7 +78,7 @@ header {
 /* header */
 
 /* footer */
-.containerFooter{
+.containerFooter {
 	padding-top: 10rem;
 }
 .footer {
@@ -203,8 +203,8 @@ header {
 	border-width: 6px;
 }
 
-#containerFormAtualizarSenha{
-background-image: url("imgs/indexForms/attSenha.jpg");
+#containerFormAtualizarSenha {
+	background-image: url("imgs/indexForms/attSenha.jpg");
 }
 
 .colunaFormularioIndex {
@@ -233,7 +233,8 @@ background-image: url("imgs/indexForms/attSenha.jpg");
 
 #senhaUsuario,
 #nomeUsuario,
-#emailRecuperacao, .recupSenha {
+#emailRecuperacao,
+.recupSenha {
 	border-style: none none solid none;
 }
 
@@ -469,12 +470,14 @@ input[type="file"] {
 	animation-name: moveLeft;
 	animation-duration: 3s;
 	opacity: 1;
+	font-size: 1.5em;
 }
 #textoBoasVindasUsuario {
 	color: white;
 	animation-name: moveRight;
 	animation-duration: 3s;
 	opacity: 1;
+	font-size: 1.2em;
 }
 
 #containerHomeAnimation {
