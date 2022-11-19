@@ -19,6 +19,20 @@ $cestaDao->setId($idCesta);
 if($botao=='Cadastrar'){
     $cestaDao->cadastrarCesta($cestaDao);
     }else if ($botao=='Deletar'){
-        $cestaDao->deletarCesta($cestaDao);
+        include_once('../../connection/conexao.php');
+        $banco = new conexao();
+        $con = $banco->getConexao();
+        $totalCestas = $con->query('SELECT quantidade_estoque FROM estoque where produto_estoque = "cestas"')->fetchColumn();
+        $totalCestasSaida = $con->query("SELECT quantidade_entradaEstoque FROM entradaEstoque where id_entradaEstoque = $idCesta")->fetchColumn();
+
+        if($totalCestasSaida <= $totalCestas){
+            $cestaDao->deletarCesta($cestaDao);
+        }else{
+            echo "<script LANGUAGE= 'JavaScript'>
+                window.alert('Não é possível deletar esse Relátorio $quantidade');
+                window.location.href='../../pages/cestas/relatorioCestas.php'
+                </script>";
+        }
+        
     }
 ?>
