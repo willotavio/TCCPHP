@@ -116,7 +116,7 @@ $id = filter_input(INPUT_POST, 'id');
             </div>
             <div class="form-floating mb-3 mt-3">
                 <input class="form-control inputGeral" type="number" name="numeroResidencia"
-                    placeholder="Número da Residência" required value=<?php echo $numeroResidencia?>>
+                    placeholder="Número da Residência" required value=<?php echo $numeroResidencia?> min="0">
                 <label class="labelCadastro">Número Residência</label>
             </div>
             <div class="form-floating mb-3 mt-3">
