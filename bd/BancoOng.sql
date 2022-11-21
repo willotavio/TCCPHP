@@ -78,7 +78,7 @@ delimiter $
 delimiter ;
 
 delimiter $
-	create trigger deletarEntrada before delete on entradaEstoque
+	create trigger deletarEntrada after delete on entradaEstoque
     for each row
 		begin 
 			update estoque set quantidade_estoque = quantidade_estoque - old.quantidade_entradaEstoque
